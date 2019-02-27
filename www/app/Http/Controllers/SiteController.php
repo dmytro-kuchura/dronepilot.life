@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-class Site extends Controller
+class SiteController extends Controller
 {
     public function index()
     {
-        return $this->model->all();
+        return view('index');
     }
 }
