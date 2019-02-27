@@ -89,6 +89,7 @@
       <path value="$PROJECT_DIR$/www/vendor/psr/container" />
       <path value="$PROJECT_DIR$/www/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/www/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/www/vendor/arrilot/laravel-widgets" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
