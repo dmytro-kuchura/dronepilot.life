@@ -10,18 +10,9 @@
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <!-- style -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <!-- style -->
-    <!-- bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- responsive -->
-    <link href="css/responsive.css" rel="stylesheet" type="text/css">
-    <!-- font-awesome -->
-    <link href="css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- font-awesome -->
-    <link href="css/effects/normalize.css" rel="stylesheet" type="text/css">
-    <link href="css/effects/component.css" rel="stylesheet" type="text/css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -32,6 +23,7 @@
 </main>
 
 @widget('Footer')
+<script src="{{ mix('js/app.js') }}"></script>
 
 </body>
 </html>

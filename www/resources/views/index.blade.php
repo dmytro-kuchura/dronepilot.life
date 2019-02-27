@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('title', 'DronePilot | Главная страница')
 @section('description', 'Статьи и записи от личного использования БПЛА')
