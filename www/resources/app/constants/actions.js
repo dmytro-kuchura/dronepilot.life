@@ -1,0 +1,2 @@
+export const FETCH_ACCOUNT = 'FETCH_ACCOUNT';
+export const RECEIVE_ACCOUNT = 'RECEIVE_ACCOUNT';
