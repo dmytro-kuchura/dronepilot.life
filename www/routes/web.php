@@ -16,7 +16,13 @@ Route::get('/about', 'SiteController@about')->name('about');
 Route::get('/contacts', 'SiteController@contacts')->name('contacts');
 
 Route::get('/blog', 'BlogController@index')->name('blog');
-Route::get('/blog/{alias}', 'BlogController@inner')->name('blog-inner');
+Route::get('/blog/{alias}', 'BlogController@inner')->name('blog.inner');
 
 Route::get('/works', 'WorkController@works')->name('works');
-Route::get('/works/{alias}', 'WorkController@inner')->name('work-inner');
+Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
+
+// Backend on React JS
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
+});
