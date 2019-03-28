@@ -9,8 +9,13 @@ class SiteController extends Controller
         return view('index');
     }
 
-    public function contact()
+    public function contacts()
     {
+        return view('contact');
+    }
 
+    public function about()
+    {
+        return view('about');
     }
 }

@@ -12,7 +12,18 @@
     <!-- style -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <!-- style -->
+    <!-- bootstrap -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- responsive -->
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
+    <!-- font-awesome -->
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- font-awesome -->
+    <link href="{{ asset('css/effects/set2.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/effects/normalize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/effects/component.css') }}"  rel="stylesheet" type="text/css" >
 </head>
 <body>
 
@@ -23,7 +34,5 @@
 </main>
 
 @widget('Footer')
-<script src="{{ mix('js/app.js') }}"></script>
-
 </body>
 </html>
