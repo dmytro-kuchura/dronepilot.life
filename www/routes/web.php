@@ -23,6 +23,5 @@ Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
 
 // Backend on React JS
 Route::prefix('admin')->group(function () {
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
+    Route::view('/{path?}', 'dashboard');
 });
