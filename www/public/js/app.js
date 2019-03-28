@@ -92152,7 +92152,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
   from: "/",
   to: "/admin/dashboard"
-}))), document.getElementById("root"));
+}))), document.getElementById("app"));
 
 /***/ }),
 
