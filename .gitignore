@@ -3,3 +3,5 @@
 
 # ENVIRONMENT
 .env
+
+www/node_modules
