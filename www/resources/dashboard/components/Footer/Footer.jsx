@@ -1,10 +1,6 @@
-/*eslint-disable*/
 import React from "react";
-// used for making the prop types of this component
-import PropTypes from "prop-types";
 
-// reactstrap components
-import {Container, Row, Nav, NavItem, NavLink} from "reactstrap";
+import {Container, Nav, NavItem, NavLink} from "reactstrap";
 
 class Footer extends React.Component {
     render() {
@@ -13,13 +9,13 @@ class Footer extends React.Component {
                 <Container fluid>
                     <Nav>
                         <NavItem>
-                            <NavLink href="javascript:void(0)">Creative Tim</NavLink>
+                            <NavLink href="/">Главная</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="javascript:void(0)">About Us</NavLink>
+                            <NavLink href="/about">Обо мне</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="javascript:void(0)">Blog</NavLink>
+                            <NavLink href="/blog">Блог</NavLink>
                         </NavItem>
                     </Nav>
                     <div className="copyright">
@@ -30,9 +26,8 @@ class Footer extends React.Component {
                             rel="noopener noreferrer"
                             target="_blank"
                         >
-                            Creative Tim
+                            Dmitry Kuchura
                         </a>{" "}
-                        for a better web.
                     </div>
                 </Container>
             </footer>

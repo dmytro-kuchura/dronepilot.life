@@ -91122,10 +91122,10 @@ module.exports = "/images/react-logo.png?eb6be414b75c412c13eeee2d2e8390cb";
 
 /***/ }),
 
-/***/ "./resources/dashboard/components/FixedPlugin/FixedPlugin.jsx":
-/*!********************************************************************!*\
-  !*** ./resources/dashboard/components/FixedPlugin/FixedPlugin.jsx ***!
-  \********************************************************************/
+/***/ "./resources/dashboard/components/Footer/Footer.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/dashboard/components/Footer/Footer.jsx ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -91144,175 +91144,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
- // reactstrap components
-
-
-
-var FixedPlugin =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(FixedPlugin, _Component);
-
-  function FixedPlugin(props) {
-    var _this;
-
-    _classCallCheck(this, FixedPlugin);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FixedPlugin).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
-      if (_this.state.classes === "dropdown show-dropdown") {
-        _this.setState({
-          classes: "dropdown show-dropdown show"
-        });
-      } else {
-        _this.setState({
-          classes: "dropdown show-dropdown"
-        });
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "activateMode", function (mode) {
-      switch (mode) {
-        case "light":
-          document.body.classList.add("white-content");
-          break;
-
-        default:
-          document.body.classList.remove("white-content");
-          break;
-      }
-    });
-
-    _this.state = {
-      classes: "dropdown show-dropdown"
-    };
-    return _this;
-  }
-
-  _createClass(FixedPlugin, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "fixed-plugin"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: this.state.classes
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: this.handleClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-cog fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "dropdown-menu show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "header-title"
-      }, "SIDEBAR BACKGROUND"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "adjustments-line"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "badge-colors text-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: this.props.bgColor === "primary" ? "badge filter badge-primary active" : "badge filter badge-primary",
-        "data-color": "primary",
-        onClick: function onClick() {
-          _this2.props.handleBgClick("primary");
-        }
-      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: this.props.bgColor === "blue" ? "badge filter badge-info active" : "badge filter badge-info",
-        "data-color": "blue",
-        onClick: function onClick() {
-          _this2.props.handleBgClick("blue");
-        }
-      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: this.props.bgColor === "green" ? "badge filter badge-success active" : "badge filter badge-success",
-        "data-color": "green",
-        onClick: function onClick() {
-          _this2.props.handleBgClick("green");
-        }
-      }), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "adjustments-line text-center color-change"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "color-label"
-      }, "LIGHT MODE"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "badge light-badge mr-2",
-        onClick: function onClick() {
-          return _this2.activateMode("light");
-        }
-      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "badge dark-badge ml-2",
-        onClick: function onClick() {
-          return _this2.activateMode("dark");
-        }
-      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "color-label"
-      }, "DARK MODE"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "button-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-        href: "https://www.creative-tim.com/product/black-dashboard-react",
-        color: "primary",
-        block: true,
-        className: "btn-round"
-      }, "Download Now"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-        color: "default",
-        block: true,
-        className: "btn-round",
-        outline: true,
-        href: "https://demos.creative-tim.com/black-dashboard-react/#/documentation/tutorial"
-      }, "Documentation")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "header-title"
-      }, "Want more components?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "button-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-        href: "https://www.creative-tim.com/product/black-dashboard-pro-react",
-        className: "btn-round",
-        disabled: true,
-        block: true,
-        color: "danger"
-      }, "Get pro version")))));
-    }
-  }]);
-
-  return FixedPlugin;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (FixedPlugin);
-
-/***/ }),
-
-/***/ "./resources/dashboard/components/Footer/Footer.jsx":
-/*!**********************************************************!*\
-  !*** ./resources/dashboard/components/Footer/Footer.jsx ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
@@ -91321,10 +91152,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-/*eslint-disable*/
- // used for making the prop types of this component
-
- // reactstrap components
 
 
 
@@ -91344,15 +91171,15 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
         fluid: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        href: "javascript:void(0)"
-      }, "Creative Tim")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        href: "javascript:void(0)"
-      }, "About Us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        href: "javascript:void(0)"
-      }, "Blog"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        href: "/"
+      }, "\u0413\u043B\u0430\u0432\u043D\u0430\u044F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        href: "/about"
+      }, "\u041E\u0431\u043E \u043C\u043D\u0435")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        href: "/blog"
+      }, "\u0411\u043B\u043E\u0433"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "copyright"
       }, "\xA9 ", new Date().getFullYear(), " made with", " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "tim-icons icon-heart-2"
@@ -91360,7 +91187,7 @@ function (_React$Component) {
         href: "javascript:void(0)",
         rel: "noopener noreferrer",
         target: "_blank"
-      }, "Creative Tim"), " ", "for a better web.")));
+      }, "Dmitry Kuchura"), " ")));
     }
   }]);
 
@@ -91893,10 +91720,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navbars_AdminNavbar_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Navbars/AdminNavbar.jsx */ "./resources/dashboard/components/Navbars/AdminNavbar.jsx");
 /* harmony import */ var _components_Footer_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Footer/Footer.jsx */ "./resources/dashboard/components/Footer/Footer.jsx");
 /* harmony import */ var _components_Sidebar_Sidebar_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Sidebar/Sidebar.jsx */ "./resources/dashboard/components/Sidebar/Sidebar.jsx");
-/* harmony import */ var _components_FixedPlugin_FixedPlugin_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/FixedPlugin/FixedPlugin.jsx */ "./resources/dashboard/components/FixedPlugin/FixedPlugin.jsx");
-/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../routes.js */ "./resources/dashboard/routes.js");
-/* harmony import */ var _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/img/react-logo.png */ "./resources/dashboard/assets/img/react-logo.png");
-/* harmony import */ var _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../routes.js */ "./resources/dashboard/routes.js");
+/* harmony import */ var _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/img/react-logo.png */ "./resources/dashboard/assets/img/react-logo.png");
+/* harmony import */ var _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_7__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -91923,7 +91749,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  // javascript plugin used to create scrollbars on windows
 
  // core components
-
 
 
 
@@ -91973,9 +91798,9 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getBrandText", function (path) {
-      for (var i = 0; i < _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"].length; i++) {
-        if (_this.props.location.pathname.indexOf(_routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].layout + _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].path) !== -1) {
-          return _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].name;
+      for (var i = 0; i < _routes_js__WEBPACK_IMPORTED_MODULE_6__["default"].length; i++) {
+        if (_this.props.location.pathname.indexOf(_routes_js__WEBPACK_IMPORTED_MODULE_6__["default"][i].layout + _routes_js__WEBPACK_IMPORTED_MODULE_6__["default"][i].path) !== -1) {
+          return _routes_js__WEBPACK_IMPORTED_MODULE_6__["default"][i].name;
         }
       }
 
@@ -92038,12 +91863,12 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Sidebar_Sidebar_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, this.props, {
-        routes: _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+        routes: _routes_js__WEBPACK_IMPORTED_MODULE_6__["default"],
         bgColor: this.state.backgroundColor,
         logo: {
           outterLink: "https://www.creative-tim.com/",
           text: "Creative Tim",
-          imgSrc: _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a
+          imgSrc: _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_7___default.a
         },
         toggleSidebar: this.toggleSidebar
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -92054,13 +91879,10 @@ function (_React$Component) {
         brandText: this.getBrandText(this.props.location.pathname),
         toggleSidebar: this.toggleSidebar,
         sidebarOpened: this.state.sidebarOpened
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, this.getRoutes(_routes_js__WEBPACK_IMPORTED_MODULE_7__["default"])), // we don't want the Footer to be rendered on map page
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, this.getRoutes(_routes_js__WEBPACK_IMPORTED_MODULE_6__["default"])), // we don't want the Footer to be rendered on map page
       this.props.location.pathname.indexOf("maps") !== -1 ? null : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         fluid: true
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FixedPlugin_FixedPlugin_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        bgColor: this.state.backgroundColor,
-        handleBgClick: this.handleBgClick
-      }));
+      }))));
     }
   }]);
 
@@ -92157,10 +91979,6 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// ##############################
-// // // Chart variables
-// #############################
-// chartExample1 and chartExample2 options
 var chart1_2_options = {
   maintainAspectRatio: false,
   legend: {
@@ -92205,10 +92023,7 @@ var chart1_2_options = {
       }
     }]
   }
-}; // #########################################
-// // // used inside src/views/Dashboard.jsx
-// #########################################
-
+};
 var chartExample1 = {
   data1: function data1(canvas) {
     var ctx = canvas.getContext("2d");
@@ -92218,9 +92033,9 @@ var chartExample1 = {
     gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
     return {
-      labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+      labels: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
       datasets: [{
-        label: "My First dataset",
+        label: "Опубликованые записи",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: "#1f8ef1",
@@ -92295,199 +92110,9 @@ var chartExample1 = {
     };
   },
   options: chart1_2_options
-}; // #########################################
-// // // used inside src/views/Dashboard.jsx
-// #########################################
-
-var chartExample2 = {
-  data: function data(canvas) {
-    var ctx = canvas.getContext("2d");
-    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-    gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
-    gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
-    gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
-
-    return {
-      labels: ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
-      datasets: [{
-        label: "Data",
-        fill: true,
-        backgroundColor: gradientStroke,
-        borderColor: "#1f8ef1",
-        borderWidth: 2,
-        borderDash: [],
-        borderDashOffset: 0.0,
-        pointBackgroundColor: "#1f8ef1",
-        pointBorderColor: "rgba(255,255,255,0)",
-        pointHoverBackgroundColor: "#1f8ef1",
-        pointBorderWidth: 20,
-        pointHoverRadius: 4,
-        pointHoverBorderWidth: 15,
-        pointRadius: 4,
-        data: [80, 100, 70, 80, 120, 80]
-      }]
-    };
-  },
-  options: chart1_2_options
-}; // #########################################
-// // // used inside src/views/Dashboard.jsx
-// #########################################
-
-var chartExample3 = {
-  data: function data(canvas) {
-    var ctx = canvas.getContext("2d");
-    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-    gradientStroke.addColorStop(1, "rgba(72,72,176,0.1)");
-    gradientStroke.addColorStop(0.4, "rgba(72,72,176,0.0)");
-    gradientStroke.addColorStop(0, "rgba(119,52,169,0)"); //purple colors
-
-    return {
-      labels: ["USA", "GER", "AUS", "UK", "RO", "BR"],
-      datasets: [{
-        label: "Countries",
-        fill: true,
-        backgroundColor: gradientStroke,
-        hoverBackgroundColor: gradientStroke,
-        borderColor: "#d048b6",
-        borderWidth: 2,
-        borderDash: [],
-        borderDashOffset: 0.0,
-        data: [53, 20, 10, 80, 100, 45]
-      }]
-    };
-  },
-  options: {
-    maintainAspectRatio: false,
-    legend: {
-      display: false
-    },
-    tooltips: {
-      backgroundColor: "#f5f5f5",
-      titleFontColor: "#333",
-      bodyFontColor: "#666",
-      bodySpacing: 4,
-      xPadding: 12,
-      mode: "nearest",
-      intersect: 0,
-      position: "nearest"
-    },
-    responsive: true,
-    scales: {
-      yAxes: [{
-        gridLines: {
-          drawBorder: false,
-          color: "rgba(225,78,202,0.1)",
-          zeroLineColor: "transparent"
-        },
-        ticks: {
-          suggestedMin: 60,
-          suggestedMax: 120,
-          padding: 20,
-          fontColor: "#9e9e9e"
-        }
-      }],
-      xAxes: [{
-        gridLines: {
-          drawBorder: false,
-          color: "rgba(225,78,202,0.1)",
-          zeroLineColor: "transparent"
-        },
-        ticks: {
-          padding: 20,
-          fontColor: "#9e9e9e"
-        }
-      }]
-    }
-  }
-}; // #########################################
-// // // used inside src/views/Dashboard.jsx
-// #########################################
-
-var chartExample4 = {
-  data: function data(canvas) {
-    var ctx = canvas.getContext("2d");
-    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-    gradientStroke.addColorStop(1, "rgba(66,134,121,0.15)");
-    gradientStroke.addColorStop(0.4, "rgba(66,134,121,0.0)"); //green colors
-
-    gradientStroke.addColorStop(0, "rgba(66,134,121,0)"); //green colors
-
-    return {
-      labels: ["JUL", "AUG", "SEP", "OCT", "NOV"],
-      datasets: [{
-        label: "My First dataset",
-        fill: true,
-        backgroundColor: gradientStroke,
-        borderColor: "#00d6b4",
-        borderWidth: 2,
-        borderDash: [],
-        borderDashOffset: 0.0,
-        pointBackgroundColor: "#00d6b4",
-        pointBorderColor: "rgba(255,255,255,0)",
-        pointHoverBackgroundColor: "#00d6b4",
-        pointBorderWidth: 20,
-        pointHoverRadius: 4,
-        pointHoverBorderWidth: 15,
-        pointRadius: 4,
-        data: [90, 27, 60, 12, 80]
-      }]
-    };
-  },
-  options: {
-    maintainAspectRatio: false,
-    legend: {
-      display: false
-    },
-    tooltips: {
-      backgroundColor: "#f5f5f5",
-      titleFontColor: "#333",
-      bodyFontColor: "#666",
-      bodySpacing: 4,
-      xPadding: 12,
-      mode: "nearest",
-      intersect: 0,
-      position: "nearest"
-    },
-    responsive: true,
-    scales: {
-      yAxes: [{
-        barPercentage: 1.6,
-        gridLines: {
-          drawBorder: false,
-          color: "rgba(29,140,248,0.0)",
-          zeroLineColor: "transparent"
-        },
-        ticks: {
-          suggestedMin: 50,
-          suggestedMax: 125,
-          padding: 20,
-          fontColor: "#9e9e9e"
-        }
-      }],
-      xAxes: [{
-        barPercentage: 1.6,
-        gridLines: {
-          drawBorder: false,
-          color: "rgba(0,242,195,0.1)",
-          zeroLineColor: "transparent"
-        },
-        ticks: {
-          padding: 20,
-          fontColor: "#9e9e9e"
-        }
-      }]
-    }
-  }
 };
 module.exports = {
-  chartExample1: chartExample1,
-  // in src/views/Dashboard.jsx
-  chartExample2: chartExample2,
-  // in src/views/Dashboard.jsx
-  chartExample3: chartExample3,
-  // in src/views/Dashboard.jsx
-  chartExample4: chartExample4 // in src/views/Dashboard.jsx
-
+  chartExample1: chartExample1
 };
 
 /***/ }),
