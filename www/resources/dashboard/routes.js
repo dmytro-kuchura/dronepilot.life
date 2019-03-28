@@ -64,13 +64,5 @@ var routes = [
         component: Typography,
         layout: "/admin"
     },
-    {
-        path: "/rtl-support",
-        name: "RTL Support",
-        rtlName: "ار تي ال",
-        icon: "tim-icons icon-world",
-        component: Rtl,
-        layout: "/rtl"
-    }
 ];
 export default routes;

@@ -91643,278 +91643,6 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./resources/dashboard/components/Navbars/RTLNavbar.jsx":
-/*!**************************************************************!*\
-  !*** ./resources/dashboard/components/Navbars/RTLNavbar.jsx ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
- // nodejs library that concatenates classes
-
- // reactstrap components
-
-
-
-var AdminNavbar =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(AdminNavbar, _React$Component);
-
-  function AdminNavbar(props) {
-    var _this;
-
-    _classCallCheck(this, AdminNavbar);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AdminNavbar).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "updateColor", function () {
-      if (window.innerWidth < 993 && _this.state.collapseOpen) {
-        _this.setState({
-          color: "bg-white"
-        });
-      } else {
-        _this.setState({
-          color: "navbar-transparent"
-        });
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "toggleCollapse", function () {
-      if (_this.state.collapseOpen) {
-        _this.setState({
-          color: "navbar-transparent"
-        });
-      } else {
-        _this.setState({
-          color: "bg-white"
-        });
-      }
-
-      _this.setState({
-        collapseOpen: !_this.state.collapseOpen
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "toggleModalSearch", function () {
-      _this.setState({
-        modalSearch: !_this.state.modalSearch
-      });
-    });
-
-    _this.state = {
-      collapseOpen: false,
-      modalSearch: false,
-      color: "navbar-transparent"
-    };
-    return _this;
-  }
-
-  _createClass(AdminNavbar, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener("resize", this.updateColor);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener("resize", this.updateColor);
-    } // function that adds color white/transparent to the navbar on resize (this is for the collapse)
-
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
-        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("navbar-absolute", this.state.color),
-        expand: "lg"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
-        fluid: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "navbar-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("navbar-toggle d-inline", {
-          toggled: this.props.sidebarOpened
-        })
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "navbar-toggler",
-        type: "button",
-        onClick: this.props.toggleSidebar
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "navbar-toggler-bar bar1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "navbar-toggler-bar bar2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "navbar-toggler-bar bar3"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavbarBrand"], {
-        href: "#pablo",
-        onClick: function onClick(e) {
-          return e.preventDefault();
-        }
-      }, this.props.brandText)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        "aria-expanded": false,
-        "aria-label": "Toggle navigation",
-        className: "navbar-toggler",
-        "data-target": "#navigation",
-        "data-toggle": "collapse",
-        id: "navigation",
-        type: "button",
-        onClick: this.toggleCollapse
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "navbar-toggler-bar navbar-kebab"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "navbar-toggler-bar navbar-kebab"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "navbar-toggler-bar navbar-kebab"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Collapse"], {
-        navbar: true,
-        isOpen: this.state.collapseOpen
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
-        className: "mr-auto",
-        navbar: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["InputGroup"], {
-        className: "search-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-        color: "link",
-        "data-target": "#searchModal",
-        "data-toggle": "modal",
-        id: "search-button",
-        onClick: this.toggleModalSearch
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-zoom-split"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-lg-none d-md-block"
-      }, "Search"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["UncontrolledDropdown"], {
-        nav: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownToggle"], {
-        caret: true,
-        color: "default",
-        "data-toggle": "dropdown",
-        nav: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "notification d-none d-lg-block d-xl-block"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-sound-wave"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "d-lg-none"
-      }, "Notifications")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownMenu"], {
-        className: "dropdown-navbar",
-        tag: "ul",
-        right: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Mike John responded to your email")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "You have 5 more tasks")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Your friend Michael is in town")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Another notification")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Another one")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["UncontrolledDropdown"], {
-        nav: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownToggle"], {
-        caret: true,
-        color: "default",
-        "data-toggle": "dropdown",
-        nav: true,
-        onClick: function onClick(e) {
-          return e.preventDefault();
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "photo"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        alt: "...",
-        src: __webpack_require__(/*! ../../assets/img/anime3.png */ "./resources/dashboard/assets/img/anime3.png")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
-        className: "caret d-none d-lg-block d-xl-block"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "d-lg-none"
-      }, "Log out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownMenu"], {
-        className: "dropdown-navbar",
-        tag: "ul"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Settings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        divider: true,
-        tag: "li"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-        tag: "li"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["DropdownItem"], {
-        className: "nav-item"
-      }, "Log out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "separator d-lg-none"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
-        modalClassName: "modal-search",
-        isOpen: this.state.modalSearch,
-        toggle: this.toggleModalSearch
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
-        id: "inlineFormInputGroup",
-        placeholder: "SEARCH",
-        type: "text"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        "aria-label": "Close",
-        className: "close",
-        "data-dismiss": "modal",
-        type: "button",
-        onClick: this.toggleModalSearch
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-simple-remove"
-      })))));
-    }
-  }]);
-
-  return AdminNavbar;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (AdminNavbar);
-
-/***/ }),
-
 /***/ "./resources/dashboard/components/Sidebar/Sidebar.jsx":
 /*!************************************************************!*\
   !*** ./resources/dashboard/components/Sidebar/Sidebar.jsx ***!
@@ -92077,7 +91805,7 @@ function (_React$Component) {
           onClick: _this2.props.toggleSidebar
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: prop.icon
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, rtlActive ? prop.rtlName : prop.name)));
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, prop.name)));
       }))));
     }
   }]);
@@ -92129,8 +91857,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! history */ "./node_modules/history/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _layouts_Admin_Admin_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layouts/Admin/Admin.jsx */ "./resources/dashboard/layouts/Admin/Admin.jsx");
-/* harmony import */ var _layouts_RTL_RTL_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./layouts/RTL/RTL.jsx */ "./resources/dashboard/layouts/RTL/RTL.jsx");
-
 
 
 
@@ -92143,11 +91869,6 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
   path: "/admin",
   render: function render(props) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_Admin_Admin_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], props);
-  }
-}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-  path: "/rtl",
-  render: function render(props) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layouts_RTL_RTL_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], props);
   }
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
   from: "/",
@@ -92350,220 +92071,6 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./resources/dashboard/layouts/RTL/RTL.jsx":
-/*!*************************************************!*\
-  !*** ./resources/dashboard/layouts/RTL/RTL.jsx ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
-/* harmony import */ var _components_Navbars_RTLNavbar_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Navbars/RTLNavbar.jsx */ "./resources/dashboard/components/Navbars/RTLNavbar.jsx");
-/* harmony import */ var _components_Footer_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Footer/Footer.jsx */ "./resources/dashboard/components/Footer/Footer.jsx");
-/* harmony import */ var _components_Sidebar_Sidebar_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Sidebar/Sidebar.jsx */ "./resources/dashboard/components/Sidebar/Sidebar.jsx");
-/* harmony import */ var _components_FixedPlugin_FixedPlugin_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/FixedPlugin/FixedPlugin.jsx */ "./resources/dashboard/components/FixedPlugin/FixedPlugin.jsx");
-/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../routes.js */ "./resources/dashboard/routes.js");
-/* harmony import */ var _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/img/react-logo.png */ "./resources/dashboard/assets/img/react-logo.png");
-/* harmony import */ var _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
- // javascript plugin used to create scrollbars on windows
-
- // core components
-
-
-
-
-
-
-
-var ps;
-
-var Admin =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Admin, _React$Component);
-
-  function Admin(props) {
-    var _this;
-
-    _classCallCheck(this, Admin);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Admin).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "toggleSidebar", function () {
-      document.documentElement.classList.toggle("nav-open");
-
-      _this.setState({
-        sidebarOpened: !_this.state.sidebarOpened
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getRoutes", function (routes) {
-      return routes.map(function (prop, key) {
-        if (prop.layout === "/rtl") {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-            path: prop.layout + prop.path,
-            component: prop.component,
-            key: key
-          });
-        } else {
-          return null;
-        }
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleBgClick", function (color) {
-      _this.setState({
-        backgroundColor: color
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getBrandText", function (path) {
-      for (var i = 0; i < _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"].length; i++) {
-        if (_this.props.location.pathname.indexOf(_routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].layout + _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].path) !== -1) {
-          return _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].rtlName || _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"][i].name;
-        }
-      }
-
-      return "Brand";
-    });
-
-    _this.state = {
-      backgroundColor: "blue",
-      sidebarOpened: document.documentElement.className.indexOf("nav-open") !== -1
-    };
-    return _this;
-  }
-
-  _createClass(Admin, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        document.documentElement.className += " perfect-scrollbar-on";
-        document.documentElement.classList.remove("perfect-scrollbar-off");
-        ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_2__["default"](this.refs.mainPanel, {
-          suppressScrollX: true
-        });
-        var tables = document.querySelectorAll(".table-responsive");
-
-        for (var i = 0; i < tables.length; i++) {
-          ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_2__["default"](tables[i]);
-        }
-      } // on this page, we need on the body tag the classes .rtl and .menu-on-right
-
-
-      document.body.classList.add("rtl", "menu-on-right"); // we also need the rtl bootstrap
-      // so we add it dynamically to the head
-
-      var head = document.head;
-      var link = document.createElement("link");
-      link.type = "text/css";
-      link.rel = "stylesheet";
-      link.id = "rtl-id";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css";
-      head.appendChild(link);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.documentElement.className += " perfect-scrollbar-off";
-        document.documentElement.classList.remove("perfect-scrollbar-on");
-      } // when we exit this page, we need to delete the classes .rtl and .menu-on-right
-      // from the body tag
-
-
-      document.body.classList.remove("rtl", "menu-on-right"); // we also need to delete the rtl bootstrap, so it does not break the other pages
-      // that do not make use of rtl
-
-      document.getElementById("rtl-id").remove();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(e) {
-      if (e.history.action === "PUSH") {
-        if (navigator.platform.indexOf("Win") > -1) {
-          var tables = document.querySelectorAll(".table-responsive");
-
-          for (var i = 0; i < tables.length; i++) {
-            ps = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_2__["default"](tables[i]);
-          }
-        }
-
-        document.documentElement.scrollTop = 0;
-        document.scrollingElement.scrollTop = 0;
-        this.refs.mainPanel.scrollTop = 0;
-      }
-    } // this function opens and closes the sidebar on small devices
-
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Sidebar_Sidebar_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, this.props, {
-        routes: _routes_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-        bgColor: this.state.backgroundColor,
-        rtlActive: true,
-        logo: {
-          outterLink: "https://www.creative-tim.com/",
-          text: "الإبداعية تيم",
-          imgSrc: _assets_img_react_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a
-        },
-        toggleSidebar: this.toggleSidebar
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-panel",
-        ref: "mainPanel",
-        data: this.state.backgroundColor
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbars_RTLNavbar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, this.props, {
-        brandText: this.getBrandText(this.props.location.pathname),
-        toggleSidebar: this.toggleSidebar,
-        sidebarOpened: this.state.sidebarOpened
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, this.getRoutes(_routes_js__WEBPACK_IMPORTED_MODULE_7__["default"])), // we don't want the Footer to be rendered on map page
-      this.props.location.pathname.indexOf("maps") !== -1 ? null : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        fluid: true
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FixedPlugin_FixedPlugin_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        bgColor: this.state.backgroundColor,
-        handleBgClick: this.handleBgClick
-      }));
-    }
-  }]);
-
-  return Admin;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Admin);
-
-/***/ }),
-
 /***/ "./resources/dashboard/routes.js":
 /*!***************************************!*\
   !*** ./resources/dashboard/routes.js ***!
@@ -92638,13 +92145,6 @@ var routes = [{
   icon: "tim-icons icon-align-center",
   component: _views_Typography_jsx__WEBPACK_IMPORTED_MODULE_6__["default"],
   layout: "/admin"
-}, {
-  path: "/rtl-support",
-  name: "RTL Support",
-  rtlName: "ار تي ال",
-  icon: "tim-icons icon-world",
-  component: _views_Rtl_jsx__WEBPACK_IMPORTED_MODULE_4__["default"],
-  layout: "/rtl"
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
@@ -93066,8 +92566,6 @@ function (_React$Component) {
   _createClass(Dashboard, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
@@ -93079,127 +92577,13 @@ function (_React$Component) {
         sm: "6"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "card-category"
-      }, "Total Shipments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardTitle"], {
+      }, "\u0412\u0441\u0435\u0433\u043E \u0437\u0430\u043F\u0438\u0441\u0435\u0439"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardTitle"], {
         tag: "h2"
-      }, "Performance")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        sm: "6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-        className: "btn-group-toggle float-right",
-        "data-toggle": "buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        tag: "label",
-        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("btn-simple", {
-          active: this.state.bigChartData === "data1"
-        }),
-        color: "info",
-        id: "0",
-        size: "sm",
-        onClick: function onClick() {
-          return _this2.setBgChartData("data1");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        defaultChecked: true,
-        className: "d-none",
-        name: "options",
-        type: "radio"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-none d-sm-block d-md-block d-lg-block d-xl-block"
-      }, "Accounts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-block d-sm-none"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-single-02"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        color: "info",
-        id: "1",
-        size: "sm",
-        tag: "label",
-        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("btn-simple", {
-          active: this.state.bigChartData === "data2"
-        }),
-        onClick: function onClick() {
-          return _this2.setBgChartData("data2");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "d-none",
-        name: "options",
-        type: "radio"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-none d-sm-block d-md-block d-lg-block d-xl-block"
-      }, "Purchases"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-block d-sm-none"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-gift-2"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        color: "info",
-        id: "2",
-        size: "sm",
-        tag: "label",
-        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("btn-simple", {
-          active: this.state.bigChartData === "data3"
-        }),
-        onClick: function onClick() {
-          return _this2.setBgChartData("data3");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "d-none",
-        name: "options",
-        type: "radio"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-none d-sm-block d-md-block d-lg-block d-xl-block"
-      }, "Sessions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "d-block d-sm-none"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-tap-02"
-      }))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u0417\u0430\u043F\u0438\u0441\u0438")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chart-area"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__["Line"], {
         data: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample1"][this.state.bigChartData],
         options: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample1"].options
-      })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        lg: "4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Card"], {
-        className: "card-chart"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "card-category"
-      }, "Total Shipments"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardTitle"], {
-        tag: "h3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-bell-55 text-info"
-      }), " ", "763,215")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chart-area"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__["Line"], {
-        data: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample2"].data,
-        options: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample2"].options
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        lg: "4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Card"], {
-        className: "card-chart"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "card-category"
-      }, "Daily Sales"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardTitle"], {
-        tag: "h3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-delivery-fast text-primary"
-      }), " ", "3,500\u20AC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chart-area"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__["Bar"], {
-        data: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample3"].data,
-        options: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample3"].options
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        lg: "4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Card"], {
-        className: "card-chart"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "card-category"
-      }, "Completed Tasks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardTitle"], {
-        tag: "h3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "tim-icons icon-send text-success"
-      }), " 12,100K")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chart-area"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__["Line"], {
-        data: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample4"].data,
-        options: _variables_charts_jsx__WEBPACK_IMPORTED_MODULE_4__["chartExample4"].options
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         lg: "6",
         md: "12"
@@ -93207,9 +92591,7 @@ function (_React$Component) {
         className: "card-tasks"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
         className: "title d-inline"
-      }, "Tasks(5)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "card-category d-inline"
-      }, " today"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["UncontrolledDropdown"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["DropdownToggle"], {
+      }, "Latest blog records"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["UncontrolledDropdown"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["DropdownToggle"], {
         caret: true,
         className: "btn-icon",
         color: "link",

@@ -26,12 +26,7 @@ import {
 } from "reactstrap";
 
 // core components
-import {
-    chartExample1,
-    chartExample2,
-    chartExample3,
-    chartExample4
-} from "../variables/charts.jsx";
+import {chartExample1} from "../variables/charts.jsx";
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -57,85 +52,8 @@ class Dashboard extends React.Component {
                                 <CardHeader>
                                     <Row>
                                         <Col className="text-left" sm="6">
-                                            <h5 className="card-category">Total Shipments</h5>
-                                            <CardTitle tag="h2">Performance</CardTitle>
-                                        </Col>
-                                        <Col sm="6">
-                                            <ButtonGroup
-                                                className="btn-group-toggle float-right"
-                                                data-toggle="buttons"
-                                            >
-                                                <Button
-                                                    tag="label"
-                                                    className={classNames("btn-simple", {
-                                                        active: this.state.bigChartData === "data1"
-                                                    })}
-                                                    color="info"
-                                                    id="0"
-                                                    size="sm"
-                                                    onClick={() => this.setBgChartData("data1")}
-                                                >
-                                                    <input
-                                                        defaultChecked
-                                                        className="d-none"
-                                                        name="options"
-                                                        type="radio"
-                                                    />
-                                                    <span
-                                                        className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Accounts
-                          </span>
-                                                    <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-single-02"/>
-                          </span>
-                                                </Button>
-                                                <Button
-                                                    color="info"
-                                                    id="1"
-                                                    size="sm"
-                                                    tag="label"
-                                                    className={classNames("btn-simple", {
-                                                        active: this.state.bigChartData === "data2"
-                                                    })}
-                                                    onClick={() => this.setBgChartData("data2")}
-                                                >
-                                                    <input
-                                                        className="d-none"
-                                                        name="options"
-                                                        type="radio"
-                                                    />
-                                                    <span
-                                                        className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Purchases
-                          </span>
-                                                    <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-gift-2"/>
-                          </span>
-                                                </Button>
-                                                <Button
-                                                    color="info"
-                                                    id="2"
-                                                    size="sm"
-                                                    tag="label"
-                                                    className={classNames("btn-simple", {
-                                                        active: this.state.bigChartData === "data3"
-                                                    })}
-                                                    onClick={() => this.setBgChartData("data3")}
-                                                >
-                                                    <input
-                                                        className="d-none"
-                                                        name="options"
-                                                        type="radio"
-                                                    />
-                                                    <span
-                                                        className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Sessions
-                          </span>
-                                                    <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-tap-02"/>
-                          </span>
-                                                </Button>
-                                            </ButtonGroup>
+                                            <h5 className="card-category">Всего записей</h5>
+                                            <CardTitle tag="h2">Записи</CardTitle>
                                         </Col>
                                     </Row>
                                 </CardHeader>
@@ -151,69 +69,10 @@ class Dashboard extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg="4">
-                            <Card className="card-chart">
-                                <CardHeader>
-                                    <h5 className="card-category">Total Shipments</h5>
-                                    <CardTitle tag="h3">
-                                        <i className="tim-icons icon-bell-55 text-info"/>{" "}
-                                        763,215
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardBody>
-                                    <div className="chart-area">
-                                        <Line
-                                            data={chartExample2.data}
-                                            options={chartExample2.options}
-                                        />
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col lg="4">
-                            <Card className="card-chart">
-                                <CardHeader>
-                                    <h5 className="card-category">Daily Sales</h5>
-                                    <CardTitle tag="h3">
-                                        <i className="tim-icons icon-delivery-fast text-primary"/>{" "}
-                                        3,500€
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardBody>
-                                    <div className="chart-area">
-                                        <Bar
-                                            data={chartExample3.data}
-                                            options={chartExample3.options}
-                                        />
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col lg="4">
-                            <Card className="card-chart">
-                                <CardHeader>
-                                    <h5 className="card-category">Completed Tasks</h5>
-                                    <CardTitle tag="h3">
-                                        <i className="tim-icons icon-send text-success"/> 12,100K
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardBody>
-                                    <div className="chart-area">
-                                        <Line
-                                            data={chartExample4.data}
-                                            options={chartExample4.options}
-                                        />
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row>
                         <Col lg="6" md="12">
                             <Card className="card-tasks">
                                 <CardHeader>
-                                    <h6 className="title d-inline">Tasks(5)</h6>
-                                    <p className="card-category d-inline"> today</p>
+                                    <h6 className="title d-inline">Latest blog records</h6>
                                     <UncontrolledDropdown>
                                         <DropdownToggle
                                             caret
