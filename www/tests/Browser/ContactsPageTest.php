@@ -27,7 +27,7 @@ class ContactsPageTest extends DuskTestCase
                 ->type('name', 'Dmitry')
                 ->type('email', 'kuchura.d@test.com')
                 ->type('comments', 'Test')
-                ->press('Send')
+                ->press('.submit')
                 ->assertSee('Hey Thr!');
         });
     }
