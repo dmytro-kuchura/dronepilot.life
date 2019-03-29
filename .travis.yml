@@ -6,14 +6,16 @@ php:
 addons:
   chrome: stable
 
+before_install: cd www
+
 install:
-  - cp www/.env.testing .env
+  - cp .env.testing .env
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
 
 before_script:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - cd www/ & php artisan serve &
+  - php artisan serve &
 
 script:
-  - cd www/ & php artisan dusk
+  - php artisan dusk
