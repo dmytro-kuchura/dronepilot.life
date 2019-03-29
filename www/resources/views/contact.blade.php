@@ -37,7 +37,7 @@
                 <div class="clearfix"></div>
                 <textarea name="comments" id="comments" cols="" rows="" placeholder="Что именно Вас интересует?"></textarea>
                 <div class="clearfix"></div>
-                <input name="submit" class="submit" type="submit" value="Отправить">
+                <input name="submit" class="submit" id="submit" type="submit" value="Отправить">
                 <div id="simple-msg"></div>
             </form>
         </div>
