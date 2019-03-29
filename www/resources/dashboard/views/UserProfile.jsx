@@ -1,6 +1,8 @@
 import React from "react";
 
-// reactstrap components
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import {
     Button,
     Card,
@@ -127,11 +129,29 @@ class UserProfile extends React.Component {
                                                     <label>About Me</label>
                                                     <Input
                                                         cols="80"
-                                                        defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                            that two seat Lambo."
+                                                        defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
                                                         placeholder="Here can be your description"
                                                         rows="4"
                                                         type="textarea"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col md="8">
+                                                <FormGroup>
+                                                    <label>Text</label>
+                                                    <CKEditor
+                                                        editor={ClassicEditor}
+                                                        data="<p>Hello from CKEditor 5!</p>"
+                                                        onInit={editor => {
+                                                            // You can store the "editor" and use when it is needed.
+                                                            console.log('Editor is ready to use!', editor);
+                                                        }}
+                                                        onChange={(event, editor) => {
+                                                            const data = editor.getData();
+                                                            console.log({event, editor, data});
+                                                        }}
                                                     />
                                                 </FormGroup>
                                             </Col>

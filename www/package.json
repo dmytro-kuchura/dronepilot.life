@@ -10,6 +10,8 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^12.0.0",
+        "@ckeditor/ckeditor5-react": "^1.1.2",
         "@types/react": "16.4.16",
         "bootstrap": "4.1.3",
         "chart.js": "^2.7.2",
