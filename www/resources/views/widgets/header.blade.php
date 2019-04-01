@@ -4,7 +4,7 @@
         <!-- logo -->
         <h1>
             <a href="index.html" title="avana LLC">
-                <img src="images/logo.png" title="avana LLC" alt="avana LLC"/>
+                <img src="/images/logo.png" title="avana LLC" alt="avana LLC"/>
             </a>
         </h1>
         <!-- logo -->
