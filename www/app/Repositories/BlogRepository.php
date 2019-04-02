@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Records;
 
-class BlogRepository
+class BlogRepository extends Repository
 {
     public function all()
     {

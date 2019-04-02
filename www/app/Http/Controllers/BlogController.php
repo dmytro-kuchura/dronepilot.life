@@ -28,6 +28,10 @@ class BlogController extends Controller
     {
         $result = $this->repository->getByAlias($request->route('alias'));
 
+        if (!$result) {
+            abort(404, 'Page not found');
+        }
+
         return view('blog.inner', [
             'result' => $result
         ]);
