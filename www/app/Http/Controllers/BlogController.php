@@ -2,15 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Repositories\BlogRepository;
+
 class BlogController extends Controller
 {
-    public function index()
+    protected $repository;
+
+    public function __construct(BlogRepository $repository)
     {
-        return view('blog.index');
+        $this->repository = $repository;
     }
 
-    public function inner()
+    public function index()
     {
-        return view('blog.inner');
+        $result = $this->repository->all();
+
+        return view('blog.index', [
+            'left' => $result['left'],
+            'right' => $result['right']
+        ]);
+    }
+
+    public function inner(Request $request)
+    {
+        $result = $this->repository->getByAlias($request->route('alias'));
+
+        return view('blog.inner', [
+            'result' => $result
+        ]);
     }
 }
