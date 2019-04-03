@@ -24,7 +24,7 @@ class CreateCommentsTable extends Migration
             $table->text('message');
 
             $table->string('ip', 45)->nullable();
-            $table->string('user_agent', 100)->nullable();
+            $table->text('user_agent')->nullable();
             $table->integer('status')->default(0);
 
             $table->timestamps();
