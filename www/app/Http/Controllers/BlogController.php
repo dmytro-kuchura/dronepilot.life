@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CommentsRepository;
 use Illuminate\Http\Request;
 use App\Repositories\BlogRepository;
 
@@ -32,8 +33,13 @@ class BlogController extends Controller
             abort(404, 'Page not found');
         }
 
+        $repository = new CommentsRepository();
+
+        $comments = $repository->getCommentsByRecordId($result->id);
+
         return view('blog.inner', [
-            'result' => $result
+            'result' => $result,
+            'comments' => $comments,
         ]);
     }
 }
