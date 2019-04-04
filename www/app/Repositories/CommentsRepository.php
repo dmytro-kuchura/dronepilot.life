@@ -2,20 +2,25 @@
 
 namespace App\Repositories;
 
-use App\Models\Records;
+use App\Models\Comments;
 
 class CommentsRepository
 {
     public function getCommentsByRecordId($id)
     {
-        $query = Records::where('status', 1)->where('record_id', $id)->get();
+        $query = Comments::where('status', 1)->where('record_id', $id)->get();
 
         $result = [];
 
         foreach ($query as $obj) {
-            $result[$obj->rebly_comment_id] = $obj;
+            $result[$obj->reply_comment_id][] = $obj;
         }
 
         return $result;
+    }
+
+    public function getCommentsCountByRecordId($id)
+    {
+        return Comments::where('status', 1)->where('record_id', $id)->count();
     }
 }
