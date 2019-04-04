@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
-@section('title', 'DronePilot | Обо мне')
-@section('description', 'Статьи и записи от личного использования БПЛА')
-@section('keywords', 'drone, DJI, Mavic Air')
+@section('title', $result->title ? 'DronePilot | ' . $result->title : 'DronePilot | ' . $result->name)
+@section('description', $result->description ? $result->description : '')
+@section('keywords', $result->keywords ? $result->keywords : '')
 
 @section('content')
     <div class="blog-details">
         <article class="post-details" id="post-details">
             <header role="bog-header" class="bog-header text-center">
-                <h3><span>20</span> July 2016</h3>
+                <h3>{!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($result->created_at))  !!}</h3>
                 <h2>{{ $result->name }}</h2>
             </header>
             <figure>
