@@ -18,37 +18,41 @@
         </article>
 
         <div class="comments-pan">
-            <h3>{{ $count_comments }} Comments</h3>
-            <ul class="comments-reply">
-                @foreach($comments[0] as $obj)
-                    <li>
-                        <figure>
-                            <img src="/images/blog-images/image-1.jpg" alt="" class="img-responsive"/>
-                        </figure>
-                        <section>
-                            <h4>{{ $obj->name }} <a href="#">Reply</a></h4>
-                            <div class="date-pan">{{ date('F j, Y', strtotime($obj->created_at)) }}</div>
-                            {{ $obj->message }}
-                        </section>
-                        <ol class="reply-pan">
-                            @if(isset($comments[$obj->id]))
-                                @foreach($comments[$obj->id] as $item)
-                                    <li>
-                                        <figure>
-                                            <img src="/images/blog-images/image-2.jpg" alt="" class="img-responsive"/>
-                                        </figure>
-                                        <section>
-                                            <h4>{{ $item->name }} <a href="#">Reply</a></h4>
-                                            <div class="date-pan">{{ date('F j, Y', strtotime($item->created_at)) }}</div>
-                                            {{ $item->message }}
-                                        </section>
-                                    </li>
-                                @endforeach
-                            @endif
-                        </ol>
-                    </li>
-                @endforeach
-            </ul>
+            @if(count($comments))
+                <h3>{{ $count_comments }} Comments</h3>
+                <ul class="comments-reply">
+                    @foreach($comments[0] as $obj)
+                        <li>
+                            <figure>
+                                <img src="/images/blog-images/image-1.jpg" alt="" class="img-responsive"/>
+                            </figure>
+                            <section>
+                                <h4>{{ $obj->name }} <a href="#">Reply</a></h4>
+                                <div class="date-pan">{{ date('F j, Y', strtotime($obj->created_at)) }}</div>
+                                {{ $obj->message }}
+                            </section>
+                            <ol class="reply-pan">
+                                @if(isset($comments[$obj->id]))
+                                    @foreach($comments[$obj->id] as $item)
+                                        <li>
+                                            <figure>
+                                                <img src="/images/blog-images/image-2.jpg" alt=""
+                                                     class="img-responsive"/>
+                                            </figure>
+                                            <section>
+                                                <h4>{{ $item->name }} <a href="#">Reply</a></h4>
+                                                <div
+                                                    class="date-pan">{{ date('F j, Y', strtotime($item->created_at)) }}</div>
+                                                {{ $item->message }}
+                                            </section>
+                                        </li>
+                                    @endforeach
+                                @endif
+                            </ol>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
 
             <div class="commentys-form">
                 <h4>Leave a comment</h4>

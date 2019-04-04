@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function () {
+    Route::post('/comment', 'ApiController@comment')->name('api.comment');
+    Route::post('/contact', 'ApiController@contacts')->name('api.contacts');
 });
