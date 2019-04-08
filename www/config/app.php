@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'original_domain' => env('ORIGINAL_DOMAIN', 'dronepilot.life'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
