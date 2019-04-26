@@ -27,4 +27,11 @@ class BlogRepository
     {
         return Records::where('status', 1)->where('alias', $alias)->first();
     }
+
+    public function list()
+    {
+        $records = Records::all();
+
+        return $records;
+    }
 }

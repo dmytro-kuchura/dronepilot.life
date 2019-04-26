@@ -77987,6 +77987,22 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/dashboard/actions/admin-actions.js":
+/*!******************************************************!*\
+  !*** ./resources/dashboard/actions/admin-actions.js ***!
+  \******************************************************/
+/*! exports provided: getBlogRecordsList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBlogRecordsList", function() { return getBlogRecordsList; });
+var getBlogRecordsList = function getBlogRecordsList() {
+  console.log('here');
+};
+
+/***/ }),
+
 /***/ "./resources/dashboard/assets/img/anime3.png":
 /*!***************************************************!*\
   !*** ./resources/dashboard/assets/img/anime3.png ***!
@@ -80500,6 +80516,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
+/* harmony import */ var _actions_admin_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/admin-actions */ "./resources/dashboard/actions/admin-actions.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80518,7 +80539,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
- // reactstrap components
+
 
 
 
@@ -80527,43 +80548,30 @@ var Tables =
 function (_React$Component) {
   _inherits(Tables, _React$Component);
 
-  function Tables() {
+  function Tables(props) {
+    var _this;
+
     _classCallCheck(this, Tables);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Tables).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Tables).call(this, props));
+    var dispatch = props.dispatch;
+
+    Object(_actions_admin_actions__WEBPACK_IMPORTED_MODULE_2__["getBlogRecordsList"])();
+
+    return _this;
   }
 
   _createClass(Tables, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      console.log(nextProps);
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
-        md: "12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardHeader"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardTitle"], {
-        tag: "h4"
-      }, "Simple Table")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Table"], {
-        className: "tablesorter",
-        responsive: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
-        className: "text-primary"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Country"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "City"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        className: "text-center"
-      }, "Salary"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Dakota Rice"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Niger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Oud-Turnhout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$36,738")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Minerva Hooper"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Cura\xE7ao"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Sinaai-Waas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$23,789")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Sage Rodriguez"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Netherlands"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Baileux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$56,142")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Philip Chaney"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Korea, South"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Overland Park"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$38,735")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Doris Greene"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Malawi"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Feldkirchen in K\xE4rnten"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$63,542")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Mason Porter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Chile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Gloucester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$78,615")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Jon Porter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Portugal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Gloucester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$98,615"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         md: "12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], {
         className: "card-plain"
@@ -80580,24 +80588,24 @@ function (_React$Component) {
         className: "text-center"
       }, "Salary"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Dakota Rice"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Niger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Oud-Turnhout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         className: "text-center"
-      }, "$36,738")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Minerva Hooper"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Cura\xE7ao"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Sinaai-Waas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$23,789")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Sage Rodriguez"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Netherlands"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Baileux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$56,142")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Philip Chaney"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Korea, South"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Overland Park"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$38,735")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Doris Greene"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Malawi"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Feldkirchen in K\xE4rnten"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$63,542")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Mason Porter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Chile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Gloucester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$78,615")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Jon Porter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Portugal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Gloucester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$98,615"))))))))));
+      }, "$36,738"))))))))));
     }
   }]);
 
   return Tables;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return _objectSpread({}, state);
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    getBlogRecordsList: function getBlogRecordsList() {
+      return dispatch(Object(_actions_admin_actions__WEBPACK_IMPORTED_MODULE_2__["getBlogRecordsList"])());
+    }
+  };
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Tables);
 
