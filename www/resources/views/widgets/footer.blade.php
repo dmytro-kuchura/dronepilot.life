@@ -1,31 +1,32 @@
-<!-- footer -->
 <footer role="footer">
-    <!-- logo -->
-
     <h1>
-        <a href="index.html" title="avana LLC">
-            <img src="/images/logo.png" title="avana LLC" alt="avana LLC"/>
+        <a href="{{ route('home') }}" title="Drone Pilot | blog">
+            <img src="/images/logo.png" title="Drone Pilot | blog" alt="Drone Pilot | blog"/>
         </a>
     </h1>
-    <!-- logo -->
 
-    <!-- nav -->
     <nav role="footer-nav">
         <ul>
-            <li><a href="{{ route('works') }}" title="Work">Work</a></li>
-            <li><a href="{{ route('about') }}" title="About">About</a></li>
-            <li><a href="{{ route('blog') }}" title="Blog">Blog</a></li>
-            <li><a href="{{ route('contacts') }}" title="Contact">Contact</a></li>
+            <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">
+                <a href="{{ route('works') }}" title="Работы">Работы</a>
+            </li>
+            <li class="{{ $uri === 'about' ? 'nav-active' : '' }}">
+                <a href="{{ route('about') }}" title="Обо мне">Обо мне</a>
+            </li>
+            <li class="{{ $uri === 'blog' ? 'nav-active' : '' }}">
+                <a href="{{ route('blog') }}" title="Блог">Блог</a>
+            </li>
+            <li class="{{ $uri === 'contacts' ? 'nav-active' : '' }}">
+                <a href="{{ route('contacts') }}" title="Контакты">Контакты</a>
+            </li>
         </ul>
     </nav>
-    <!-- nav -->
     <ul role="social-icons">
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.facebook.com/dmitry.kychyra"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/dmitry.k__/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
     </ul>
     <p class="copy-right">&copy; 2019 Kuchura Dmitry</p>
 </footer>
-<!-- footer -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ asset('/js/jquery.min.js') }}" type="text/javascript"></script>

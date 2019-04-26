@@ -15,7 +15,7 @@ class MainPageTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')->assertSee('News');
+            $browser->visit('/')->assertSee('DronePilot');
         });
     }
 }

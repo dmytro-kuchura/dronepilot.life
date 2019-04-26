@@ -3,6 +3,7 @@
 namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
+use Illuminate\Support\Facades\Route;
 
 class Header extends AbstractWidget
 {
@@ -19,10 +20,11 @@ class Header extends AbstractWidget
      */
     public function run()
     {
-        //
+        $uri = Route::currentRouteName();
 
         return view('widgets.header', [
             'config' => $this->config,
+            'uri' => $uri,
         ]);
     }
 }

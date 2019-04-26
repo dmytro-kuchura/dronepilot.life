@@ -9,9 +9,9 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
             <article role="pge-title-content" class="blog-header">
                 <header>
-                    <h2><span>News</span> Updates from studio</h2>
+                    <h2><span>DronePilot</span> Блог, портфолио, статьи</h2>
                 </header>
-                <p>Get all information about our studio from latest news posts & updates page.</p>
+                <p>Все необходимое и интересное на почитатать из жизни дроновода.</p>
             </article>
             <ul class="grid-lod effect-2" id="grid">
                 @foreach ($left as $item)

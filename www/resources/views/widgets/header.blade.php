@@ -7,10 +7,18 @@
         </h1>
         <nav role="header-nav" class="navy">
             <ul>
-                <li><a href="{{ route('works') }}" title="Work">Work</a></li>
-                <li><a href="{{ route('about') }}" title="About">About</a></li>
-                <li class="nav-active"><a href="{{ route('blog') }}" title="Blog">Blog</a></li>
-                <li><a href="{{ route('contacts') }}" title="Contact">Contact</a></li>
+                <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">
+                    <a href="{{ route('works') }}" title="Работы">Работы</a>
+                </li>
+                <li class="{{ $uri === 'about' ? 'nav-active' : '' }}">
+                    <a href="{{ route('about') }}" title="Обо мне">Обо мне</a>
+                </li>
+                <li class="{{ $uri === 'blog' ? 'nav-active' : '' }}">
+                    <a href="{{ route('blog') }}" title="Блог">Блог</a>
+                </li>
+                <li class="{{ $uri === 'contacts' ? 'nav-active' : '' }}">
+                    <a href="{{ route('contacts') }}" title="Контакты">Контакты</a>
+                </li>
             </ul>
         </nav>
     </div>

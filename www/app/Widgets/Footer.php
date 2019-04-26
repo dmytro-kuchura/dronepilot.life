@@ -3,6 +3,7 @@
 namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
+use Illuminate\Support\Facades\Route;
 
 class Footer extends AbstractWidget
 {
@@ -19,10 +20,11 @@ class Footer extends AbstractWidget
      */
     public function run()
     {
-        //
+        $uri = Route::currentRouteName();
 
         return view('widgets.footer', [
             'config' => $this->config,
+            'uri' => $uri,
         ]);
     }
 }
