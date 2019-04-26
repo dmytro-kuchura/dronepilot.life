@@ -3,8 +3,8 @@
     <div class="container">
         <!-- logo -->
         <h1>
-            <a href="index.html" title="avana LLC">
-                <img src="/images/logo.png" title="avana LLC" alt="avana LLC"/>
+            <a href="{{ route('home') }}" title="avana LLC">
+                <img src="/images/logo-main.png" title="Drone Pilot | blog" alt="Drone Pilot | blog"/>
             </a>
         </h1>
         <!-- logo -->
