@@ -1,13 +1,10 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// react plugin used to create charts
-import {Line, Bar} from "react-chartjs-2";
+import {connect} from "react-redux";
+import rotateAction from "../actions/rotateAction";
+import {Line} from "react-chartjs-2";
 
-// reactstrap components
 import {
     Button,
-    ButtonGroup,
     Card,
     CardHeader,
     CardBody,
@@ -43,6 +40,8 @@ class Dashboard extends React.Component {
     };
 
     render() {
+        console.log(this.props);
+
         return (
             <>
                 <div className="content">
@@ -86,7 +85,7 @@ class Dashboard extends React.Component {
                                         <DropdownMenu aria-labelledby="dropdownMenuLink" right>
                                             <DropdownItem
                                                 href="#pablo"
-                                                onClick={e => e.preventDefault()}
+                                                onClick={() => this.props.rotateAction(!this.props.rotating)}
                                             >
                                                 Action
                                             </DropdownItem>
@@ -405,4 +404,10 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+    ...state
+});
+const mapDispatchToProps = dispatch => ({
+    rotateAction: (payload) => dispatch(rotateAction(payload))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
