@@ -10,20 +10,9 @@ import {
     Col
 } from "reactstrap";
 
-import {getBlogRecordsList} from "../actions/admin-actions";
+import BlogList from "../components/Blog/BlogList";
 
 class Tables extends React.Component {
-    constructor(props) {
-        super(props);
-        let {dispatch} = props;
-
-        getBlogRecordsList()
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
-
     render() {
         return (
             <>
@@ -46,12 +35,7 @@ class Tables extends React.Component {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Dakota Rice</td>
-                                            <td>Niger</td>
-                                            <td>Oud-Turnhout</td>
-                                            <td className="text-center">$36,738</td>
-                                        </tr>
+                                        <BlogList/>
                                         </tbody>
                                     </Table>
                                 </CardBody>
@@ -63,12 +47,5 @@ class Tables extends React.Component {
         );
     }
 }
-
-const mapStateToProps = state => ({
-    ...state
-});
-const mapDispatchToProps = dispatch => ({
-    getBlogRecordsList: () => dispatch(getBlogRecordsList())
-});
 
 export default Tables;

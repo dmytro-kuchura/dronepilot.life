@@ -12,13 +12,15 @@ import AdminLayout from "./layouts/Admin/Admin.jsx";
 const hist = createBrowserHistory();
 
 ReactDOM.render(
-    <Router history={hist}>
-        <Provider store={configureStore()}>
-            <Switch>
-                <Route path="/admin" render={props => <AdminLayout {...props} />}/>
-                <Redirect from="/" to="/admin/dashboard"/>
-            </Switch>
-        </Provider>
-    </Router>,
+    <Provider store={configureStore()}>
+        <Router history={hist}>
+            <Provider store={configureStore()}>
+                <Switch>
+                    <Route path="/admin" render={props => <AdminLayout {...props} />}/>
+                    <Redirect from="/" to="/admin/dashboard"/>
+                </Switch>
+            </Provider>
+        </Router>
+    </Provider>,
     document.getElementById("app")
 );

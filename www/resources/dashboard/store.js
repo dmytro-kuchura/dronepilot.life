@@ -1,8 +1,8 @@
 import {createStore} from "redux";
-import rotateReducer from "./reducers/rotateReducer";
+import rootReducer from "./reducers/root-reducer";
 
-function configureStore(state = {rotating: true}) {
-    return createStore(rotateReducer, state);
+function configureStore(state = {bgState: {bgColor: "black"}, activeState: {activeColor: "info"}}) {
+    return createStore(rootReducer, state);
 }
 
 export default configureStore;
