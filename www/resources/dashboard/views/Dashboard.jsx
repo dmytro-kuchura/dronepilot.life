@@ -1,6 +1,5 @@
 import React from "react";
 import {connect} from "react-redux";
-import rotateAction from "../actions/rotateAction";
 import {Line} from "react-chartjs-2";
 
 import {
@@ -404,10 +403,4 @@ class Dashboard extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    ...state
-});
-const mapDispatchToProps = dispatch => ({
-    rotateAction: (payload) => dispatch(rotateAction(payload))
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default Dashboard;

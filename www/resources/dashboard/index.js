@@ -11,6 +11,8 @@ import AdminLayout from "./layouts/Admin/Admin.jsx";
 
 const hist = createBrowserHistory();
 
+console.log(configureStore());
+
 ReactDOM.render(
     <Provider store={configureStore()}>
         <Router history={hist}>

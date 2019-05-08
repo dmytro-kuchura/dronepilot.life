@@ -1,7 +1,7 @@
 import {createStore} from "redux";
 import rootReducer from "./reducers/root-reducer";
 
-function configureStore(state = {bgState: {bgColor: "black"}, activeState: {activeColor: "info"}}) {
+function configureStore(state = {}) {
     return createStore(rootReducer, state);
 }
 

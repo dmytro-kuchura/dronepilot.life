@@ -1,16 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
+import {getBlogRecordsList} from "../../actions/admin-actions";
 
 class BlogList extends React.Component {
     state = {
         collapseOpen: false,
         modalSearch: false,
-        color: "navbar-transparent"
     };
 
     constructor(props) {
         super(props);
 
+        getBlogRecordsList();
         console.log(props);
         console.log(this.state);
     }
@@ -43,4 +45,7 @@ class BlogList extends React.Component {
     }
 }
 
-export default BlogList;
+const mapStateToProps = state => ({
+    ...state
+});
+export default connect(mapStateToProps)(BlogList);

@@ -2687,6 +2687,11 @@ pre code {
   opacity: 1;
 }
 
+.form-control::-moz-placeholder {
+  color: #adb5bd;
+  opacity: 1;
+}
+
 .form-control:-ms-input-placeholder {
   color: #adb5bd;
   opacity: 1;
@@ -5852,8 +5857,10 @@ input[type=button].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
@@ -14944,6 +14951,10 @@ img {
   color: #9A9A9A !important;
 }
 
+.navbar.bg-white .form-control::-moz-placeholder {
+  color: #9A9A9A !important;
+}
+
 .navbar.bg-white .form-control:-ms-input-placeholder {
   color: #9A9A9A !important;
 }
@@ -18062,6 +18073,10 @@ textarea.form-control {
   color: white;
 }
 
+.search-bar.input-group .form-control::-moz-placeholder {
+  color: white;
+}
+
 .search-bar.input-group .form-control:-ms-input-placeholder {
   color: white;
 }
@@ -18085,6 +18100,10 @@ textarea.form-control {
 }
 
 .modal-search .modal-dialog .form-control::-webkit-input-placeholder {
+  color: #222a42;
+}
+
+.modal-search .modal-dialog .form-control::-moz-placeholder {
   color: #222a42;
 }
 
@@ -18268,6 +18287,10 @@ textarea.form-control {
 }
 
 .white-content .navbar.navbar-transparent .search-bar.input-group .form-control::-webkit-input-placeholder {
+  color: #9A9A9A;
+}
+
+.white-content .navbar.navbar-transparent .search-bar.input-group .form-control::-moz-placeholder {
   color: #9A9A9A;
 }
 
