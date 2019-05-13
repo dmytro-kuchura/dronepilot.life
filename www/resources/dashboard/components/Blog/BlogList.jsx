@@ -58,14 +58,17 @@ class BlogList extends React.Component {
                 return (
                     <tr key={record.id}>
                         <td>
-                            <Link to={'/blog/' + record.id}>
+                            <Link to={'/admin/blog/' + record.id}>
                                 {record.id}
                             </Link>
                         </td>
                         <td>{record.name}</td>
                         <td>{record.created_at}</td>
                         <td>{record.status}</td>
-                        <td><i className="tim-icons icon-notes"/></td>
+                        <td className="td-actions text-right">
+                            <button type="button" id={record.id} title="" className="btn btn-link"><i
+                                className="tim-icons icon-pencil"></i></button>
+                        </td>
                     </tr>
                 );
             });

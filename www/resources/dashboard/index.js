@@ -11,15 +11,13 @@ import AdminLayout from "./layouts/Admin/Admin.jsx";
 
 const hist = createBrowserHistory();
 
-console.log(configureStore());
-
 ReactDOM.render(
     <Provider store={configureStore()}>
         <Router history={hist}>
             <Provider store={configureStore()}>
                 <Switch>
                     <Route path="/admin" render={props => <AdminLayout {...props} />}/>
-                    <Redirect from="/" to="/admin/dashboard"/>
+                    <Redirect from="/admin" to="/admin/dashboard"/>
                 </Switch>
             </Provider>
         </Router>
