@@ -44,4 +44,11 @@ class BlogController extends Controller
             'count_comments' => $count_comments,
         ]);
     }
+
+    public function list()
+    {
+        $result = $this->repository->list();
+
+        return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);
+    }
 }

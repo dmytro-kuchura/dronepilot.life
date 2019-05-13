@@ -267,11 +267,9 @@ class Dashboard extends React.Component {
                                                     </FormGroup>
                                                 </td>
                                                 <td>
-                                                    <p className="title">Export the processed files</p>
+                                                    <p className="title">Все записи Блога</p>
                                                     <p className="text-muted">
-                                                        The report also shows that consumers will not
-                                                        easily forgive a company once a breach exposing
-                                                        their personal data occurs.
+                                                        Смотрим, редактируем публикуем, удаляем, сохраняем на память
                                                     </p>
                                                 </td>
                                                 <td className="td-actions text-right">

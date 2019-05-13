@@ -34,8 +34,8 @@ var routes = [
         layout: "/admin"
     },
     {
-        path: "/tables",
-        name: "Table List",
+        path: "/blog",
+        name: "Список записей Блога",
         icon: "tim-icons icon-puzzle-10",
         component: TableList,
         layout: "/admin"

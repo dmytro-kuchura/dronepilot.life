@@ -1,24 +1,37 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
-import {getBlogRecordsList} from "../../actions/admin-actions";
+import axios from "axios";
 
 class BlogList extends React.Component {
     state = {
+        result: [],
+
         collapseOpen: false,
         modalSearch: false,
     };
 
     constructor(props) {
         super(props);
-
-        getBlogRecordsList();
-        console.log(props);
-        console.log(this.state);
     }
 
     componentDidMount() {
-        //
+        const self = this;
+
+        axios.get('/api/v1/blog/list')
+            .then(function (response) {
+                self.setState({
+                    result: response.data.result,
+                })
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
     }
 
     componentWillUnmount() {
@@ -32,14 +45,35 @@ class BlogList extends React.Component {
     };
 
     render() {
+
+        if (!this.state.result.length) {
+            return null;
+        }
+
+        let list = this.state.result;
+        let html;
+
+        if (list) {
+            html = list.map(function (record) {
+                return (
+                    <tr key={record.id}>
+                        <td>
+                            <Link to={'/blog/' + record.id}>
+                                {record.id}
+                            </Link>
+                        </td>
+                        <td>{record.name}</td>
+                        <td>{record.created_at}</td>
+                        <td>{record.status}</td>
+                        <td><i className="tim-icons icon-notes"/></td>
+                    </tr>
+                );
+            });
+        }
+
         return (
             <>
-                <tr>
-                    <td>Dakota Rice</td>
-                    <td>Niger</td>
-                    <td>Oud-Turnhout</td>
-                    <td className="text-center">$36,738</td>
-                </tr>
+                {html}
             </>
         );
     }

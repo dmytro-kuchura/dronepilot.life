@@ -1,10 +1,9 @@
 const axios = require('axios');
 
 export const getBlogRecordsList = () => {
-    axios.get('/user?ID=12345')
+    axios.get('/api/v1/blog/list')
         .then(function (response) {
-            // handle success
-            console.log(response);
+            return response.data;
         })
         .catch(function (error) {
             // handle error

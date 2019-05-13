@@ -81787,31 +81787,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/dashboard/actions/admin-actions.js":
-/*!******************************************************!*\
-  !*** ./resources/dashboard/actions/admin-actions.js ***!
-  \******************************************************/
-/*! exports provided: getBlogRecordsList */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBlogRecordsList", function() { return getBlogRecordsList; });
-var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-
-var getBlogRecordsList = function getBlogRecordsList() {
-  axios.get('/user?ID=12345').then(function (response) {
-    // handle success
-    console.log(response);
-  })["catch"](function (error) {
-    // handle error
-    console.log(error);
-  })["finally"](function () {// always executed
-  });
-};
-
-/***/ }),
-
 /***/ "./resources/dashboard/assets/img/anime3.png":
 /*!***************************************************!*\
   !*** ./resources/dashboard/assets/img/anime3.png ***!
@@ -81857,7 +81832,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_admin_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/admin-actions */ "./resources/dashboard/actions/admin-actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -81884,6 +81861,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var BlogList =
 /*#__PURE__*/
 function (_React$Component) {
@@ -81897,6 +81875,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(BlogList).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
+      result: [],
       collapseOpen: false,
       modalSearch: false
     });
@@ -81907,15 +81886,22 @@ function (_React$Component) {
       });
     });
 
-    Object(_actions_admin_actions__WEBPACK_IMPORTED_MODULE_2__["getBlogRecordsList"])();
-    console.log(props);
-    console.log(_this.state);
     return _this;
   }
 
   _createClass(BlogList, [{
     key: "componentDidMount",
-    value: function componentDidMount() {//
+    value: function componentDidMount() {
+      var self = this;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/v1/blog/list').then(function (response) {
+        self.setState({
+          result: response.data.result
+        });
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      })["finally"](function () {// always executed
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -81924,9 +81910,26 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Dakota Rice"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Niger"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Oud-Turnhout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        className: "text-center"
-      }, "$36,738")));
+      if (!this.state.result.length) {
+        return null;
+      }
+
+      var list = this.state.result;
+      var html;
+
+      if (list) {
+        html = list.map(function (record) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+            key: record.id
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+            to: '/blog/' + record.id
+          }, record.id)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, record.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, record.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, record.status), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "tim-icons icon-notes"
+          })));
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, html);
     }
   }]);
 
@@ -82809,8 +82812,8 @@ var routes = [{
   component: _views_UserProfile_jsx__WEBPACK_IMPORTED_MODULE_4__["default"],
   layout: "/admin"
 }, {
-  path: "/tables",
-  name: "Table List",
+  path: "/blog",
+  name: "Список записей Блога",
   icon: "tim-icons icon-puzzle-10",
   component: _views_TableList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"],
   layout: "/admin"
@@ -83239,9 +83242,9 @@ function (_React$Component) {
         className: "check"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "title"
-      }, "Export the processed files"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "\u0412\u0441\u0435 \u0437\u0430\u043F\u0438\u0441\u0438 \u0411\u043B\u043E\u0433\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "text-muted"
-      }, "The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      }, "\u0421\u043C\u043E\u0442\u0440\u0438\u043C, \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u0443\u0435\u043C \u043F\u0443\u0431\u043B\u0438\u043A\u0443\u0435\u043C, \u0443\u0434\u0430\u043B\u044F\u0435\u043C, \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0435\u043C \u043D\u0430 \u043F\u0430\u043C\u044F\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         className: "td-actions text-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         color: "link",
@@ -84574,16 +84577,16 @@ function (_React$Component) {
         className: "card-plain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardHeader"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardTitle"], {
         tag: "h4"
-      }, "Table on Plain Background"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "\u0411\u043B\u043E\u0433"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "category"
-      }, "Here is a subtitle for this table")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Table"], {
+      }, "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u043F\u0438\u0441\u0435\u0439 \u0411\u043B\u043E\u0433\u0430")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["CardBody"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Table"], {
         className: "tablesorter",
         responsive: true
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
         className: "text-primary"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Country"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "City"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "#"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u0414\u0430\u0442\u0430 \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0438"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u0421\u0442\u0430\u0442\u0443\u0441"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "text-center"
-      }, "Salary"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Blog_BlogList__WEBPACK_IMPORTED_MODULE_2__["default"], null)))))))));
+      }, "\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u044F"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Blog_BlogList__WEBPACK_IMPORTED_MODULE_2__["default"], null)))))))));
     }
   }]);
 
