@@ -657,63 +657,63 @@ button, input {
 }
 
 .elisyam-bg.background-01 {
-  background: url('../../../../assets/img/background/01.jpg') no-repeat;
+  background: url('../../images/background/01.jpg') no-repeat;
   background-size: cover;
 }
 
 .elisyam-bg.background-02 {
-  background: url('../../../../assets/img/background/02.jpg') no-repeat;
+  background: url('../../images/background/02.jpg') no-repeat;
   background-size: cover;
 }
 
 .elisyam-bg.background-03 {
-  background: url('../../../../assets/img/background/03.jpg') no-repeat;
+  background: url('../../images/background/03.jpg') no-repeat;
   background-size: cover;
 }
 
 .elisyam-bg.background-04 {
-  background: url('../../../../assets/img/background/04.jpg') no-repeat;
+  background: url('../../images/background/04.jpg') no-repeat;
   background-size: cover;
 }
 
 .elisyam-bg.background-05 {
-  background: url('../../../../assets/img/background/05.jpg') no-repeat;
+  background: url('../../images/background/05.jpg') no-repeat;
   background-size: cover;
 }
 
 .elisyam-bg.background-06 {
-  background: url('../../../../assets/img/background/06.jpg') no-repeat;
+  background: url('../../images/background/06.jpg') no-repeat;
   background-size: cover;
 }
 
 .bg-fixed-01 {
   background: linear-gradient(135deg, rgba(46,52,81,0.4) 0%,rgba(205,95,109,0.95) 100%),
-              url('../../../../assets/img/background/01.jpg') no-repeat center center; 
+              url('../../images/background/01.jpg') no-repeat center center; 
 }
 
 .bg-fixed-02 {
   background: linear-gradient(135deg, rgba(46,52,81,0.4) 0%,rgba(205,95,109,0.95) 100%),
-              url('../../../../assets/img/background/02.jpg') no-repeat center center; 
+              url('../../images/background/02.jpg') no-repeat center center; 
 }
 
 .bg-fixed-03 {
   background: linear-gradient(135deg, rgba(255,195,113,0.4) 0%,rgba(205,95,109,0.95) 100%),
-              url('../../../../assets/img/background/03.jpg') no-repeat center center; 
+              url('../../images/background/03.jpg') no-repeat center center; 
 }
 
 .bg-fixed-04 {
   background: linear-gradient(135deg, rgba(46,52,81,0.5) 0%,rgba(46,52,81,0.95) 100%),
-              url('../../../../assets/img/background/04.jpg') no-repeat center center; 
+              url('../../images/background/04.jpg') no-repeat center center; 
 }
 
 .bg-fixed-05 {
   background: linear-gradient(135deg, rgba(0,201,255,0.4) 0%,rgba(146,254,157,0.95) 100%),
-              url('../../../../assets/img/background/05.jpg') no-repeat center center; 
+              url('../../images/background/05.jpg') no-repeat center center; 
 }
 
 .bg-fixed-06 {
   background: linear-gradient(135deg, rgba(66,39,90,0.4) 0%,rgba(115,75,109,0.95) 100%),
-              url('../../../../assets/img/background/06.jpg') no-repeat center center; 
+              url('../../images/background/06.jpg') no-repeat center center; 
 }
 
 .bg-fixed-01, 
@@ -5721,7 +5721,7 @@ section.forms form span, section.forms form small {
  */
 .db-social .jumbotron {
   margin: 0;
-  background: url('../../../../assets/img/background/05.jpg');
+  background: url('../../images/background/05.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -6387,7 +6387,7 @@ section.forms form span, section.forms form small {
  */
 .db-smarthome.page {
   background-color: #252946;
-  background: url('../../../../assets/img/background/db-smarthome-dark.jpg');
+  background: url('../../images/background/db-smarthome-dark.jpg');
   background-position: bottom right;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -10005,7 +10005,7 @@ nav.navbar .user-size.dropdown-menu a.logout:hover {
 }
 
 .widget-24.bg-image {
-  background: url("../../../../assets/img/background/08.jpg");
+  background: url("../../images/background/08.jpg");
   display: block;
   background-position: 50% 0%;
   background-size: cover;
@@ -10618,7 +10618,7 @@ nav.navbar .user-size.dropdown-menu a.logout:hover {
 }
 
 .widget-32.bg-image {
-  background: url("../../../../assets/img/background/06.jpg");
+  background: url("../../images/background/06.jpg");
   display: block;
   background-position: 50% 0%;
   background-size: cover;
@@ -13908,7 +13908,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .bg-error-02 {
-  background: url('../../../../assets/img/background/07.jpg') no-repeat center center; 
+  background: url('../../images/background/07.jpg') no-repeat center center; 
   background-size: cover;
 }
 

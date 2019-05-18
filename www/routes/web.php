@@ -28,19 +28,24 @@ Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
 
 // Backend
 Route::prefix('admin')->group(function () {
-    Route::get('/', 'AdminController@index')->name('dashboard');
+//    Route::get('/login', 'Auth\LoginController@index')->name('login');
+    Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 
-    Route::prefix('blog')->group(function () {
-        Route::get('/', 'AdminController@index')->name('blog.list');
-        Route::get('/create', 'AdminController@index')->name('blog.create');
-        Route::get('/edit/{id}', 'AdminController@index')->name('blog.edit');
-        Route::get('/delete/{id}', 'AdminController@index')->name('blog.delete');
-    });
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/', 'Admin\MainController@index')->name('dashboard');
 
-    Route::prefix('works')->group(function () {
-        Route::get('/', 'AdminController@index')->name('works.list');
-        Route::get('/create', 'AdminController@index')->name('works.create');
-        Route::get('/edit/{id}', 'AdminController@index')->name('works.edit');
-        Route::get('/delete/{id}', 'AdminController@index')->name('works.delete');
+        Route::prefix('blog')->group(function () {
+            Route::get('/', 'Admin\MainController@index')->name('blog.list');
+            Route::get('/create', 'Admin\MainController@index')->name('blog.create');
+            Route::get('/edit/{id}', 'Admin\MainController@index')->name('blog.edit');
+            Route::get('/delete/{id}', 'Admin\MainController@index')->name('blog.delete');
+        });
+
+        Route::prefix('works')->group(function () {
+            Route::get('/', 'Admin\MainController@index')->name('works.list');
+            Route::get('/create', 'Admin\MainController@index')->name('works.create');
+            Route::get('/edit/{id}', 'Admin\MainController@index')->name('works.edit');
+            Route::get('/delete/{id}', 'Admin\MainController@index')->name('works.delete');
+        });
     });
 });
