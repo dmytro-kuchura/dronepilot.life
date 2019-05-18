@@ -28,11 +28,15 @@ Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
 
 // Backend
 Route::prefix('admin')->group(function () {
-//    Route::get('/login', 'Auth\LoginController@index')->name('login');
-    Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('login', 'Auth\LoginController@login')->name('login');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::post('register', 'Auth\RegisterController@register')->name('register');
 
     Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'Admin\MainController@index')->name('dashboard');
+        Route::get('/dashboard', 'Admin\MainController@index')->name('dashboard');
 
         Route::prefix('blog')->group(function () {
             Route::get('/', 'Admin\MainController@index')->name('blog.list');
