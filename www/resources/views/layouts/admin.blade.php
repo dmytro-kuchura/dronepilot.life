@@ -10,8 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
         WebFont.load({
-            google: {"families":["Montserrat:400,500,600,700","Noto+Sans:400,700"]},
-            active: function() {
+            google: {"families": ["Montserrat:400,500,600,700", "Noto+Sans:400,700"]},
+            active: function () {
                 sessionStorage.fonts = true;
             }
         });
@@ -28,28 +28,17 @@
 </head>
 
 <body id="page-top">
-<!-- Begin Preloader -->
-<div id="preloader">
-    <div class="canvas">
-        <img src="/images/logo-2.png" alt="logo" class="loader-logo">
-        <div class="spinner"></div>
-    </div>
-</div>
-<!-- End Preloader -->
+@widget('Preloader')
 
 @yield('content')
 
-<!-- Begin Vendor Js -->
 <script src="/elisyam/js/jquery.min.js"></script>
 <script src="/elisyam/js/core.js"></script>
-<!-- End Vendor Js -->
-<!-- Begin Page Vendor Js -->
+
 <script src="/elisyam/js/nicescroll.js"></script>
 <script src="/elisyam/js/circle-progress.js"></script>
 <script src="/elisyam/js/app.js"></script>
-<!-- End Page Vendor Js -->
-<!-- Begin Page Snippets -->
+
 <script src="/elisyam/js/db-default-dark.js"></script>
-<!-- End Page Snippets -->
 </body>
 </html>

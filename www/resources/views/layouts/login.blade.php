@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Elisyam - Login</title>
+    <title>DronePilot Dashboard | Панель Администратора | Авторизация</title>
     <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Google Fonts -->
@@ -35,29 +35,17 @@
     <![endif]-->
 </head>
 <body class="bg-white">
-<!-- Begin Preloader -->
-<div id="preloader">
-    <div class="canvas">
-        <img src="/images/logo-2.png" alt="logo" class="loader-logo">
-        <div class="spinner"></div>
-    </div>
-</div>
-<!-- End Preloader -->
+@widget('Preloader')
 
 @yield('content')
 
-<!-- Begin Vendor Js -->
 <script src="/elisyam/js/jquery.min.js"></script>
 <script src="/elisyam/js/core.js"></script>
-<!-- End Vendor Js -->
-<!-- Begin Page Vendor Js -->
+
 <script src="/elisyam/js/nicescroll.js"></script>
 <script src="/elisyam/js/circle-progress.js"></script>
 <script src="/elisyam/js/app.js"></script>
-<!-- End Page Vendor Js -->
-<!-- Begin Page Snippets -->
-<script src="/elisyam/js/animated-tabs.js"></script>
-<!-- End Page Snippets -->
 
+<script src="/elisyam/js/animated-tabs.js"></script>
 </body>
 </html>
