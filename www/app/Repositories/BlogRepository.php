@@ -28,9 +28,14 @@ class BlogRepository
         return Records::where('status', 1)->where('alias', $alias)->first();
     }
 
+    public function getByID($ID)
+    {
+        return Records::where('id', $ID)->first();
+    }
+
     public function list()
     {
-        $records = Records::all();
+        $records = Records::orderBy('created_at', 'desc')->get();
 
         return $records;
     }

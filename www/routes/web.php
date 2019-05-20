@@ -39,10 +39,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', 'Admin\MainController@index')->name('dashboard');
 
         Route::prefix('blog')->group(function () {
-            Route::get('/', 'Admin\MainController@index')->name('blog.list');
-            Route::get('/create', 'Admin\MainController@index')->name('blog.create');
-            Route::get('/edit/{id}', 'Admin\MainController@index')->name('blog.edit');
-            Route::get('/delete/{id}', 'Admin\MainController@index')->name('blog.delete');
+            Route::get('/', 'Admin\BlogController@index')->name('blog.list');
+            Route::get('/create', 'Admin\BlogController@create')->name('blog.create');
+            Route::get('/edit/{id}', 'Admin\BlogController@update')->name('blog.edit');
+            Route::get('/delete/{id}', 'Admin\BlogController@delete')->name('blog.delete');
         });
 
         Route::prefix('works')->group(function () {

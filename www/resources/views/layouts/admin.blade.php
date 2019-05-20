@@ -30,7 +30,25 @@
 <body id="page-top">
 @widget('Preloader')
 
-@yield('content')
+<div class="page">
+    @widget('AdminHeader')
+    <div class="page-content d-flex align-items-stretch">
+        <div class="default-sidebar">
+            @widget('AdminSidebar')
+        </div>
+        <div class="content-inner">
+            <div class="container-fluid">
+                @widget('AdminBreadcrumbs')
+
+                @yield('content')
+
+            </div>
+
+            @widget('AdminFooter')
+            <a href="#" class="go-top"><i class="la la-arrow-up"></i></a>
+        </div>
+    </div>
+</div>
 
 <script src="/elisyam/js/jquery.min.js"></script>
 <script src="/elisyam/js/core.js"></script>
