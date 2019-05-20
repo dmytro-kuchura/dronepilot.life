@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBlogPost;
 use App\Repositories\BlogRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
@@ -31,13 +33,24 @@ class BlogController extends Controller
         //
     }
 
-    public function update($id)
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function edit($id)
     {
         $result = $this->repository->getByID($id);
 
         return view('dashboard.blog.update', [
             'result' => $result
         ]);
+    }
+
+
+    public function update(Request $request)
+    {
+        $this->repository->update($request->all());
     }
 
     public function delete()

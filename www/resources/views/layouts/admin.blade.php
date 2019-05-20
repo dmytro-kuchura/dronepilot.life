@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="/elisyam/css/bootstrap.css">
     <link rel="stylesheet" href="/elisyam/css/elisyam-1.5-dark.css">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -58,5 +60,18 @@
 <script src="/elisyam/js/app.js"></script>
 
 <script src="/elisyam/js/db-default-dark.js"></script>
+
+<!-- include summernote css/js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            tabsize: 5,
+            height: 250
+        });
+    });
+</script>
+
 </body>
 </html>

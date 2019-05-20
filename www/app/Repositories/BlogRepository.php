@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Records;
+use Illuminate\Http\Request;
 
 class BlogRepository
 {
@@ -38,5 +39,12 @@ class BlogRepository
         $records = Records::orderBy('created_at', 'desc')->get();
 
         return $records;
+    }
+
+    public function update($request)
+    {
+        $model = Records::where('id', $request['id'])->first();
+
+        dd($model);
     }
 }
