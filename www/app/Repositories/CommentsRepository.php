@@ -23,4 +23,9 @@ class CommentsRepository
     {
         return Comments::where('status', 1)->where('record_id', $id)->count();
     }
+
+    public function last()
+    {
+        return Comments::limit(3)->orderBy('created_at', 'desc')->get();
+    }
 }

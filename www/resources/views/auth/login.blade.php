@@ -39,12 +39,26 @@
                                     <span class="bar"></span>
                                     <label>Email</label>
                                 </div>
+
+                                @if ($errors->has('email'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                @endif
+
                                 <div class="group material-input">
                                     <input type="password" required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>Пароль</label>
                                 </div>
+
+                                @if ($errors->has('password'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('password') }}
+                                    </div>
+                                @endif
+
                                 <div class="row">
                                     <div class="col text-left">
                                         <div class="styled-checkbox">
