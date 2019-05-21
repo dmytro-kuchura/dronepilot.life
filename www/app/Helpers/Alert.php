@@ -48,11 +48,13 @@ class Alert
 
     /**
      * Создаем сообщение статически
+     *
      * @param $text
      * @param string $type
      * @param null $title
      * @param null $icon
      * @return Alert
+     * @throws WrongParametersException
      */
     public static function create($text, $type = 'info', $title = null, $icon = null)
     {
@@ -61,9 +63,11 @@ class Alert
 
     /**
      * Хелпер для ошибки
+     *
      * @param $text
      * @param null $title
      * @return Alert
+     * @throws WrongParametersException
      */
     public static function danger($text, $title = null)
     {
@@ -72,9 +76,11 @@ class Alert
 
     /**
      * Хелпер для успешного сообщения
+     *
      * @param $text
      * @param null $title
      * @return Alert
+     * @throws WrongParametersException
      */
     public static function success($text, $title = null)
     {
@@ -83,9 +89,11 @@ class Alert
 
     /**
      * Хелпер для информационного сообщения
+     *
      * @param $text
      * @param null $title
      * @return Alert
+     * @throws WrongParametersException
      */
     public static function info($text, $title = null)
     {
@@ -94,9 +102,11 @@ class Alert
 
     /**
      * Хелпер для предупреждения
+     *
      * @param $text
      * @param null $title
      * @return Alert
+     * @throws WrongParametersException
      */
     public static function warning($text, $title = null)
     {
@@ -105,8 +115,10 @@ class Alert
 
     /**
      * Хелпер для сообщения после создания данных
+     *
      * @param bool $success
      * @return Alert
+     * @throws WrongParametersException
      */
     public static function afterCreating($success = true)
     {

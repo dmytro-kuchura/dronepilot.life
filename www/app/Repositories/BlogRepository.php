@@ -54,6 +54,23 @@ class BlogRepository
         $model->content = $request['content'];
         $model->alias = Text::cyrillic($request['name']);
 
-        dd($model);
+        return $model->save();
+    }
+
+    public function store($request)
+    {
+        dd($request);
+
+        /* @var $model Records */
+        $model = new Records();
+
+        $model->title = $request['title'];
+        $model->name = $request['name'];
+        $model->description = $request['description'];
+        $model->keywords = $request['keywords'];
+        $model->content = $request['content'];
+        $model->alias = Text::cyrillic($request['name']);
+
+        return $model->save();
     }
 }

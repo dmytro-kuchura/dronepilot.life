@@ -1,14 +1,14 @@
 <form class="needs-validation" method="post" action="{{ $action }}">
     @csrf
 
-    @if($result->id)
-        <input type="hidden" name="id" value="{{ $result->id }}">
+    @if(isset($result) && $result->id)
+        <input type="hidden" name="id" value="{{ isset($result) && $result->id }}">
     @endif
 
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Название</label>
         <div class="col-lg-7">
-            <input type="text" class="form-control" name="name" value="{{ $result->name ? $result->name : '' }}"
+            <input type="text" class="form-control" name="name" value="{{ isset($result) && $result->name ? $result->name : '' }}"
                    placeholder="Название">
         </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Ссылка</label>
         <div class="col-lg-7">
-            <input type="text" class="form-control" name="alias" value="{{ $result->alias ? $result->alias : '' }}"
+            <input type="text" class="form-control" name="alias" value="{{ isset($result) && $result->alias ? $result->alias : '' }}"
                    placeholder="Ссылка">
         </div>
     </div>
@@ -24,8 +24,8 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Контент</label>
         <div class="col-lg-7">
-            <textarea class="form-control" id="summernote" name="content" placeholder="Keywords ..."
-                      required="">{{ $result->content ? $result->content : '' }}</textarea>
+            <textarea class="form-control" id="summernote" name="content" placeholder="Контент"
+                      required="">{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
             <div class="invalid-feedback">
                 Введите контент
             </div>
@@ -37,7 +37,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Title</label>
         <div class="col-lg-7">
-            <input type="text" class="form-control" name="title" value="{{ $result->title ? $result->title : '' }}"
+            <input type="text" class="form-control" name="title" value="{{isset($result) &&  $result->title ? $result->title : '' }}"
                    placeholder="Title">
         </div>
     </div>
@@ -45,8 +45,8 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Description</label>
         <div class="col-lg-7">
-            <textarea class="form-control" name="description" placeholder="Description ..."
-                      required="">{{ $result->description ? $result->description : '' }}</textarea>
+            <textarea class="form-control" name="description" placeholder="Description"
+                      required="">{{ isset($result) && $result->description ? $result->description : '' }}</textarea>
             <div class="invalid-feedback">
                 Please enter a description
             </div>
@@ -57,7 +57,7 @@
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Keywords</label>
         <div class="col-lg-7">
             <textarea class="form-control" name="keywords" placeholder="Keywords ..."
-                      required="">{{ $result->keywords ? $result->keywords : '' }}</textarea>
+                      required="">{{ isset($result) && $result->keywords ? $result->keywords : '' }}</textarea>
             <div class="invalid-feedback">
                 Please enter keywords
             </div>
@@ -70,9 +70,9 @@
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Статус *</label>
         <div class="col-lg-2">
             <div class="custom-control custom-radio styled-radio mb-3">
-                <input class="custom-control-input" type="radio" name="status-on"
-                       {{ $result->status == 1 ? 'checked=""' : '' }} required="">
-                <label class="custom-control-descfeedback" for="opt-01">Опубликовано</label>
+                <input class="custom-control-input" type="radio" name="status" id="status-on"
+                       {{ isset($result) && $result->status == 1 ? 'checked=""' : '' }} required="">
+                <label class="custom-control-descfeedback" for="status-on">Опубликовано</label>
                 <div class="invalid-feedback">
                     Опубликовано
                 </div>
@@ -80,9 +80,9 @@
         </div>
         <div class="col-lg-3">
             <div class="custom-control custom-radio styled-radio mb-3">
-                <input class="custom-control-input" type="radio" name="status-off"
-                       {{ $result->status == 0 ? 'checked=""' : '' }} required="">
-                <label class="custom-control-descfeedback" for="opt-02">Не опубликовано</label>
+                <input class="custom-control-input" type="radio" name="status" id="status-off"
+                       {{ isset($result) && $result->status == 0 ? 'checked=""' : '' }} required="">
+                <label class="custom-control-descfeedback" for="status-off">Не опубликовано</label>
                 <div class="invalid-feedback">
                     Не опубликовано
                 </div>

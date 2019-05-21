@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Alert;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogPost;
 use App\Repositories\BlogRepository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -23,6 +22,8 @@ class BlogController extends Controller
     {
         $result = $this->repository->list();
 
+        Alert::success('All is OK');
+
         return view('dashboard.blog.list', [
             'result' => $result
         ]);
@@ -30,12 +31,14 @@ class BlogController extends Controller
 
     public function create()
     {
-        //
+        return view('dashboard.blog.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreBlogPost $request)
     {
-        //
+        $this->repository->store($request->all());
+
+        return redirect()->route('blog.index');
     }
 
     public function edit($id)
@@ -51,6 +54,8 @@ class BlogController extends Controller
     public function update(StoreBlogPost $request)
     {
         $this->repository->update($request->all());
+
+        return redirect()->route('blog.index');
     }
 
     public function delete()
