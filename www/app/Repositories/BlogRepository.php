@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Helpers\Text;
 use App\Models\Records;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,15 @@ class BlogRepository
 
     public function update($request)
     {
+        /* @var $model Records */
         $model = Records::where('id', $request['id'])->first();
+
+        $model->title = $request['title'];
+        $model->name = $request['name'];
+        $model->description = $request['description'];
+        $model->keywords = $request['keywords'];
+        $model->content = $request['content'];
+        $model->alias = Text::cyrillic($request['name']);
 
         dd($model);
     }

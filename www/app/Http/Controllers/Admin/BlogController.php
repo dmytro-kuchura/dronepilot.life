@@ -48,7 +48,7 @@ class BlogController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(StoreBlogPost $request)
     {
         $this->repository->update($request->all());
     }

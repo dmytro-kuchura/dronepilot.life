@@ -34,7 +34,7 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="group material-input">
-                                    <input type="text" required>
+                                    <input type="text" name="email" required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>Email</label>
@@ -47,7 +47,7 @@
                                 @endif
 
                                 <div class="group material-input">
-                                    <input type="password" required>
+                                    <input type="password" name="password" required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <label>Пароль</label>
@@ -65,9 +65,6 @@
                                             <input type="checkbox" name="checkbox" id="remeber">
                                             <label for="remeber">Запомнить меня</label>
                                         </div>
-                                    </div>
-                                    <div class="col text-right">
-                                        <a href="pages-forgot-password.html">Забыт пароль ?</a>
                                     </div>
                                 </div>
                                 <div class="sign-btn text-center">
