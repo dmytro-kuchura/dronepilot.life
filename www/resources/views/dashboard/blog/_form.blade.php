@@ -1,8 +1,8 @@
-<form class="needs-validation" method="post" action="{{ $action }}">
+<form class="needs-validation" enctype="multipart/form-data" method="post" action="{{ $action }}">
     @csrf
 
     @if(isset($result) && $result->id)
-        <input type="hidden" name="id" value="{{ isset($result) && $result->id }}">
+        <input type="hidden" name="id" value="{{ $result->id }}">
     @endif
 
     <div class="form-group row d-flex align-items-center mb-5">
@@ -66,11 +66,20 @@
 
     <div class="em-separator separator-dashed"></div>
 
+    <div class="form-group row d-flex align-items-center mb-5">
+        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Обложка</label>
+        <div class="col-lg-7">
+            <input type="file" name="file">
+        </div>
+    </div>
+
+    <div class="em-separator separator-dashed"></div>
+
     <div class="form-group row mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Статус *</label>
         <div class="col-lg-2">
             <div class="custom-control custom-radio styled-radio mb-3">
-                <input class="custom-control-input" type="radio" name="status" id="status-on"
+                <input class="custom-control-input" type="radio" name="status" id="status-on" value="on"
                        {{ isset($result) && $result->status == 1 ? 'checked=""' : '' }} required="">
                 <label class="custom-control-descfeedback" for="status-on">Опубликовано</label>
                 <div class="invalid-feedback">
@@ -80,8 +89,8 @@
         </div>
         <div class="col-lg-3">
             <div class="custom-control custom-radio styled-radio mb-3">
-                <input class="custom-control-input" type="radio" name="status" id="status-off"
-                       {{ isset($result) && $result->status == 0 ? 'checked=""' : '' }} required="">
+                <input class="custom-control-input" type="radio" name="status" id="status-off" value="off"
+                       {{ !isset($result) || $result->status == 0 ? 'checked=""' : '' }} required="">
                 <label class="custom-control-descfeedback" for="status-off">Не опубликовано</label>
                 <div class="invalid-feedback">
                     Не опубликовано

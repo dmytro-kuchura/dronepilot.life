@@ -38,7 +38,7 @@ class BlogController extends Controller
     {
         $this->repository->store($request->all());
 
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.list');
     }
 
     public function edit($id)
@@ -50,16 +50,17 @@ class BlogController extends Controller
         ]);
     }
 
-
     public function update(StoreBlogPost $request)
     {
         $this->repository->update($request->all());
 
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.list');
     }
 
-    public function delete()
+    public function delete($id)
     {
-        //
+        $this->repository->destroy($id);
+
+        return redirect()->route('blog.list');
     }
 }

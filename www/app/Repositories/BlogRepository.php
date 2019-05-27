@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Helpers\Text;
+use App\Helpers\Upload;
 use App\Models\Records;
-use Illuminate\Http\Request;
 
 class BlogRepository
 {
@@ -25,6 +25,13 @@ class BlogRepository
         return $result;
     }
 
+    public function list()
+    {
+        $records = Records::orderBy('created_at', 'desc')->get();
+
+        return $records;
+    }
+
     public function getByAlias($alias)
     {
         return Records::where('status', 1)->where('alias', $alias)->first();
@@ -33,13 +40,6 @@ class BlogRepository
     public function getByID($ID)
     {
         return Records::where('id', $ID)->first();
-    }
-
-    public function list()
-    {
-        $records = Records::orderBy('created_at', 'desc')->get();
-
-        return $records;
     }
 
     public function update($request)
@@ -52,15 +52,15 @@ class BlogRepository
         $model->description = $request['description'];
         $model->keywords = $request['keywords'];
         $model->content = $request['content'];
-        $model->alias = Text::cyrillic($request['name']);
+        $model->image = Upload::save($request);
+        $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
+        $model->status = $request['status'] === 'on' ? 1 : 0;
 
         return $model->save();
     }
 
     public function store($request)
     {
-        dd($request);
-
         /* @var $model Records */
         $model = new Records();
 
@@ -69,8 +69,15 @@ class BlogRepository
         $model->description = $request['description'];
         $model->keywords = $request['keywords'];
         $model->content = $request['content'];
-        $model->alias = Text::cyrillic($request['name']);
+        $model->image = Upload::save($request);
+        $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
+        $model->status = $request['status'] === 'on' ? 1 : 0;
 
         return $model->save();
+    }
+
+    public function destroy($ID)
+    {
+        return Records::destroy($ID);
     }
 }

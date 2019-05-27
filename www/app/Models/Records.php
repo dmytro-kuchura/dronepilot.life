@@ -23,6 +23,5 @@ class Records extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'alias', 'title', 'keywords', 'description', 'content', 'views', 'image', 'status', 'created_at', 'updated_at'];
-
+    protected $fillable = ['id', 'name', 'alias', 'title', 'keywords', 'description', 'content', 'views', 'image', 'status', 'created_at', 'updated_at'];
 }

@@ -97,6 +97,7 @@
       <path value="$PROJECT_DIR$/www/vendor/krlove/code-generator" />
       <path value="$PROJECT_DIR$/www/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/www/vendor/krlove/eloquent-model-generator" />
+      <path value="$PROJECT_DIR$/www/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
