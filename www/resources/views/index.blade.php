@@ -23,7 +23,7 @@
                                         <div class="post-date">
                                             {!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($item->created_at))  !!}
                                         </div>
-                                        <img src="images/blog-images/blog-2.jpg" alt="" class="img-responsive"/>
+                                        <img src="{{ is_file(public_path('storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}" alt="" class="img-responsive"/>
                                     </figure>
                                 </a>
                                 <article>{{ $item->name }}</article>
@@ -44,7 +44,7 @@
                                         <div class="post-date">
                                             {!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($item->created_at))  !!}
                                         </div>
-                                        <img src="images/blog-images/blog-1.jpg" alt="" class="img-responsive"/>
+                                        <img src="{{ is_file(storage_path('storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}" alt="" class="img-responsive"/>
                                     </figure>
                                 </a>
                                 <article>{{ $item->name }}</article>

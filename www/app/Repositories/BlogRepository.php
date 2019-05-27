@@ -16,9 +16,9 @@ class BlogRepository
 
         foreach ($records as $key => $obj) {
             if ($key & 1) {
-                $result['left'] = $obj;
+                $result['left'][] = $obj;
             } else {
-                $result['right'] = $obj;
+                $result['right'][] = $obj;
             }
         }
 
