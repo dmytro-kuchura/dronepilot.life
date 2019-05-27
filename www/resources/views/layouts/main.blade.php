@@ -32,6 +32,16 @@
     <link href="{{ asset('/css/effects/set2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/effects/normalize.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/effects/component.css') }}"  rel="stylesheet" type="text/css" >
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140910657-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-140910657-1');
+    </script>
 </head>
 <body>
 

@@ -8,9 +8,14 @@ use App\Models\Records;
 
 class BlogRepository
 {
+    /**
+     * Get all records for main page and index page blog
+     *
+     * @return array
+     */
     public function all()
     {
-        $records = Records::where('status', 1)->get();
+        $records = Records::where('status', 1)->orderBy('id', 'desc')->get();
 
         $result = [];
 
@@ -24,6 +29,7 @@ class BlogRepository
 
         return $result;
     }
+
 
     public function list()
     {
@@ -76,6 +82,12 @@ class BlogRepository
         return $model->save();
     }
 
+    /**
+     * Destroy record from database
+     *
+     * @param $ID
+     * @return int
+     */
     public function destroy($ID)
     {
         return Records::destroy($ID);
