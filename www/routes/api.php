@@ -14,5 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::prefix('v1')->group(function () {
-    //
+    Route::post('/comment', 'ApiController@comment')->name('api.comment');
+    Route::post('/contact', 'ApiController@contacts')->name('api.contacts');
 });

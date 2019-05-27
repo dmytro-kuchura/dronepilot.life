@@ -12,9 +12,9 @@
                 <h2>{{ $result->name }}</h2>
             </header>
             <figure>
-                <img src="/images/blog-images/blog-details-image.jpg" alt="" class="img-responsive"/>
+                <img src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : '/images/placeholder.png' }}" alt="" class="img-responsive"/>
             </figure>
-            <div class="enter-content">{{ $result->content }}</div>
+            <div class="enter-content">{!! $result->content !!}</div>
         </article>
 
         <div class="comments-pan">

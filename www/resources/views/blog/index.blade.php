@@ -9,9 +9,10 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
             <article role="pge-title-content" class="blog-header">
                 <header>
-                    <h2><span>News</span> Updates from studio</h2>
+                    <h2><span>Блог</span> Истории из жизни дроновода</h2>
                 </header>
-                <p>Get all information about our studio from latest news posts & updates page.</p>
+                <p>Различная информация о дроне, настройки, тесты, полеты за границей (какие страны лучше избегать). А
+                    так же советы и подсказки</p>
             </article>
             <ul class="grid-lod effect-2" id="grid">
                 @foreach ($left as $item)
@@ -23,7 +24,9 @@
                                         <div class="post-date">
                                             {!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($item->created_at))  !!}
                                         </div>
-                                        <img src="images/blog-images/blog-2.jpg" alt="" class="img-responsive"/>
+                                        <img
+                                            src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}"
+                                            alt="" class="img-responsive"/>
                                     </figure>
                                 </a>
                                 <article>{{ $item->name }}</article>
@@ -44,7 +47,9 @@
                                         <div class="post-date">
                                             {!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($item->created_at))  !!}
                                         </div>
-                                        <img src="images/blog-images/blog-1.jpg" alt="" class="img-responsive"/>
+                                        <img
+                                            src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}"
+                                            alt="" class="img-responsive"/>
                                     </figure>
                                 </a>
                                 <article>{{ $item->name }}</article>
