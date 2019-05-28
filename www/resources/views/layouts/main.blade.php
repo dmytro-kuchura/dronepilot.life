@@ -28,7 +28,7 @@
     <link href="{{ asset('/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <!-- font-awesome -->
     <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <!-- font-awesome -->
+    <!-- other -->
     <link href="{{ asset('/css/effects/set2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/effects/normalize.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/effects/component.css') }}"  rel="stylesheet" type="text/css" >
