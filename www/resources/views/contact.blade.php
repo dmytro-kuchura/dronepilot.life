@@ -9,7 +9,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
             <article role="pge-title-content" class="contact-header">
                 <header>
-                    <h2><span>Hey Thr!</span> we love to hear you.</h2>
+                    <h2><span>Здравсвтуйте!</span> связаться можно любым удобным способом.</h2>
                 </header>
                 <p>
                     <a href="tel:8197654321"><i class="fa fa-phone" aria-hidden="true"></i> +8197654321</a>
@@ -35,7 +35,8 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <textarea name="comments" id="comments" cols="" rows="" placeholder="Что именно Вас интересует?"></textarea>
+                <textarea name="comments" id="comments" cols="" rows=""
+                          placeholder="Что именно Вас интересует?"></textarea>
                 <div class="clearfix"></div>
                 <input name="submit" class="submit" id="submit" type="submit" value="Отправить">
                 <div id="simple-msg"></div>

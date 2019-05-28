@@ -5,11 +5,25 @@
         </a>
     </h1>
 
+    <div class="contat-from-wrapper">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-3">
+                    <input name="name" id="name" type="text" placeholder="Введите Ваше имя">
+                </div>
+
+                <div class="col-md-3">
+                    <input name="submit" class="submit" id="submit" type="submit" value="Отправить" style="margin: 0">
+                </div>
+            </div>
+        </form>
+    </div>
+
     <nav role="footer-nav">
         <ul>
-            <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">
-                <a href="{{ route('works') }}" title="Работы">Работы</a>
-            </li>
+            {{--            <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">--}}
+            {{--                <a href="{{ route('works') }}" title="Работы">Работы</a>--}}
+            {{--            </li>--}}
             <li class="{{ $uri === 'about' ? 'nav-active' : '' }}">
                 <a href="{{ route('about') }}" title="Обо мне">Обо мне</a>
             </li>

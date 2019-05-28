@@ -7,9 +7,9 @@
         </h1>
         <nav role="header-nav" class="navy">
             <ul>
-                <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">
-                    <a href="{{ route('works') }}" title="Работы">Работы</a>
-                </li>
+{{--                <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">--}}
+{{--                    <a href="{{ route('works') }}" title="Работы">Работы</a>--}}
+{{--                </li>--}}
                 <li class="{{ $uri === 'about' ? 'nav-active' : '' }}">
                     <a href="{{ route('about') }}" title="Обо мне">Обо мне</a>
                 </li>
