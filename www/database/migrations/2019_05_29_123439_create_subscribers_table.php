@@ -18,8 +18,8 @@ class CreateSubscribersTable extends Migration
 
             $table->string('email');
             $table->string('status');
-            $table->string('hash');
-            $table->date('unsubscribe_at');
+            $table->string('hash')->nullable();
+            $table->date('unsubscribe_at')->nullable();
 
             $table->timestamps();
         });

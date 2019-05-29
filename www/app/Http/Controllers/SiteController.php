@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Repositories\BlogRepository;
+use App\Repositories\SubscribersRepository;
 
 class SiteController extends Controller
 {
@@ -21,6 +23,17 @@ class SiteController extends Controller
             'left' => isset($result['left']) ? $result['left'] : [],
             'right' => isset($result['right']) ? $result['right'] : [],
         ]);
+    }
+
+    public function unsubscribe(Request $request)
+    {
+        $hash = $request->route('id');
+
+        $repository = new SubscribersRepository();
+
+        $repository->unsubscribe($hash);
+
+        return view('unsubscribe');
     }
 
     public function contacts()

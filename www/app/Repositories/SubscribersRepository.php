@@ -3,30 +3,47 @@
 namespace App\Repositories;
 
 use App\Models\Subscribers;
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class SubscribersRepository
 {
-    // model property on class instances
-    protected $model;
-
-    // Constructor to bind model to repo
-    public function __construct(Subscribers $model)
+    public function all()
     {
-        $this->model = $model;
+        $model = Subscribers::all();
+
+        return $model;
     }
 
-    public function create()
+    public function create($request)
     {
-        //
+        $model = new Subscribers();
+
+        $model->email = $request['email'];
+        $model->status = Subscribers::ACTIVE_SUBSCRIBER;
+        $model->hash = Str::random(40);
+
+        return $model->save();
     }
 
-    public function unsubscribe()
+    public function unsubscribe($hash)
     {
-        //
+        /* @var $model Subscribers */
+        $model = Subscribers::where('hash', $hash)->first();
+
+        $model->status = Subscribers::DISABLE_SUBSCRIBER;
+        $model->unsubscribe_at = Carbon::now()->format('Y-m-d H:i:s');
+
+        return $model->save();
     }
 
-    public function changeStatus()
+    public function changeStatus($ID)
     {
-        //
+        /* @var $model Subscribers */
+        $model = Subscribers::find($ID);
+
+        $model->status = $model->status === Subscribers::ACTIVE_SUBSCRIBER ? Subscribers::DISABLE_SUBSCRIBER : Subscribers::ACTIVE_SUBSCRIBER;
+
+        return $model->save();
     }
 }

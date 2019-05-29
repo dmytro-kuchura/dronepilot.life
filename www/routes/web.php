@@ -15,6 +15,7 @@
 Route::get('/', 'SiteController@index')->name('home');
 Route::get('/about', 'SiteController@about')->name('about');
 Route::get('/contact', 'SiteController@contacts')->name('contacts');
+Route::get('/unsubscribe/{hash}', 'SiteController@unsubscribe')->name('unsubscribe');
 
 Route::get('/blog', 'BlogController@index')->name('blog');
 Route::get('/blog/{alias}', 'BlogController@inner')->name('blog.inner');
