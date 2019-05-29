@@ -6,7 +6,7 @@
     </h1>
 
     <div class="contat-from-wrapper">
-        <form method="post">
+        <form method="post" id="subscribe">
             <div class="row">
                 <div class="col-md-offset-4 col-md-3">
                     <input name="name" id="name" type="email" placeholder="Введите Ваш email">
