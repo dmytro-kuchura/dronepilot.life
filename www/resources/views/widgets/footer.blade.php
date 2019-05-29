@@ -1,7 +1,7 @@
 <footer role="footer">
     <h1>
-        <a href="{{ route('home') }}" title="Drone Pilot | blog">
-            <img src="/images/logo.png" title="Drone Pilot | blog" alt="Drone Pilot | blog"/>
+        <a href="{{ route('home') }}" title="Drone Pilot | Главная">
+            <img src="/images/logo.png" title="Drone Pilot | Главная" alt="Drone Pilot | Главная"/>
         </a>
     </h1>
 
@@ -9,11 +9,11 @@
         <form method="post">
             <div class="row">
                 <div class="col-md-offset-4 col-md-3">
-                    <input name="name" id="name" type="text" placeholder="Введите Ваше имя">
+                    <input name="name" id="name" type="email" placeholder="Введите Ваш email">
                 </div>
 
                 <div class="col-md-3">
-                    <input name="submit" class="submit" id="submit" type="submit" value="Отправить" style="margin: 0">
+                    <input name="submit" class="submit" id="submit" type="submit" value="Подписаться" style="margin: 0">
                 </div>
             </div>
         </form>

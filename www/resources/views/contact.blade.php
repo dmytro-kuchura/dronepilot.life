@@ -9,11 +9,11 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
             <article role="pge-title-content" class="contact-header">
                 <header>
-                    <h2><span>Здравсвтуйте!</span> связаться можно любым удобным способом.</h2>
+                    <h2><span>Свяжитесь</span> любым удобным способом.</h2>
                 </header>
                 <p>
-                    <a href="tel:8197654321"><i class="fa fa-phone" aria-hidden="true"></i> +8197654321</a>
-                    <a href="help@dronepilot.life"><i class="fa fa-envelope" aria-hidden="true"></i>help@dronepilot.life</a>
+                    <a href="tg://resolve?domain=fee1good_ua"><i class="fa fa-phone" aria-hidden="true"></i> fee1good_ua</a>
+                    <a href="mailto:contact@dronepilot.life"><i class="fa fa-envelope" aria-hidden="true"></i>contact@dronepilot.life</a>
                 </p>
             </article>
         </div>
