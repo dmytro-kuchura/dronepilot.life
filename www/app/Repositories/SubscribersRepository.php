@@ -20,7 +20,7 @@ class SubscribersRepository
         $model = new Subscribers();
 
         $model->email = $request['email'];
-        $model->status = Subscribers::ACTIVE_SUBSCRIBER;
+        $model->status = Subscribers::STATUS_ACTIVE_SUBSCRIBER;
         $model->hash = Str::random(40);
 
         return $model->save();
@@ -31,7 +31,7 @@ class SubscribersRepository
         /* @var $model Subscribers */
         $model = Subscribers::where('hash', $hash)->first();
 
-        $model->status = Subscribers::DISABLE_SUBSCRIBER;
+        $model->status = Subscribers::STATUS_DISABLE_SUBSCRIBER;
         $model->unsubscribe_at = Carbon::now()->format('Y-m-d H:i:s');
 
         return $model->save();
@@ -42,7 +42,7 @@ class SubscribersRepository
         /* @var $model Subscribers */
         $model = Subscribers::find($ID);
 
-        $model->status = $model->status === Subscribers::ACTIVE_SUBSCRIBER ? Subscribers::DISABLE_SUBSCRIBER : Subscribers::ACTIVE_SUBSCRIBER;
+        $model->status = $model->status === Subscribers::STATUS_ACTIVE_SUBSCRIBER ? Subscribers::STATUS_DISABLE_SUBSCRIBER : Subscribers::STATUS_ACTIVE_SUBSCRIBER;
 
         return $model->save();
     }

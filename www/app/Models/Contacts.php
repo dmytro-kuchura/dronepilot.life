@@ -16,9 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Contacts extends Model
 {
-    const READ_CONTACTS = 'read';
+    const STATUS_READ_CONTACTS = 'read';
 
-    const NOT_READ_CONTACTS = 'not-read';
+    const STATUS_NOT_READ_CONTACTS = 'not_read';
 
     /**
      * @var array

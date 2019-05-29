@@ -15,9 +15,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Subscribers extends Model
 {
-    const ACTIVE_SUBSCRIBER = 'active';
+    const STATUS_ACTIVE_SUBSCRIBER = 'active';
 
-    const DISABLE_SUBSCRIBER = 'disable';
+    const STATUS_DISABLE_SUBSCRIBER = 'disable';
 
     /**
      * @var array

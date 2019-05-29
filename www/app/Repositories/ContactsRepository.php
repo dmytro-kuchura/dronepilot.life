@@ -22,7 +22,7 @@ class ContactsRepository
             $model->name = $request['name'];
             $model->email = $request['email'];
             $model->description = $request['description'];
-            $model->status = Contacts::NOT_READ_CONTACTS;
+            $model->status = Contacts::STATUS_NOT_READ_CONTACTS;
             $model->ip = geoip()->getLocation()->ip;
 
             return $model->save();
@@ -36,7 +36,7 @@ class ContactsRepository
         /* @var $model Contacts */
         $model = Contacts::find($ID);
 
-        $model->status = $model->status === Contacts::READ_CONTACTS ? Contacts::NOT_READ_CONTACTS : Contacts::READ_CONTACTS;
+        $model->status = $model->status === Contacts::STATUS_READ_CONTACTS ? Contacts::STATUS_NOT_READ_CONTACTS : Contacts::STATUS_READ_CONTACTS;
 
         return $model->save();
     }
