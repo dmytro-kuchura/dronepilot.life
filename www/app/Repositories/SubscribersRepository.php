@@ -17,13 +17,18 @@ class SubscribersRepository
 
     public function create($request)
     {
-        $model = new Subscribers();
+        if (self::checkByIP(geoip()->getLocation()->ip)) {
+            $model = new Subscribers();
 
-        $model->email = $request['email'];
-        $model->status = Subscribers::STATUS_ACTIVE_SUBSCRIBER;
-        $model->hash = Str::random(40);
+            $model->email = $request['email'];
+            $model->status = Subscribers::STATUS_ACTIVE_SUBSCRIBER;
+            $model->ip = geoip()->getLocation()->ip;
+            $model->hash = Str::random(40);
 
-        return $model->save();
+            return $model->save();
+        } else {
+            return false;
+        }
     }
 
     public function unsubscribe($hash)
@@ -45,5 +50,12 @@ class SubscribersRepository
         $model->status = $model->status === Subscribers::STATUS_ACTIVE_SUBSCRIBER ? Subscribers::STATUS_DISABLE_SUBSCRIBER : Subscribers::STATUS_ACTIVE_SUBSCRIBER;
 
         return $model->save();
+    }
+
+    public function checkByIP($ip)
+    {
+        $model = Subscribers::where('ip', $ip)->orderby('id', 'desc')->first();
+
+        return is_null($model) || Carbon::now()->diffInMinutes(Carbon::parse($model->created_at)) > 15;
     }
 }

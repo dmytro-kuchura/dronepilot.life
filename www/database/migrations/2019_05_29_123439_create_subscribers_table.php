@@ -18,6 +18,7 @@ class CreateSubscribersTable extends Migration
 
             $table->string('email');
             $table->string('status');
+            $table->string('ip');
             $table->string('hash')->nullable();
             $table->date('unsubscribe_at')->nullable();
 
