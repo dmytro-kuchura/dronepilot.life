@@ -14110,9 +14110,9 @@ $(document).ready(function () {
         var data = new FormData(form[0]);
 
         axios.post('/api/v1/contacts', data).then(function () {
-            notification('Спасибо, на заданый Вами вопрсо в ближайшее время мы дадим ответ!', 'success');
+            notification('Спасибо, на заданый Вами вопрос в ближайшее время мы дадим ответ!', 'success');
 
-            document.getElementById('comment-form').reset();
+            document.getElementById('contacts-form').reset();
         }).catch(function () {
             notification('При отправке сообщения произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
         });
