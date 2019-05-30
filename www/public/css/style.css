@@ -37,7 +37,7 @@ input[type="reset"], input[type="submit"] {
 
 }
 
-body, img, .commentys-form input[type="text"], .commentys-form input[type="email"], .commentys-form input[type="url"], .commentys-form textarea {
+body, img, .comments-form input[type="text"], .comments-form input[type="email"], .comments-form input[type="url"], .comments-form textarea {
 
     transition: all .2s linear;
 
@@ -691,7 +691,7 @@ article[role="pge-title-content"].contact-header p a:hover {
     padding-bottom: 62px
 }
 
-.bog-header h3, .comments-pan h3, .commentys-form h4 {
+.bog-header h3, .comments-pan h3, .comments-form h4 {
     color: #404040;
     font-weight: 800;
     padding-bottom: 24px;
@@ -796,15 +796,15 @@ article[role="pge-title-content"].contact-header p a:hover {
     padding-top: 38px;
 }
 
-.commentys-form h4 {
+.comments-form h4 {
     font-size: 24px
 }
 
-.commentys-form form {
+.comments-form form {
     margin-top: 30px
 }
 
-.commentys-form input[type="text"], .commentys-form input[type="email"], .commentys-form input[type="url"], .commentys-form textarea {
+.comments-form input[type="text"], .comments-form input[type="email"], .comments-form input[type="url"], .comments-form textarea {
     font-size: 21px;
     line-height: 22px;
     color: #404040;
@@ -819,15 +819,15 @@ article[role="pge-title-content"].contact-header p a:hover {
     outline: none
 }
 
-.commentys-form textarea {
+.comments-form textarea {
     margin-top: 57px
 }
 
-.commentys-form input[type="text"]:focus, .commentys-form input[type="email"]:focus, .commentys-form input[type="url"]:focus, .commentys-form textarea:focus {
+.comments-form input[type="text"]:focus, .comments-form input[type="email"]:focus, .comments-form input[type="url"]:focus, .comments-form textarea:focus {
     border-bottom-color: #000
 }
 
-.commentys-form input[type="submit"] {
+.comments-form input[type="submit"] {
     padding: 0 36px;
     text-transform: uppercase;
     display: inline-block;
@@ -842,7 +842,7 @@ article[role="pge-title-content"].contact-header p a:hover {
     margin-top: 50px
 }
 
-.commentys-form input[type="submit"]:hover {
+.comments-form input[type="submit"]:hover {
     background-color: #ff5c5c
 }
 

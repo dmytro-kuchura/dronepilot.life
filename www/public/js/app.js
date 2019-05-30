@@ -14081,6 +14081,8 @@ $(document).ready(function () {
 
         axios.post('/api/v1/subscribe', data).then(function () {
             notification('Спасибо за подписку, новости будут только важные!', 'success');
+
+            document.getElementById('subscribe-form').reset();
         }).catch(function () {
             notification('Подписка не оформлена, либо Вы уже подписаны!', 'error');
         });
@@ -14094,6 +14096,8 @@ $(document).ready(function () {
 
         axios.post('/api/v1/comment', data).then(function () {
             notification('Спасибо за Ваш комментарий!', 'success');
+
+            document.getElementById('comment-form').reset();
         }).catch(function () {
             notification('При отправке коментария произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
         });

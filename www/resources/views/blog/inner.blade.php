@@ -54,7 +54,7 @@
                 </ul>
             @endif
 
-            <div class="commentys-form">
+            <div class="comments-form">
                 <h4>Оставьте Ваш комменатрий по этому поводу:</h4>
                 <div class="row">
                     <form method="post" id="comment-form">
