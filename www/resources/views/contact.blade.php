@@ -24,22 +24,20 @@
         </div>
         <div class="clearfix"></div>
         <div class="contat-from-wrapper">
-            <div id="message"></div>
-            <form method="post" name="cform" id="cform">
+            <form id="contacts-form">
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                        <input name="name" id="name" type="text" placeholder="Введите Ваше имя">
+                        <input name="name" type="text" placeholder="Введите Ваше имя">
                     </div>
                     <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                        <input name="email" id="email" type="email" placeholder="Введите Ваш email">
+                        <input name="email" type="email" placeholder="Введите Ваш email">
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <textarea name="comments" id="comments" cols="" rows=""
+                <textarea name="description" cols="" rows=""
                           placeholder="Что именно Вас интересует?"></textarea>
                 <div class="clearfix"></div>
-                <input name="submit" class="submit" id="submit" type="submit" value="Отправить">
-                <div id="simple-msg"></div>
+                <input name="submit" class="submit" type="submit" value="Отправить">
             </form>
         </div>
     </div>

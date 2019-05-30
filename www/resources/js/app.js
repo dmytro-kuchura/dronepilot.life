@@ -108,4 +108,21 @@ $(document).ready(function () {
                 notification('При отправке коментария произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
             });
     });
+
+    $('#contacts-form').on('submit', function (event) {
+        event.preventDefault();
+
+        let form = $(this);
+        let data = new FormData(form[0]);
+
+        axios.post('/api/v1/contacts', data)
+            .then(function () {
+                notification('Спасибо, на заданый Вами вопрсо в ближайшее время мы дадим ответ!', 'success');
+
+                document.getElementById('comment-form').reset()
+            })
+            .catch(function () {
+                notification('При отправке сообщения произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
+            });
+    });
 });
