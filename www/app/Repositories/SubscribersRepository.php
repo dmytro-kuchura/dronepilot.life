@@ -52,6 +52,11 @@ class SubscribersRepository
         return $model->save();
     }
 
+    public function destroy($ID)
+    {
+        return Subscribers::destroy($ID);
+    }
+
     public function checkByIP($ip)
     {
         $model = Subscribers::where('ip', $ip)->orderby('id', 'desc')->first();

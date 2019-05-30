@@ -49,10 +49,18 @@ Route::prefix('admin')->group(function () {
         });
 
         Route::prefix('works')->group(function () {
-            Route::get('/', 'Admin\MainController@index')->name('works.list');
-            Route::get('/create', 'Admin\MainController@index')->name('works.create');
-            Route::get('/edit/{id}', 'Admin\MainController@index')->name('works.edit');
-            Route::get('/delete/{id}', 'Admin\MainController@index')->name('works.delete');
+            Route::get('/', 'Admin\WorksController@index')->name('works.list');
+            Route::get('/create', 'Admin\WorksController@create')->name('works.create');
+            Route::post('/store', 'Admin\WorksController@store')->name('works.store');
+            Route::get('/edit/{id}', 'Admin\WorksController@edit')->name('works.edit');
+            Route::post('/update/{id}', 'Admin\WorksController@update')->name('works.update');
+            Route::get('/delete/{id}', 'Admin\WorksController@delete')->name('works.delete');
+        });
+
+        Route::prefix('subscribers')->group(function () {
+            Route::get('/', 'Admin\SubscribersController@index')->name('subscribers.list');
+            Route::get('/change-status/{id}', 'Admin\SubscribersController@changeStatus')->name('subscribers.change-status');
+            Route::get('/delete/{id}', 'Admin\SubscribersController@delete')->name('subscribers.delete');
         });
     });
 });
