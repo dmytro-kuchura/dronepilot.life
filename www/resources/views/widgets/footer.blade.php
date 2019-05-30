@@ -6,14 +6,14 @@
     </h1>
 
     <div class="contat-from-wrapper">
-        <form method="post" id="subscribe">
+        <form method="post" id="subscribe-form">
             <div class="row">
                 <div class="col-md-offset-4 col-md-3">
-                    <input name="name" id="name" type="email" placeholder="Введите Ваш email">
+                    <input name="email" type="email" placeholder="Введите Ваш email">
                 </div>
 
                 <div class="col-md-3">
-                    <input name="submit" class="submit" id="submit" type="submit" value="Подписаться" style="margin: 0">
+                    <input name="submit" class="submit" type="submit" value="Подписаться" style="margin: 0">
                 </div>
             </div>
         </form>
@@ -46,7 +46,6 @@
 <script src="{{ asset('/js/jquery.min.js') }}" type="text/javascript"></script>
 <!-- custom -->
 <script src="{{ asset('/js/nav.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/js/custom.js') }}" type="text/javascript"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/effects/masonry.pkgd.min.js') }}" type="text/javascript"></script>
@@ -56,3 +55,5 @@
 <script src="{{ asset('/js/effects/modernizr.custom.js') }}"></script>
 <!-- jquery.countdown -->
 <script src="{{ asset('/js/html5shiv.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>

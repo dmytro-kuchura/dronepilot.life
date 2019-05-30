@@ -55,22 +55,22 @@
             @endif
 
             <div class="commentys-form">
-                <h4>Leave a comment</h4>
+                <h4>Оставьте Ваш комменатрий по этому поводу:</h4>
                 <div class="row">
-                    <form action="{{ route('api.comment') }}" id="comment-form">
+                    <form method="post" id="comment-form">
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <input name="" type="text" placeholder="Ваше имя *">
+                            <input name="name" type="text" placeholder="Ваше имя *">
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <input name="" type="email" placeholder="Ваш email *">
+                            <input name="email" type="email" placeholder="Ваш email *">
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <textarea name="" cols="" rows="" placeholder="Ваши мысли по этому поводу? *"></textarea>
+                            <textarea name="message" cols="" rows="" placeholder="Ваши мысли по этому поводу? *"></textarea>
                         </div>
-                        <input value="{{ $result->id }}" type="hidden">
+                        <input name="record_id" value="{{ $result->id }}" type="hidden">
                         <div class="text-center">
-                            <input type="button" value="Оставить комментарий">
+                            <input type="submit" value="Оставить комментарий">
                         </div>
                     </form>
                 </div>
