@@ -133,4 +133,16 @@ return [
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Sender Information
+    |--------------------------------------------------------------------------
+    |
+    | Sender information for all mails
+    |
+    */
+
+    'sender_email' => env('SENDER_EMAIL'),
+
+    'sender_name' => env('SENDER_NAME'),
 ];
