@@ -1,15 +1,15 @@
 @extends('layouts.main')
 
-@section('title', 'DronePilot | Обо мне')
-@section('description', 'Статьи и записи от личного использования БПЛА')
-@section('keywords', 'drone, DJI, Mavic Air')
+@section('title', $result->title ? 'DronePilot | ' . $result->title : 'DronePilot | ' . $result->name)
+@section('description', $result->description ? $result->description : '')
+@section('keywords', $result->keywords ? $result->keywords : '')
 
 @section('content')
     <div class="work-details">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <header role="work-title">
-                    <h2>Project Name</h2>
+                    <h2>{{ $result->name }}</h2>
                     <a href="#">Visit online <i class="fa fa-external-link" aria-hidden="true"></i></a>
                 </header>
             </div>

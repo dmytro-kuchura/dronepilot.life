@@ -20,7 +20,7 @@ Route::get('/unsubscribe/{hash}', 'SiteController@unsubscribe')->name('unsubscri
 Route::get('/blog', 'BlogController@index')->name('blog');
 Route::get('/blog/{alias}', 'BlogController@inner')->name('blog.inner');
 
-Route::get('/works', 'WorkController@works')->name('works');
+Route::get('/works', 'WorkController@index')->name('works');
 Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
 //};
 

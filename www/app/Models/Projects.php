@@ -20,6 +20,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Projects extends Model
 {
+    const STATUS_ACTIVE = 1;
+
+    const STATUS_DISABLE = 0;
+
+    const WORK_TYPE_PHOTO = 'type_photo';
+
+    const WORK_TYPE_PANORAMA = 'type_panorama';
+
+    const WORK_TYPE_VIDEO = 'type_video';
+
     /**
      * @var array
      */

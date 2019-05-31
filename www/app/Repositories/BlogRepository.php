@@ -30,7 +30,6 @@ class BlogRepository
         return $result;
     }
 
-
     public function list()
     {
         $records = Records::orderBy('created_at', 'desc')->get();
@@ -41,6 +40,11 @@ class BlogRepository
     public function getByAlias($alias)
     {
         return Records::where('status', 1)->where('alias', $alias)->first();
+    }
+
+    public function addView($ID)
+    {
+        return Records::where('id', $ID)->first();
     }
 
     public function getByID($ID)

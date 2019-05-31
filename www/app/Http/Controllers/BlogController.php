@@ -38,6 +38,9 @@ class BlogController extends Controller
         $comments = $repository->getCommentsByRecordId($result->id);
         $count_comments = $repository->getCommentsCountByRecordId($result->id);
 
+        // TODO add increment
+        $this->repository->addView($result->id);
+
         return view('blog.inner', [
             'result' => $result,
             'comments' => $comments,

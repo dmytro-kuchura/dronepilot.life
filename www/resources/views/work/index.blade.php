@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-@section('title', 'DronePilot | Обо мне')
-@section('description', 'Статьи и записи от личного использования БПЛА')
+@section('title', 'DronePilot | Мои работы')
+@section('description', 'Примеры моих работ с использованием БПЛА')
 @section('keywords', 'drone, DJI, Mavic Air')
 
 @section('content')
@@ -9,7 +9,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
             <article role="pge-title-content" class="blog-header">
                 <header>
-                    <h2><span>News</span> Updates from studio</h2>
+                    <h2><span>Работы</span> Фото, видео, панормы в 360"</h2>
                 </header>
                 <p>Get all information about our studio from latest news posts & updates page.</p>
             </article>
@@ -18,12 +18,14 @@
                     @if (isset($item->alias))
                         <li>
                             <section class="blog-content">
-                                <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">
+                                <a href="{{ route('work.inner', ['alias' => $item->alias]) }}">
                                     <figure>
                                         <div class="post-date">
-                                            {!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($item->created_at))  !!}
+                                            <span>{{ date('j', strtotime($item->created_at)) }}</span>{{ russianMonth($item->created_at) . ' ' . date('Y', strtotime($item->created_at)) }}
                                         </div>
-                                        <img src="images/blog-images/blog-2.jpg" alt="" class="img-responsive"/>
+                                        <img
+                                            src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}"
+                                            alt="" class="img-responsive"/>
                                     </figure>
                                 </a>
                                 <article>{{ $item->name }}</article>
@@ -39,12 +41,14 @@
                     @if (isset($item->alias))
                         <li>
                             <section class="blog-content">
-                                <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">
+                                <a href="{{ route('work.inner', ['alias' => $item->alias]) }}">
                                     <figure>
                                         <div class="post-date">
-                                            {!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($item->created_at))  !!}
+                                            <span>{{ date('j', strtotime($item->created_at)) }}</span>{{ russianMonth($item->created_at) . ' ' . date('Y', strtotime($item->created_at)) }}
                                         </div>
-                                        <img src="images/blog-images/blog-1.jpg" alt="" class="img-responsive"/>
+                                        <img
+                                            src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}"
+                                            alt="" class="img-responsive"/>
                                     </figure>
                                 </a>
                                 <article>{{ $item->name }}</article>
