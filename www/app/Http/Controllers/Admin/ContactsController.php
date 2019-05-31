@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\ContactsRepository;
+use Illuminate\Http\Request;
 
 class ContactsController extends Controller
 {
@@ -32,6 +33,11 @@ class ContactsController extends Controller
         return view('dashboard.contacts.show', [
             'result' => $result
         ]);
+    }
+
+    public function reply(Request $request)
+    {
+        // TODO send email reply
     }
 
     public function changeStatus($id)
