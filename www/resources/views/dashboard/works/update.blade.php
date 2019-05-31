@@ -6,7 +6,7 @@
             <h4>Редактирование записи</h4>
         </div>
         <div class="widget-body">
-            @include('dashboard.blog._form', ['result' => $result, 'action' => route('blog.update', ['id' => $result->id])])
+            @include('dashboard.works._form', ['result' => $result, 'action' => route('works.update', ['id' => $result->id])])
         </div>
     </div>
 @endsection

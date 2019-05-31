@@ -6,7 +6,7 @@
             <h4>Создание записи записи</h4>
         </div>
         <div class="widget-body">
-            @include('dashboard.blog._form', ['action' => route('blog.store')])
+            @include('dashboard.works._form', ['action' => route('works.store')])
         </div>
     </div>
 @endsection

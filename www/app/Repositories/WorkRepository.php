@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Helpers\Text;
+use App\Helpers\Upload;
 use App\Models\Projects;
 
 class WorkRepository
@@ -38,5 +40,50 @@ class WorkRepository
     public function getByID($ID)
     {
         return $this->model::where('id', $ID)->first();
+    }
+
+    public function update($request)
+    {
+        /* @var $model Projects */
+        $model = $this->model::where('id', $request['id'])->first();
+
+        $model->title = $request['title'];
+        $model->name = $request['name'];
+        $model->description = $request['description'];
+        $model->keywords = $request['keywords'];
+        $model->content = $request['content'];
+        $model->image = Upload::save($request);
+        $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
+        $model->status = $request['status'] === 'on' ? 1 : 0;
+
+        return $model->save();
+    }
+
+    public function store($request)
+    {
+        /* @var $model Projects */
+        $model = $this->model;
+
+        $model->title = $request['title'];
+        $model->name = $request['name'];
+        $model->description = $request['description'];
+        $model->keywords = $request['keywords'];
+        $model->content = $request['content'];
+        $model->image = Upload::save($request);
+        $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
+        $model->status = $request['status'] === 'on' ? 1 : 0;
+
+        return $model->save();
+    }
+
+    /**
+     * Destroy record from database
+     *
+     * @param $ID
+     * @return int
+     */
+    public function destroy($ID)
+    {
+        return $this->model::destroy($ID);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreBlogPost;
+use App\Http\Requests\StoreWorkPost;
 use App\Repositories\WorkRepository;
 
 class WorksController extends Controller
@@ -28,36 +28,36 @@ class WorksController extends Controller
 
     public function create()
     {
-        return view('dashboard.blog.create');
+        return view('dashboard.works.create');
     }
 
-    public function store(StoreBlogPost $request)
+    public function store(StoreWorkPost $request)
     {
         $this->repository->store($request->all());
 
-        return redirect()->route('blog.list');
+        return redirect()->route('works.list');
     }
 
     public function edit($id)
     {
         $result = $this->repository->getByID($id);
 
-        return view('dashboard.blog.update', [
+        return view('dashboard.works.update', [
             'result' => $result
         ]);
     }
 
-    public function update(StoreBlogPost $request)
+    public function update(StoreWorkPost $request)
     {
         $this->repository->update($request->all());
 
-        return redirect()->route('blog.list');
+        return redirect()->route('works.list');
     }
 
     public function delete($id)
     {
         $this->repository->destroy($id);
 
-        return redirect()->route('blog.list');
+        return redirect()->route('works.list');
     }
 }

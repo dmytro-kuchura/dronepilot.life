@@ -98,6 +98,34 @@
             </div>
         </div>
     </div>
+
+    <div class="em-separator separator-dashed"></div>
+
+    <div class="form-group row mb-6">
+        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Тип работы *</label>
+        <div class="col-lg-2">
+            <div class="custom-control custom-radio styled-radio mb-3">
+                <input class="custom-control-input" type="radio" name="status" id="status-on" value="on"
+                       {{ isset($result) && $result->work_type === 'type_photo' ? 'checked=""' : '' }} required="">
+                <label class="custom-control-descfeedback" for="status-on">Фото</label>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="custom-control custom-radio styled-radio mb-3">
+                <input class="custom-control-input" type="radio" name="status" id="status-off" value="off"
+                       {{ !isset($result) || $result->work_type === 'type_video' ? 'checked=""' : '' }} required="">
+                <label class="custom-control-descfeedback" for="status-off">Видео</label>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="custom-control custom-radio styled-radio mb-3">
+                <input class="custom-control-input" type="radio" name="status" id="status-off" value="off"
+                       {{ !isset($result) || $result->work_type === 'type_panorama' ? 'checked=""' : '' }} required="">
+                <label class="custom-control-descfeedback" for="status-off">Панорама 360</label>
+            </div>
+        </div>
+    </div>
+
     <div class="text-right">
         <button class="btn btn-gradient-01" type="submit">Сохранить</button>
         <button class="btn btn-shadow" type="reset">Сброс</button>
