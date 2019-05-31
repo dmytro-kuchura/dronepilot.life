@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
 
 use Exception;
 use Illuminate\Mail\Message;
@@ -10,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailService
 {
-    public static function send($template, array $params, array $to, $subject)
+    public function send($template, array $params, array $to, $subject)
     {
         if (!$subject) {
             return false;

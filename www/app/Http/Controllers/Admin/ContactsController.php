@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\ContactsRepository;
+use App\Services\EmailService;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -37,7 +38,15 @@ class ContactsController extends Controller
 
     public function reply(Request $request)
     {
-        // TODO send email reply
+        $result = $this->repository->getByID($request->get('id'));
+
+        $service = new EmailService();
+
+        $service->send('email.reply', [
+            'name' => $result->name,
+            'message' => $result->description,
+        ], $result->email, 'Ответ на вопрос');
+
         return redirect()->route('contacts.list');
     }
 
