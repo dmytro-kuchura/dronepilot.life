@@ -62,5 +62,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/change-status/{id}', 'Admin\SubscribersController@changeStatus')->name('subscribers.change-status');
             Route::get('/delete/{id}', 'Admin\SubscribersController@delete')->name('subscribers.delete');
         });
+
+        Route::prefix('contacts')->group(function () {
+            Route::get('/', 'Admin\ContactsController@index')->name('contacts.list');
+            Route::get('/show/{id}', 'Admin\ContactsController@show')->name('contacts.show');
+            Route::get('/change-status/{id}', 'Admin\ContactsController@changeStatus')->name('contacts.change-status');
+            Route::get('/delete/{id}', 'Admin\ContactsController@delete')->name('contacts.delete');
+        });
     });
 });

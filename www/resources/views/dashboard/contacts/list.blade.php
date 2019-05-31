@@ -3,7 +3,7 @@
 @section('content')
     <div class="widget has-shadow">
         <div class="widget-header bordered no-actions d-flex align-items-center">
-            <h4>Список подписчиков на рассылку</h4>
+            <h4>Список запросов из формы контактной связи</h4>
         </div>
         <div class="widget-body">
             <div class="table-responsive">
@@ -11,8 +11,9 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Имя</th>
                         <th>Email</th>
-                        <th>Подписался</th>
+                        <th>Оставил запрос</th>
                         <th><span style="width:150px;">Статус</span></th>
                         <th>Действия</th>
                     </tr>
@@ -23,13 +24,15 @@
                         @foreach($result as $obj)
                             <tr>
                                 <td><span class="text-secondary">{{ $obj->id }}</span></td>
+                                <td>{{ $obj->name }}</td>
                                 <td>{{ $obj->email }}</td>
                                 <td>{{ date('F j, Y, g:i a', strtotime($obj->created_at)) }}</td>
                                 <td><span style="width:150px;"><span
-                                            class="badge-text badge-text-small {{ $obj->status !== 'active' ? 'danger' : 'success'}}">{{ $obj->status !== 'active'  ? 'Не активен' : 'Активен'}}</span></span></td>
+                                            class="badge-text badge-text-small {{ $obj->status !== 'read' ? 'danger' : 'success'}}">{{ $obj->status !== 'read'  ? 'Не прочитано' : 'Прочитано'}}</span></span></td>
                                 <td class="td-actions">
-                                    <a href="{{ route('subscribers.change-status', ['id' => $obj->id]) }}"><i class="la la-check-circle-o edit"></i></a>
-                                    <a href="{{ route('subscribers.delete', ['id' => $obj->id]) }}"><i class="la la-close delete"></i></a>
+                                    <a href="{{ route('contacts.show', ['id' => $obj->id]) }}"><i class="la la-eye show"></i></a>
+                                    <a href="{{ route('contacts.change-status', ['id' => $obj->id]) }}"><i class="la la-check-circle-o edit"></i></a>
+                                    <a href="{{ route('contacts.delete', ['id' => $obj->id]) }}"><i class="la la-close delete"></i></a>
                                 </td>
                             </tr>
                         @endforeach

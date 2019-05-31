@@ -7,17 +7,26 @@ use Illuminate\Support\Carbon;
 
 class ContactsRepository
 {
-    public function all()
-    {
-        $model = Contacts::order();
+    protected $model = Contacts::class;
 
-        return $model;
+    public function list()
+    {
+        $result = $this->model::orderBy('id', 'desc')->get();
+
+        return $result;
+    }
+
+    public function getByID($ID)
+    {
+        $result = $this->model::where('id', $ID)->first();
+
+        return $result;
     }
 
     public function create($request)
     {
         if (self::checkByIP(geoip()->getLocation()->ip)) {
-            $model = new Contacts();
+            $model = new $this->model();
 
             $model->name = $request['name'];
             $model->email = $request['email'];
@@ -34,17 +43,17 @@ class ContactsRepository
     public function changeStatus($ID)
     {
         /* @var $model Contacts */
-        $model = Contacts::find($ID);
+        $result = $this->model::find($ID);
 
-        $model->status = $model->status === Contacts::STATUS_READ_CONTACTS ? Contacts::STATUS_NOT_READ_CONTACTS : Contacts::STATUS_READ_CONTACTS;
+        $result->status = $result->status === Contacts::STATUS_READ_CONTACTS ? Contacts::STATUS_NOT_READ_CONTACTS : Contacts::STATUS_READ_CONTACTS;
 
-        return $model->save();
+        return $result->save();
     }
 
     public function checkByIP($ip)
     {
-        $model = Contacts::where('ip', $ip)->orderby('id', 'desc')->first();
+        $result = $this->model::where('ip', $ip)->orderby('id', 'desc')->first();
 
-        return is_null($model) || Carbon::now()->diffInMinutes(Carbon::parse($model->created_at)) > 15;
+        return is_null($result) || Carbon::now()->diffInMinutes(Carbon::parse($result->created_at)) > 15;
     }
 }

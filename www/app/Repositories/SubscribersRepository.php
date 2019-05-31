@@ -8,9 +8,9 @@ use Illuminate\Support\Carbon;
 
 class SubscribersRepository
 {
-    public function all()
+    public function list()
     {
-        $model = Subscribers::all();
+        $model = Subscribers::orderBy('id', 'desc')->get();
 
         return $model;
     }
