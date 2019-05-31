@@ -38,6 +38,7 @@ class ContactsController extends Controller
     public function reply(Request $request)
     {
         // TODO send email reply
+        return redirect()->route('contacts.list');
     }
 
     public function changeStatus($id)

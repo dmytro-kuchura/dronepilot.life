@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input name="submit" class="submit" type="submit" value="Подписаться" style="margin: 0">
+                    <input name="submit" class="submit" type="submit" value="Подписаться" style="margin: 0; width: 250px">
                 </div>
             </div>
         </form>
