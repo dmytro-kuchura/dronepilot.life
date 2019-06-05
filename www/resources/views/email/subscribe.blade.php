@@ -16,13 +16,7 @@
                                             <tr>
                                                 <td align="center"
                                                     style="font-size: 35px; font-family: Montserrat, Arial, sans-serif; color: #2c304d; padding-top: 30px;"
-                                                    class="padding-copy">Подписка на рассылку новостей оформлена!
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center"
-                                                    style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Noto Sans, Arial, sans-serif; color: #aea9c3;"
-                                                    class="padding-copy">Спасибо за подписку на новости!
+                                                    class="padding-copy">Подписка оформлена!
                                                 </td>
                                             </tr>
                                         </table>
@@ -57,8 +51,8 @@
                                                bgcolor="#ffffff">
                                             <tr>
                                                 <td align="center"
-                                                    style="padding: 20px 0 60px 0; font-size: 16px; line-height: 25px; font-family: Noto Sans, Arial, sans-serif; color: #aea9c3;"
-                                                    class="padding-copy">автор блога:<br>DronePilot
+                                                    style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Noto Sans, Arial, sans-serif; color: #aea9c3;"
+                                                    class="padding-copy">Спасибо за подписку на новости и рассылку!
                                                 </td>
                                             </tr>
                                         </table>
