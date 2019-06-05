@@ -172,8 +172,8 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td bgcolor="#ffffff" width="100" align="left" style="border-radius: 4px 0 0 0;">
-                                        <a href="db-default.html" target="_blank">
-                                            <img alt="Logo" src="{{ config('app.url') . '/email-1.png' }}" width="180"
+                                        <a href="{{ config('app.url') }}" target="_blank">
+                                            <img alt="Logo" src="{{ config('app.url') . '/images/logo-drone-pilot.png' }}" width="180"
                                                  height="120"
                                                  style="display: block; font-family: Helvetica, Arial, sans-serif; color: #666666; font-size: 16px; padding: 30px 0 30px 15px;"
                                                  border="0">
@@ -185,7 +185,7 @@
                                             <tr>
                                                 <td align="right"
                                                     style="padding: 30px 15px 30px 0; font-size: 15px; font-family: Noto Sans, Arial, sans-serif; color: #94a4b0; text-decoration: none;">
-                                                    <span style="color: #94a4b0; text-decoration: none;">DronePilot.info</span>
+                                                    <span style="color: #94a4b0; text-decoration: none;">DronePilot</span>
                                                 </td>
                                             </tr>
                                         </table>
