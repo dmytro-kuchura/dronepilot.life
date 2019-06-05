@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\BlogRepository;
 use App\Repositories\SubscribersRepository;
+use Illuminate\Support\Facades\Log;
 
 class SiteController extends Controller
 {

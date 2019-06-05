@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>DronePilot | Спасибо за подписку!</title>
+    <title>DronePilot | {{ $subject }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <style type="text/css">
@@ -151,7 +151,7 @@
                         <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table">
                             <tr>
                                 <td align="center" valign="middle" style="font-size: 12px; line-height: 24px; font-family: Noto Sans, Arial, sans-serif; color:#aea9c3; padding-bottom: 35px; border-radius: 0 0 4px 4px;" bgcolor="#ffffff">
-                                    <span class="appleFooter" style="color:#aea9c3;">2345 Main Street, Anywhere, MA 01234, USA</span><br><a class="original-only" style="color: #5d5386; text-decoration: underline;" href="#">Unsubscribe</a><span class="original-only" style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><a class="original-only" style="color: #5d5386; text-decoration: underline;" href="#">Contact</a><span class="original-only" style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><a class="original-only" style="color: #5d5386; text-decoration: underline;" href="db-default.html">Home</a>
+                                    <span class="appleFooter" style="color:#aea9c3;">Kyiv, Ukraine</span><br><a class="original-only" style="color: #5d5386; text-decoration: underline;" href="http://stage.dronepilot.info/">Отписаться</a><span class="original-only" style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><a class="original-only" style="color: #5d5386; text-decoration: underline;" href="http://stage.dronepilot.info/">Контакты</a><span class="original-only" style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><a class="original-only" style="color: #5d5386; text-decoration: underline;" href="http://stage.dronepilot.info/">Главная</a>
                                 </td>
                             </tr>
                         </table>
