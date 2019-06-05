@@ -16,7 +16,7 @@ class EmailService
                 return false;
             }
 
-            $params = is_array($params) ? $params : ['text' => $params, 'subject' => $subject];
+            $params = is_array($params) ? $params : ['text' => $params];
 
             $to = is_array($to) ? $to : ['email' => $to];
 

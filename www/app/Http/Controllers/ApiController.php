@@ -61,7 +61,10 @@ class ApiController extends Controller
         $repository = new SubscribersRepository();
 
         if ($repository->create($request->all())) {
-            $this->service->send('email.subscribe', ['email' => $request->get('email')], $request->get('email'), 'Thank you for subscribe!');
+            $this->service->send('email.subscribe', [
+                'email' => $request->get('email'),
+                'subject' => 'Спасибо за подписку!'
+            ], $request->get('email'), 'Спасибо за подписку!');
 
             Log::info('Email subscribe successful!', ['email' => $request->get('email')]);
 
