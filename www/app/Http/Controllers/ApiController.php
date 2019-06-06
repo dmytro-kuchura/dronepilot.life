@@ -35,15 +35,25 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * Contacts form
+     *
+     * @param ContactsRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function contacts(ContactsRequest $request)
     {
         $repository = new ContactsRepository();
 
         if ($repository->create($request->all())) {
+            Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
+
             return $this->returnResponse([
                 'success' => true
             ]);
         } else {
+            Log::warning('Contacts form save failed!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
+
             return $this->returnResponse([
                 'success' => false
             ], 400);
@@ -51,7 +61,7 @@ class ApiController extends Controller
     }
 
     /**
-     * Subscribe complete
+     * Subscribe form
      *
      * @param SubscribeRequest $request
      * @return \Illuminate\Http\JsonResponse
