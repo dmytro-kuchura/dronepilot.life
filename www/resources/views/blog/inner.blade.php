@@ -8,7 +8,7 @@
     <div class="blog-details">
         <article class="post-details" id="post-details">
             <header role="bog-header" class="bog-header text-center">
-                <h3>{!! date('<\s\p\a\n\>j<\/\s\p\a\n\>F Y', strtotime($result->created_at))  !!}</h3>
+                <h3><span>{{ date('j ', strtotime($result->created_at)) }}</span>{{ russianMonth($result->created_at) . ' ' . date('Y', strtotime($result->created_at)) }}</h3>
                 <h2>{{ $result->name }}</h2>
             </header>
             <figure>

@@ -131,7 +131,7 @@ class BlogRepository implements Repository
      */
     public function addView($id)
     {
-        return $this->model::where('id', $id)->first();
+        $this->model::where('id', $id)->increment('views', 1);
     }
 
 }

@@ -56,4 +56,9 @@ class ContactsRepository
 
         return is_null($result) || Carbon::now()->diffInMinutes(Carbon::parse($result->created_at)) > 15;
     }
+
+    public function destroy($id)
+    {
+        return $this->model::destroy($id);
+    }
 }

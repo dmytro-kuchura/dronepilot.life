@@ -40,7 +40,7 @@ class WorksController extends Controller
 
     public function edit($id)
     {
-        $result = $this->repository->getByID($id);
+        $result = $this->repository->get($id);
 
         return view('dashboard.works.update', [
             'result' => $result
