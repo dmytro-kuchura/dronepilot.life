@@ -60,7 +60,9 @@ class BlogRepository implements Repository
         $model->description = $request['description'];
         $model->keywords = $request['keywords'];
         $model->content = $request['content'];
-        $model->image = Upload::save($request);
+        if (isset($request['file'])) {
+            $model->image = Upload::save($request);
+        }
         $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
         $model->status = $request['status'] === 'on' ? 1 : 0;
 
@@ -83,7 +85,9 @@ class BlogRepository implements Repository
         $model->description = $request['description'];
         $model->keywords = $request['keywords'];
         $model->content = $request['content'];
-        $model->image = Upload::save($request);
+        if (isset($request['file'])) {
+            $model->image = Upload::save($request);
+        }
         $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
         $model->status = $request['status'] === 'on' ? 1 : 0;
 

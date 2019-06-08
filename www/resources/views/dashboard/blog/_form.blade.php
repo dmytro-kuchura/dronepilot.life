@@ -8,7 +8,8 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Название</label>
         <div class="col-lg-7">
-            <input type="text" class="form-control" name="name" value="{{ isset($result) && $result->name ? $result->name : '' }}"
+            <input type="text" class="form-control" name="name"
+                   value="{{ isset($result) && $result->name ? $result->name : '' }}"
                    placeholder="Название">
         </div>
     </div>
@@ -16,7 +17,8 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Ссылка</label>
         <div class="col-lg-7">
-            <input type="text" class="form-control" name="alias" value="{{ isset($result) && $result->alias ? $result->alias : '' }}"
+            <input type="text" class="form-control" name="alias"
+                   value="{{ isset($result) && $result->alias ? $result->alias : '' }}"
                    placeholder="Ссылка">
         </div>
     </div>
@@ -37,7 +39,8 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Title</label>
         <div class="col-lg-7">
-            <input type="text" class="form-control" name="title" value="{{isset($result) &&  $result->title ? $result->title : '' }}"
+            <input type="text" class="form-control" name="title"
+                   value="{{isset($result) &&  $result->title ? $result->title : '' }}"
                    placeholder="Title">
         </div>
     </div>
@@ -66,14 +69,16 @@
 
     <div class="em-separator separator-dashed"></div>
 
-    <div class="form-group row d-flex align-items-center mb-5">
-        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Обложка</label>
-        <div class="col-lg-7">
-            <input type="file" name="file">
+    @if(!isset($result->image))
+        <div class="form-group row d-flex align-items-center mb-5">
+            <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Обложка</label>
+            <div class="col-lg-7">
+                <input type="file" name="file">
+            </div>
         </div>
-    </div>
 
-    <div class="em-separator separator-dashed"></div>
+        <div class="em-separator separator-dashed"></div>
+    @endif
 
     <div class="form-group row mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Статус *</label>
