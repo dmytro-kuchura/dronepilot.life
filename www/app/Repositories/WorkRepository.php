@@ -6,10 +6,15 @@ use App\Helpers\Text;
 use App\Helpers\Upload;
 use App\Models\Projects;
 
-class WorkRepository
+class WorkRepository implements Repository
 {
     protected $model = Projects::class;
 
+    /**
+     * All published records for Main Page
+     *
+     * @return array
+     */
     public function all()
     {
         $records = $this->model::where('status', 1)->orderBy('id', 'desc')->get();
@@ -27,21 +32,22 @@ class WorkRepository
         return $result;
     }
 
+    /**
+     * All records for Dashboard
+     *
+     * @return mixed
+     */
     public function list()
     {
         return $this->model::orderBy('id', 'desc')->get();
     }
 
-    public function getByAlias($alias)
-    {
-        return $this->model::where('status', 1)->where('alias', $alias)->first();
-    }
-
-    public function getByID($ID)
-    {
-        return $this->model::where('id', $ID)->first();
-    }
-
+    /**
+     * Update DB record
+     *
+     * @param $request
+     * @return bool
+     */
     public function update($request)
     {
         /* @var $model Projects */
@@ -59,6 +65,12 @@ class WorkRepository
         return $model->save();
     }
 
+    /**
+     * Create DB record
+     *
+     * @param $request
+     * @return bool
+     */
     public function store($request)
     {
         /* @var $model Projects */
@@ -79,11 +91,33 @@ class WorkRepository
     /**
      * Destroy record from database
      *
-     * @param $ID
+     * @param $id
      * @return int
      */
-    public function destroy($ID)
+    public function destroy($id)
     {
-        return $this->model::destroy($ID);
+        return $this->model::destroy($id);
+    }
+
+    /**
+     * Get record by alias param
+     *
+     * @param $alias
+     * @return mixed
+     */
+    public function getByAlias($alias)
+    {
+        return $this->model::where('status', 1)->where('alias', $alias)->first();
+    }
+
+    /**
+     * Get only one record
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function get($id)
+    {
+        return $this->model::where('id', $id)->first();
     }
 }

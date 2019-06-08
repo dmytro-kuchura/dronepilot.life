@@ -6,16 +6,18 @@ use App\Helpers\Text;
 use App\Helpers\Upload;
 use App\Models\Records;
 
-class BlogRepository
+class BlogRepository implements Repository
 {
+    protected $model = Records::class;
+
     /**
-     * Get all records for main page and index page blog
+     * All published records for Main Page
      *
      * @return array
      */
     public function all()
     {
-        $records = Records::where('status', 1)->orderBy('id', 'desc')->get();
+        $records = $this->model::where('status', 1)->orderBy('id', 'desc')->get();
 
         $result = [];
 
@@ -30,32 +32,28 @@ class BlogRepository
         return $result;
     }
 
+    /**
+     * All records for Dashboard
+     *
+     * @return mixed
+     */
     public function list()
     {
-        $records = Records::orderBy('created_at', 'desc')->get();
+        $records = $this->model::orderBy('created_at', 'desc')->get();
 
         return $records;
     }
 
-    public function getByAlias($alias)
-    {
-        return Records::where('status', 1)->where('alias', $alias)->first();
-    }
-
-    public function addView($ID)
-    {
-        return Records::where('id', $ID)->first();
-    }
-
-    public function getByID($ID)
-    {
-        return Records::where('id', $ID)->first();
-    }
-
+    /**
+     * Update DB record
+     *
+     * @param $request
+     * @return bool
+     */
     public function update($request)
     {
         /* @var $model Records */
-        $model = Records::where('id', $request['id'])->first();
+        $model = $this->model::where('id', $request['id'])->first();
 
         $model->title = $request['title'];
         $model->name = $request['name'];
@@ -69,10 +67,16 @@ class BlogRepository
         return $model->save();
     }
 
+    /**
+     * Create DB record
+     *
+     * @param $request
+     * @return bool
+     */
     public function store($request)
     {
         /* @var $model Records */
-        $model = new Records();
+        $model = new $this->model;
 
         $model->title = $request['title'];
         $model->name = $request['name'];
@@ -89,11 +93,45 @@ class BlogRepository
     /**
      * Destroy record from database
      *
-     * @param $ID
+     * @param $id
      * @return int
      */
-    public function destroy($ID)
+    public function destroy($id)
     {
-        return Records::destroy($ID);
+        return $this->model::destroy($id);
     }
+
+    /**
+     * Get only one record
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function get($id)
+    {
+        return $this->model::where('id', $id)->first();
+    }
+
+    /**
+     * Get record by alias param
+     *
+     * @param $alias
+     * @return mixed
+     */
+    public function getByAlias($alias)
+    {
+        return $this->model::where('status', 1)->where('alias', $alias)->first();
+    }
+
+    /**
+     * Count view record
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function addView($id)
+    {
+        return $this->model::where('id', $id)->first();
+    }
+
 }
