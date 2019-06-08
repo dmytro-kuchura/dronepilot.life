@@ -32,7 +32,7 @@ class StoreBlogPost extends FormRequest
             'content' => 'string|required',
             'title' => 'string|nullable|max:255',
             'description' => 'string|nullable',
-            'file' => 'image|max:20048|nullable',
+            'file' => 'image|max:40048|nullable',
             'keywords' => 'string|nullable',
         ];
     }

@@ -13,7 +13,7 @@
                 </header>
                 <p>
                     <a href="tg://resolve?domain=fee1good_ua"><i class="fa fa-phone" aria-hidden="true"></i> fee1good_ua</a>
-                    <a href="mailto:contact@dronepilot.life"><i class="fa fa-envelope" aria-hidden="true"></i>contact@dronepilot.life</a>
+                    <a href="mailto:contact@dronepilot.info"><i class="fa fa-envelope" aria-hidden="true"></i>contact@dronepilot.info</a>
                 </p>
             </article>
         </div>
