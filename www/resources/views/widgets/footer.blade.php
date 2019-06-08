@@ -5,19 +5,19 @@
         </a>
     </h1>
 
-    <div class="contat-from-wrapper">
-        <form method="post" id="subscribe-form">
-            <div class="row">
-                <div class="col-md-offset-4 col-md-3">
-                    <input name="email" type="email" placeholder="Введите Ваш email">
-                </div>
+{{--    <div class="contat-from-wrapper">--}}
+{{--        <form method="post" id="subscribe-form">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-offset-4 col-md-3">--}}
+{{--                    <input name="email" type="email" placeholder="Введите Ваш email">--}}
+{{--                </div>--}}
 
-                <div class="col-md-3">
-                    <input name="submit" class="submit" type="submit" value="Подписаться" style="margin: 0; width: 250px">
-                </div>
-            </div>
-        </form>
-    </div>
+{{--                <div class="col-md-3">--}}
+{{--                    <input name="submit" class="submit" type="submit" value="Подписаться" style="margin: 0; width: 250px">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </form>--}}
+{{--    </div>--}}
 
     <nav role="footer-nav">
         <ul>
