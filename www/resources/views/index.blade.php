@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('title', 'DronePilot | Главная страница')
-@section('description', 'Статьи и записи от личного использования БПЛА')
-@section('keywords', 'drone, DJI, Mavic Air')
+@section('description', 'Статьи и записи от личного использования БПЛА DJI Mavic Air')
+@section('keywords', 'drone, DJI, Mavic Air, dronepilots')
 
 @section('content')
     <div class="row">
