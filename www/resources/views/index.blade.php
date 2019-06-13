@@ -11,7 +11,7 @@
                 <header>
                     <h2><span>DronePilot</span> Блог, портфолио, статьи</h2>
                 </header>
-                <p>Все необходимое и интересное на почитатать из жизни дроновода.</p>
+                <p>Все факты и истории из жизни дроновода. Обладатель DJI Mavic Air. Различные настройки и тесты. Все это и не только.</p>
             </article>
             <ul class="grid-lod effect-2" id="grid">
                 @foreach ($left as $item)
