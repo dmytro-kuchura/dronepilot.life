@@ -63,7 +63,7 @@ class BlogRepository implements Repository
         if (isset($request['file'])) {
             $model->image = Upload::save($request);
         }
-        $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
+        $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name']));
         $model->status = $request['status'] === 'on' ? 1 : 0;
 
         return $model->save();
@@ -88,7 +88,7 @@ class BlogRepository implements Repository
         if (isset($request['file'])) {
             $model->image = Upload::save($request);
         }
-        $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic($request['name']);
+        $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name']));
         $model->status = $request['status'] === 'on' ? 1 : 0;
 
         return $model->save();
