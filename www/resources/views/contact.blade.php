@@ -37,7 +37,7 @@
                 <textarea name="description" cols="" rows=""
                           placeholder="Что именно Вас интересует?"></textarea>
                 <div class="clearfix"></div>
-                <input name="submit" class="submit" type="submit" value="Отправить">
+                <input id="submit-contacts" name="submit" class="submit" type="submit" value="Отправить">
             </form>
         </div>
     </div>
