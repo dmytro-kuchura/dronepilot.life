@@ -2,7 +2,7 @@
 
 @section('title', 'DronePilot | Главная страница')
 @section('description', 'Статьи и записи от личного использования БПЛА DJI Mavic Air')
-@section('keywords', 'drone, DJI, Mavic Air, dronepilots')
+@section('keywords', 'drone, DJI, Mavic Air, dronepilots, DJI Spark')
 
 @section('content')
     <div class="row">

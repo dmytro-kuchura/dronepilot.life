@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('title', 'DronePilot | Контакты')
-@section('description', 'Статьи и записи от личного использования БПЛА')
-@section('keywords', 'drone, DJI, Mavic Air')
+@section('description', 'Контактные данные для связи с автором DronePilot')
+@section('keywords', 'drone, DJI, Mavic Air, DJI Spark')
 
 @section('content')
     <div class="row">
