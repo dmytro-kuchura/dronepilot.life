@@ -46,13 +46,13 @@ class ApiController extends Controller
         $repository = new ContactsRepository();
 
         if ($repository->create($request->all())) {
-//            Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
+            Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
 
             return $this->returnResponse([
                 'success' => true
             ]);
         } else {
-//            Log::warning('Contacts form save failed!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
+            Log::error('Contacts form save failed!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
 
             return $this->returnResponse([
                 'success' => false
