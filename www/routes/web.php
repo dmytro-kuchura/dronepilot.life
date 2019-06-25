@@ -16,16 +16,18 @@ Route::get('/blog/pokupka-DJI-Spark', function () {
 });
 
 //$routes = function() {
-Route::get('/', 'SiteController@index')->name('home');
-Route::get('/about', 'SiteController@about')->name('about');
-Route::get('/contact', 'SiteController@contacts')->name('contacts');
-Route::get('/unsubscribe/{hash}', 'SiteController@unsubscribe')->name('unsubscribe');
+Route::group(['middleware' => ['visitors']], function () {
+    Route::get('/', 'SiteController@index')->name('home');
+    Route::get('/about', 'SiteController@about')->name('about');
+    Route::get('/contact', 'SiteController@contacts')->name('contacts');
+    Route::get('/unsubscribe/{hash}', 'SiteController@unsubscribe')->name('unsubscribe');
 
-Route::get('/blog', 'BlogController@index')->name('blog');
-Route::get('/blog/{alias}', 'BlogController@inner')->name('blog.inner');
+    Route::get('/blog', 'BlogController@index')->name('blog');
+    Route::get('/blog/{alias}', 'BlogController@inner')->name('blog.inner');
 
-Route::get('/works', 'WorkController@index')->name('works');
-Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
+    Route::get('/works', 'WorkController@index')->name('works');
+    Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
+});
 //};
 
 //Route::domain('{localization}.' . config('app.original_domain'))->group($routes);
