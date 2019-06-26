@@ -22,6 +22,7 @@ class Visitors
         $repository->store([
             'referer' => $request->server('HTTP_REFERER'),
             'url' => $request->path(),
+            'agent' => $request->server('HTTP_USER_AGENT')
         ]);
 
         return $next($request);

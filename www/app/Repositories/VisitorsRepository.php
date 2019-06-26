@@ -31,6 +31,7 @@ class VisitorsRepository implements Repository
             'url' => $request['url'],
             'city' => geoip()->getLocation()->city,
             'referer' => $request['referer'],
+            'user_agent' => !is_null($request['agent']) ? $request['agent'] : null,
         ]);
     }
 
