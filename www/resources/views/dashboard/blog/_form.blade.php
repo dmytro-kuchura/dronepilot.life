@@ -26,7 +26,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Контент</label>
         <div class="col-lg-7">
-            <textarea class="form-control" id="summernote" name="content" placeholder="Контент"
+            <textarea class="form-control" id="editor" name="content" placeholder="Контент"
                       required="">{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
             <div class="invalid-feedback">
                 Введите контент

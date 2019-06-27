@@ -61,16 +61,15 @@
 
 <script src="/elisyam/js/db-default-dark.js"></script>
 
-<!-- include summernote css/js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
 
 <script>
-    $(document).ready(function () {
-        $('#summernote').summernote({
-            tabsize: 5,
-            height: 250
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
         });
-    });
 </script>
 
 </body>
