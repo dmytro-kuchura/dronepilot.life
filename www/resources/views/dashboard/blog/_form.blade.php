@@ -27,7 +27,7 @@
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Контент</label>
         <div class="col-lg-7">
             <textarea class="form-control" id="editor" name="content" placeholder="Контент"
-                      required="">{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
+                      >{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
         </div>
     </div>
 
