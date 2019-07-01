@@ -28,9 +28,6 @@
         <div class="col-lg-7">
             <textarea class="form-control" id="editor" name="content" placeholder="Контент"
                       required="">{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
-            <div class="invalid-feedback">
-                Введите контент
-            </div>
         </div>
     </div>
 
@@ -50,9 +47,6 @@
         <div class="col-lg-7">
             <textarea class="form-control" name="description" placeholder="Description"
                       required="">{{ isset($result) && $result->description ? $result->description : '' }}</textarea>
-            <div class="invalid-feedback">
-                Please enter a description
-            </div>
         </div>
     </div>
 
@@ -61,9 +55,6 @@
         <div class="col-lg-7">
             <textarea class="form-control" name="keywords" placeholder="Keywords ..."
                       required="">{{ isset($result) && $result->keywords ? $result->keywords : '' }}</textarea>
-            <div class="invalid-feedback">
-                Please enter keywords
-            </div>
         </div>
     </div>
 
