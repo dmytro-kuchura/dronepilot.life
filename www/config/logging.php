@@ -43,9 +43,9 @@ return [
         'database' => [
             'driver' => 'custom',
             'via' => danielme85\LaravelLogToDB\LogToDbHandler::class,
-            'level' => env('APP_LOG_LEVEL', 'debug'),
+            'level' => 'debug',
             'name' => 'My DB Log',
-            'connection' => 'pgsql',
+            'connection' => 'default',
             'collection' => 'log',
             'detailed' => true,
             'queue' => false,
