@@ -1,7 +1,7 @@
 @import "~noty/src/noty.scss";
 @import "~noty/src/themes/mint.scss";
 
-.image-style-side {
+.blog-details {
     text-align: left;
     text-decoration: none;
     position: relative;
@@ -286,7 +286,7 @@
 }
 
 @media only screen and (max-width: 740px) {
-    .image-style-side {
+    .blog-details {
         img {
             max-height: 500px;
         }
@@ -318,7 +318,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .image-style-side {
+    .blog-details {
         line-height: 1.3em;
         font-size: 13px;
 
