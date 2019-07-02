@@ -316,3 +316,8 @@
   color: #fff;
 }
 
+.image-style-side {
+  float: right;
+  max-height: 300px;
+}
+
