@@ -30,9 +30,9 @@ class ApiController extends Controller
         try {
             $repository->create($request->all());
 
-            Log::channel('database')->info('Save comment!', $request->all());
+            Log::info('Save comment!', $request->all());
         } catch (Exception $exception) {
-            Log::channel('database')->warning('Save comment failed!', [
+            Log::warning('Save comment failed!', [
                 'exception' => $exception->getMessage(),
                 'file' => $exception->getFile(),
                 'line' => $exception->getLine()
@@ -55,9 +55,9 @@ class ApiController extends Controller
         try {
             $repository->create($request->all());
 
-            Log::channel('database')->info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
+            Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
         } catch (Exception $exception) {
-            Log::channel('database')->warning('Save comment failed!', [
+            Log::warning('Save comment failed!', [
                 'exception' => $exception->getMessage(),
                 'file' => $exception->getFile(),
                 'line' => $exception->getLine()
@@ -83,13 +83,13 @@ class ApiController extends Controller
                 'subject' => 'Спасибо за подписку!'
             ], $request->get('email'), 'Спасибо за подписку!');
 
-            Log::channel('database')->info('Email subscribe successful!', ['email' => $request->get('email')]);
+            Log::info('Email subscribe successful!', ['email' => $request->get('email')]);
 
             return $this->returnResponse([
                 'success' => true
             ]);
         } else {
-            Log::channel('database')->warning('Email subscribe failed!', ['email' => $request->get('email')]);
+            Log::warning('Email subscribe failed!', ['email' => $request->get('email')]);
 
             return $this->returnResponse([
                 'success' => false
@@ -104,9 +104,9 @@ class ApiController extends Controller
 
             $path = $service->upload($request);
 
-            Log::channel('database')->info('File upload successful!', ['file' => $path]);
+            Log::info('File upload successful!', ['file' => $path]);
         } catch (Exception $exception) {
-            Log::channel('database')->error('File upload failed!', [
+            Log::error('File upload failed!', [
                 'exception' => $exception->getMessage(),
                 'file' => $exception->getFile(),
                 'line' => $exception->getLine()
