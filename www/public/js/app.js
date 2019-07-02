@@ -13995,7 +13995,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(37);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
@@ -14148,7 +14148,7 @@ window.axios = __webpack_require__(16);
 
 window.Noty = __webpack_require__(36);
 
-window.Bounce = __webpack_require__(42);
+window.Bounce = __webpack_require__(37);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -39965,16 +39965,6 @@ module.exports = g;
 
 /***/ }),
 /* 37 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var require;var require;/**
@@ -41014,6 +41004,12 @@ module.exports = Vector2D;
 },{}]},{},[11])
 (11)
 });
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
