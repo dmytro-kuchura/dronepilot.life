@@ -37,7 +37,20 @@ return [
         'stack' => [
             'name' => 'Logging',
             'driver' => 'stack',
-            'channels' => ['database', 'mongodb'],
+            'channels' => ['database'],
+        ],
+
+        'database' => [
+            'driver' => 'custom',
+            'via' => danielme85\LaravelLogToDB\LogToDbHandler::class,
+            'level' => env('APP_LOG_LEVEL', 'debug'),
+            'name' => 'My DB Log',
+            'connection' => 'pgsql',
+            'collection' => 'log',
+            'detailed' => true,
+            'queue' => false,
+            'queue_name' => '',
+            'queue_connection' => ''
         ],
 
         'single' => [
@@ -88,19 +101,6 @@ return [
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => 'debug',
-        ],
-
-        'database' => [
-            'driver' => 'custom',
-            'via' => danielme85\LaravelLogToDB\LogToDbHandler::class,
-            'level' => env('APP_LOG_LEVEL', 'debug'),
-            'name' => 'My DB Log',
-            'connection' => 'default',
-            'collection' => 'log',
-            'detailed' => true,
-            'queue' => false,
-            'queue_name' => '',
-            'queue_connection' => ''
         ],
     ],
 
