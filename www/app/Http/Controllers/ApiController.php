@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\CommentsRequest;
 use App\Http\Requests\ContactsRequest;
 use App\Http\Requests\SubscribeRequest;
+use App\Http\Requests\ImageUploadRequest;
 use App\Repositories\CommentsRepository;
 use App\Repositories\ContactsRepository;
 use App\Repositories\SubscribersRepository;
 use App\Services\EmailService;
+use App\Services\UploadService;
 
 class ApiController extends Controller
 {
@@ -24,48 +27,52 @@ class ApiController extends Controller
     {
         $repository = new CommentsRepository();
 
-        if ($repository->create($request->all())) {
-            return $this->returnResponse([
-                'success' => true
+        try {
+            $repository->create($request->all());
+
+            Log::info('Save comment!', $request->all());
+        } catch (Exception $exception) {
+            Log::warning('Save comment failed!', [
+                'exception' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine()
             ]);
-        } else {
+
             return $this->returnResponse([
-                'success' => false
+                'success' => false,
             ], 400);
         }
+
+        return $this->returnResponse([
+            'success' => true
+        ]);
     }
 
-    /**
-     * Contacts form
-     *
-     * @param ContactsRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function contacts(ContactsRequest $request)
     {
         $repository = new ContactsRepository();
 
-        if ($repository->create($request->all())) {
+        try {
+            $repository->create($request->all());
+
             Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
-
-            return $this->returnResponse([
-                'success' => true
+        } catch (Exception $exception) {
+            Log::warning('Save comment failed!', [
+                'exception' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine()
             ]);
-        } else {
-            Log::error('Contacts form save failed!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
 
             return $this->returnResponse([
-                'success' => false
+                'success' => false,
             ], 400);
         }
+
+        return $this->returnResponse([
+            'success' => true
+        ]);
     }
 
-    /**
-     * Subscribe form
-     *
-     * @param SubscribeRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function subscribe(SubscribeRequest $request)
     {
         $repository = new SubscribersRepository();
@@ -88,5 +95,31 @@ class ApiController extends Controller
                 'success' => false
             ], 400);
         }
+    }
+
+    public function upload(ImageUploadRequest $request)
+    {
+        try {
+            $service = new UploadService();
+
+            $path = $service->upload($request);
+
+            Log::info('File upload successful!', ['file' => $path]);
+        } catch (Exception $exception) {
+            Log::warning('File upload failed!', [
+                'exception' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine()
+            ]);
+
+            return $this->returnResponse([
+                'success' => false,
+            ], 400);
+        }
+
+        return $this->returnResponse([
+            'success' => true,
+            'default' => $path
+        ]);
     }
 }
