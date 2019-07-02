@@ -44,8 +44,8 @@
                                                 class="badge-text badge-text-small {{ $obj->status == 0 ? 'danger' : 'success'}}">{{ $obj->status == 0 ? 'Не опубликовано' : 'Опубликовано'}}</span></span></td>
                                     <td>{{ $obj->views }}</td>
                                     <td class="td-actions">
-                                        <a href="#"><i class="la la-edit edit"></i></a>
-                                        <a href="#"><i class="la la-close delete"></i></a>
+                                        <a href="{{ route('blog.edit', ['id' => $obj->id]) }}"><i class="la la-edit edit"></i></a>
+                                        <a href="{{ route('blog.delete', ['id' => $obj->id]) }}"><i class="la la-close delete"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
