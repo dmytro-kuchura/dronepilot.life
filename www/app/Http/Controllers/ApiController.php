@@ -106,7 +106,7 @@ class ApiController extends Controller
 
             Log::info('File upload successful!', ['file' => $path]);
         } catch (Exception $exception) {
-            Log::warning('File upload failed!', [
+            Log::error('File upload failed!', [
                 'exception' => $exception->getMessage(),
                 'file' => $exception->getFile(),
                 'line' => $exception->getLine()
