@@ -37,7 +37,7 @@ return [
         'stack' => [
             'name' => 'Logging',
             'driver' => 'stack',
-            'channels' => ['database'],
+            'channels' => ['database', 'mongodb'],
         ],
 
         'single' => [
@@ -95,7 +95,7 @@ return [
             'via' => danielme85\LaravelLogToDB\LogToDbHandler::class,
             'level' => env('APP_LOG_LEVEL', 'debug'),
             'name' => 'My DB Log',
-            'connection' => 'pgsql',
+            'connection' => 'default',
             'collection' => 'log',
             'detailed' => true,
             'queue' => false,
