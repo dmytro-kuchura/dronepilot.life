@@ -119,7 +119,8 @@ class ApiController extends Controller
 
         return $this->returnResponse([
             'success' => true,
-            'default' => $path
+            'uploaded' => true,
+            'url' => $path
         ]);
     }
 }

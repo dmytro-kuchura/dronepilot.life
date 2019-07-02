@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Logs\LogMonolog;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
@@ -35,22 +36,13 @@ return [
 
     'channels' => [
         'stack' => [
-            'name' => 'Logging',
             'driver' => 'stack',
-            'channels' => ['database'],
+            'channels' => ['daily'],
         ],
 
-        'database' => [
+        'custom' => [
             'driver' => 'custom',
-            'via' => danielme85\LaravelLogToDB\LogToDbHandler::class,
-            'level' => 'debug',
-            'name' => 'My DB Log',
-            'connection' => 'default',
-            'collection' => 'log',
-            'detailed' => true,
-            'queue' => false,
-            'queue_name' => '',
-            'queue_connection' => ''
+            'via' => LogMonolog::class,
         ],
 
         'single' => [

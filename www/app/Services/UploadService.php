@@ -8,13 +8,8 @@ class UploadService
 {
     public function upload($request)
     {
-        $path = Storage::disk('s3')->put('images/originals', $request->file);
+        $path = Storage::disk('s3')->put('/photos', $request->upload);
 
-        $request->merge([
-            'size' => $request->file->getClientSize(),
-            'path' => $path
-        ]);
-
-        return $path;
+        return 'https://dronepilot.s3-eu-west-1.amazonaws.com/' . $path;
     }
 }
