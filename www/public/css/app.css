@@ -316,7 +316,7 @@
   color: #fff;
 }
 
-.image-style-side {
+.enter-content {
   text-align: left;
   text-decoration: none;
   position: relative;
@@ -329,210 +329,210 @@
   margin: 0 0 1.5em;
 }
 
-.image-style-side p {
+.enter-content p {
   font-size: 18px !important;
 }
 
-.image-style-side ul li {
+.enter-content ul li {
   font-size: 18px !important;
 }
 
-.image-style-side ol li {
+.enter-content ol li {
   font-size: 18px !important;
 }
 
-.image-style-side a {
+.enter-content a {
   text-decoration: underline;
   color: #43f;
 }
 
-.image-style-side a:visited {
+.enter-content a:visited {
   text-decoration: inherit;
   color: #609;
 }
 
-.image-style-side a:hover {
+.enter-content a:hover {
   text-decoration: underline;
   color: #f00;
 }
 
-.image-style-side a:active {
+.enter-content a:active {
   text-decoration: underline;
   color: #000;
 }
 
-.image-style-side a[href^="http"],
-.image-style-side a[href^="www."] {
+.enter-content a[href^="http"],
+.enter-content a[href^="www."] {
   cursor: pointer;
   cursor: alias;
 }
 
-.image-style-side img {
+.enter-content img {
   max-height: 600px !important;
   height: auto !important;
   width: 100% !important;
 }
 
-.image-style-side li {
+.enter-content li {
   list-style-type: none;
 }
 
-.image-style-side h1,
-.image-style-side h2,
-.image-style-side h3,
-.image-style-side h4,
-.image-style-side h5,
-.image-style-side h6 {
+.enter-content h1,
+.enter-content h2,
+.enter-content h3,
+.enter-content h4,
+.enter-content h5,
+.enter-content h6 {
   line-height: 1.2em;
   margin: 1em 0 0.7em;
 }
 
-.image-style-side h1 a,
-.image-style-side h2 a,
-.image-style-side h3 a,
-.image-style-side h4 a,
-.image-style-side h5 a,
-.image-style-side h6 a {
+.enter-content h1 a,
+.enter-content h2 a,
+.enter-content h3 a,
+.enter-content h4 a,
+.enter-content h5 a,
+.enter-content h6 a {
   text-decoration: none;
 }
 
-.image-style-side h1:before,
-.image-style-side h2:before,
-.image-style-side h3:before,
-.image-style-side h4:before,
-.image-style-side h5:before,
-.image-style-side h6:before {
+.enter-content h1:before,
+.enter-content h2:before,
+.enter-content h3:before,
+.enter-content h4:before,
+.enter-content h5:before,
+.enter-content h6:before {
   content: '';
   display: block;
   clear: both;
   height: 0;
 }
 
-.image-style-side h1:first-child,
-.image-style-side h2:first-child,
-.image-style-side h3:first-child,
-.image-style-side h4:first-child,
-.image-style-side h5:first-child,
-.image-style-side h6:first-child {
+.enter-content h1:first-child,
+.enter-content h2:first-child,
+.enter-content h3:first-child,
+.enter-content h4:first-child,
+.enter-content h5:first-child,
+.enter-content h6:first-child {
   margin-top: 0;
 }
 
-.image-style-side h1 {
+.enter-content h1 {
   font-size: 30px !important;
 }
 
-.image-style-side h2 {
+.enter-content h2 {
   font-size: 28px !important;
 }
 
-.image-style-side h3 {
+.enter-content h3 {
   font-size: 28px !important;
 }
 
-.image-style-side h4 {
+.enter-content h4 {
   font-size: 28px !important;
 }
 
-.image-style-side h5 {
+.enter-content h5 {
   font-size: 24px !important;
 }
 
-.image-style-side h6 {
+.enter-content h6 {
   font-size: 20px !important;
 }
 
-.image-style-side ul,
-.image-style-side ol,
-.image-style-side dl,
-.image-style-side pre,
-.image-style-side p,
-.image-style-side table,
-.image-style-side blockquote,
-.image-style-side address,
-.image-style-side .iframeHolder {
+.enter-content ul,
+.enter-content ol,
+.enter-content dl,
+.enter-content pre,
+.enter-content p,
+.enter-content table,
+.enter-content blockquote,
+.enter-content address,
+.enter-content .iframeHolder {
   margin: 1.5em 0;
 }
 
-.image-style-side ul:first-child,
-.image-style-side ol:first-child,
-.image-style-side dl:first-child,
-.image-style-side pre:first-child,
-.image-style-side p:first-child,
-.image-style-side table:first-child,
-.image-style-side blockquote:first-child,
-.image-style-side address:first-child,
-.image-style-side .iframeHolder:first-child {
+.enter-content ul:first-child,
+.enter-content ol:first-child,
+.enter-content dl:first-child,
+.enter-content pre:first-child,
+.enter-content p:first-child,
+.enter-content table:first-child,
+.enter-content blockquote:first-child,
+.enter-content address:first-child,
+.enter-content .iframeHolder:first-child {
   margin-top: 0;
 }
 
-.image-style-side ul:last-child,
-.image-style-side ol:last-child,
-.image-style-side dl:last-child,
-.image-style-side pre:last-child,
-.image-style-side p:last-child,
-.image-style-side table:last-child,
-.image-style-side blockquote:last-child,
-.image-style-side address:last-child,
-.image-style-side .iframeHolder:last-child {
+.enter-content ul:last-child,
+.enter-content ol:last-child,
+.enter-content dl:last-child,
+.enter-content pre:last-child,
+.enter-content p:last-child,
+.enter-content table:last-child,
+.enter-content blockquote:last-child,
+.enter-content address:last-child,
+.enter-content .iframeHolder:last-child {
   margin-bottom: 0;
 }
 
-.image-style-side blockquote {
+.enter-content blockquote {
   padding: 1.5em;
   font-style: italic;
   background-color: #f6f6f6;
   border-left: 3px solid #d8d8d8;
 }
 
-.image-style-side ul,
-.image-style-side ol,
-.image-style-side dl,
-.image-style-side dd {
+.enter-content ul,
+.enter-content ol,
+.enter-content dl,
+.enter-content dd {
   margin-left: 1.5em;
 }
 
-.image-style-side ul ul,
-.image-style-side ul ol {
+.enter-content ul ul,
+.enter-content ul ol {
   margin-top: 0;
 }
 
-.image-style-side ol ul,
-.image-style-side ol ol {
+.enter-content ol ul,
+.enter-content ol ol {
   margin-top: 0;
 }
 
-.image-style-side li {
+.enter-content li {
   list-style-position: inside;
   margin: 0.2em 0;
 }
 
-.image-style-side ul li,
-.image-style-side ol li {
+.enter-content ul li,
+.enter-content ol li {
   list-style-type: inherit;
 }
 
-.image-style-side ul {
+.enter-content ul {
   list-style-type: disc;
 }
 
-.image-style-side ul ul {
+.enter-content ul ul {
   list-style-type: circle;
 }
 
-.image-style-side ul ul ul {
+.enter-content ul ul ul {
   list-style-type: square;
 }
 
-.image-style-side ol {
+.enter-content ol {
   list-style-type: decimal;
   padding-left: 10px !important;
 }
 
-.image-style-side dl dt {
+.enter-content dl dt {
   font-style: italic;
 }
 
-.image-style-side table {
+.enter-content table {
   width: 100%;
   background-color: transparent;
   border-collapse: collapse;
@@ -540,69 +540,69 @@
   border: 1px solid #666;
 }
 
-.image-style-side table caption {
+.enter-content table caption {
   margin-bottom: 0.5em;
   caption-side: top;
 }
 
-.image-style-side table tbody,
-.image-style-side table tfoot,
-.image-style-side table thead,
-.image-style-side table tr,
-.image-style-side table th,
-.image-style-side table td {
+.enter-content table tbody,
+.enter-content table tfoot,
+.enter-content table thead,
+.enter-content table tr,
+.enter-content table th,
+.enter-content table td {
   border: inherit;
 }
 
-.image-style-side table th,
-.image-style-side table td {
+.enter-content table th,
+.enter-content table td {
   padding: 10px;
   line-height: 1em;
   text-align: left;
   vertical-align: top;
 }
 
-.image-style-side table th {
+.enter-content table th {
   text-align: center;
   font-weight: bold;
   background-color: #2f2f2f;
   color: #fff;
 }
 
-.image-style-side table.table-null {
+.enter-content table.table-null {
   border-color: transparent;
 }
 
-.image-style-side table.table-null th,
-.image-style-side table.table-null td {
+.enter-content table.table-null th,
+.enter-content table.table-null td {
   border-color: transparent;
 }
 
-.image-style-side table.table-zebra {
+.enter-content table.table-zebra {
   border-color: transparent;
 }
 
-.image-style-side table.table-zebra th,
-.image-style-side table.table-zebra td {
+.enter-content table.table-zebra th,
+.enter-content table.table-zebra td {
   border-color: transparent;
 }
 
-.image-style-side table.table-zebra tr:nth-child(odd) {
+.enter-content table.table-zebra tr:nth-child(odd) {
   background-color: #939a93;
   color: #fff;
 }
 
-.image-style-side pre,
-.image-style-side code,
-.image-style-side kbd,
-.image-style-side samp {
+.enter-content pre,
+.enter-content code,
+.enter-content kbd,
+.enter-content samp {
   font-style: normal;
   border-radius: 0.25em;
   border: 1px solid #777;
   background-color: #eee;
 }
 
-.image-style-side pre {
+.enter-content pre {
   line-height: 1.5em;
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -610,9 +610,9 @@
   padding: 1em;
 }
 
-.image-style-side code,
-.image-style-side kbd,
-.image-style-side samp {
+.enter-content code,
+.enter-content kbd,
+.enter-content samp {
   letter-spacing: 1px;
   color: #fff;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
@@ -623,19 +623,19 @@
   padding: 0 0.375em;
 }
 
-.image-style-side code {
+.enter-content code {
   background-color: #0283bc;
 }
 
-.image-style-side kbd {
+.enter-content kbd {
   background-color: #6baa2b;
 }
 
-.image-style-side samp {
+.enter-content samp {
   background-color: #41a2ff;
 }
 
-.image-style-side audio {
+.enter-content audio {
   display: block;
   width: 100%;
 }
@@ -657,96 +657,96 @@
 }
 
 @media only screen and (max-width: 740px) {
-  .image-style-side img {
+  .enter-content img {
     max-height: 500px;
   }
 
-  .image-style-side h1 {
+  .enter-content h1 {
     font-size: 30px;
   }
 
-  .image-style-side h2 {
+  .enter-content h2 {
     font-size: 27px;
   }
 
-  .image-style-side h3 {
+  .enter-content h3 {
     font-size: 24px;
   }
 
-  .image-style-side h4 {
+  .enter-content h4 {
     font-size: 21px;
   }
 
-  .image-style-side h5 {
+  .enter-content h5 {
     font-size: 18px;
   }
 
-  .image-style-side h6 {
+  .enter-content h6 {
     font-size: 15px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .image-style-side {
+  .enter-content {
     line-height: 1.3em;
     font-size: 13px;
   }
 
-  .image-style-side img {
+  .enter-content img {
     max-height: 400px;
   }
 
-  .image-style-side h1 {
+  .enter-content h1 {
     font-size: 26px;
   }
 
-  .image-style-side h2 {
+  .enter-content h2 {
     font-size: 23.92px;
   }
 
-  .image-style-side h3 {
+  .enter-content h3 {
     font-size: 21.84px;
   }
 
-  .image-style-side h4 {
+  .enter-content h4 {
     font-size: 19.76px;
   }
 
-  .image-style-side h5 {
+  .enter-content h5 {
     font-size: 17.68px;
   }
 
-  .image-style-side h6 {
+  .enter-content h6 {
     font-size: 15.6px;
   }
 
-  .image-style-side ul,
-  .image-style-side ol,
-  .image-style-side dl {
+  .enter-content ul,
+  .enter-content ol,
+  .enter-content dl {
     margin-left: 1em;
   }
 
-  .image-style-side ul,
-  .image-style-side ol,
-  .image-style-side dl,
-  .image-style-side pre,
-  .image-style-side p,
-  .image-style-side table,
-  .image-style-side blockquote,
-  .image-style-side address,
-  .image-style-side .iframeHolder {
+  .enter-content ul,
+  .enter-content ol,
+  .enter-content dl,
+  .enter-content pre,
+  .enter-content p,
+  .enter-content table,
+  .enter-content blockquote,
+  .enter-content address,
+  .enter-content .iframeHolder {
     margin-top: 1.3em;
     margin-bottom: 1.3em;
   }
 
-  .image-style-side ul ul:last-child,
-  .image-style-side ul ol:last-child {
+  .enter-content ul ul:last-child,
+  .enter-content ul ol:last-child {
     margin-top: 1.3em;
     margin-bottom: 1.3em;
   }
 
-  .image-style-side ol ul:last-child,
-  .image-style-side ol ol:last-child {
+  .enter-content ol ul:last-child,
+  .enter-content ol ol:last-child {
     margin-top: 1.3em;
     margin-bottom: 1.3em;
   }
