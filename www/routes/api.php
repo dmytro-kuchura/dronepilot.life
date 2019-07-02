@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,4 +15,5 @@ Route::prefix('v1')->group(function () {
     Route::post('/comment', 'ApiController@comment')->name('api.comment');
     Route::post('/contacts', 'ApiController@contacts')->name('api.contacts');
     Route::post('/subscribe', 'ApiController@subscribe')->name('api.subscribe');
+    Route::post('/image-upload', 'ApiController@upload')->name('api.image');
 });

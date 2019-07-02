@@ -66,7 +66,14 @@
 
 <script>
     ClassicEditor
-        .create(document.querySelector('#editor'))
+        .create(document.querySelector('#editor'), {
+            ckfinder: {
+                uploadUrl: '/api/v1/image-upload'
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
 </script>
 
 </body>
