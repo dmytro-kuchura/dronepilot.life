@@ -6,55 +6,45 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-            <article role="pge-title-content" class="blog-header">
-                <header>
-                    <h2><span>DronePilot</span> Блог, портфолио, статьи</h2>
-                </header>
-                <p>Все факты и истории из жизни дроновода. Обладатель DJI Mavic Air. Различные настройки и тесты. Все это и не только.</p>
-            </article>
-            <ul class="grid-lod effect-2" id="grid">
-                @foreach ($left as $item)
-                    @if (isset($item->alias))
-                        <li>
-                            <section class="blog-content">
-                                <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">
-                                    <figure>
-                                        <div class="post-date">
-                                            <span>{{ date('j', strtotime($item->created_at)) }}</span>{{ russianMonth($item->created_at) . ' ' . date('Y', strtotime($item->created_at)) }}
-                                        </div>
+        <div class="col-xl-10 col-lg-9 col-xl-80per">
+            <div class="blog-listing">
+                <div class="row">
 
-                                        <img src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}" alt="" class="img-responsive"/>
-                                    </figure>
-                                </a>
-                                <article>{{ $item->name }}</article>
-                            </section>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <ul class="grid-lod effect-2" id="grid">
-                @foreach ($right as $item)
-                    @if (isset($item->alias))
-                        <li>
-                            <section class="blog-content">
-                                <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">
-                                    <figure>
-                                        <div class="post-date">
-                                            <span>{{ date('j', strtotime($item->created_at)) }}</span>{{ russianMonth($item->created_at) . ' ' . date('Y', strtotime($item->created_at)) }}
+                    @foreach ($result as $item)
+                        @if (isset($item->alias))
+                            <div class="col-xl-6 col-12">
+                                <div class="blog-item">
+                                    <div class="blog-media mb-20">
+                                        <img src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}" alt="Roadie">
+                                        <div class="blog-effect"></div>
+                                        <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}" title="Click For Read More" class="read">&nbsp;</a>
+                                    </div>
+                                    <div class="blog-detail">
+                                        <span class="post-date">{{ date('j', strtotime($item->created_at)) . ' ' . russianMonth($item->created_at) . ' ' . date('Y', strtotime($item->created_at))}}</span>
+                                        <div class="blog-title"><a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">{{ $item->name }}</a>
                                         </div>
+                                        <p>Uses a dictionary of over 200 Latin words, combined with a handful of model
+                                            sentence structures donec sollicitudin erat eget malesuada scelerisque.
+                                            Nullam consectetur, arcu sed tincidunt mattis, massa nunc sodales mauris, ut
+                                            lobortis arcu tortor in risus.</p>
+                                        <hr>
+                                        <div class="post-info">
+                                            <ul>
+                                                <li><span>By</span><a href="javascript:void(0)"> cormon jons</a></li>
+                                                <li><a href="javascript:void(0)">(5) comments</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
 
-                                        <img src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : '/images/placeholder.png' }}" alt="" class="img-responsive"/>
-                                    </figure>
-                                </a>
-                                <article>{{ $item->name }}</article>
-                            </section>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
+
+
+                </div>
+            </div>
         </div>
+        @widget('Sidebar')
     </div>
 @endsection

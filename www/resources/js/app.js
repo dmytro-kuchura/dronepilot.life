@@ -12,6 +12,13 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+require('./components/jquery.downCount');
+require('./components/jquery-ui.min');
+require('./components/fotorama');
+require('./components/jquery.magnific-popup');
+require('./components/owl.carousel.min');
+require('./components/custom');
+
 function notification(text, type) {
     new Noty({
         type: type,

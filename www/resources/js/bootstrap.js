@@ -8,7 +8,7 @@ window.Popper = require('popper.js').default;
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
+    window.$ = window.jQuery = require('./components/jquery-1.12.3.min');
 
     require('bootstrap');
 } catch (e) {}
@@ -22,8 +22,6 @@ try {
 window.axios = require('axios');
 
 window.Noty = require('noty');
-
-window.Bounce = require('Bounce.js');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

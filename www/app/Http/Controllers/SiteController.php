@@ -21,8 +21,7 @@ class SiteController extends Controller
         $result = $this->repository->all();
 
         return view('index', [
-            'left' => isset($result['left']) ? $result['left'] : [],
-            'right' => isset($result['right']) ? $result['right'] : [],
+            'result' => $result,
         ]);
     }
 

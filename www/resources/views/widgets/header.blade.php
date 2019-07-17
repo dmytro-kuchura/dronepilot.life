@@ -1,25 +1,64 @@
-<header role="header">
-    <div class="container">
-        <h1>
-            <a href="{{ route('home') }}" title="Drone Pilot | blog">
-                <img src="/images/logo-main.png" title="Drone Pilot | blog" alt="Drone Pilot | blog"/>
-            </a>
-        </h1>
-        <nav role="header-nav" class="navy">
-            <ul>
-{{--                <li class="{{ $uri === 'works' ? 'nav-active' : '' }}">--}}
-{{--                    <a href="{{ route('works') }}" title="Работы">Работы</a>--}}
-{{--                </li>--}}
-                <li class="{{ $uri === 'about' ? 'nav-active' : '' }}">
-                    <a href="{{ route('about') }}" title="Обо мне">Обо мне</a>
-                </li>
-                <li class="{{ $uri === 'blog' ? 'nav-active' : '' }}">
-                    <a href="{{ route('blog') }}" title="Блог">Блог</a>
-                </li>
-                <li class="{{ $uri === 'contacts' ? 'nav-active' : '' }}">
-                    <a href="{{ route('contacts') }}" title="Контакты">Контакты</a>
-                </li>
-            </ul>
-        </nav>
+<header class="navbar navbar-custom container-full-sm" id="header">
+    <div class="header-middle">
+        <div class="container position-s">
+            <div class="row m-0">
+                <div class="col-xl-5 col-lg-5 menu-position col-xl-40per p-0  position-initial">
+                    <div id="menu" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="level">
+                                <a href="{{ route('blog') }}" class="page-scroll">Блог</a>
+                            </li>
+                            <li class="level">
+                                <a href="{{ route('contacts') }}" class="page-scroll">Контакты</a>
+                            </li>
+                            <li class="level">
+                                <a href="{{ route('about') }}" class="page-scroll">Обо мне</a>
+                            </li>
+                            <li class="level">
+                                <a href="{{ route('map') }}" class="page-scroll">Карта полетов
+                                    <div class="menu-label"><span class="new-menu"> New </span></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-6 col-xl-20per align-center left-sm p-0">
+                    <div class="header-middle-left">
+                        <div class="navbar-header float-none-sm">
+                            <a class="navbar-brand page-scroll" href="{{ route('home') }}">
+                                <img alt="Roadie" src="/images/logo-main.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-4 col-6 col-xl-40per p-0">
+                    <div class="right-side header-right-link">
+                        <ul>
+                            <li class="search-box">
+                                <a><span></span></a>
+                            </li>
+                            <li class="side-toggle">
+                                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle"
+                                        type="button"><i class="fa-bar"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
+
+<div class="sidebar-search-wrap">
+    <div class="sidebar-table-container">
+        <div class="sidebar-align-container">
+            <div class="search-closer right-side"></div>
+            <div class="search-container">
+                <form method="get" id="search-form">
+                    <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+                </form>
+                <span>Search and Press Enter</span>
+            </div>
+        </div>
+    </div>
+</div>

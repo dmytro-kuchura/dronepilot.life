@@ -17,19 +17,7 @@ class BlogRepository implements Repository
      */
     public function all()
     {
-        $records = $this->model::where('status', 1)->orderBy('id', 'desc')->get();
-
-        $result = [];
-
-        foreach ($records as $key => $obj) {
-            if ($key & 1) {
-                $result['left'][] = $obj;
-            } else {
-                $result['right'][] = $obj;
-            }
-        }
-
-        return $result;
+        return $this->model::where('status', 1)->orderBy('id', 'desc')->get();
     }
 
     /**
