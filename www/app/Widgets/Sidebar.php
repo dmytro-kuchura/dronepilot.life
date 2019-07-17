@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\Repositories\BlogRepository;
 use Arrilot\Widgets\AbstractWidget;
 
 class Sidebar extends AbstractWidget
@@ -19,10 +20,13 @@ class Sidebar extends AbstractWidget
      */
     public function run()
     {
-        //
+        $repository = new BlogRepository();
+
+        $recent = $repository->getRecent();
 
         return view('widgets.sidebar', [
             'config' => $this->config,
+            'recent' => $recent,
         ]);
     }
 }

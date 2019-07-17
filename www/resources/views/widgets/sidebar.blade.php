@@ -2,7 +2,7 @@
     <div class="sidebar-block">
         <div class="sidebar-box listing-box mb-40"><span class="opener plus"></span>
             <div class="sidebar-title">
-                <h3><span>Categories</span></h3>
+                <h3><span>{{ __('site.categories') }}</span></h3>
             </div>
             <div class="sidebar-contant">
                 <ul>
@@ -59,7 +59,7 @@
         </div>
         <div class="sidebar-box mb-40"><span class="opener plus"></span>
             <div class="sidebar-title">
-                <h3><span>Tags</span></h3>
+                <h3><span>{{ __('site.tags') }}</span></h3>
             </div>
             <div class="sidebar-contant">
                 <ul class="tagcloud">
@@ -77,37 +77,27 @@
         </div>
         <div class="sidebar-box sidebar-item sidebar-item-wide"><span class="opener plus"></span>
             <div class="sidebar-title">
-                <h3><span>Recent Post</span></h3>
+                <h3><span>{{ __('site.popular') }}</span></h3>
             </div>
             <div class="sidebar-contant">
                 <ul>
-                    <li>
-                        <div class="pro-media"><a href="javascript:void(0)"><img alt="T-shirt"
-                                                                                 src="images/blog_img1.jpg"></a>
-                        </div>
-                        <div class="pro-detail-info"><a href="javascript:void(0)">Black African
-                                Print</a>
-                            <div class="post-info">jul 11, 2017</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pro-media"><a href="javascript:void(0)"><img alt="T-shirt"
-                                                                                 src="images/blog_img2.jpg"></a>
-                        </div>
-                        <div class="pro-detail-info"><a href="javascript:void(0)">Black African
-                                Print</a>
-                            <div class="post-info">jul 11, 2017</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pro-media"><a href="javascript:void(0)"><img alt="T-shirt"
-                                                                                 src="images/blog_img3.jpg"></a>
-                        </div>
-                        <div class="pro-detail-info"><a href="javascript:void(0)">Black African
-                                Print</a>
-                            <div class="post-info">jul 11, 2017</div>
-                        </div>
-                    </li>
+                    @foreach($recent as $obj)
+                        @if (isset($obj->alias))
+                            <li>
+                                <div class="pro-media">
+                                    <a href="{{ route('blog.inner', ['alias' => $obj->alias]) }}">
+                                        <img alt="{{ $obj->name }}"
+                                             src="{{ is_file(public_path('/storage/main/' . $obj->image)) ? '/storage/main/' . $obj->image : '/images/placeholder.png' }}">
+                                    </a>
+                                </div>
+                                <div class="pro-detail-info">
+                                    <a href="{{ route('blog.inner', ['alias' => $obj->alias]) }}">{{ $obj->name }}</a>
+                                    <div
+                                        class="post-info">{{ date('j', strtotime($obj->created_at)) . ' ' . russianMonth($obj->created_at) . ', ' . date('Y', strtotime($obj->created_at))}}</div>
+                                </div>
+                            </li>@endif
+                    @endforeach
+
                 </ul>
             </div>
         </div>

@@ -20,6 +20,11 @@ class BlogRepository implements Repository
         return $this->model::where('status', 1)->orderBy('id', 'desc')->get();
     }
 
+    public function getRecent()
+    {
+        return $this->model::where('status', 1)->limit(4)->inRandomOrder()->get();
+    }
+
     /**
      * All records for Dashboard
      *

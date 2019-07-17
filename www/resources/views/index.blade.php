@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
-@section('title', 'DronePilot | Главная страница')
-@section('description', 'Статьи и записи от личного использования БПЛА DJI Mavic Air')
-@section('keywords', 'drone, DJI, Mavic Air, dronepilots, DJI Spark')
+@section('title', __('seo.index.title'))
+@section('description', __('seo.index.description'))
+@section('keywords', __('seo.index.keywords'))
 
 @section('content')
     <div class="row">
@@ -30,7 +30,7 @@
                                         <hr>
                                         <div class="post-info">
                                             <ul>
-                                                <li><span>By</span><a href="javascript:void(0)"> cormon jons</a></li>
+                                                <li><span>{{ __('site.by') }}</span><a href="javascript:void(0)"> cormon jons</a></li>
                                                 <li><a href="javascript:void(0)">(5) comments</a></li>
                                             </ul>
                                         </div>
