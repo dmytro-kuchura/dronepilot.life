@@ -49,6 +49,20 @@ class BlogController extends Controller
 
     public function list()
     {
+        $result = $this->repository->all();
+
+        return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function category($category)
+    {
+        $result = $this->repository->list();
+
+        return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function tag($tag)
+    {
         $result = $this->repository->list();
 
         return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);

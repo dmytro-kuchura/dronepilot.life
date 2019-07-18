@@ -20,11 +20,6 @@ class BlogRepository implements Repository
         return $this->model::where('status', 1)->orderBy('id', 'desc')->get();
     }
 
-    public function getRecent()
-    {
-        return $this->model::where('status', 1)->limit(4)->inRandomOrder()->get();
-    }
-
     /**
      * All records for Dashboard
      *
@@ -118,6 +113,21 @@ class BlogRepository implements Repository
     public function getByAlias($alias)
     {
         return $this->model::where('status', 1)->where('alias', $alias)->first();
+    }
+
+    public function getRecent()
+    {
+        return $this->model::where('status', 1)->limit(4)->inRandomOrder()->get();
+    }
+
+    public function getByCategory($category)
+    {
+        return $this->model::where('status', 1)->where('category_id', $category)->get();
+    }
+
+    public function getByTag($tag)
+    {
+        return $this->model::where('status', 1)->where('alias', $tag)->get();
     }
 
     /**

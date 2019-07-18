@@ -53,7 +53,7 @@
     @widget('Header')
     <!-- HEADER END -->
 
-    <!-- Bread Crumb START -->
+    <!-- Breadcrumbs START -->
     <div class="banner inner-banner1 ">
         <div class="container">
             <section class="banner-detail center-xs">
@@ -67,7 +67,7 @@
             </section>
         </div>
     </div>
-    <!-- Bread Crumb END -->
+    <!-- Breadcrumbs END -->
 
     <!-- CONTAIN START -->
     <section class="ptb-70">

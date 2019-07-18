@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
-@section('title', 'DronePilot | Карта стран с правилами полетов')
-@section('description', 'Со временем расширяемая карта стран с правилами полетов для БПЛА')
-@section('keywords', 'Правила для дронов, полеты дронов, Правила полетов дронов, drone, DJI, Mavic Air, DJI Spark')
+@section('title', __('seo.map.title'))
+@section('description', __('seo.map.description'))
+@section('keywords', __('seo.map.keywords'))
 
 @section('content')
     <div class="row">

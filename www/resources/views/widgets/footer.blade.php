@@ -8,7 +8,10 @@
                             <h3 class="title">address<span></span></h3>
                             <ul class="footer-block-contant address-footer">
                                 <li class="item"><i class="fa fa-envelope"> </i>
-                                    <p><a href="javascript:void(0)">infoservices@roadie.com </a></p>
+                                    <p><a href="mailto:dronepilot.blog@gmail.com">dronepilot.blog@gmail.com </a></p>
+                                </li>
+                                <li class="item"><i class="fa fa-phone"> </i>
+                                    <p><a href="tg://resolve?domain=fee1good_ua">Telegram </a></p>
                                 </li>
                             </ul>
                         </div>

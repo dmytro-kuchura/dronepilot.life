@@ -24,6 +24,8 @@ Route::group(['middleware' => ['visitors']], function () {
 
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/blog/{alias}', 'BlogController@inner')->name('blog.inner');
+    Route::get('/blog/category/{category}', 'BlogController@category')->name('blog.category');
+    Route::get('/blog/tag/{tag}', 'BlogController@tag')->name('blog.tag');
 
     Route::get('/map', 'MapController@index')->name('map');
     Route::get('/map/{country}', 'MapController@inner')->name('map.inner');
