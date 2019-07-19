@@ -13,6 +13,10 @@ return [
     'about.description' => 'Про автора блога DronePilot',
     'about.keywords' => 'drone, DJI, Mavic Air, DJI Spark',
 
+    'blog.title' => 'DronePilot | Записи блога',
+    'blog.description' => 'Блог и статьи DronePilot. Мануалы по обработке фотографий а так же лайфхаки DJI Mavic Air и DJI Spark',
+    'blog.keywords' => 'drone, DJI, Mavic Air, DJI Spark',
+
     'map.title' => 'DronePilot | Карта стран с правилами полетов',
     'map.description' => 'Со временем расширяемая карта стран с правилами полетов для БПЛА',
     'map.keywords' => 'Правила для дронов, полеты дронов, Правила полетов дронов, drone, DJI, Mavic Air, DJI Spark',

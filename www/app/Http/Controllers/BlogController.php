@@ -20,8 +20,7 @@ class BlogController extends Controller
         $result = $this->repository->all();
 
         return view('blog.index', [
-            'left' => isset($result['left']) ? $result['left'] : [],
-            'right' => isset($result['right']) ? $result['right'] : [],
+            'result' => $result
         ]);
     }
 

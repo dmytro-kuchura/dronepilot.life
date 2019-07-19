@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-xl-3 f-col">
                         <div class="footer-static-block"><span class="opener plus"></span>
-                            <h3 class="title">address<span></span></h3>
+                            <h3 class="title">Контакты<span></span></h3>
                             <ul class="footer-block-contant address-footer">
                                 <li class="item"><i class="fa fa-envelope"> </i>
                                     <p><a href="mailto:dronepilot.blog@gmail.com">dronepilot.blog@gmail.com </a></p>
@@ -16,11 +16,11 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-6 footer-center">
+                    <div class="col-xl-5 footer-center">
                         <div class="row">
                             <div class="col-xl-4 f-col">
                                 <div class="footer-static-block"><span class="opener plus"></span>
-                                    <h3 class="title">Help <span></span></h3>
+                                    <h3 class="title">Категории <span></span></h3>
                                     <ul class="footer-block-contant link">
                                         <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Gift Cards</a>
                                         </li>
@@ -28,65 +28,34 @@
                                                 Status</a></li>
                                         <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Free
                                                 Shipping</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="fa fa-angle-right"></i>Customer</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Return &
-                                                Exchange </a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>International</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-xl-4 f-col">
                                 <div class="footer-static-block"><span class="opener plus"></span>
-                                    <h3 class="title">Guidance <span></span></h3>
+                                    <h3 class="title">Дополнительно <span></span></h3>
                                     <ul class="footer-block-contant link">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Delivery
-                                                information</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Privacy
-                                                Policy</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Terms &
-                                                Conditions</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Gift Cards</a>
+                                        <li>
+                                            <a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Delivery information</a>
                                         </li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="fa fa-angle-right"></i>Contact</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="fa fa-angle-right"></i>Sitemap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 f-col">
-                                <div class="footer-static-block"><span class="opener plus"></span>
-                                    <h3 class="title">Information <span></span></h3>
-                                    <ul class="footer-block-contant link">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>About
-                                                Us</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="fa fa-angle-right"></i>Customer</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Directory</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Coupons
-                                                Vouchers</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Online
-                                                Help</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Gift Cards</a>
+                                        <li>
+                                            <a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Contact</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 f-col footer-about">
+                    <div class="col-xl-4 f-col footer-about">
                         <div class="footer-static-block"><span class="opener plus"></span>
-                            <h3 class="title">Contact Us <span></span></h3>
+                            <h3 class="title">Подписка на новости<span></span></h3>
                             <div class="footer-block-contant">
                                 <form>
                                     <div class="field">
-                                        <input type="text" placeholder="Name" required>
+                                        <input type="text" placeholder="Email" required>
                                     </div>
                                     <div class="field">
-                                        <button title="Subscribe" class="btn-color">Submit</button>
+                                        <button title="Подписаться" class="btn-color">Подписаться</button>
                                     </div>
                                 </form>
                             </div>
