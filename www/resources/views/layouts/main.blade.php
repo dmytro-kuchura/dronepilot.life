@@ -10,12 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
+
+    <meta name="site-created" content="2019/01/15">
+
     <meta name="distribution" content="global">
     <meta name="revisit-after" content="2 Days">
     <meta name="robots" content="ALL">
-    <meta name="rating" content="8 YEARS">
+    <meta name="rating" content="general">
     <meta name="Language" content="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <meta name="GOOGLEBOT" content="NOARCHIVE">
     <!-- Mobile Specific Metas ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS ================================================== -->
@@ -23,7 +25,7 @@
 
     <!-- canonical -->
     <link rel="canonical" href="{{ url(Request::url()) }}" />
-
+    <!-- csrf-token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- favicon -->

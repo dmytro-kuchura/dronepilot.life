@@ -22,9 +22,41 @@ class Breadcrumbs extends AbstractWidget
     {
         $uri = Route::currentRouteName();
 
+        switch ($uri) {
+            case 'about':
+                $breadcrumbs = [
+                    [
+                        'label' => 'Home',
+                        'link' => route('home')
+                    ],
+                    [
+                        'label' => 'About'
+                    ]
+                ];
+                break;
+            case 'contacts':
+                $breadcrumbs = [
+                    [
+                        'label' => 'Home',
+                        'link' => route('home')
+                    ],
+                    [
+                        'label' => 'Contacts'
+                    ]
+                ];
+                break;
+            default:
+                $breadcrumbs = [
+                    [
+                        'label' => 'Home',
+                    ],
+                ];
+                break;
+        }
+
         return view('widgets.breadcrumbs', [
             'config' => $this->config,
-            'uri' => $uri,
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 }

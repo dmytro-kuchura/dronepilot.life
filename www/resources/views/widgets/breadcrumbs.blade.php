@@ -4,8 +4,13 @@
             <h1 class="banner-title">Blog</h1>
             <div class="bread-crumb right-side float-none-xs">
                 <ul>
-                    <li><a href="index.html">Home</a>/</li>
-                    <li><span>Blog</span></li>
+                    @foreach($breadcrumbs as $bread)
+                        @if(isset($bread['link']))
+                            <li><a href="{{ $bread['link'] }}">{{ $bread['label'] }}</a>/</li>
+                        @else
+                            <li><span>{{ $bread['label'] }}</span></li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
         </section>
