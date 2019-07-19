@@ -6,6 +6,7 @@ use App\Helpers\Alert;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogPost;
 use App\Repositories\BlogRepository;
+use App\Repositories\CategoriesRepository;
 
 class BlogController extends Controller
 {
@@ -21,8 +22,6 @@ class BlogController extends Controller
     public function index()
     {
         $result = $this->repository->list();
-
-        Alert::success('All is OK');
 
         return view('dashboard.blog.list', [
             'result' => $result
@@ -45,8 +44,13 @@ class BlogController extends Controller
     {
         $result = $this->repository->get($id);
 
+        $repository = new CategoriesRepository();
+
+        $categories = $repository->all();
+
         return view('dashboard.blog.update', [
-            'result' => $result
+            'result' => $result,
+            'categories' => $categories,
         ]);
     }
 
