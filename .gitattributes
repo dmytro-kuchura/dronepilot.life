@@ -1,1 +1,1 @@
-*.js linguist-language=PHP
+www/resources/views* linguist-vendored
