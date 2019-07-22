@@ -1,1 +1,1 @@
-resources/views linguist-vendored
+*.gs linguist-language=php
