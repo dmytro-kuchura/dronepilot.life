@@ -18,14 +18,7 @@ require('./vendor/fotorama');
 require('./vendor/jquery.magnific-popup');
 require('./vendor/owl.carousel.min');
 require('./vendor/custom');
-
-import Vue from "vue";
-
-Vue.component('flights', require('./components/MapComponent.vue'));
-
-new Vue({
-    el: '#app',
-});
+window.Datamap = require('datamaps/dist/datamaps.world.min.js');
 
 function notification(text, type) {
     new Noty({
@@ -90,6 +83,36 @@ function notification(text, type) {
 }
 
 $(document).ready(function () {
+    if ($('#map').length) {
+        new Datamap({
+            element: document.getElementById("map"),
+            done: function(datamap) {
+                datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                    window.location.href = '/map/' + geography.properties.name.toLowerCase();
+                });
+            },
+            projection: 'mercator',
+            fills: {
+                'Republican': '#CC4731',
+                'Democrat': '#306596',
+                'Heavy Democrat': '#667FAF',
+                'Light Democrat': '#A9C0DE',
+                'Heavy Republican': '#CA5E5B',
+                'Light Republican': '#EAA9A8',
+                defaultFill: '#EDDC4E'
+            },
+            data: {
+                USA: {fillKey: "Republican"},
+                JPN: {fillKey: "Republican"},
+                ITA: {fillKey: "Democrat"},
+                CRI: {fillKey: "Democrat"},
+                KOR: {fillKey: "Democrat"},
+                DEU: {fillKey: "Democrat"},
+            }
+
+        });
+    }
+
     $('#subscribe-form').on('submit', function (event) {
         event.preventDefault();
 

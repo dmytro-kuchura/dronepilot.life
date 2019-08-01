@@ -452,7 +452,6 @@ $(function() {
     popup_dropdown ();
     countdown_clock();
     slidebar_open();
-    option_drop();
     location_page();
     grid_list_view();
     load_more ();
