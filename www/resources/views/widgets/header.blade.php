@@ -54,10 +54,10 @@
         <div class="sidebar-align-container">
             <div class="search-closer right-side"></div>
             <div class="search-container">
-                <form method="get" id="search-form">
-                    <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+                <form method="get" action="search" id="search-form">
+                    <input type="text" id="s" class="search-input" name="search" placeholder="Что ищем?">
                 </form>
-                <span>Search and Press Enter</span>
+                <span>Укажите что ищем и нажмите Enter</span>
             </div>
         </div>
     </div>

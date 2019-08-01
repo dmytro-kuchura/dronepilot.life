@@ -23,40 +23,68 @@ class Breadcrumbs extends AbstractWidget
         $uri = Route::currentRouteName();
 
         switch ($uri) {
-            case 'about':
+            case 'blog':
                 $breadcrumbs = [
                     [
-                        'label' => 'Home',
+                        'label' => __('breadcrumbs.index.title'),
                         'link' => route('home')
                     ],
                     [
-                        'label' => 'About'
+                        'label' => __('breadcrumbs.blog.title')
                     ]
                 ];
+
+                $page = __('breadcrumbs.blog.title');
+                break;
+            case 'map':
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home')
+                    ],
+                    [
+                        'label' => __('breadcrumbs.map.title')
+                    ]
+                ];
+
+                $page = __('breadcrumbs.map.title');
+                break;
+            case 'about':
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home')
+                    ],
+                    [
+                        'label' => __('breadcrumbs.about.title')
+                    ]
+                ];
+
+                $page = __('breadcrumbs.about.title');
                 break;
             case 'contacts':
                 $breadcrumbs = [
                     [
-                        'label' => 'Home',
+                        'label' => __('breadcrumbs.index.title'),
                         'link' => route('home')
                     ],
                     [
-                        'label' => 'Contacts'
+                        'label' => __('breadcrumbs.contacts.title')
                     ]
                 ];
+
+                $page = __('breadcrumbs.contacts.title');
                 break;
             default:
-                $breadcrumbs = [
-                    [
-                        'label' => 'Home',
-                    ],
-                ];
+                $breadcrumbs = [];
+                $page = __('breadcrumbs.index.title');
                 break;
         }
 
         return view('widgets.breadcrumbs', [
             'config' => $this->config,
             'breadcrumbs' => $breadcrumbs,
+            'page' => $page,
         ]);
     }
 }

@@ -8,7 +8,7 @@ window.Popper = require('popper.js').default;
  */
 
 try {
-    window.$ = window.jQuery = require('./components/jquery-1.12.3.min');
+    window.$ = window.jQuery = require('./vendor/jquery-1.12.3.min');
 
     require('bootstrap');
 } catch (e) {}

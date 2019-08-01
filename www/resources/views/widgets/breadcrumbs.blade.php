@@ -1,7 +1,8 @@
 <div class="banner inner-banner1 ">
     <div class="container">
         <section class="banner-detail center-xs">
-            <h1 class="banner-title">Blog</h1>
+            <h1 class="banner-title">{{ $page }}</h1>
+            @if(!empty($breadcrumbs))
             <div class="bread-crumb right-side float-none-xs">
                 <ul>
                     @foreach($breadcrumbs as $bread)
@@ -13,6 +14,7 @@
                     @endforeach
                 </ul>
             </div>
+            @endif
         </section>
     </div>
 </div>

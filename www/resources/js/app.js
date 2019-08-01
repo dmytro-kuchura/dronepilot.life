@@ -12,12 +12,20 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/jquery.downCount');
-require('./components/jquery-ui.min');
-require('./components/fotorama');
-require('./components/jquery.magnific-popup');
-require('./components/owl.carousel.min');
-require('./components/custom');
+require('./vendor/jquery.downCount');
+require('./vendor/jquery-ui.min');
+require('./vendor/fotorama');
+require('./vendor/jquery.magnific-popup');
+require('./vendor/owl.carousel.min');
+require('./vendor/custom');
+
+import Vue from "vue";
+
+Vue.component('flights', require('./components/MapComponent.vue'));
+
+new Vue({
+    el: '#app',
+});
 
 function notification(text, type) {
     new Noty({

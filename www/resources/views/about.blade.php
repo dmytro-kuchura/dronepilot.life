@@ -13,11 +13,11 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="heading-part align-center mb-30">
-                                    <h2 class="main_title  heading"><span>Who We Are</span></h2>
+                                    <h2 class="main_title  heading"><span>Кто я</span></h2>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="image-part center-xs"> <img alt="Roadie" src="images/about-sub-3.jpg"> </div>
+                                <div class="image-part center-xs"> <img alt="Roadie" src="/images/about-sub-3.png"> </div>
                             </div>
                             <div class="col-12 mt-30">
                                 <div class="heading-part-desc align_left center-md">
@@ -45,16 +45,16 @@
                         <div class="row">
                             <div class="col-sm-12 partner-detail-main">
                                 <div class="heading-part align-center mb-30">
-                                    <h2 class="main_title  heading"><span>Our Partners</span></h2>
+                                    <h2 class="main_title  heading"><span>Моя летная эскадриль</span></h2>
                                 </div>
-                                <p>Nullam vel sollicitudin diam proin congue lacinia tortor vel vulputate morbi et mauris nec risus feugiat malesuada id at odio nulla ornare scelerisque est, nec rutrum arcu elementu.</p>
+                                <p>Моя летная эскадриль состоит из таких дронов:</p>
                             </div>
                             <div class="col-sm-12">
                                 <div class="partner-block light-gray-bg">
                                     <ul>
-                                        <li><span><img src="images/brand1.png" alt="Roadie"></span></li>
-                                        <li><span><img src="images/brand2.png" alt="Roadie"></span></li>
-                                        <li><span><img src="images/brand3.png" alt="Roadie"></span></li>
+                                        <li><span><img src="/images/bugs-3.png" alt="MJX Bugs 3"></span></li>
+                                        <li><span><img src="/images/dji-spark.png" alt="DJI Spark"></span></li>
+                                        <li><span><img src="/images/mavic-air.png" alt="DJI Mavic Air"></span></li>
                                     </ul>
                                 </div>
                             </div>

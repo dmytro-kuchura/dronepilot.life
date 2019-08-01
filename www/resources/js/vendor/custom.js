@@ -37,7 +37,7 @@ $(function() {
 
     /* ---- For Sidebar JS Start ---- */
       $('.sidebar-box span.opener').on("click", function(){
-      
+
         if ($(this).hasClass("plus")) {
           $(this).parent().find('.sidebar-contant').slideDown();
           $(this).removeClass('plus');
@@ -55,7 +55,7 @@ $(function() {
 
     /* ---- For Footer JS Start ---- */
       $('.footer-static-block span.opener').on("click", function(){
-      
+
         if ($(this).hasClass("plus")) {
           $(this).parent().find('.footer-block-contant').slideDown();
           $(this).removeClass('plus');
@@ -130,7 +130,7 @@ $(function() {
   function popup_dropdown () {
     /*---- Category dropdown start ---- */
       $('.cate-inner span.opener').on("click", function(){
-      
+
         if ($(this).hasClass("plus")) {
           $(this).parent().find('.mega-sub-menu').slideDown();
           $(this).removeClass('plus');
@@ -275,7 +275,7 @@ $(function() {
 
       /* ---- Testimonial Start ---- */
       $(".main-banner, #sidebar-product, #client").owlCarousel({
-     
+
         //navigation : true,  Show next and prev buttons
         slideSpeed : 300,
         paginationSpeed : 400,
@@ -306,7 +306,7 @@ $(function() {
       if ($(this).scrollTop() > 130){
          headertag.addClass("header-fixed");
       }
-      else{ 
+      else{
          headertag.removeClass("header-fixed");
       }
 
@@ -314,12 +314,12 @@ $(function() {
       if ($(this).scrollTop() > 0){
          mainfix.addClass("main-fixed");
       }
-      else{ 
+      else{
          mainfix.removeClass("main-fixed");
       }
       /* ---- Page Scrollup JS End ---- */
     });
-    
+
     //On click scroll to top of page t = 1000ms
     scrollup.on("click", function(){
         $("html, body").animate({ scrollTop: 0 }, 1000);
@@ -328,12 +328,12 @@ $(function() {
   }
 
   function custom_tab() {
-    
+
     /* ------------ Account Tab JS Start ------------ */
     $('.account-tab-stap').on('click', 'li', function() {
         $('.account-tab-stap li').removeClass('active');
         $(this).addClass('active');
-        
+
         $(".account-content").fadeOut();
         var currentLiID = $(this).attr('id');
         $("#data-"+currentLiID).fadeIn();
@@ -354,7 +354,7 @@ $(function() {
     $('.countdown-clock').downCount({
       date: '03/04/2020 11:39:00',
           offset: +10
-      }, 
+      },
       function () {
         //alert('done!'); Finish Time limit
       return false;
@@ -417,7 +417,7 @@ $(function() {
         }
       }
     }
-    
+
   }
 
     /* grid_list_view Tab JS Start */
@@ -443,22 +443,19 @@ $(function() {
 
 
   $(document).on("ready", function() {
-    owlcarousel_slider(); 
+    owlcarousel_slider();
     responsive_dropdown();
-    description_tab (); 
-    search_open (); 
-    custom_tab (); 
-    scrolltop_arrow (); 
-    popup_dropdown (); 
-    popup_product(); 
-    countdown_clock(); 
-    slidebar_open(); 
-    option_drop(); 
-    popup_links(); 
-    location_page(); 
+    description_tab ();
+    search_open ();
+    custom_tab ();
+    scrolltop_arrow ();
+    popup_dropdown ();
+    countdown_clock();
+    slidebar_open();
+    option_drop();
+    location_page();
     grid_list_view();
     load_more ();
-    
   });
 
 });

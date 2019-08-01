@@ -49,8 +49,7 @@
 </head>
 <body>
 <div class="se-pre-con"></div>
-<div class="main">
-
+<div class="main" id="app">
     <!-- HEADER START -->
     @widget('Header')
     <!-- HEADER END -->
