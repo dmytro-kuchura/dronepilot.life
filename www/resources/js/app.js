@@ -91,23 +91,38 @@ $(document).ready(function () {
                     window.location.href = '/map/' + geography.properties.name.toLowerCase();
                 });
             },
-            projection: 'mercator',
+            projection: "mercator",
             fills: {
-                'Republican': '#CC4731',
-                'Democrat': '#306596',
-                'Heavy Democrat': '#667FAF',
-                'Light Democrat': '#A9C0DE',
-                'Heavy Republican': '#CA5E5B',
-                'Light Republican': '#EAA9A8',
-                defaultFill: '#EDDC4E'
+                "Bad": "#CC4731",
+                "Good": "#2b960d",
+                "Unknown": "#2f45af",
+                defaultFill: "#ededed"
             },
             data: {
-                USA: {fillKey: "Republican"},
-                JPN: {fillKey: "Republican"},
-                ITA: {fillKey: "Democrat"},
-                CRI: {fillKey: "Democrat"},
-                KOR: {fillKey: "Democrat"},
-                DEU: {fillKey: "Democrat"},
+                JPN: {fillKey: "Bad"},
+                RUS: {fillKey: "Bad"},
+                CAN: {fillKey: "Bad"},
+                ITA: {fillKey: "Bad"},
+                EGY: {fillKey: "Bad"},
+                KOR: {fillKey: "Bad"},
+                AZE: {fillKey: "Bad"},
+                BRA: {fillKey: "Bad"},
+                VIE: {fillKey: "Bad"},
+                GRE: {fillKey: "Bad"},
+                PER: {fillKey: "Bad"},
+                CHI: {fillKey: "Unknown"},
+                POR: {fillKey: "Good"},
+                FRA: {fillKey: "Good"},
+                LUX: {fillKey: "Good"},
+                LAT: {fillKey: "Good"},
+                ESP: {fillKey: "Good"},
+                DEN: {fillKey: "Good"},
+                AUS: {fillKey: "Good"},
+                USA: {fillKey: "Good"},
+                DEU: {fillKey: "Good"},
+                NOR: {fillKey: "Good"},
+                SWE: {fillKey: "Good"},
+                UKR: {fillKey: "Good"},
             }
 
         });
