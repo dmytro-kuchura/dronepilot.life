@@ -27,7 +27,7 @@
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Контент</label>
         <div class="col-lg-7">
             <textarea class="form-control" id="editor" name="content" placeholder="Контент"
-                      >{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
+            >{{ isset($result) && $result->content ? $result->content : '' }}</textarea>
         </div>
     </div>
 
@@ -73,29 +73,33 @@
 
     <div class="form-group row mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Статус *</label>
-        <div class="col-lg-2">
-            <div class="custom-control custom-radio styled-radio mb-3">
-                <input class="custom-control-input" type="radio" name="status" id="status-on" value="on"
-                       {{ isset($result) && $result->status == 1 ? 'checked=""' : '' }} required="">
-                <label class="custom-control-descfeedback" for="status-on">Опубликовано</label>
-                <div class="invalid-feedback">
-                    Опубликовано
-                </div>
-            </div>
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input"
+                       {{ isset($result) || $result->status == 1 ? 'checked=""' : '' }} name="status">Показывать
+            </label>
         </div>
-        <div class="col-lg-3">
-            <div class="custom-control custom-radio styled-radio mb-3">
-                <input class="custom-control-input" type="radio" name="status" id="status-off" value="off"
-                       {{ !isset($result) || $result->status == 0 ? 'checked=""' : '' }} required="">
-                <label class="custom-control-descfeedback" for="status-off">Не опубликовано</label>
-                <div class="invalid-feedback">
-                    Не опубликовано
-                </div>
-            </div>
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input"
+                       {{ !isset($result) && $result->status == 0 ? 'checked=""' : '' }} name="status">Не показывать
+            </label>
         </div>
     </div>
-    <div class="text-right">
-        <button class="btn btn-gradient-01" type="submit">Сохранить</button>
-        <button class="btn btn-shadow" type="reset">Сброс</button>
+    <div class="form-group row d-flex align-items-center mb-5">
+        <label class="col-lg-3"></label>
+        <button type="submit" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+            <span class="text">Сохранить</span>
+        </button>
+        &nbsp;
+        <a href="{{ route('blog.list') }}" class="btn btn-info btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+            <span class="text">Вернуться</span>
+        </a>
     </div>
 </form>

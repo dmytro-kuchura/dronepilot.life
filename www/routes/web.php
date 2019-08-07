@@ -15,6 +15,8 @@ Route::get('/blog/pokupka-DJI-Spark', function () {
     return Redirect::to('http://dronepilot.info/blog/pokupka-dji-spark', 301);
 });
 
+Route::get('sitemap.xml', 'SiteController@sitemap')->name('sitemap.xml');
+
 //$routes = function() {
 Route::group(['middleware' => ['visitors']], function () {
     Route::get('/', 'SiteController@index')->name('home');

@@ -45,4 +45,13 @@ class SiteController extends Controller
     {
         return view('about');
     }
+
+    public function sitemap()
+    {
+        $pages = [
+
+        ];
+
+        return view('sitemap', ['pages' => $pages]);
+    }
 }

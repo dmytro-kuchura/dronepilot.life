@@ -1,33 +1,79 @@
-<nav class="side-navbar box-scroll sidebar-scroll">
-    <span class="heading">Контент</span>
-    <ul class="list-unstyled">
-        <li><a href="#dropdown-ui" aria-expanded="false" data-toggle="collapse"><i class="la la-list-alt"></i><span>Блог</span></a>
-            <ul id="dropdown-ui" class="collapse list-unstyled pt-0">
-                <li><a href="{{ route('blog.list') }}">Список</a></li>
-                <li><a href="{{ route('blog.create') }}">Создать</a></li>
-            </ul>
-        </li>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <li><a href="#dropdown-tables" aria-expanded="false" data-toggle="collapse"><i class="la la-th-large"></i><span>Работы</span></a>
-            <ul id="dropdown-tables" class="collapse list-unstyled pt-0">
-                <li><a href="{{ route('works.list') }}">Список</a></li>
-                <li><a href="{{ route('works.create') }}">Создать</a></li>
-            </ul>
-        </li>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">DRONE PILOT <sup>info</sup></div>
+    </a>
 
-        <li><a href="{{ route('subscribers.list') }}"><i class="la la-user"></i><span>Подписчики</span></a></li>
-        <li><a href="{{ route('contacts.list') }}"><i class="la la-envelope"></i><span>Форма обратной связи</span></a></li>
-    </ul>
-    <span class="heading">Страницы</span>
-    <ul class="list-unstyled">
-        <li><a href="#dropdown-pricing" aria-expanded="false" data-toggle="collapse"><i class="la la-usd"></i><span>Статистика</span></a>
-            <ul id="dropdown-pricing" class="collapse list-unstyled pt-0">
-                <li><a href="pages-pricing-tables-01.html">Style 01</a></li>
-                <li><a href="pages-pricing-tables-02.html">Style 02</a></li>
-            </ul>
-        </li>
+    <hr class="sidebar-divider my-0">
 
-        <li><a href="maps-leaflet.html"><i class="la la la-exclamation"></i><span>Уведомления</span></a></li>
-        <li><a href="maps-leaflet.html"><i class="la la-cog"></i><span>Настройи</span></a></li>
-    </ul>
-</nav>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('dashboard') }}"><i
+                class="fas fa-fw fa-tachometer-alt"></i><span>Главная</span></a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-heading">
+        Контент
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Статьи</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Статьи:</h6>
+                <a class="collapse-item" href="{{ route('blog.list') }}">Список статей</a>
+                <a class="collapse-item" href="{{ route('blog.create') }}">Создать статью</a>
+                <a class="collapse-item" href="cards.html">Список категорий</a>
+                <a class="collapse-item" href="cards.html">Создать категории</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Обратная связь</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Подписчики</a>
+                <a class="collapse-item" href="utilities-border.html">Форма обратной связи</a>
+            </div>
+        </div>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-heading">
+        Остальное
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html"><i class="fas fa-fw fa-chart-area"></i><span>Статистика</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html"><i class="fas fa-fw fa-chart-area"></i><span>Уведомления</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="tables.html"><i class="fas fa-fw fa-table"></i><span>Настройки</span></a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>

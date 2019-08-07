@@ -23,6 +23,8 @@
     <!-- CSS ================================================== -->
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}"/>
 
+    <!-- sitemap.xml -->
+    <link href='{{ url('sitemap.xml') }}' rel='alternate' title='Sitemap' type='application/rss+xml'/>
     <!-- canonical -->
     <link rel="canonical" href="{{ url(Request::url()) }}" />
     <!-- csrf-token -->
