@@ -31,9 +31,6 @@ Route::group(['middleware' => ['visitors']], function () {
 
     Route::get('/map', 'MapController@index')->name('map');
     Route::get('/map/{country}', 'MapController@inner')->name('map.inner');
-
-    Route::get('/works', 'WorkController@index')->name('works');
-    Route::get('/works/{alias}', 'WorkController@inner')->name('work.inner');
 });
 //};
 

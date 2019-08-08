@@ -23,15 +23,7 @@
         </div>
     </div>
 
-    <div class="form-group row d-flex align-items-center mb-5">
-        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Контент</label>
-        <div class="col-lg-7">
-            <textarea class="form-control" id="editor" name="content" placeholder="Контент"
-            >{{ !empty($result) && $result->content ? $result->content : '' }}</textarea>
-        </div>
-    </div>
-
-    <div class="em-separator separator-dashed"></div>
+    <hr>
 
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Title</label>
@@ -60,31 +52,6 @@
 
     <hr>
 
-    <div class="form-group row d-flex align-items-center mb-5">
-        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Категория</label>
-        <div class="col-lg-7">
-            <select class="form-control" name="category_id">
-                <option value="0">Не выбрано</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ !empty($result) && $result->category_id ? 'selected' : '' }} >{{ $category->name }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-
-    <hr>
-
-    @if(!!empty($result->image))
-        <div class="form-group row d-flex align-items-center mb-5">
-            <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Обложка</label>
-            <div class="col-lg-7">
-                <input type="file" name="file">
-            </div>
-        </div>
-
-        <div class="em-separator separator-dashed"></div>
-    @endif
-
     <div class="form-group row mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Статус *</label>
         <div class="form-check-inline">
@@ -100,6 +67,9 @@
             </label>
         </div>
     </div>
+
+    <hr>
+
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3"></label>
         <button type="submit" class="btn btn-success btn-icon-split">
@@ -109,7 +79,7 @@
             <span class="text">Сохранить</span>
         </button>
         &nbsp;
-        <a href="{{ route('blog.list') }}" class="btn btn-info btn-icon-split">
+        <a href="{{ route('categories.list') }}" class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-arrow-right"></i>
                     </span>

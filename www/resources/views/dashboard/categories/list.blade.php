@@ -16,7 +16,6 @@
                             <th>Название</th>
                             <th>Дата создания</th>
                             <th>Статус</th>
-                            <th>Просмотров</th>
                             <th>Дествия</th>
                         </tr>
                         </thead>
@@ -26,7 +25,6 @@
                             <th>Название</th>
                             <th>Дата создания</th>
                             <th>Статус</th>
-                            <th>Просмотров</th>
                             <th>Дествия</th>
                         </tr>
                         </tfoot>
@@ -48,13 +46,12 @@
                                                 class="text">{{ $obj->status == 0 ? 'Не опубликовано' : 'Опубликовано'}}</span>
                                         </a>
                                     </td>
-                                    <td>{{ $obj->views }}</td>
                                     <td class="td-actions">
-                                        <a href="{{ route('blog.edit', ['id' => $obj->id]) }}"
+                                        <a href="{{ route('categories.edit', ['id' => $obj->id]) }}"
                                            class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('blog.delete', ['id' => $obj->id]) }}"
+                                        <a href="{{ route('categories.delete', ['id' => $obj->id]) }}"
                                            class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>

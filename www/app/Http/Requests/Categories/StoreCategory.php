@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Categories;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreBlogPost extends FormRequest
+class StoreCategory extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,10 +29,8 @@ class StoreBlogPost extends FormRequest
             'name' => 'string|required|max:255',
             'alias' => 'string|nullable|max:255',
             'status' => 'required|in:on,off',
-            'content' => 'string|required',
             'title' => 'string|nullable|max:255',
             'description' => 'string|nullable',
-            'file' => 'image|max:40048|nullable',
             'keywords' => 'string|nullable',
         ];
     }

@@ -32,13 +32,22 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/delete/{id}', 'Admin\BlogController@delete')->name('blog.delete');
     });
 
-    Route::prefix('works')->group(function () {
-        Route::get('/', 'Admin\WorksController@index')->name('works.list');
-        Route::get('/create', 'Admin\WorksController@create')->name('works.create');
-        Route::post('/store', 'Admin\WorksController@store')->name('works.store');
-        Route::get('/edit/{id}', 'Admin\WorksController@edit')->name('works.edit');
-        Route::post('/update/{id}', 'Admin\WorksController@update')->name('works.update');
-        Route::get('/delete/{id}', 'Admin\WorksController@delete')->name('works.delete');
+    Route::prefix('categories')->group(function () {
+        Route::get('/', 'Admin\CategoriesController@index')->name('categories.list');
+        Route::get('/create', 'Admin\CategoriesController@create')->name('categories.create');
+        Route::post('/store', 'Admin\CategoriesController@store')->name('categories.store');
+        Route::get('/edit/{id}', 'Admin\CategoriesController@edit')->name('categories.edit');
+        Route::post('/update/{id}', 'Admin\CategoriesController@update')->name('categories.update');
+        Route::get('/delete/{id}', 'Admin\CategoriesController@delete')->name('categories.delete');
+    });
+
+    Route::prefix('tags')->group(function () {
+        Route::get('/', 'Admin\TagsController@index')->name('tags.list');
+        Route::get('/create', 'Admin\TagsController@create')->name('tags.create');
+        Route::post('/store', 'Admin\TagsController@store')->name('tags.store');
+        Route::get('/edit/{id}', 'Admin\TagsController@edit')->name('tags.edit');
+        Route::post('/update/{id}', 'Admin\TagsController@update')->name('tags.update');
+        Route::get('/delete/{id}', 'Admin\TagsController@delete')->name('tags.delete');
     });
 
     Route::prefix('subscribers')->group(function () {

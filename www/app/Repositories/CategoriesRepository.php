@@ -27,7 +27,14 @@ class CategoriesRepository implements Repository
 
     public function store($request)
     {
-        //
+        $this->model::create([
+            'name' => $request['name'],
+            'alias' => $request['alias'],
+            'title' => $request['title'],
+            'keywords' => $request['keywords'],
+            'description' => $request['description'],
+            'status' => (string)$request['status'] === 'on' ? 1 : 0,
+        ]);
     }
 
     public function destroy($id)
@@ -38,5 +45,10 @@ class CategoriesRepository implements Repository
     public function get($id)
     {
         return $this->model::where('id', $id)->first();
+    }
+
+    public function count()
+    {
+
     }
 }

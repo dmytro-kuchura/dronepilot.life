@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\Alert;
+use App\Http\Requests\Blog\StoreBlog;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreBlogPost;
 use App\Repositories\BlogRepository;
 use App\Repositories\CategoriesRepository;
 
@@ -24,16 +23,20 @@ class BlogController extends Controller
         $result = $this->repository->list();
 
         return view('dashboard.blog.list', [
-            'result' => $result
+            'result' => $result,
         ]);
     }
 
     public function create()
     {
-        return view('dashboard.blog.create');
+        $repository = new CategoriesRepository();
+
+        $categories = $repository->all();
+
+        return view('dashboard.blog.create', ['categories' => $categories]);
     }
 
-    public function store(StoreBlogPost $request)
+    public function store(StoreBlog $request)
     {
         $this->repository->store($request->all());
 
@@ -54,7 +57,7 @@ class BlogController extends Controller
         ]);
     }
 
-    public function update(StoreBlogPost $request)
+    public function update(StoreBlog $request)
     {
         $this->repository->update($request->all());
 

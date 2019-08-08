@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Helpers\Text;
 use App\Helpers\Upload;
 use App\Models\Records;
+use Illuminate\Support\Facades\DB;
 
 class BlogRepository implements Repository
 {
@@ -40,21 +41,28 @@ class BlogRepository implements Repository
      */
     public function update($request)
     {
-        /* @var $model Records */
-        $model = $this->model::where('id', $request['id'])->first();
-
-        $model->title = $request['title'];
-        $model->name = $request['name'];
-        $model->description = $request['description'];
-        $model->keywords = $request['keywords'];
-        $model->content = $request['content'];
         if (isset($request['file'])) {
-            $model->image = Upload::save($request);
+            $this->model::updateOrCreate(
+                ['id' => $request['id']],
+                [
+                    'image' => Upload::save($request),
+                ]
+            );
         }
-        $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name']));
-        $model->status = $request['status'] === 'on' ? 1 : 0;
 
-        return $model->save();
+        return $this->model::updateOrCreate(
+            ['id' => $request['id']],
+            [
+                'title' => $request['title'],
+                'name' => $request['name'],
+                'description' => $request['description'],
+                'keywords' => $request['keywords'],
+                'content' => $request['content'],
+                'alias' => $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name'])),
+                'status' => $request['status'] === 'on' ? 1 : 0,
+                'category_id' => $request['category_id'],
+            ]
+        );
     }
 
     /**
@@ -78,6 +86,7 @@ class BlogRepository implements Repository
         }
         $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name']));
         $model->status = $request['status'] === 'on' ? 1 : 0;
+        $model->category_id = $request['category_id'];
 
         return $model->save();
     }
@@ -141,4 +150,16 @@ class BlogRepository implements Repository
         $this->model::where('id', $id)->increment('views', 1);
     }
 
+    public function countCategories()
+    {
+        return $this->model::select(
+            'categories.name',
+            'categories.alias',
+            DB::raw('count(*) AS count')
+        )
+            ->leftJoin('categories', 'categories.id', '=', 'records.category_id')
+            ->groupBy('categories.id')
+            ->orderBy('categories.id', 'desc')
+            ->get();
+    }
 }

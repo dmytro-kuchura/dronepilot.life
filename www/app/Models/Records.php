@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $views
  * @property string $image
  * @property integer $status
+ * @property integer $category_id
  * @property string $created_at
  * @property string $updated_at
  */
@@ -23,5 +24,5 @@ class Records extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id', 'name', 'alias', 'title', 'keywords', 'description', 'content', 'views', 'image', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'name', 'alias', 'title', 'keywords', 'description', 'content', 'views', 'image', 'status',  'category_id', 'created_at', 'updated_at'];
 }
