@@ -31,9 +31,9 @@
                 <h6 class="collapse-header">Статьи:</h6>
                 <a class="collapse-item" href="{{ route('blog.list') }}">Список статей</a>
                 <a class="collapse-item" href="{{ route('blog.create') }}">Создать статью</a>
-                <a class="collapse-item" href="{{ route('categories.create') }}">Список категорий</a>
+                <a class="collapse-item" href="{{ route('categories.list') }}">Список категорий</a>
                 <a class="collapse-item" href="{{ route('categories.create') }}">Создать категорию</a>
-                <a class="collapse-item" href="{{ route('tags.create') }}">Список тегов</a>
+                <a class="collapse-item" href="{{ route('tags.list') }}">Список тегов</a>
                 <a class="collapse-item" href="{{ route('tags.create') }}">Создать тег</a>
             </div>
         </div>

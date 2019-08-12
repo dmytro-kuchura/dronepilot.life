@@ -22,12 +22,11 @@
                                 <div class="footer-static-block"><span class="opener plus"></span>
                                     <h3 class="title">Категории <span></span></h3>
                                     <ul class="footer-block-contant link">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Gift Cards</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Order
-                                                Status</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Free
-                                                Shipping</a></li>
+                                        @foreach($result as $obj)
+                                            <li>
+                                                <a href="{{ $obj->alias }}"><i class="fa fa-angle-right"></i>{{ $obj->name }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -36,10 +35,16 @@
                                     <h3 class="title">Дополнительно <span></span></h3>
                                     <ul class="footer-block-contant link">
                                         <li>
-                                            <a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Delivery information</a>
+                                            <a href="{{ route('contacts') }}"><i class="fa fa-angle-right"></i>Контакты</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)"><i class="fa fa-angle-right"></i>Contact</a>
+                                            <a href="{{ route('about') }}"><i class="fa fa-angle-right"></i>Обо мне</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('blog') }}"><i class="fa fa-angle-right"></i>Блог</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('map') }}"><i class="fa fa-angle-right"></i>Карта рекомендаций</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -97,7 +102,8 @@
                 </div>
                 <div class="col-12">
                     <div class="">
-                        <div class="copy-right ">© 2019 Make with <i class="fa fa-heart"> </i> by <a href="javascript:void(0)">Dmitry Kuchura</a>
+                        <div class="copy-right ">© 2019 Make with <i class="fa fa-heart"> </i> by <a
+                                href="javascript:void(0)">Dmitry Kuchura</a>
                         </div>
                     </div>
                 </div>

@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Models\Categories;
+use App\Models\Tags;
 
-class CategoriesRepository implements Repository
+class TagsRepository implements Repository
 {
-    protected $model = Categories::class;
+    protected $model = Tags::class;
 
     public function all()
     {

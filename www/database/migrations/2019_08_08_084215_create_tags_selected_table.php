@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecordTagsTable extends Migration
+class CreateTagsSelectedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRecordTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('record_tags', function (Blueprint $table) {
+        Schema::create('tags_selected', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('record_id');
@@ -30,6 +30,6 @@ class CreateRecordTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('record_tags');
+        Schema::dropIfExists('tags_selected');
     }
 }
