@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\BlogRepository;
+use App\Repositories\SitemapRepository;
 use App\Repositories\SubscribersRepository;
-use Illuminate\Support\Facades\Log;
 
 class SiteController extends Controller
 {
@@ -48,10 +48,15 @@ class SiteController extends Controller
 
     public function sitemap()
     {
-        $pages = [
+        $repository = new SitemapRepository();
 
-        ];
+        $pages = $this->repository->all();
 
-        return view('sitemap', ['pages' => $pages]);
+        $sitemap = $repository->all();
+
+        return view('sitemap', [
+            'pages' => $pages,
+            'sitemap' => $sitemap,
+        ]);
     }
 }

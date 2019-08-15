@@ -30,19 +30,11 @@
                                                 <div class="blog-title"><a
                                                         href="{{ route('blog.inner', ['alias' => $item->alias]) }}">{{ $item->name }}</a>
                                                 </div>
-                                                <p>Uses a dictionary of over 200 Latin words, combined with a handful of
-                                                    model
-                                                    sentence structures donec sollicitudin erat eget malesuada
-                                                    scelerisque.
-                                                    Nullam consectetur, arcu sed tincidunt mattis, massa nunc sodales
-                                                    mauris, ut
-                                                    lobortis arcu tortor in risus.</p>
+                                                <p>{{ $item->short }}</p>
                                                 <hr>
                                                 <div class="post-info">
                                                     <ul>
-                                                        <li><span>{{ __('site.by') }}</span><a
-                                                                href="javascript:void(0)"> cormon jons</a></li>
-                                                        <li><a href="javascript:void(0)">(5) comments</a></li>
+                                                        <li><span>{{ __('site.by') }}</span><a href="{{ route('about') }}"> Dmitry</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
