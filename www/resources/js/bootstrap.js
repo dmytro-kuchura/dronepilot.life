@@ -11,7 +11,9 @@ try {
     window.$ = window.jQuery = require('./vendor/jquery-1.12.3.min');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {
+    console.error(e)
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -20,10 +22,9 @@ try {
  */
 
 window.axios = require('axios');
-
-window.Noty = require('noty');
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+window.swal = require('sweetalert');
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that

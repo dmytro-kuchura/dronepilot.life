@@ -54,16 +54,7 @@
                     <div class="col-xl-4 f-col footer-about">
                         <div class="footer-static-block"><span class="opener plus"></span>
                             <h3 class="title">Подписка на новости<span></span></h3>
-                            <div class="footer-block-contant">
-                                <form>
-                                    <div class="field">
-                                        <input type="text" placeholder="Email" required>
-                                    </div>
-                                    <div class="field">
-                                        <button title="Подписаться" class="btn-color">Подписаться</button>
-                                    </div>
-                                </form>
-                            </div>
+                            <subscribe></subscribe>
                         </div>
                     </div>
                 </div>

@@ -12,8 +12,8 @@
 */
 
 Route::prefix('v1')->group(function () {
-    Route::post('/comment', 'ApiController@comment')->name('api.comment');
-    Route::post('/contacts', 'ApiController@contacts')->name('api.contacts');
-    Route::post('/subscribe', 'ApiController@subscribe')->name('api.subscribe');
-    Route::post('/image-upload', 'ApiController@upload')->name('api.image');
+    Route::post('/comment', 'CommentController@comment')->name('api.comment');
+    Route::post('/contacts', 'ContactsController@contacts')->name('api.contacts');
+    Route::post('/subscribe', 'SubscribeController@subscribe')->name('api.subscribe');
+    Route::post('/image-upload', 'UploadController@upload')->name('api.image');
 });

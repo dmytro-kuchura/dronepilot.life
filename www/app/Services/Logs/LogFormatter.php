@@ -9,16 +9,16 @@ class LogFormatter extends NormalizerFormatter
     /**
      * type
      */
-    const LOG = 'log';
-    const STORE = 'store';
-    const CHANGE = 'change';
-    const DELETE = 'delete';
+    const LOG = "log";
+    const STORE = "store";
+    const CHANGE = "change";
+    const DELETE = "delete";
     /**
      * result
      */
-    const SUCCESS = 'success';
-    const NEUTRAL = 'neutral';
-    const FAILURE = 'failure';
+    const SUCCESS = "success";
+    const NEUTRAL = "neutral";
+    const FAILURE = "failure";
 
     public function __construct()
     {
@@ -41,16 +41,18 @@ class LogFormatter extends NormalizerFormatter
      */
     protected function getDocument(array $record)
     {
-        $fills = $record['extra'];
-        $fills['level'] = strtolower($record['level_name']);
-        $fills['description'] = $record['message'];
-        $fills['token'] = str_random(30);
-        $context = $record['context'];
-        if (!empty($context)) {
-            $fills['type'] = array_has($context, 'type') ? $context['type'] : self::LOG;
-            $fills['result'] = array_has($context, 'result') ? $context['result'] : self::NEUTRAL;
-            $fills = array_merge($record['context'], $fills);
+        $fills = $record["extra"];
+        $fills["level"] = strtolower($record["level_name"]);
+        $fills["description"] = $record["message"];
+        $fills["token"] = str_random(30);
+        $fills["type"] = self::LOG;
+        $fills["result"] = self::NEUTRAL;
+
+        if (!empty($record["context"])) {
+            $data = ["message" => $record["message"]];
+            $fills["description"] = serialize(array_merge($data, $record["context"], $fills));
         }
+
         return $fills;
     }
 }

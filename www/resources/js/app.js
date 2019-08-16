@@ -20,6 +20,14 @@ require('./vendor/owl.carousel.min');
 require('./vendor/custom');
 window.Datamap = require('datamaps/dist/datamaps.world.min.js');
 
+import Vue from "vue";
+
+Vue.component('subscribe', require('./components/SubscribeFormComponent.vue'));
+
+new Vue({
+    el: '#app',
+});
+
 function notification(text, type) {
     new Noty({
         type: type,
@@ -86,8 +94,8 @@ $(document).ready(function () {
     if ($('#map').length) {
         new Datamap({
             element: document.getElementById("map"),
-            done: function(datamap) {
-                datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+            done: function (datamap) {
+                datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
                     window.location.href = '/map/' + geography.properties.name.toLowerCase();
                 });
             },
@@ -110,7 +118,6 @@ $(document).ready(function () {
                 VIE: {fillKey: "Bad"},
                 GRE: {fillKey: "Bad"},
                 PER: {fillKey: "Bad"},
-                CHI: {fillKey: "Unknown"},
                 POR: {fillKey: "Good"},
                 FRA: {fillKey: "Good"},
                 LUX: {fillKey: "Good"},
@@ -123,27 +130,10 @@ $(document).ready(function () {
                 NOR: {fillKey: "Good"},
                 SWE: {fillKey: "Good"},
                 UKR: {fillKey: "Good"},
+                CHI: {fillKey: "Unknown"},
             }
-
         });
     }
-
-    $('#subscribe-form').on('submit', function (event) {
-        event.preventDefault();
-
-        let form = $(this);
-        let data = new FormData(form[0]);
-
-        axios.post('/api/v1/subscribe', data)
-            .then(function () {
-                notification('Спасибо за подписку, новости будут только важные!', 'success');
-
-                document.getElementById('subscribe-form').reset()
-            })
-            .catch(function () {
-                notification('Подписка не оформлена, либо Вы уже подписаны!', 'error');
-            });
-    });
 
     $('#comment-form').on('submit', function (event) {
         event.preventDefault();
