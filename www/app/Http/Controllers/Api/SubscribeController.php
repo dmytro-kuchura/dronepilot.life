@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use Exception;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\SubscribeRequest;
-use App\Http\Requests\ImageUploadRequest;
 use App\Repositories\SubscribersRepository;
 use App\Services\EmailService;
-use App\Services\UploadService;
 
 class SubscribeController extends Controller
 {

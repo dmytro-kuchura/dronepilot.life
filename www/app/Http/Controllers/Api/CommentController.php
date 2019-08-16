@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\CommentsRequest;
