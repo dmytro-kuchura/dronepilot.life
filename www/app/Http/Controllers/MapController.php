@@ -22,6 +22,10 @@ class MapController extends Controller
     {
         $result = $this->repository->get($country);
 
+        if(!$result) {
+            abort(404);
+        }
+
         return view('map.inner', [
             'result' => $result
         ]);

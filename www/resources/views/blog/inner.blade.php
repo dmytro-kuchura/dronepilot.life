@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-12 mb-60">
                             <div class="blog-media mb-20">
-                                <img src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : '/images/placeholder.png' }}" alt="Roadie">
+                                <img src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}" alt="{{ $result->name }}">
                             </div>
                             <div class="blog-detail ">
                                 <div class="post-info">
@@ -39,8 +39,9 @@
                                         @foreach($comments[0] as $obj)
                                             <ul class="comment-list mt-20">
                                                 <li>
-                                                    <div class="comment-user"><img src="images/comment-user3.jpg"
-                                                                                   alt="Roadie"></div>
+                                                    <div class="comment-user">
+                                                        <img src="/images/avatar-placeholder.svg" alt="{{ $obj->name }}">
+                                                    </div>
                                                     <div class="comment-detail">
                                                         <div class="user-name">{{ $obj->name }}</div>
                                                         <div class="post-info">
@@ -48,7 +49,7 @@
                                                                 <li>{{ date('F j, Y', strtotime($obj->created_at)) }}</li>
                                                             </ul>
                                                         </div>
-                                                        <p>{{ $item->message }}</p>
+                                                        <p>{{ $obj->message }}</p>
                                                     </div>
                                                 </li>
                                             </ul>

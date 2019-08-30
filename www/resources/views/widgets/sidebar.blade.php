@@ -31,7 +31,7 @@
                                 <div class="pro-media">
                                     <a href="{{ route('blog.inner', ['alias' => $obj->alias]) }}">
                                         <img alt="{{ $obj->name }}"
-                                             src="{{ is_file(public_path('/storage/main/' . $obj->image)) ? '/storage/main/' . $obj->image : '/images/placeholder.png' }}">
+                                             src="{{ is_file(public_path('/storage/main/' . $obj->image)) ? '/storage/main/' . $obj->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}">
                                     </a>
                                 </div>
                                 <div class="pro-detail-info">

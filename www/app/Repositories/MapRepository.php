@@ -42,7 +42,7 @@ class MapRepository implements Repository
      */
     public function get($country)
     {
-        return $this->model::where('country', $country)->first();
+        return $this->model::where('alias', $country)->first();
     }
 
     public function all()
