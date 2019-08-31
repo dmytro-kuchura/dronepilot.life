@@ -140,15 +140,32 @@ class BlogRepository implements Repository
 
     public function getByCategory($category)
     {
-        return $this->model::leftJoin('categories', 'records.category_id', '=', 'categories.id')
+        return $this->model::select(
+            'records.*',
+            DB::raw('count(comments.id) AS comments')
+        )
+            ->leftJoin('categories', 'records.category_id', '=', 'categories.id')
+            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
+            ->groupBy('records.id')
             ->where('records.status', 1)
+            ->where('comments.status', 1)
             ->where('categories.alias', $category)
             ->get();
     }
 
     public function getByTag($tag)
     {
-        return $this->model::where('status', 1)->where('alias', $tag)->get();
+        return $this->model::select(
+            'records.*',
+            DB::raw('count(comments.id) AS comments')
+        )
+            ->leftJoin('categories', 'records.category_id', '=', 'categories.id')
+            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
+            ->groupBy('records.id')
+            ->where('records.status', 1)
+            ->where('comments.status', 1)
+            ->where('categories.alias', $category)
+            ->get();
     }
 
     /**

@@ -75,6 +75,23 @@ class Breadcrumbs extends AbstractWidget
 
                 $page = __('breadcrumbs.contacts.title');
                 break;
+            case 'blog.category':
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home')
+                    ],
+                    [
+                        'label' => __('breadcrumbs.blog.title'),
+                        'link' => route('blog')
+                    ],
+                    [
+                        'label' => __('breadcrumbs.blog.title')
+                    ]
+                ];
+
+                $page = __('breadcrumbs.blog.title');
+                break;
             default:
                 $breadcrumbs = [];
                 $page = __('breadcrumbs.index.title');

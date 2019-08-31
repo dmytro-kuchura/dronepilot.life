@@ -27,8 +27,8 @@
                                             <div class="blog-detail">
                                                 <span
                                                     class="post-date">{{ date('j', strtotime($item->created_at)) . ' ' . russianMonth($item->created_at) . ' ' . date('Y', strtotime($item->created_at))}}</span>
-                                                <div class="blog-title"><a
-                                                        href="{{ route('blog.inner', ['alias' => $item->alias]) }}">{{ $item->name }}</a>
+                                                <div class="blog-title">
+                                                    <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">{{ $item->name }}</a>
                                                 </div>
                                                 <p>{{ $item->short }}</p>
                                                 <hr>
@@ -38,7 +38,9 @@
                                                             <span>{{ __('site.by') }}</span>
                                                             <a  href="javascript:void(0)"> Дмитрий Кучура</a>
                                                         </li>
-                                                        <li><a href="javascript:void(0)">({{ $item->comments }}) комментариев</a></li>
+                                                        <li>
+                                                            <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">({{ $item->comments }}) комментариев</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -50,15 +50,17 @@ class BlogController extends Controller
     {
         $result = $this->repository->getByCategory($category);
 
-        return view('blog.index', [
+        return view('blog.category', [
             'result' => $result
         ]);
     }
 
     public function tag($tag)
     {
-        $result = $this->repository->list();
+        $result = $this->repository->getByTag($tag);
 
-        return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);
+        return view('blog.index', [
+            'result' => $result
+        ]);
     }
 }

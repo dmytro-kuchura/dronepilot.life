@@ -13,11 +13,11 @@
 
 Route::get('/', 'Admin\MainController@index')->name('dashboard');
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('login', 'Auth\LoginController@login')->name('login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-Route::post('register', 'Auth\RegisterController@register')->name('register');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'Admin\MainController@index')->name('dashboard');
