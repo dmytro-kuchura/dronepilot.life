@@ -8,8 +8,7 @@
                 <li>
                     <div class="check-box">
                         <span>
-                            <input type="checkbox" class="checkbox" id="{{ $obj->alias }}" name="{{ $obj->alias }}">
-                            <label for="{{ $obj->alias }}">{{ $obj->name }} <span>({{ $obj->count }})</span></label>
+                            <a href="{{ route('blog.category', ['category' => $obj->alias]) }}">{{ $obj->name }} <span>({{ $obj->count }})</span></a>
                         </span>
                     </div>
                 </li>

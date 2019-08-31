@@ -44,7 +44,7 @@
                                                             <span>{{ __('site.by') }}</span>
                                                             <a  href="javascript:void(0)"> Dmitry Kuchura</a>
                                                         </li>
-                                                        <li><a href="javascript:void(0)">(5) comments</a></li>
+                                                        <li><a href="javascript:void(0)">({{ $item->comments }}) комментариев</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

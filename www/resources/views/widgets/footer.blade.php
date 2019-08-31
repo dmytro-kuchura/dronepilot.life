@@ -43,9 +43,9 @@
                                         <li>
                                             <a href="{{ route('blog') }}"><i class="fa fa-angle-right"></i>Блог</a>
                                         </li>
-                                        <li>
-                                            <a href="{{ route('map') }}"><i class="fa fa-angle-right"></i>Карта рекомендаций</a>
-                                        </li>
+{{--                                        <li>--}}
+{{--                                            <a href="{{ route('map') }}"><i class="fa fa-angle-right"></i>Карта рекомендаций</a>--}}
+{{--                                        </li>--}}
                                     </ul>
                                 </div>
                             </div>
@@ -68,10 +68,10 @@
                                 <li>
                                     <div class="title">Подписаться :</div>
                                 </li>
-                                <li><a title="Facebook" class="facebook"><i class="fa fa-facebook"> </i></a></li>
-                                <li><a title="Twitter" class="twitter"><i class="fa fa-twitter"> </i></a></li>
-                                <li><a title="Instagram" class="twitter"><i class="fa fa-instagram"> </i></a></li>
-                                <li><a title="Youtube" class="pinterest"><i class="fa fa-youtube"> </i></a></li>
+                                <li><a href="https://www.facebook.com/dmitry.kychyra" target="_blank" title="Facebook" class="facebook"><i class="fa fa-facebook"> </i></a></li>
+                                <li><a href="https://twitter.com/fee1good_ua" target="_blank" title="Twitter" class="twitter"><i class="fa fa-twitter"> </i></a></li>
+                                <li><a href="https://instagram.com/dmitry.k__/" target="_blank" title="Instagram" class="twitter"><i class="fa fa-instagram"> </i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCxi9O86RrN79vePnBH7c_Tg?view_as=subscriber" target="_blank" title="Youtube" class="pinterest"><i class="fa fa-youtube"> </i></a></li>
                             </ul>
                         </div>
                     </div>

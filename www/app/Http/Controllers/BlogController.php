@@ -46,18 +46,13 @@ class BlogController extends Controller
         ]);
     }
 
-    public function list()
-    {
-        $result = $this->repository->all();
-
-        return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);
-    }
-
     public function category($category)
     {
-        $result = $this->repository->list();
+        $result = $this->repository->getByCategory($category);
 
-        return response()->json(['result' => $result], 200, [], JSON_NUMERIC_CHECK);
+        return view('blog.index', [
+            'result' => $result
+        ]);
     }
 
     public function tag($tag)

@@ -18,7 +18,16 @@ class BlogRepository implements Repository
      */
     public function all()
     {
-        return $this->model::where('status', 1)->orderBy('id', 'desc')->get();
+        return $this->model::select(
+            'records.*',
+            DB::raw('count(comments.id) AS comments')
+        )
+            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
+            ->groupBy('records.id')
+            ->where('records.status', 1)
+            ->where('comments.status', 1)
+            ->orderBy('records.id', 'desc')
+            ->get();
     }
 
     /**
@@ -131,7 +140,10 @@ class BlogRepository implements Repository
 
     public function getByCategory($category)
     {
-        return $this->model::where('status', 1)->where('category_id', $category)->get();
+        return $this->model::leftJoin('categories', 'records.category_id', '=', 'categories.id')
+            ->where('records.status', 1)
+            ->where('categories.alias', $category)
+            ->get();
     }
 
     public function getByTag($tag)

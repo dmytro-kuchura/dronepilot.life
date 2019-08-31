@@ -20,11 +20,12 @@
                                         <li><span
                                                 class="post-date">{{ date('j ', strtotime($result->created_at)) . ' ' . russianMonth($result->created_at) . ' ' . date('Y', strtotime($result->created_at)) }}</span>
                                         </li>
-                                        <li><span>By</span><a href="javascript:void(0)"> cormon jons</a></li>
+                                        <li><span>Автор</span><a href="javascript:void(0)"> Дмитрий Кучура</a></li>
                                     </ul>
                                 </div>
-                                <div class="blog-title"><a href="javascript:void(0)">Combined with a handful of
-                                        model</a></div>
+                                <div class="blog-title">
+                                    <a href="javascript:void(0)">{{ $result->name }}</a>
+                                </div>
                                 {!! $result->content !!}
                                 <hr>
                             </div>
@@ -58,7 +59,7 @@
                                 @endif
 
                                 <div class="main-form mt-30">
-                                    <h4>Leave a comments</h4>
+                                    <h4>Оставьте комментарий</h4>
                                     <form id="comment-form">
                                         <div class="row mt-30">
                                             <div class="col-md-6 mb-30">
