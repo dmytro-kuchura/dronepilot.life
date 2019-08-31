@@ -24,7 +24,7 @@
                                     <ul class="footer-block-contant link">
                                         @foreach($result as $obj)
                                             <li>
-                                                <a href="{{ $obj->alias }}"><i class="fa fa-angle-right"></i>{{ $obj->name }}</a>
+                                                <a href="{{ route('blog.category', ['category' => $obj->alias]) }}"><i class="fa fa-angle-right"></i>{{ $obj->name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>

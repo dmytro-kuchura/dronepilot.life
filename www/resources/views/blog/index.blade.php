@@ -19,7 +19,7 @@
                                             <div class="blog-media mb-20">
                                                 <img
                                                     src="{{ is_file(public_path('/storage/main/' . $item->image)) ? '/storage/main/' . $item->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}"
-                                                    alt="Roadie">
+                                                    alt="{{ $item->name }}">
                                                 <div class="blog-effect"></div>
                                                 <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}"
                                                    title="Click For Read More" class="read">&nbsp;</a>
