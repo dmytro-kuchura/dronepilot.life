@@ -34,7 +34,8 @@
                                                 <hr>
                                                 <div class="post-info">
                                                     <ul>
-                                                        <li><span>{{ __('site.by') }}</span><a href="{{ route('about') }}"> Dmitry</a></li>
+                                                        <li><span>{{ __('site.by') }}</span><a href="{{ route('about') }}"> Дмитрий Кучура</a></li>
+                                                        <li><a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">({{ $item->comments }}) комментариев</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

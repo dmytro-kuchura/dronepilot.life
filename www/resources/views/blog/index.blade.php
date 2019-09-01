@@ -38,7 +38,7 @@
                                                             <span>{{ __('site.by') }}</span>
                                                             <a  href="javascript:void(0)"> Дмитрий Кучура</a>
                                                         </li>
-                                                        <li><a href="javascript:void(0)">({{ $item->comments }}) комментариев</a></li>
+                                                        <li><a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">({{ $item->comments }}) комментариев</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

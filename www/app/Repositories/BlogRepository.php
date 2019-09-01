@@ -25,7 +25,7 @@ class BlogRepository implements Repository
             ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
             ->where('records.status', 1)
-            ->where('comments.status', 1)
+//            ->where('comments.status', 1)
             ->orderBy('records.id', 'desc')
             ->get();
     }
@@ -148,7 +148,7 @@ class BlogRepository implements Repository
             ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
             ->where('records.status', 1)
-            ->where('comments.status', 1)
+//            ->where('comments.status', 1)
             ->where('categories.alias', $category)
             ->get();
     }
@@ -164,7 +164,7 @@ class BlogRepository implements Repository
             ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
             ->where('records.status', 1)
-            ->where('comments.status', 1)
+//            ->where('comments.status', 1)
             ->where('tags.alias', $tag)
             ->get();
     }
