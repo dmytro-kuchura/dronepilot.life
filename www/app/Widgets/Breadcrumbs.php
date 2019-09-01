@@ -80,6 +80,19 @@ class Breadcrumbs extends AbstractWidget
 
                 $page = __('breadcrumbs.contacts.title');
                 break;
+            case 'search':
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home'),
+                    ],
+                    [
+                        'label' => __('breadcrumbs.search.title'),
+                    ],
+                ];
+
+                $page = __('breadcrumbs.search.title');
+                break;
             case 'blog.category':
                 $category = $categoryRepository->getCategoryByAlias(Route::current()->parameter('category'));
 

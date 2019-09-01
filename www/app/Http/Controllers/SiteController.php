@@ -59,4 +59,15 @@ class SiteController extends Controller
             'sitemap' => $sitemap,
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->query('search');
+
+        $result = $this->repository->search($query);
+
+        return view('search', [
+            'result' => $result
+        ]);
+    }
 }

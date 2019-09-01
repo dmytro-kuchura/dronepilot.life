@@ -6,4 +6,5 @@ return [
     'contacts.title' => 'Контакты',
     'map.title' => 'Карта полетов БПЛА',
     'blog.title' => 'Блог',
+    'search.title' => 'Поиск',
 ];

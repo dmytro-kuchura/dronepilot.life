@@ -192,4 +192,20 @@ class BlogRepository implements Repository
             ->orderBy('categories.id', 'desc')
             ->get();
     }
+
+    public function search($query)
+    {
+        return $this->model::select(
+            'records.*',
+            DB::raw('count(comments.id) AS comments')
+        )
+            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
+            ->groupBy('records.id')
+            ->where('records.status', 1)
+            ->where('records.name', 'LIKE', '%' . strtolower($query) . '%')
+            ->orWhere('records.name', 'LIKE', '%' . strtoupper($query) . '%')
+            ->orWhere('records.content', 'LIKE', '%' . strtolower($query) . '%')
+            ->orWhere('records.content', 'LIKE', '%' . strtoupper($query) . '%')
+            ->get();
+    }
 }
