@@ -46,4 +46,9 @@ class CategoriesRepository implements Repository
     {
         return $this->model::where('id', $id)->first();
     }
+
+    public function getCategoryByAlias($alias)
+    {
+        return $this->model::where('alias', $alias)->first();
+    }
 }

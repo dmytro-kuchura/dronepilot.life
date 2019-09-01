@@ -3,11 +3,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Categories\StoreCategory;
 use App\Repositories\TagsRepository;
 
-class TagsController
+class TagsController extends Controller
 {
     protected $repository;
 

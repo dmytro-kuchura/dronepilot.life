@@ -46,4 +46,9 @@ class TagsRepository implements Repository
     {
         return $this->model::where('id', $id)->first();
     }
+
+    public function getTagByAlias($alias)
+    {
+        return $this->model::where('alias', $alias)->first();
+    }
 }

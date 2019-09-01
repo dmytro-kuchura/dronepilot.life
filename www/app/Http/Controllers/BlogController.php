@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\TagsRepository;
 use Illuminate\Http\Request;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentsRepository;
+use App\Repositories\CategoriesRepository;
 
 class BlogController extends Controller
 {
@@ -48,19 +50,27 @@ class BlogController extends Controller
 
     public function category($category)
     {
-        $result = $this->repository->getByCategory($category);
+        $categoryRepository = new CategoriesRepository();
 
-        return view('blog.category', [
-            'result' => $result
+        $result = $this->repository->getByCategory($category);
+        $category = $categoryRepository->getCategoryByAlias($category);
+
+        return view('blog.categories', [
+            'result' => $result,
+            'category' => $category,
         ]);
     }
 
     public function tag($tag)
     {
-        $result = $this->repository->getByTag($tag);
+        $tagRepository = new TagsRepository();
 
-        return view('blog.index', [
-            'result' => $result
+        $result = $this->repository->getByTag($tag);
+        $tag = $tagRepository->getTagByAlias($tag);
+
+        return view('blog.tags', [
+            'result' => $result,
+            'tag' => $tag
         ]);
     }
 }

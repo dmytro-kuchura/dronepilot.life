@@ -159,12 +159,13 @@ class BlogRepository implements Repository
             'records.*',
             DB::raw('count(comments.id) AS comments')
         )
-            ->leftJoin('categories', 'records.category_id', '=', 'categories.id')
+            ->leftJoin('tags_selected', 'tags_selected.record_id', '=', 'records.id')
+            ->leftJoin('tags', 'tags_selected.tag_id', '=', 'tags.id')
             ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
             ->where('records.status', 1)
             ->where('comments.status', 1)
-            ->where('categories.alias', $category)
+            ->where('tags.alias', $tag)
             ->get();
     }
 
