@@ -49,8 +49,8 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Подписчики</a>
-                <a class="collapse-item" href="utilities-border.html">Форма обратной связи</a>
+                <a class="collapse-item" href="{{ route('subscribers.list') }}">Подписчики</a>
+                <a class="collapse-item" href="{{ route('contacts.list') }}">Форма обратной связи</a>
             </div>
         </div>
     </li>
@@ -62,7 +62,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html"><i class="fas fa-fw fa-chart-area"></i><span>Статистика</span></a>
+        <a class="nav-link" href="{{ route('statistics.list') }}"><i class="fas fa-fw fa-chart-area"></i><span>Статистика</span></a>
     </li>
 
     <li class="nav-item">

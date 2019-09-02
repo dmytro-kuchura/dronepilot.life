@@ -76,7 +76,7 @@
             <span class="text">Сохранить</span>
         </button>
         &nbsp;
-        <a href="{{ route('blog.list') }}" class="btn btn-info btn-icon-split">
+        <a href="{{ route('tags.list') }}" class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-arrow-right"></i>
                     </span>

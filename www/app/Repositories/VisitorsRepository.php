@@ -10,7 +10,7 @@ class VisitorsRepository implements Repository
 
     public function all()
     {
-        //
+        return $this->model::orderBy('id', 'desc')->get();
     }
 
     public function list()
@@ -25,7 +25,7 @@ class VisitorsRepository implements Repository
 
     public function store($request)
     {
-        return Visitors::create([
+        return $this->model::create([
             'ip' => geoip()->getLocation()->ip,
             'country' => geoip()->getLocation()->country,
             'url' => $request['url'],

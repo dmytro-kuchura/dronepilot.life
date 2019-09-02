@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    @include('dashboard.blog._form', ['result' => $result, 'action' => route('blog.update', ['id' => $result->id])])
+                    @include('dashboard.tags._form', ['result' => $result, 'action' => route('tags.update', ['id' => $result->id])])
                 </div>
             </div>
         </div>

@@ -56,6 +56,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/delete/{id}', 'Admin\SubscribersController@delete')->name('subscribers.delete');
     });
 
+    Route::prefix('statistics')->group(function () {
+        Route::get('/', 'Admin\StatisticsController@index')->name('statistics.list');
+    });
+
     Route::prefix('contacts')->group(function () {
         Route::get('/', 'Admin\ContactsController@index')->name('contacts.list');
         Route::get('/show/{id}', 'Admin\ContactsController@show')->name('contacts.show');
