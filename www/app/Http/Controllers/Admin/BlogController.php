@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Blog\StoreBlog;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Blog\StoreBlog;
+use App\Http\Requests\Blog\UpdateBlog;
 use App\Repositories\BlogRepository;
+use App\Repositories\TagsRepository;
 use App\Repositories\CategoriesRepository;
 
 class BlogController extends Controller
@@ -27,13 +29,15 @@ class BlogController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(CategoriesRepository $categoriesRepository, TagsRepository $tagsRepository)
     {
-        $repository = new CategoriesRepository();
+        $categories = $categoriesRepository->all();
+        $tags = $tagsRepository->all();
 
-        $categories = $repository->all();
-
-        return view('dashboard.blog.create', ['categories' => $categories]);
+        return view('dashboard.blog.create', [
+            'categories' => $categories,
+            'tags' => $tags
+        ]);
     }
 
     public function store(StoreBlog $request)
@@ -43,21 +47,21 @@ class BlogController extends Controller
         return redirect()->route('blog.list');
     }
 
-    public function edit($id)
+    public function edit($id, CategoriesRepository $categoriesRepository, TagsRepository $tagsRepository)
     {
         $result = $this->repository->get($id);
 
-        $repository = new CategoriesRepository();
-
-        $categories = $repository->all();
+        $categories = $categoriesRepository->all();
+        $tags = $tagsRepository->all();
 
         return view('dashboard.blog.update', [
             'result' => $result,
             'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 
-    public function update(StoreBlog $request)
+    public function update(UpdateBlog $request)
     {
         $this->repository->update($request->all());
 
