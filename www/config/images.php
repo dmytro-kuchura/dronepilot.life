@@ -3,16 +3,16 @@ return [
     'blog' => [
         [
             'path' => 'main',
-            'width' => 571,
-            'height' => 499,
+            'width' => 1300,
+            'height' => 800,
             'resize' => 1,
             'crop' => 1,
             'watermark' => 1,
         ],
         [
             'path' => 'inner',
-            'width' => 1031,
-            'height' => 541,
+            'width' => 1300,
+            'height' => 800,
             'resize' => 1,
             'crop' => 1,
         ],
