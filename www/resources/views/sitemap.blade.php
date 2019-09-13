@@ -5,7 +5,29 @@
             <url>
                 <loc>{{ url($obj->slug) }}</loc>
                 <lastmod>{{ $obj->updated_at->tz('GMT')->toAtomString() }}</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>1</priority>
+            </url>
+        @endforeach
+    @endif
+
+    @if (!empty($tags))
+        @foreach ($tags as $tag)
+            <url>
+                <loc>{{ url('blog/tag/' . $tag->alias) }}</loc>
+                <lastmod>{{ $tag->updated_at->tz('GMT')->toAtomString() }}</lastmod>
                 <changefreq>monthly</changefreq>
+                <priority>1</priority>
+            </url>
+        @endforeach
+    @endif
+
+    @if (!empty($categories))
+        @foreach ($categories as $category)
+            <url>
+                <loc>{{ url('blog/category/' . $category->alias) }}</loc>
+                <lastmod>{{ $category->updated_at->tz('GMT')->toAtomString() }}</lastmod>
+                <changefreq>weekly</changefreq>
                 <priority>1</priority>
             </url>
         @endforeach
@@ -16,7 +38,7 @@
             <url>
                 <loc>{{ url('blog/' . $page->alias) }}</loc>
                 <lastmod>{{ $page->updated_at->tz('GMT')->toAtomString() }}</lastmod>
-                <changefreq>monthly</changefreq>
+                <changefreq>weekly</changefreq>
                 <priority>1</priority>
             </url>
         @endforeach
