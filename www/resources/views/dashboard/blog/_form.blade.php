@@ -66,7 +66,7 @@
             <select class="form-control" name="category_id">
                 <option value="0">Не выбрано</option>
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ !empty($result) && $result->category_id ? 'selected' : '' }} >{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" {{ !empty($result) && $category->id == $result->category_id ? 'selected' : '' }} >{{ $category->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -75,7 +75,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Тэги</label>
         <div class="col-lg-7">
-            <select class="form-control" name="tag_ids" multiple>
+            <select class="form-control" name="tags[]" multiple>
                 <option value="0">Не выбрано</option>
                 @foreach($tags as $tag)
                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>

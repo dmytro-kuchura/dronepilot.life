@@ -41,7 +41,7 @@
                                     <td>{{ $obj->city . ', ' . $obj->country }}</td>
                                     <td>{{ $obj->ip }}</td>
                                     <td>{{ $obj->url }}</td>
-                                    <td>{{ $obj->referer }}</td>
+                                    <td title="{{ $obj->referer }}">{{ substr($obj->referer, 0, 90) }}</td>
                                     <td>{{ $obj->user_agent }}</td>
                                     <td>{{ date('F j, Y, g:i a', strtotime($obj->created_at)) }}</td>
                                 </tr>

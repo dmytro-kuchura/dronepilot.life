@@ -20,7 +20,7 @@ class TagsRepository implements Repository
         return $records;
     }
 
-    public function update($request)
+    public function update($id)
     {
         //
     }

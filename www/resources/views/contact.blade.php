@@ -126,27 +126,7 @@
                 </div>
             </div>
             <div class="main-form">
-                <form id="contacts-form" name="contactform">
-                    <div class="row">
-                        <div class="col-md-6 mb-30">
-                            <input type="text" required placeholder="Введите Ваше имя" name="name">
-                        </div>
-                        <div class="col-md-6 mb-30">
-                            <input type="email" required placeholder="Введите Ваш email" name="email">
-                        </div>
-                        <div class="col-12 mb-30">
-                                <textarea required placeholder="Что именно Вас интересует?" rows="3" cols="30"
-                                          name="description"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <div class="align-center">
-                                <button id="submit-contacts" type="submit" name="submit" class="btn btn-color">
-                                    Отправить
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <contacts></contacts>
             </div>
         </div>
     </section>

@@ -23,6 +23,7 @@ window.Datamap = require('datamaps/dist/datamaps.world.min.js');
 import Vue from "vue";
 
 Vue.component('subscribe', require('./components/SubscribeFormComponent.vue'));
+Vue.component('contacts', require('./components/ContactsFormComponent.vue'));
 
 new Vue({
     el: '#app',
@@ -149,23 +150,6 @@ $(document).ready(function () {
             })
             .catch(function () {
                 notification('При отправке коментария произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
-            });
-    });
-
-    $('#contacts-form').on('submit', function (event) {
-        event.preventDefault();
-
-        let form = $(this);
-        let data = new FormData(form[0]);
-
-        axios.post('/api/v1/contacts', data)
-            .then(function () {
-                notification('Спасибо, на заданый Вами вопрос в ближайшее время мы дадим ответ!', 'success');
-
-                document.getElementById('contacts-form').reset()
-            })
-            .catch(function () {
-                notification('При отправке сообщения произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
             });
     });
 });

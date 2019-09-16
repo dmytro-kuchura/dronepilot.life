@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Helpers\Tags;
 use App\Helpers\Text;
 use App\Helpers\Upload;
 use App\Models\Records;
@@ -57,6 +58,10 @@ class BlogRepository implements Repository
                     'image' => Upload::save($request),
                 ]
             );
+        }
+
+        if (isset($request['tags'])) {
+            Tags::update($request['id'], $request['tags']);
         }
 
         return $this->model::updateOrCreate(

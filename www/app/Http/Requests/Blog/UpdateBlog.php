@@ -35,6 +35,7 @@ class UpdateBlog extends FormRequest
             'file' => 'image|max:40048|nullable',
             'keywords' => 'string|nullable',
             'category_id' => 'string|required',
+            'tags' => 'array',
         ];
     }
 

@@ -32802,6 +32802,7 @@ window.Datamap = __webpack_require__(174);
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('subscribe', __webpack_require__(179));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('contacts', __webpack_require__(247));
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app'
@@ -32920,21 +32921,6 @@ $(document).ready(function () {
             document.getElementById('comment-form').reset();
         }).catch(function () {
             notification('При отправке коментария произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
-        });
-    });
-
-    $('#contacts-form').on('submit', function (event) {
-        event.preventDefault();
-
-        var form = $(this);
-        var data = new FormData(form[0]);
-
-        axios.post('/api/v1/contacts', data).then(function () {
-            notification('Спасибо, на заданый Вами вопрос в ближайшее время мы дадим ответ!', 'success');
-
-            document.getElementById('contacts-form').reset();
-        }).catch(function () {
-            notification('При отправке сообщения произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
         });
     });
 });
@@ -68055,6 +68041,342 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(180)
+/* script */
+var __vue_script__ = __webpack_require__(248)
+/* template */
+var __vue_template__ = __webpack_require__(249)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/ContactsFormComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-516146ab", Component.options)
+  } else {
+    hotAPI.reload("data-v-516146ab", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 248 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            isLoading: false,
+            form: {
+                name: null,
+                email: null,
+                description: null
+            },
+            errors: []
+        };
+    },
+
+    methods: {
+        onSubmit: function onSubmit() {
+            var _this = this;
+
+            this.isLoading = true;
+            axios.post("/api/v1/contacts", this.form).then(function () {
+                return _this.setSuccessResponse();
+            }).catch(function (_ref) {
+                var response = _ref.response;
+                return _this.setErrorResponse(response);
+            });
+        },
+        setSuccessResponse: function setSuccessResponse() {
+            this.isLoading = false;
+            this.form.name = null;
+            this.form.email = null;
+            this.form.description = null;
+            this.errors = [];
+
+            swal({
+                title: "Отлично!",
+                text: "Запрос отправлен!",
+                icon: "success"
+            });
+        },
+        setErrorResponse: function setErrorResponse(response) {
+            this.isLoading = false;
+            this.errors = response.data.errors;
+
+            swal({
+                title: "Ошибка!",
+                text: "Указан не верный email или email уже зарегистрирован!",
+                icon: "error"
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "footer-block-contant" }, [
+    _c(
+      "form",
+      {
+        attrs: { id: "contacts-form", name: "contactform" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.onSubmit($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 mb-30" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.name,
+                  expression: "form.name"
+                }
+              ],
+              class: { "has-error": _vm.errors.name },
+              attrs: {
+                type: "text",
+                required: "",
+                placeholder: "Введите Ваше имя",
+                name: "name"
+              },
+              domProps: { value: _vm.form.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 mb-30" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.email,
+                  expression: "form.email"
+                }
+              ],
+              class: { "has-error": _vm.errors.email },
+              attrs: {
+                type: "email",
+                required: "",
+                placeholder: "Введите Ваш email",
+                name: "email"
+              },
+              domProps: { value: _vm.form.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 mb-30" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.description,
+                  expression: "form.description"
+                }
+              ],
+              class: { "has-error": _vm.errors.description },
+              attrs: {
+                required: "",
+                placeholder: "Что именно Вас интересует?",
+                rows: "3",
+                cols: "30",
+                name: "description"
+              },
+              domProps: { value: _vm.form.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "description", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "align-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-color",
+            attrs: { id: "submit-contacts", type: "submit", name: "submit" }
+          },
+          [_vm._v("\n                        Отправить\n                    ")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-516146ab", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
