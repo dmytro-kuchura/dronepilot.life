@@ -24,6 +24,7 @@ import Vue from "vue";
 
 Vue.component('subscribe', require('./components/SubscribeFormComponent.vue'));
 Vue.component('contacts', require('./components/ContactsFormComponent.vue'));
+Vue.component('comments', require('./components/CommentsFormComponent.vue'));
 
 new Vue({
     el: '#app',

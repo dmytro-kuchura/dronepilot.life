@@ -60,24 +60,7 @@
 
                                 <div class="main-form mt-30">
                                     <h4>Оставьте комментарий</h4>
-                                    <form id="comment-form">
-                                        <div class="row mt-30">
-                                            <div class="col-md-6 mb-30">
-                                                <input type="text" name="name" placeholder="Имя" required>
-                                            </div>
-                                            <div class="col-md-6 mb-30">
-                                                <input type="email" name="email" placeholder="Email" required>
-                                            </div>
-                                            <div class="col-12 mb-30">
-                                                <textarea cols="30" name="message" rows="3" placeholder="Комментарий" required></textarea>
-                                            </div>
-                                            <input name="record_id" value="{{ $result->id }}" type="hidden">
-                                            <div class="col-12">
-                                                <button class="btn btn-color" name="submit" type="submit">Оставить комментарий
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <comments record-id="{{ $result->id }}"><comments>
                                 </div>
                             </div>
                         </div>
