@@ -21,12 +21,10 @@ class BlogRepository implements Repository
     {
         return $this->model::select(
             'records.*',
-            DB::raw('count(comments.id) AS comments')
+            DB::raw('(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 1) AS comments')
         )
-            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
-            ->where('records.status', 1)
-//            ->where('comments.status', 1)
+            ->where('records.status', Records::STATUS_AVAILABLE)
             ->orderBy('records.id', 'desc')
             ->get();
     }
@@ -73,7 +71,7 @@ class BlogRepository implements Repository
                 'keywords' => $request['keywords'],
                 'content' => $request['content'],
                 'alias' => $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name'])),
-                'status' => $request['status'] === 'on' ? 1 : 0,
+                'status' => $request['status'] === 'on' ? Records::STATUS_AVAILABLE : Records::STATUS_DISABLE,
                 'category_id' => $request['category_id'],
             ]
         );
@@ -99,7 +97,7 @@ class BlogRepository implements Repository
             $model->image = Upload::save($request);
         }
         $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name']));
-        $model->status = $request['status'] === 'on' ? 1 : 0;
+        $model->status = $request['status'] === 'on' ? Records::STATUS_AVAILABLE : Records::STATUS_DISABLE;
         $model->category_id = $request['category_id'];
 
         return $model->save();
@@ -135,25 +133,23 @@ class BlogRepository implements Repository
      */
     public function getByAlias($alias)
     {
-        return $this->model::where('status', 1)->where('alias', $alias)->first();
+        return $this->model::where('status', Records::STATUS_AVAILABLE)->where('alias', $alias)->first();
     }
 
     public function getRecent()
     {
-        return $this->model::where('status', 1)->limit(4)->inRandomOrder()->get();
+        return $this->model::where('status', Records::STATUS_AVAILABLE)->limit(4)->inRandomOrder()->get();
     }
 
     public function getByCategory($category)
     {
         return $this->model::select(
             'records.*',
-            DB::raw('count(comments.id) AS comments')
+            DB::raw('(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 1) AS comments')
         )
             ->leftJoin('categories', 'records.category_id', '=', 'categories.id')
-            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
-            ->where('records.status', 1)
-//            ->where('comments.status', 1)
+            ->where('records.status', Records::STATUS_AVAILABLE)
             ->where('categories.alias', $category)
             ->get();
     }
@@ -162,14 +158,12 @@ class BlogRepository implements Repository
     {
         return $this->model::select(
             'records.*',
-            DB::raw('count(comments.id) AS comments')
+            DB::raw('(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 1) AS comments')
         )
             ->leftJoin('tags_selected', 'tags_selected.record_id', '=', 'records.id')
             ->leftJoin('tags', 'tags_selected.tag_id', '=', 'tags.id')
-            ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
-            ->where('records.status', 1)
-//            ->where('comments.status', 1)
+            ->where('records.status', Records::STATUS_AVAILABLE)
             ->where('tags.alias', $tag)
             ->get();
     }
@@ -206,7 +200,7 @@ class BlogRepository implements Repository
         )
             ->leftJoin('comments', 'records.id', '=', 'comments.record_id')
             ->groupBy('records.id')
-            ->where('records.status', 1)
+            ->where('records.status', Records::STATUS_AVAILABLE)
             ->where('records.name', 'LIKE', '%' . strtolower($query) . '%')
             ->orWhere('records.name', 'LIKE', '%' . strtoupper($query) . '%')
             ->orWhere('records.content', 'LIKE', '%' . strtolower($query) . '%')

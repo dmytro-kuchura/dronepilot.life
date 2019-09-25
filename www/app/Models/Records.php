@@ -25,6 +25,10 @@ class Records extends Model
 {
     use ShortDescription;
 
+    const STATUS_AVAILABLE = 1;
+
+    const STATUS_DISABLE = 0;
+
     /**
      * @var array
      */
