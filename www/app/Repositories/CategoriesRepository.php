@@ -10,7 +10,7 @@ class CategoriesRepository implements Repository
 
     public function all()
     {
-        return $this->model::where('status', 1)->orderBy('id', 'desc')->get();
+        return $this->model::where('status', Categories::STATUS_AVAILABLE)->orderBy('id', 'desc')->get();
     }
 
     public function list()
@@ -33,7 +33,7 @@ class CategoriesRepository implements Repository
             'title' => $request['title'],
             'keywords' => $request['keywords'],
             'description' => $request['description'],
-            'status' => (string)$request['status'] === 'on' ? 1 : 0,
+            'status' => (string)$request['status'] === 'on' ? Categories::STATUS_AVAILABLE : Categories::STATUS_DISABLE,
         ]);
     }
 

@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comments extends Model
 {
     const STATUS_APPROVED = 'approved';
+
     const STATUS_NOT_APPROVED = 'not_approved';
 
     /**
