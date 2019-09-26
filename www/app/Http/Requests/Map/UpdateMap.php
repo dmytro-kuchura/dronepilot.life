@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Blog;
+namespace App\Http\Requests\Map;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreBlog extends FormRequest
+class UpdateMap extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

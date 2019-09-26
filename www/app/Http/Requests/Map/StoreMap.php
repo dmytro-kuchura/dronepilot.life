@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreBlog extends FormRequest
+class StoreMap extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,10 +32,8 @@ class StoreBlog extends FormRequest
             'content' => 'string|required',
             'title' => 'string|nullable|max:255',
             'description' => 'string|nullable',
-            'file' => 'image|max:40048|nullable',
             'keywords' => 'string|nullable',
             'category_id' => 'string|required',
-            'tags' => 'array',
         ];
     }
 

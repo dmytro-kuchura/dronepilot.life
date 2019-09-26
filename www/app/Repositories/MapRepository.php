@@ -10,7 +10,15 @@ class MapRepository implements Repository
 
     public function list()
     {
-        // TODO: Implement list() method.
+        {
+            return $this->model::select(
+                'maps.*'
+            )
+                ->groupBy('maps.id')
+                ->where('maps.status', Map::STATUS_AVAILABLE)
+                ->orderBy('maps.id', 'desc')
+                ->get();
+        }
     }
 
     public function update($request)

@@ -70,7 +70,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html"><i class="fas fa-fw fa-table"></i><span>Настройки</span></a>
+        <a class="nav-link" href="{{ route('settings.list') }}"><i class="fas fa-fw fa-table"></i><span>Настройки</span></a>
     </li>
 
     <hr class="sidebar-divider d-none d-md-block">

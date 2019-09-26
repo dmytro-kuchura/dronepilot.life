@@ -60,6 +60,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'Admin\StatisticsController@index')->name('statistics.list');
     });
 
+    Route::prefix('settings')->group(function () {
+        Route::get('/', 'Admin\SettingsController@index')->name('settings.list');
+        Route::post('/store', 'Admin\SettingsController@create')->name('settings.create');
+        Route::post('/update/{id}', 'Admin\SettingsController@update')->name('settings.update');
+        Route::get('/delete/{id}', 'Admin\SettingsController@delete')->name('settings.delete');
+    });
+
     Route::prefix('contacts')->group(function () {
         Route::get('/', 'Admin\ContactsController@index')->name('contacts.list');
         Route::get('/show/{id}', 'Admin\ContactsController@show')->name('contacts.show');
