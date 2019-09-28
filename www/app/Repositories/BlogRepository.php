@@ -21,7 +21,7 @@ class BlogRepository implements Repository
     {
         return $this->model::select(
             'records.*',
-            DB::raw('(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 1) AS comments')
+            DB::raw("(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 'approved') AS comments")
         )
             ->groupBy('records.id')
             ->where('records.status', Records::STATUS_AVAILABLE)
@@ -145,7 +145,7 @@ class BlogRepository implements Repository
     {
         return $this->model::select(
             'records.*',
-            DB::raw('(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 1) AS comments')
+            DB::raw("(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 'approved') AS comments")
         )
             ->leftJoin('categories', 'records.category_id', '=', 'categories.id')
             ->groupBy('records.id')
@@ -158,7 +158,7 @@ class BlogRepository implements Repository
     {
         return $this->model::select(
             'records.*',
-            DB::raw('(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 1) AS comments')
+            DB::raw("(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 'approved') AS comments")
         )
             ->leftJoin('tags_selected', 'tags_selected.record_id', '=', 'records.id')
             ->leftJoin('tags', 'tags_selected.tag_id', '=', 'tags.id')
