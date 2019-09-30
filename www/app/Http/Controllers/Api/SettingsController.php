@@ -16,11 +16,13 @@ class SettingsController extends Controller
         $this->repository = $repository;
     }
 
-    public function store() {
+    public function store()
+    {
         //
     }
 
-    public function update() {
+    public function update()
+    {
         //
     }
 }

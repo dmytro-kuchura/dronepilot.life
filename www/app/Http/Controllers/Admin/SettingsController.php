@@ -16,11 +16,13 @@ class SettingsController extends Controller
         $this->repository = $repository;
     }
 
-    public function index() {
+    public function index()
+    {
 
     }
 
-    public function delete() {
+    public function delete()
+    {
 
     }
 }
