@@ -62,8 +62,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::prefix('settings')->group(function () {
         Route::get('/', 'Admin\SettingsController@index')->name('settings.list');
-        Route::post('/store', 'Admin\SettingsController@create')->name('settings.create');
-        Route::post('/update/{id}', 'Admin\SettingsController@update')->name('settings.update');
         Route::get('/delete/{id}', 'Admin\SettingsController@delete')->name('settings.delete');
     });
 
