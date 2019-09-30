@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\SettingsRepository;
@@ -16,11 +16,11 @@ class SettingsController extends Controller
         $this->repository = $repository;
     }
 
-    public function index() {
-
+    public function store() {
+        //
     }
 
-    public function delete() {
-
+    public function update() {
+        //
     }
 }

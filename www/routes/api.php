@@ -16,4 +16,9 @@ Route::prefix('v1')->group(function () {
     Route::post('/contacts', 'Api\ContactsController@contacts')->name('api.contacts');
     Route::post('/subscribe', 'Api\SubscribeController@subscribe')->name('api.subscribe');
     Route::post('/image-upload', 'Api\UploadController@upload')->name('api.image');
+
+    Route::prefix('settings')->group(function () {
+        Route::post('/store', 'Admin\SettingsController@store')->name('settings.store');
+        Route::post('/update/{id}', 'Admin\SettingsController@update')->name('settings.update');
+    });
 });
