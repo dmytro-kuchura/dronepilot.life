@@ -11,7 +11,7 @@
                 <div class="col-12 mb-30">
                     <textarea cols="30" name="message" rows="3" placeholder="Комментарий" required></textarea>
                 </div>
-                <input name="record_id" v-model="form.record_id" :class="{'has-error': errors.email}" type="hidden">
+                <input name="record_id" type="hidden">
                 <div class="col-12">
                     <button class="btn btn-color" name="submit" type="submit">Оставить комментарий
                     </button>

@@ -60,7 +60,7 @@
 
                                 <div class="main-form mt-30">
                                     <h4>Оставьте комментарий</h4>
-                                    <comments record-id="{{ $result->id }}"><comments>
+                                    <comments :record="{{ $result->id }}"><comments>
                                 </div>
                             </div>
                         </div>
