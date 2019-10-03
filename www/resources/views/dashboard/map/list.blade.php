@@ -50,11 +50,11 @@
                                     </td>
                                     <td>{{ $obj->views }}</td>
                                     <td class="td-actions">
-                                        <a href="{{ route('blog.edit', ['id' => $obj->id]) }}"
+                                        <a href="{{ route('map.edit', ['id' => $obj->id]) }}"
                                            class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('blog.delete', ['id' => $obj->id]) }}"
+                                        <a href="{{ route('map.delete', ['id' => $obj->id]) }}"
                                            class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>

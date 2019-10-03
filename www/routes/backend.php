@@ -32,6 +32,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/delete/{id}', 'Admin\BlogController@delete')->name('blog.delete');
     });
 
+    Route::prefix('map')->group(function () {
+        Route::get('/', 'Admin\MapController@index')->name('map.list');
+        Route::get('/create', 'Admin\MapController@create')->name('map.create');
+        Route::post('/store', 'Admin\MapController@store')->name('map.store');
+        Route::get('/edit/{id}', 'Admin\MapController@edit')->name('map.edit');
+        Route::post('/update/{id}', 'Admin\MapController@update')->name('map.update');
+        Route::get('/delete/{id}', 'Admin\MapController@delete')->name('map.delete');
+    });
+
     Route::prefix('categories')->group(function () {
         Route::get('/', 'Admin\CategoriesController@index')->name('categories.list');
         Route::get('/create', 'Admin\CategoriesController@create')->name('categories.create');
