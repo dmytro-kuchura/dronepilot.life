@@ -40,6 +40,10 @@
     <meta name="theme-color" content="#ffffff">
 
     @if(config('app.env') !== 'local')
+        <script data-ad-client="ca-pub-3428447687354562" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    @endif
+
+    @if(config('app.env') !== 'local')
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140910657-1"></script>
         <script>

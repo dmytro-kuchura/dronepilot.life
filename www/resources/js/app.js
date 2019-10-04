@@ -136,21 +136,4 @@ $(document).ready(function () {
             }
         });
     }
-
-    $('#comment-form').on('submit', function (event) {
-        event.preventDefault();
-
-        let form = $(this);
-        let data = new FormData(form[0]);
-
-        axios.post('/api/v1/comment', data)
-            .then(function () {
-                notification('Спасибо за Ваш комментарий!', 'success');
-
-                document.getElementById('comment-form').reset()
-            })
-            .catch(function () {
-                notification('При отправке коментария произошла ошибка, либо Вы отправляете их слишком часто!', 'error');
-            });
-    });
 });

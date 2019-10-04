@@ -9,7 +9,7 @@
                     <input type="email" name="email" v-model="form.email" :class="{'has-error': errors.email}" placeholder="Email" required>
                 </div>
                 <div class="col-12 mb-30">
-                    <textarea cols="30" name="message" rows="3" placeholder="Комментарий" required></textarea>
+                    <textarea cols="30" name="message" v-model="form.message" rows="3" placeholder="Комментарий" required></textarea>
                 </div>
                 <input name="record_id" type="hidden">
                 <div class="col-12">
@@ -35,10 +35,13 @@
                 errors: [],
             };
         },
+        mounted() {
+            this.form.record_id = this.$attrs.record;
+        },
         methods: {
             onSubmit() {
                 this.isLoading = true;
-                axios.post("/api/v1/comments", this.form)
+                axios.post("/api/v1/comment", this.form)
                     .then(() => this.setSuccessResponse())
                     .catch(({response}) => this.setErrorResponse(response));
             },
@@ -62,7 +65,7 @@
 
                 swal({
                     title: "Ошибка!",
-                    text: "Указан не верный email или email уже зарегистрирован!",
+                    text: "Возникли проблемы во время отправки сообщения!",
                     icon: "error",
                 });
             },
