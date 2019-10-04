@@ -37,7 +37,7 @@
         @foreach ($pages as $page)
             <url>
                 <loc>{{ url('blog/' . $page->alias) }}</loc>
-                <lastmod>{{ $page->updated_at->tz('GMT')->toAtomString() }}</lastmod>
+                <lastmod>{{ $page->created_at->tz('GMT')->toAtomString() }}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>1</priority>
             </url>
