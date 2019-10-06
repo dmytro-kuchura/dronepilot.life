@@ -2,8 +2,7 @@
     <div class="footer-block-contant">
         <form @submit.prevent="onSubmit">
             <div class="field">
-                <input type="text" v-model="form.email" placeholder="Email" required
-                       :class="{'has-error': errors.email}">
+                <input type="text" v-model="form.email" placeholder="Email" :class="{'has-error': errors.email}">
             </div>
             <div class="field">
                 <button title="Подписаться" class="btn-color">Подписаться</button>

@@ -3,13 +3,13 @@
         <form id="contacts-form" name="contactform" @submit.prevent="onSubmit">
             <div class="row">
                 <div class="col-md-6 mb-30">
-                    <input type="text" required v-model="form.name" :class="{'has-error': errors.name}" placeholder="Введите Ваше имя" name="name">
+                    <input type="text" v-model="form.name" :class="{'has-error': errors.name}" placeholder="Введите Ваше имя" name="name">
                 </div>
                 <div class="col-md-6 mb-30">
-                    <input type="email" required v-model="form.email" :class="{'has-error': errors.email}" placeholder="Введите Ваш email" name="email">
+                    <input type="email" v-model="form.email" :class="{'has-error': errors.email}" placeholder="Введите Ваш email" name="email">
                 </div>
                 <div class="col-12 mb-30">
-                        <textarea required v-model="form.description" :class="{'has-error': errors.description}" placeholder="Что именно Вас интересует?" rows="3" cols="30" name="description"></textarea>
+                        <textarea v-model="form.description" :class="{'has-error': errors.description}" placeholder="Что именно Вас интересует?" rows="3" cols="30" name="description"></textarea>
                 </div>
                 <div class="col-12">
                     <div class="align-center">

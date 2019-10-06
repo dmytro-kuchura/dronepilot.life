@@ -3,13 +3,13 @@
         <form id="comment-form" @submit.prevent="onSubmit">
             <div class="row mt-30">
                 <div class="col-md-6 mb-30">
-                    <input type="text" name="name" v-model="form.name" :class="{'has-error': errors.name}" placeholder="Имя" required>
+                    <input type="text" name="name" v-model="form.name" :class="{'has-error': errors.name}" placeholder="Имя">
                 </div>
                 <div class="col-md-6 mb-30">
-                    <input type="email" name="email" v-model="form.email" :class="{'has-error': errors.email}" placeholder="Email" required>
+                    <input type="email" name="email" v-model="form.email" :class="{'has-error': errors.email}" placeholder="Email">
                 </div>
                 <div class="col-12 mb-30">
-                    <textarea cols="30" name="message" v-model="form.message" rows="3" placeholder="Комментарий" required></textarea>
+                    <textarea cols="30" name="message" v-model="form.message" rows="3" placeholder="Комментарий"></textarea>
                 </div>
                 <input name="record_id" type="hidden">
                 <div class="col-12">
