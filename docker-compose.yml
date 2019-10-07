@@ -21,7 +21,7 @@ services:
     image: composer
     volumes:
     - ./www/:/app
-    command: install
+    command: install --no-dev
 
   db:
     image: postgres:10.1
