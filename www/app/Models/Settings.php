@@ -17,6 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Settings extends Model
 {
+    const STATUS_AVAILABLE = 1;
+
+    const STATUS_DISABLE = 0;
+
     /**
      * @var array
      */

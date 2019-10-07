@@ -18,7 +18,11 @@ class SettingsController extends Controller
 
     public function index()
     {
+        $result = $this->repository->list();
 
+        return view('dashboard.settings.list', [
+            'result' => $result,
+        ]);
     }
 
     public function delete()

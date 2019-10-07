@@ -15,7 +15,13 @@ class SettingsRepository implements Repository
 
     public function list()
     {
-        // TODO: Implement list() method.
+        return $this->model::select(
+            'settings.*'
+        )
+            ->groupBy('settings.id')
+            ->where('settings.status', Settings::STATUS_AVAILABLE)
+            ->orderBy('settings.id', 'desc')
+            ->get();
     }
 
     public function store($data)

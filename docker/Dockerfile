@@ -1,26 +1,21 @@
-FROM php:7.1-fpm
+FROM php:7.2-fpm
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        curl \
-        libmemcached-dev \
-        libz-dev \
+RUN apt-get update && apt-get install -y \
         libpq-dev \
-        libjpeg-dev \
-        libpng-dev \
         libfreetype6-dev \
-        libssl-dev \
-        libmcrypt-dev
+        libjpeg62-turbo-dev \
+        libpng-dev
 
-# Install the PHP mcrypt extention
-RUN docker-php-ext-install mcrypt
+# Install the PHP iconv library
+RUN docker-php-ext-install -j$(nproc) iconv
+# Configure GD library
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+# Install the PHP GD library
+RUN docker-php-ext-install -j$(nproc) gd
 
 # Install the PHP pdo_pgsql extention
-RUN docker-php-ext-install pdo_pgsql
-
-# Install the PHP GD library
-RUN docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
-        --with-jpeg-dir=/usr/lib \
-        --with-freetype-dir=/usr/include/freetype2 && \
-    docker-php-ext-install gd
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+        && docker-php-ext-install -j$(nproc) \
+        	pdo \
+        	pdo_pgsql \
+        	pgsql
