@@ -40,16 +40,16 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMap"
+           aria-expanded="true" aria-controls="collapseMap">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Статьи</span>
+            <span>Карты полетов</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseMap" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Статьи:</h6>
-                <a class="collapse-item" href="{{ route('blog.list') }}">Список стран</a>
-                <a class="collapse-item" href="{{ route('blog.create') }}">Создать статью</a>
+                <h6 class="collapse-header">Карты полетов:</h6>
+                <a class="collapse-item" href="{{ route('map.list') }}">Список стран</a>
+                <a class="collapse-item" href="{{ route('map.create') }}">Описать страну</a>
             </div>
         </div>
     </li>

@@ -30,10 +30,11 @@ class StoreMap extends FormRequest
             'alias' => 'string|nullable|max:255',
             'status' => 'required|in:on,off',
             'content' => 'string|required',
+            'rules' => 'string|required',
+            'other' => 'string|required',
             'title' => 'string|nullable|max:255',
             'description' => 'string|nullable',
             'keywords' => 'string|nullable',
-            'category_id' => 'string|required',
         ];
     }
 

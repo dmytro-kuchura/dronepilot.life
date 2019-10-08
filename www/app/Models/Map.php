@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $keywords
  * @property string $description
  * @property string $content
+ * @property string $rules
+ * @property string $other
  * @property integer $status
  * @property int $views
  * @property string $created_at
@@ -33,6 +35,6 @@ class Map extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'alias', 'title', 'keywords', 'description', 'content', 'status', 'views', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'alias', 'title', 'keywords', 'description', 'content',  'rules',  'other', 'status', 'views', 'created_at', 'updated_at'];
 
 }

@@ -31,6 +31,22 @@
         </div>
     </div>
 
+    <div class="form-group row d-flex align-items-center mb-5">
+        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Правила</label>
+        <div class="col-lg-7">
+            <textarea class="form-control" name="rules" placeholder="Регалируемые правила"
+            >{{ !empty($result) && $result->rules ? $result->rules : '' }}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group row d-flex align-items-center mb-5">
+        <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Остальное</label>
+        <div class="col-lg-7">
+            <textarea class="form-control" name="other" placeholder="Остальное"
+            >{{ !empty($result) && $result->other ? $result->other : '' }}</textarea>
+        </div>
+    </div>
+
     <div class="em-separator separator-dashed"></div>
 
     <div class="form-group row d-flex align-items-center mb-5">
@@ -75,14 +91,14 @@
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Статус *</label>
         <div class="form-check-inline">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input"
-                       {{ !empty($result) && $result->status == 1 ? 'checked=""' : '' }} name="status">Показывать
+                <input type="radio" class="form-check-input" id="available"
+                       {{ !empty($result) && $result->status == 1 ? 'checked=""' : '' }} name="status" value="on">Показывать
             </label>
         </div>
         <div class="form-check-inline">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input"
-                       {{ !empty($result) && $result->status == 0 ? 'checked=""' : '' }} name="status">Не показывать
+                <input type="radio" class="form-check-input" id="disable"
+                       {{ !empty($result) && $result->status == 0 ? 'checked=""' : '' }} name="status" value="off">Не показывать
             </label>
         </div>
     </div>

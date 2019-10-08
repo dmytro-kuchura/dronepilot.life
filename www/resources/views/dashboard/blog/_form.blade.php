@@ -102,13 +102,13 @@
         <div class="form-check-inline">
             <label class="form-check-label">
                 <input type="radio" class="form-check-input"
-                       {{ !empty($result) && $result->status == 1 ? 'checked=""' : '' }} name="status">Показывать
+                       {{ !empty($result) && $result->status == 1 ? 'checked=""' : '' }} name="status" value="on">Показывать
             </label>
         </div>
         <div class="form-check-inline">
             <label class="form-check-label">
                 <input type="radio" class="form-check-input"
-                       {{ !empty($result) && $result->status == 0 ? 'checked=""' : '' }} name="status">Не показывать
+                       {{ !empty($result) && $result->status == 0 ? 'checked=""' : '' }} name="status" value="off">Не показывать
             </label>
         </div>
     </div>

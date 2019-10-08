@@ -20,7 +20,7 @@ class MapController extends Controller
 
     public function inner($country)
     {
-        $result = $this->repository->get($country);
+        $result = $this->repository->find($country);
 
         if(!$result) {
             abort(404);

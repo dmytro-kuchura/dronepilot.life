@@ -12,11 +12,10 @@ class MapRepository implements Repository
     {
         {
             return $this->model::select(
-                'maps.*'
+                'map.*'
             )
-                ->groupBy('maps.id')
-                ->where('maps.status', Map::STATUS_AVAILABLE)
-                ->orderBy('maps.id', 'desc')
+                ->groupBy('map.id')
+                ->orderBy('map.id', 'desc')
                 ->get();
         }
     }
@@ -28,7 +27,19 @@ class MapRepository implements Repository
 
     public function store($request)
     {
-        // TODO: Implement store() method.
+        return $this->model::updateOrCreate(
+            [
+                'title' => $request['title'],
+                'alias' => $request['alias'],
+                'name' => $request['name'],
+                'description' => $request['description'],
+                'keywords' => $request['keywords'],
+                'content' => $request['content'],
+                'rules' => $request['rules'],
+                'other' => $request['other'],
+                'status' => $request['status'] === 'on' ? Map::STATUS_AVAILABLE : Map::STATUS_DISABLE,
+            ]
+        );
     }
 
     /**
@@ -45,10 +56,15 @@ class MapRepository implements Repository
     /**
      * Get only one record
      *
-     * @param $country
+     * @param $id
      * @return mixed
      */
-    public function get($country)
+    public function get($id)
+    {
+        return $this->model::where('id', $id)->first();
+    }
+
+    public function find($country)
     {
         return $this->model::where('alias', $country)->first();
     }
