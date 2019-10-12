@@ -26,6 +26,8 @@ class MapController extends Controller
             abort(404);
         }
 
+        $this->repository->addView($result->id);
+
         return view('map.inner', [
             'result' => $result,
         ]);

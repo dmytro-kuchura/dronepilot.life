@@ -2,31 +2,25 @@
     <div class="sidebar-block">
         @widget('Categories')
         @widget('Tags')
-        <div class="sidebar-box sidebar-item sidebar-item-wide"><span class="opener plus"></span>
-            <div class="sidebar-title">
-                <h3><span>{{ __('site.popular') }}</span></h3>
-            </div>
-            <div class="sidebar-contant">
-                <ul>
-                    @foreach($recent as $obj)
-                        @if (isset($obj->alias))
-                            <li>
-                                <div class="pro-media">
-                                    <a href="{{ route('blog.inner', ['alias' => $obj->alias]) }}">
-                                        <img alt="{{ $obj->name }}"
-                                             src="{{ is_file(public_path('/storage/main/' . $obj->image)) ? '/storage/main/' . $obj->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}">
-                                    </a>
-                                </div>
-                                <div class="pro-detail-info">
-                                    <a href="{{ route('blog.inner', ['alias' => $obj->alias]) }}">{{ $obj->name }}</a>
-                                    <div
-                                        class="post-info">{{ date('j', strtotime($obj->created_at)) . ' ' . russianMonth($obj->created_at) . ', ' . date('Y', strtotime($obj->created_at))}}</div>
-                                </div>
-                            </li>@endif
-                    @endforeach
+        @widget('Popular')
 
-                </ul>
+        @if(config('app.env') !== 'local')
+            <div class="sidebar-box sidebar-item sidebar-item-wide"><span class="opener plus"></span>
+                <div class="sidebar-contant">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Правый блок -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3428447687354562"
+                         data-ad-slot="1989135259"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
-        </div>
+        @endif
+
     </div>
 </div>

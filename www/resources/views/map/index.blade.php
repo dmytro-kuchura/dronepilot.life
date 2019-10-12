@@ -20,8 +20,7 @@
                             <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
                             <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 
-                            <div id="map"
-                                 style="position: relative; margin: 0 auto; width: 1000px; height: 700px;"></div>
+                            <div id="map" style="position: relative; margin: 0 auto; width: 1000px; height: 700px;"></div>
                         </div>
                     </div>
                 </div>

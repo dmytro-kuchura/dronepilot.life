@@ -20,6 +20,18 @@
                         <div class="row">
                             <div class="col-xl-4 f-col">
                                 <div class="footer-static-block"><span class="opener plus"></span>
+                                    <h3 class="title">Правила <span></span></h3>
+                                    <ul class="footer-block-contant link">
+                                        @foreach($rules as $rule)
+                                            <li>
+                                                <a href="{{ route('map.inner', ['country' => $rule->alias]) }}"><i class="fa fa-angle-right"></i>{{ $rule->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 f-col">
+                                <div class="footer-static-block"><span class="opener plus"></span>
                                     <h3 class="title">Категории <span></span></h3>
                                     <ul class="footer-block-contant link">
                                         @foreach($result as $obj)
@@ -43,9 +55,9 @@
                                         <li>
                                             <a href="{{ route('blog') }}"><i class="fa fa-angle-right"></i>Блог</a>
                                         </li>
-{{--                                        <li>--}}
-{{--                                            <a href="{{ route('map') }}"><i class="fa fa-angle-right"></i>Карта рекомендаций</a>--}}
-{{--                                        </li>--}}
+                                        <li>
+                                            <a href="{{ route('map') }}"><i class="fa fa-angle-right"></i>Карта полетов</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

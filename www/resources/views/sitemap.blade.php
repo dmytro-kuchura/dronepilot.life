@@ -43,4 +43,15 @@
             </url>
         @endforeach
     @endif
+
+    @if (!empty($maps))
+        @foreach ($maps as $map)
+            <url>
+                <loc>{{ url('map/' . $map->alias) }}</loc>
+                <lastmod>{{ $map->created_at->tz('GMT')->toAtomString() }}</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>1</priority>
+            </url>
+        @endforeach
+    @endif
 </urlset>

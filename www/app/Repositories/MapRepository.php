@@ -85,8 +85,24 @@ class MapRepository implements Repository
         return $this->model::where('alias', $country)->first();
     }
 
+    public function random($limit)
+    {
+        return $this->model::where('status', Map::STATUS_AVAILABLE)->limit($limit)->inRandomOrder()->get();
+    }
+
+    /**
+     * Count view record
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function addView($id)
+    {
+        $this->model::where('id', $id)->increment('views', 1);
+    }
+
     public function all()
     {
-        // TODO: Implement all() method.
+        return $this->model::where('status', Map::STATUS_AVAILABLE)->orderBy('id', 'desc')->get();
     }
 }

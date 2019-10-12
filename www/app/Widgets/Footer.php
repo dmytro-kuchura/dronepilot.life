@@ -3,6 +3,7 @@
 namespace App\Widgets;
 
 use App\Repositories\BlogRepository;
+use App\Repositories\MapRepository;
 use Arrilot\Widgets\AbstractWidget;
 use Illuminate\Support\Facades\Route;
 
@@ -23,14 +24,18 @@ class Footer extends AbstractWidget
     {
         $uri = Route::currentRouteName();
 
-        $repository = new BlogRepository();
+        $blogRepository = new BlogRepository();
+        $mapRepository = new MapRepository();
 
-        $result = $repository->countCategories();
+        $result = $blogRepository->countCategories();
+
+        $rules = $mapRepository->random(4);
 
         return view('widgets.footer', [
             'config' => $this->config,
             'uri' => $uri,
             'result' => $result,
+            'rules' => $rules,
         ]);
     }
 }

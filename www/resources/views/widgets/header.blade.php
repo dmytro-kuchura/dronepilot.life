@@ -14,11 +14,11 @@
                             <li class="level">
                                 <a href="{{ route('about') }}" class="page-scroll">Обо мне</a>
                             </li>
-{{--                            <li class="level">--}}
-{{--                                <a href="{{ route('map') }}" class="page-scroll">Карта полетов--}}
-{{--                                    <div class="menu-label"><span class="new-menu"> New </span></div>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
+                            <li class="level">
+                                <a href="{{ route('map') }}" class="page-scroll">Карта полетов
+                                    <div class="menu-label"><span class="new-menu"> New </span></div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

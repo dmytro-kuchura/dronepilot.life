@@ -132,6 +132,7 @@ $(document).ready(function () {
                 NOR: {fillKey: "Good"},
                 SWE: {fillKey: "Good"},
                 UKR: {fillKey: "Good"},
+                AUT: {fillKey: "Good"},
                 CHI: {fillKey: "Unknown"},
             }
         });
