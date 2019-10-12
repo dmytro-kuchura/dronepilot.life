@@ -54,7 +54,7 @@
         <div class="sidebar-align-container">
             <div class="search-closer right-side"></div>
             <div class="search-container">
-                <form method="get" action="search" id="search-form">
+                <form method="get" action="{{ route('search') }}" id="search-form">
                     <input type="text" id="s" class="search-input" name="search" placeholder="Что ищем?">
                 </form>
                 <span>Укажите что ищем и нажмите Enter</span>
