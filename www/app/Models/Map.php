@@ -35,6 +35,6 @@ class Map extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'alias', 'title', 'keywords', 'description', 'content',  'rules',  'other', 'status', 'views', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'alias', 'title', 'keywords', 'description', 'content', 'rules',  'image', 'other', 'status', 'views', 'created_at', 'updated_at'];
 
 }

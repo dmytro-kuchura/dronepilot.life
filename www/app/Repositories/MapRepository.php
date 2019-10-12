@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Helpers\Upload;
 use App\Models\Map;
 
 class MapRepository implements Repository
@@ -22,7 +23,21 @@ class MapRepository implements Repository
 
     public function update($request)
     {
-        // TODO: Implement update() method.
+        return $this->model::updateOrCreate(
+            ['id' => $request['id']],
+            [
+                'title' => $request['title'],
+                'alias' => $request['alias'],
+                'name' => $request['name'],
+                'description' => $request['description'],
+                'keywords' => $request['keywords'],
+                'content' => $request['content'],
+                'rules' => $request['rules'],
+                'other' => $request['other'],
+                'status' => $request['status'] === 'on' ? Map::STATUS_AVAILABLE : Map::STATUS_DISABLE,
+                'image' => isset($request['file']) ? Upload::save($request, config('images.maps')) : null,
+            ]
+        );
     }
 
     public function store($request)
@@ -38,6 +53,7 @@ class MapRepository implements Repository
                 'rules' => $request['rules'],
                 'other' => $request['other'],
                 'status' => $request['status'] === 'on' ? Map::STATUS_AVAILABLE : Map::STATUS_DISABLE,
+                'image' => isset($request['file']) ? Upload::save($request, config('images.maps')) : null,
             ]
         );
     }

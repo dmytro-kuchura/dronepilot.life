@@ -22,4 +22,18 @@ return [
             'crop' => 0,
         ],
     ],
+    'maps' => [
+        [
+            'path' => 'inner',
+            'width' => 1300,
+            'height' => 800,
+            'resize' => 1,
+            'crop' => 1,
+        ],
+        [
+            'path' => 'original',
+            'resize' => 0,
+            'crop' => 0,
+        ],
+    ],
 ];

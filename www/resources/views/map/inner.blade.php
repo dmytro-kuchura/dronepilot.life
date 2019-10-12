@@ -23,7 +23,9 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="image-part center-xs"> <img alt="{{ $result->name }}" src="https://via.placeholder.com/855x450.png?text=NO%20IMAGE"> </div>
+                                <div class="image-part center-xs">
+                                    <img alt="{{ $result->name }}" src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}">
+                                </div>
                             </div>
                             <div class="col-12 mt-30">
                                 <p>{!! $result->rules !!}</p>
@@ -38,13 +40,12 @@
                                 <div class="heading-part align-center mb-30">
                                     <h2 class="main_title  heading"><span>Полезное:</span></h2>
                                 </div>
-                                <p>{{ $result->other }}</p>
                             </div>
                             <div class="col-12 mt-30">
                                 <div class="heading-part-desc align_left center-md">
-                                    <h2 class="heading">Nullam vel sollicitudin diam proin congue lacinia tortor vel vulputate morbi et mauris nec risus id at odio.</h2>
+                                    <h2 class="heading">Дополнительные ссылки и полезная информация</h2>
                                 </div>
-                                <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos nunc cursus purus sed elit aliquet aliquet luctus pulvivvvvnar tortor, cras malesuada mi gravida, vehiculaue vitae, congue erat, aenean ullamcorper nibh nec sem interdumIt is a long established fact that a reader will by the readable content a page when looking at its layout.</p>
+                                <p>{!!  $result->other !!}</p>
                             </div>
                         </div>
                     </div>

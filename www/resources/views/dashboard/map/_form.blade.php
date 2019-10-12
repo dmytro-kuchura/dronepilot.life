@@ -26,7 +26,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Контент</label>
         <div class="col-lg-7">
-            <textarea class="form-control" id="editor" name="content" placeholder="Контент"
+            <textarea class="editor form-control" id="content" name="content" placeholder="Контент"
             >{{ !empty($result) && $result->content ? $result->content : '' }}</textarea>
         </div>
     </div>
@@ -34,7 +34,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Правила</label>
         <div class="col-lg-7">
-            <textarea class="form-control" name="rules" placeholder="Регалируемые правила"
+            <textarea class="editor form-control" id="rules" name="rules" placeholder="Регалируемые правила"
             >{{ !empty($result) && $result->rules ? $result->rules : '' }}</textarea>
         </div>
     </div>
@@ -42,7 +42,7 @@
     <div class="form-group row d-flex align-items-center mb-5">
         <label class="col-lg-3 form-control-label d-flex justify-content-lg-end">Остальное</label>
         <div class="col-lg-7">
-            <textarea class="form-control" name="other" placeholder="Остальное"
+            <textarea class="editor form-control" id="other" name="other" placeholder="Остальное"
             >{{ !empty($result) && $result->other ? $result->other : '' }}</textarea>
         </div>
     </div>

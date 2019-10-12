@@ -53,7 +53,7 @@ class BlogRepository implements Repository
             $this->model::updateOrCreate(
                 ['id' => $request['id']],
                 [
-                    'image' => Upload::save($request),
+                    'image' => Upload::save($request, config('images.blog')),
                 ]
             );
         }
@@ -94,7 +94,7 @@ class BlogRepository implements Repository
         $model->keywords = $request['keywords'];
         $model->content = $request['content'];
         if (isset($request['file'])) {
-            $model->image = Upload::save($request);
+            $model->image = Upload::save($request, config('images.blog'));
         }
         $model->alias = $model->alias = $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name']));
         $model->status = $request['status'] === 'on' ? Records::STATUS_AVAILABLE : Records::STATUS_DISABLE;

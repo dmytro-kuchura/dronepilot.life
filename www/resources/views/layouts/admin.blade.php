@@ -275,15 +275,18 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
 
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'), {
-            ckfinder: {
-                uploadUrl: '/api/v1/image-upload'
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    var allEditors = document.querySelectorAll('.editor');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor
+            .create(allEditors[i], {
+                ckfinder: {
+                    uploadUrl: '/api/v1/image-upload'
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 </script>
 
 </body>

@@ -22,12 +22,12 @@ class MapController extends Controller
     {
         $result = $this->repository->find($country);
 
-        if(!$result) {
+        if (!$result) {
             abort(404);
         }
 
         return view('map.inner', [
-            'result' => $result
+            'result' => $result,
         ]);
     }
 }
