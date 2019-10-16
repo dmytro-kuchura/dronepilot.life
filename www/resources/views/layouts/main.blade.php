@@ -11,10 +11,22 @@
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
 
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="@yield('title')"/>
+    <meta property="og:description" content="@yield('description')"/>
+    <meta property="og:image" content="{{ asset('/logo-drone-pilot.png') }}"/>
+    <meta property="og:url" content="{{ url(Request::url()) }}"/>
+    <meta property="og:site_name" content="DronePilot"/>
+
+    <meta itemprop="name" content="@yield('title')"/>
+    <meta itemprop="description" content="@yield('description')"/>
+    <meta itemprop="image" content="{{ asset('/logo-drone-pilot.png') }}"/>
+
     <meta name="site-created" content="2019/01/15">
 
     <meta name="distribution" content="global">
-    <meta name="revisit-after" content="2 Days">
+    <meta name="revisit-after" content="5 Days">
     <meta name="robots" content="ALL">
     <meta name="rating" content="general">
     <meta name="Language" content="{{ str_replace('_', '-', app()->getLocale()) }}">
