@@ -62,13 +62,13 @@ class SiteController extends Controller
         $tags = $tagsRepository->all();
         $maps = $mapRepository->all();
 
-        return view('sitemap', [
+        return response()->view('sitemap', [
             'pages' => $pages,
             'tags' => $tags,
             'categories' => $categories,
             'sitemap' => $sitemap,
             'maps' => $maps,
-        ]);
+        ])->header('Content-Type', 'application/xml');
     }
 
     public function search(Request $request)
