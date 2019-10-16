@@ -24,7 +24,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="image-part center-xs">
-                                    <img alt="{{ $result->name }}" src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}">
+                                    <img alt="{{ $result->name }}"
+                                         src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}">
                                 </div>
                             </div>
                             <div class="col-12 mt-30">
@@ -46,6 +47,20 @@
                                     <h2 class="heading">Дополнительные ссылки и полезная информация</h2>
                                 </div>
                                 <p>{!!  $result->other !!}</p>
+
+                                @if(config('app.env') !== 'local')
+                                    <script async
+                                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                    <ins class="adsbygoogle"
+                                         style="display:block; text-align:center;"
+                                         data-ad-layout="in-article"
+                                         data-ad-format="fluid"
+                                         data-ad-client="ca-pub-3428447687354562"
+                                         data-ad-slot="3016729167"></ins>
+                                    <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+                                @endif
                             </div>
                         </div>
                     </div>
