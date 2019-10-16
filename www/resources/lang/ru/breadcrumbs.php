@@ -7,4 +7,5 @@ return [
     'map.title' => 'Карта полетов БПЛА',
     'blog.title' => 'Блог',
     'search.title' => 'Поиск',
+    'map.inner' => 'Описание страны',
 ];

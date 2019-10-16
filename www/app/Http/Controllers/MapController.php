@@ -23,7 +23,7 @@ class MapController extends Controller
         $result = $this->repository->find($country);
 
         if (!$result) {
-            abort(404);
+            return view('map.in-progress');
         }
 
         $this->repository->addView($result->id);

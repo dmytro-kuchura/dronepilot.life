@@ -54,6 +54,23 @@ class Breadcrumbs extends AbstractWidget
 
                 $page = __('breadcrumbs.map.title');
                 break;
+            case 'map.inner':
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home'),
+                    ],
+                    [
+                        'label' => __('breadcrumbs.map.title'),
+                        'link' => route('map'),
+                    ],
+                    [
+                        'label' => __('breadcrumbs.map.inner'),
+                    ],
+                ];
+
+                $page = __('breadcrumbs.map.inner');
+                break;
             case 'about':
                 $breadcrumbs = [
                     [
