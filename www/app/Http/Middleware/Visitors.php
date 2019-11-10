@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Repositories\VisitorsRepository;
 use Closure;
+use App\Repositories\VisitorsRepository;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class Visitors
 {
@@ -24,6 +26,10 @@ class Visitors
             'url' => $request->path(),
             'agent' => $request->server('HTTP_USER_AGENT')
         ]);
+
+        if ($request->server('HTTP_USER_AGENT') === 'masscan/1.0 (https://github.com/robertdavidgraham/masscan)') {
+            throw new HttpResponseException(response()->json(["message" => "Unauthorised"], Response::HTTP_UNAUTHORIZED));
+        }
 
         return $next($request);
     }
