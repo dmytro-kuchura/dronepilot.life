@@ -7,6 +7,7 @@ use App\Repositories\VisitorsRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Log;
 
 class Visitors
 {
@@ -28,6 +29,8 @@ class Visitors
         ]);
 
         if ($request->server('HTTP_USER_AGENT') === 'masscan/1.0 (https://github.com/robertdavidgraham/masscan)') {
+            Log::info('File upload successful!', ['request' => $request->all()]);
+
             throw new HttpResponseException(response()->json(['message' => 'You shall not pass'], Response::HTTP_FORBIDDEN));
         }
 
