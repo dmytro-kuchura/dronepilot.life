@@ -28,7 +28,7 @@ class Visitors
         ]);
 
         if ($request->server('HTTP_USER_AGENT') === 'masscan/1.0 (https://github.com/robertdavidgraham/masscan)') {
-            throw new HttpResponseException(response()->json(["message" => "Unauthorised"], Response::HTTP_UNAUTHORIZED));
+            throw new HttpResponseException(response()->json(['message' => 'You shall not pass'], Response::HTTP_FORBIDDEN));
         }
 
         return $next($request);
