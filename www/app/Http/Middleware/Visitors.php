@@ -29,7 +29,7 @@ class Visitors
         ]);
 
         if ($request->server('HTTP_USER_AGENT') === 'masscan/1.0 (https://github.com/robertdavidgraham/masscan)') {
-            Log::info('File upload successful!', ['request' => $request->all()]);
+            Log::info('Catch masscan/1.0', ['request' => $request->all()]);
 
             throw new HttpResponseException(response()->json(['message' => 'You shall not pass'], Response::HTTP_FORBIDDEN));
         }
