@@ -78,10 +78,12 @@
             <p itemprop="name">{{ $result->name }}</p>
             <meta itemprop="headline" content="{{ $result->name }}">
             <p itemprop="articleBody">{{ $result->content }}</p>">
-            <meta itemprop="description" content="{{ $result->content }}"/>
+            <meta itemprop="description" content="{{ $result->short }}"/>
             <p itemprop="genre">Техническая</p>
             <p itemprop="author">Дмитрий Кучура</p>
             <p itemprop="datePublished">{{ date('F j, Y', strtotime($result->created_at)) }}</p>
+            <p itemprop="dateModified">{{ date('F j, Y', strtotime($result->created_at)) }}</p>
+            <p itemprop="mainEntityOfPage">1</p>
 
             <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                 <meta itemprop="name" content="DronePilot.info">
