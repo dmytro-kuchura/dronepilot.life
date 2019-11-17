@@ -13,7 +13,6 @@
                                 </a>
                                 <meta itemprop="position" content="{{ $key + 1 }}" />
                             </li>
-                            <li><a href="{{ $bread['link'] }}">{{ $bread['label'] }}</a>/</li>
                         @else
                             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                                 <span itemprop="name">{{ $bread['label'] }}</span>
