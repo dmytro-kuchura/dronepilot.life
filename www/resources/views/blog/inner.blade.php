@@ -12,7 +12,9 @@
                     <div class="row">
                         <div class="col-12 mb-60">
                             <div class="blog-media mb-20">
-                                <img src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}" alt="{{ $result->name }}">
+                                <img
+                                    src="{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}"
+                                    alt="{{ $result->name }}">
                             </div>
                             <div class="blog-detail ">
                                 <div class="post-info">
@@ -41,7 +43,8 @@
                                             <ul class="comment-list mt-20">
                                                 <li>
                                                     <div class="comment-user">
-                                                        <img src="/images/avatar-placeholder.svg" alt="{{ $obj->name }}">
+                                                        <img src="/images/avatar-placeholder.svg"
+                                                             alt="{{ $obj->name }}">
                                                     </div>
                                                     <div class="comment-detail">
                                                         <div class="user-name">{{ $obj->name }}</div>
@@ -79,7 +82,18 @@
             <p itemprop="genre">Техническая</p>
             <p itemprop="author">Дмитрий Кучура</p>
             <p itemprop="datePublished">{{ date('F j, Y', strtotime($result->created_at)) }}</p>
-            <p itemprop="publisher">dronepilot.info | Дмитрий Кучура</p>
+
+            <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="DronePilot.info">
+                <meta itemprop="telephone" content="+380931106215">
+                <meta itemprop="address" content="Киев, Украина">
+                <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                    <img class="itemprops" itemprop="url image" width="250" height="250" src="http://dronepilot.info/images/logo-drone-pilot.png" alt="DronePilot.info" />
+                    <meta itemprop="width" content="250">
+                    <meta itemprop="height" content="250">
+                </span>
+            </div>
+
             <p itemprop="image">{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}</p>
         </div>
     </section>
