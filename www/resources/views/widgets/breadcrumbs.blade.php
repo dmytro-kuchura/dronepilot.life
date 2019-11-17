@@ -5,11 +5,24 @@
             @if(!empty($breadcrumbs))
             <div class="bread-crumb right-side float-none-xs">
                 <ul>
-                    @foreach($breadcrumbs as $bread)
+                    @foreach($breadcrumbs as $key => $bread)
+                        @php
+                            $position = $key + 1;
+                        @endphp
+
                         @if(isset($bread['link']))
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="{{ $bread['link'] }}">
+                                    <span itemprop="name">{{ $bread['label'] }}</span>
+                                </a>
+                                <meta itemprop="position" content="{{ $position }}" />
+                            </li>
                             <li><a href="{{ $bread['link'] }}">{{ $bread['label'] }}</a>/</li>
                         @else
-                            <li><span>{{ $bread['label'] }}</span></li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <span itemprop="name">{{ $bread['label'] }}</span>
+                                <meta itemprop="position" content="{{ $position }}" />
+                            </li>
                         @endif
                     @endforeach
                 </ul>
