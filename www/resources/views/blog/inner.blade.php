@@ -78,7 +78,7 @@
             <meta itemprop="description" content="{{ $result->content }}"/>
             <p itemprop="genre">Техническая</p>
             <p itemprop="author">Дмитрий Кучура</p>
-            <p itemprop="datePublished">{{ date('F j, Y', strtotime($obj->created_at)) }}</p>
+            <p itemprop="datePublished">{{ date('F j, Y', strtotime($result->created_at)) }}</p>
             <p itemprop="publisher">dronepilot.info | Дмитрий Кучура</p>
             <p itemprop="image">{{ is_file(public_path('/storage/inner/' . $result->image)) ? '/storage/inner/' . $result->image : 'https://via.placeholder.com/1300x811.png?text=NO%20IMAGE' }}</p>
         </div>
