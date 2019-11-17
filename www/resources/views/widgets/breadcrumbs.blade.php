@@ -10,7 +10,7 @@
                             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                                 <a itemprop="item" href="{{ $bread['link'] }}">
                                     <span itemprop="name">{{ $bread['label'] }}</span>
-                                </a>
+                                </a>/
                                 <meta itemprop="position" content="{{ $key + 1 }}" />
                             </li>
                         @else
