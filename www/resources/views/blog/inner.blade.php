@@ -81,8 +81,8 @@
             <meta itemprop="description" content="{{ $result->short }}"/>
             <p itemprop="genre">Техническая</p>
             <p itemprop="author">Дмитрий Кучура</p>
-            <p itemprop="datePublished">{{ date('F j, Y', strtotime($result->created_at)) }}</p>
-            <p itemprop="dateModified">{{ date('F j, Y', strtotime($result->created_at)) }}</p>
+            <p itemprop="datePublished">{{ substr(gmdate('r', strtotime($result->created_at)), 0, -5).'GMT' }}</p>
+            <p itemprop="dateModified">{{ substr(gmdate('r', strtotime($result->created_at)), 0, -5).'GMT' }}</p>
             <p itemprop="mainEntityOfPage">1</p>
 
             <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
