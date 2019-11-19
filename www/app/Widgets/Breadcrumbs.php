@@ -75,7 +75,7 @@ class Breadcrumbs extends AbstractWidget
                     ],
                 ];
 
-                $page = __('breadcrumbs.blog.title');
+                $page = $record->title;
                 break;
             case 'map':
                 $breadcrumbs = [
