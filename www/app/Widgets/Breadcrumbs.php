@@ -36,9 +36,6 @@ class Breadcrumbs extends AbstractWidget
         $uri = Route::currentRouteName();
         $path = Route::current();
 
-        var_dump($path);
-        die;
-
         switch ($uri) {
             case 'blog':
                 $breadcrumbs = [
@@ -53,33 +50,33 @@ class Breadcrumbs extends AbstractWidget
 
                 $page = __('breadcrumbs.blog.title');
                 break;
-            case 'blog.inner':
-                /* @var $record Records */
-                $record = $blogRepository->getByAlias($path);
-
-                /* @var $category Categories */
-                $category = $categoriesRepository->get($record->category_id);
-
-                $breadcrumbs = [
-                    [
-                        'label' => __('breadcrumbs.index.title'),
-                        'link' => route('home'),
-                    ],
-                    [
-                        'label' => __('breadcrumbs.blog.title'),
-                        'link' => route('blog'),
-                    ],
-                    [
-                        'label' => $category->name,
-                        'link' => route('blog.category', ['category' => $category->alias])
-                    ],
-                    [
-                        'label' => $record->name,
-                    ],
-                ];
-
-                $page = $record->title;
-                break;
+//            case 'blog.inner':
+//                /* @var $record Records */
+//                $record = $blogRepository->getByAlias($path);
+//
+//                /* @var $category Categories */
+//                $category = $categoriesRepository->get($record->category_id);
+//
+//                $breadcrumbs = [
+//                    [
+//                        'label' => __('breadcrumbs.index.title'),
+//                        'link' => route('home'),
+//                    ],
+//                    [
+//                        'label' => __('breadcrumbs.blog.title'),
+//                        'link' => route('blog'),
+//                    ],
+//                    [
+//                        'label' => $category->name,
+//                        'link' => route('blog.category', ['category' => $category->alias])
+//                    ],
+//                    [
+//                        'label' => $record->name,
+//                    ],
+//                ];
+//
+//                $page = $record->title;
+//                break;
             case 'map':
                 $breadcrumbs = [
                     [
