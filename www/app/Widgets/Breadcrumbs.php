@@ -5,6 +5,7 @@ namespace App\Widgets;
 use App\Models\Records;
 use App\Models\Categories;
 use App\Repositories\BlogRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Arrilot\Widgets\AbstractWidget;
 use App\Repositories\TagsRepository;
@@ -30,11 +31,12 @@ class Breadcrumbs extends AbstractWidget
         CategoriesRepository $categoryRepository,
         TagsRepository $tagsRepository,
         BlogRepository $blogRepository,
-        CategoriesRepository $categoriesRepository
+        CategoriesRepository $categoriesRepository,
+        Request $request
     )
     {
         $uri = Route::currentRouteName();
-        $path = Route::current();
+        $alias = $request->route('alias') ?? $request->route('alias');
 
         switch ($uri) {
             case 'blog':
@@ -50,33 +52,33 @@ class Breadcrumbs extends AbstractWidget
 
                 $page = __('breadcrumbs.blog.title');
                 break;
-//            case 'blog.inner':
-//                /* @var $record Records */
-//                $record = $blogRepository->getByAlias($path);
-//
-//                /* @var $category Categories */
-//                $category = $categoriesRepository->get($record->category_id);
-//
-//                $breadcrumbs = [
-//                    [
-//                        'label' => __('breadcrumbs.index.title'),
-//                        'link' => route('home'),
-//                    ],
-//                    [
-//                        'label' => __('breadcrumbs.blog.title'),
-//                        'link' => route('blog'),
-//                    ],
-//                    [
-//                        'label' => $category->name,
-//                        'link' => route('blog.category', ['category' => $category->alias])
-//                    ],
-//                    [
-//                        'label' => $record->name,
-//                    ],
-//                ];
-//
-//                $page = $record->title;
-//                break;
+            case 'blog.inner':
+                /* @var $record Records */
+                $record = $blogRepository->getByAlias($alias);
+
+                /* @var $category Categories */
+                $category = $categoriesRepository->get($record->category_id);
+
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home'),
+                    ],
+                    [
+                        'label' => __('breadcrumbs.blog.title'),
+                        'link' => route('blog'),
+                    ],
+                    [
+                        'label' => $category->name,
+                        'link' => route('blog.category', ['category' => $category->alias]),
+                    ],
+                    [
+                        'label' => $record->name,
+                    ],
+                ];
+
+                $page = $record->title;
+                break;
             case 'map':
                 $breadcrumbs = [
                     [
