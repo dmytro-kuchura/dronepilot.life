@@ -36,6 +36,9 @@ class Breadcrumbs extends AbstractWidget
         $uri = Route::currentRouteName();
         $path = Route::current();
 
+        var_dump($path);
+        die;
+
         switch ($uri) {
             case 'blog':
                 $breadcrumbs = [
