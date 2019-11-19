@@ -2,6 +2,9 @@
 
 namespace App\Widgets;
 
+use App\Models\Records;
+use App\Models\Categories;
+use App\Repositories\BlogRepository;
 use Illuminate\Support\Facades\Route;
 use Arrilot\Widgets\AbstractWidget;
 use App\Repositories\TagsRepository;
@@ -17,15 +20,21 @@ class Breadcrumbs extends AbstractWidget
     protected $config = [];
 
     /**
-     * Treat this method as a controller action.
-     * Return view() or other content to display.
+     * @param CategoriesRepository $categoryRepository
+     * @param TagsRepository $tagsRepository
+     * @param BlogRepository $blogRepository
+     * @param CategoriesRepository $categoriesRepository
+     * @return mixed
      */
-    public function run()
+    public function run(
+        CategoriesRepository $categoryRepository,
+        TagsRepository $tagsRepository,
+        BlogRepository $blogRepository,
+        CategoriesRepository $categoriesRepository
+    )
     {
-        $categoryRepository = new CategoriesRepository();
-        $tagsRepository = new TagsRepository();
-
         $uri = Route::currentRouteName();
+        $path = Route::current();
 
         switch ($uri) {
             case 'blog':
@@ -36,6 +45,33 @@ class Breadcrumbs extends AbstractWidget
                     ],
                     [
                         'label' => __('breadcrumbs.blog.title'),
+                    ],
+                ];
+
+                $page = __('breadcrumbs.blog.title');
+                break;
+            case 'blog.inner':
+                /* @var $record Records */
+                $record = $blogRepository->getByAlias($path);
+
+                /* @var $category Categories */
+                $category = $categoriesRepository->get($record->category_id);
+
+                $breadcrumbs = [
+                    [
+                        'label' => __('breadcrumbs.index.title'),
+                        'link' => route('home'),
+                    ],
+                    [
+                        'label' => __('breadcrumbs.blog.title'),
+                        'link' => route('blog'),
+                    ],
+                    [
+                        'label' => $category->name,
+                        'link' => route('blog.category', ['category' => $category->alias])
+                    ],
+                    [
+                        'label' => $record->name,
                     ],
                 ];
 
