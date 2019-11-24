@@ -73,6 +73,13 @@
             </div>
         </div>
 
+        <div style="display: none;" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" class="reviews-props">
+            <div class="reviews-rating">
+                Оценка: <span itemprop="ratingValue">4.3</span>
+                <meta itemprop="worstRating" content="3">
+                <meta itemprop="bestRating" content="5">
+            </div>
+        </div>
 
         <div style="display: none;" itemscope itemtype="http://schema.org/Article">
             <p itemprop="name">{{ $result->name }}</p>
