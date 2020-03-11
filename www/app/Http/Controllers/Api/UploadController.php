@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use App\Services\UploadService;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ImageUploadRequest;
 
 class UploadController extends Controller
@@ -17,23 +17,23 @@ class UploadController extends Controller
 
             $path = $service->upload($request);
 
-            Log::info("File upload successful!", ["file" => $path]);
+            Log::info('File upload successful!', ['file' => $path]);
         } catch (Exception $exception) {
-            Log::error("File upload failed!", [
-                "exception" => $exception->getMessage(),
-                "file" => $exception->getFile(),
-                "line" => $exception->getLine(),
+            Log::error('File upload failed!', [
+                'exception' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine(),
             ]);
 
             return $this->returnResponse([
-                "success" => false,
+                'success' => false,
             ], 400);
         }
 
         return $this->returnResponse([
-            "success" => true,
-            "uploaded" => true,
-            "url" => $path,
+            'success' => true,
+            'uploaded' => true,
+            'url' => $path,
         ]);
     }
 }

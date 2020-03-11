@@ -40,11 +40,6 @@ return [
             'channels' => ['daily'],
         ],
 
-        'custom' => [
-            'driver' => 'custom',
-            'via' => LogMonolog::class,
-        ],
-
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
