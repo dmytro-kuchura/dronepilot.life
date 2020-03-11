@@ -12,6 +12,8 @@ use App\Repositories\SubscribersRepository;
 
 class SiteController extends Controller
 {
+    const RECORDS_AT_MAIN_PAGE = 4;
+
     protected $repository;
 
     public function __construct(BlogRepository $repository)
@@ -21,7 +23,7 @@ class SiteController extends Controller
 
     public function index()
     {
-        $result = $this->repository->all();
+        $result = $this->repository->main(self::RECORDS_AT_MAIN_PAGE);
 
         return view('index', [
             'result' => $result,
