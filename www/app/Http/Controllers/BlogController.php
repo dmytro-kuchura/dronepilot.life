@@ -10,7 +10,7 @@ use App\Repositories\CategoriesRepository;
 
 class BlogController extends Controller
 {
-    const RECORDS_AT_PAGE = 2;
+    const RECORDS_AT_PAGE = 6;
 
     protected $repository;
 
