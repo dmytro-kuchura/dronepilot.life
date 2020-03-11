@@ -4,7 +4,8 @@ namespace App\Helpers;
 
 use Image;
 use Exception;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -20,9 +21,9 @@ class Upload
     public static function save($request, $params)
     {
         if (isset($request['file'])) {
-            $image = Input::file('file');
+            $image = Request::file('file');
 
-            $filename = str_random(25) . '.' . $image->getClientOriginalExtension();
+            $filename = Str::random(25) . '.' . $image->getClientOriginalExtension();
 
             foreach ($params as $key => $value) {
                 if (isset($value['width'])) {

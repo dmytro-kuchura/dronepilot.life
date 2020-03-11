@@ -4,8 +4,6 @@ interface Repository
 {
     public function all();
 
-    public function list();
-
     public function store($data);
 
     public function update($data);
