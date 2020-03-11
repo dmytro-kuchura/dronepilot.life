@@ -11,7 +11,7 @@
                         </li>
                     @else
                         <li>
-                            <a href="{{ $paginator->previousPageUrl() }}"><i class="fa fa-angle-left"></i></a>
+                            <a href="{{ str_replace('?page=1','',$paginator->previousPageUrl()) }}"><i class="fa fa-angle-left"></i></a>
                         </li>
                     @endif
                     @foreach ($elements as $element)
@@ -25,7 +25,7 @@
                                     </li>
                                 @else
                                     <li>
-                                        <a href="{{ $url }}">{{ $page }}</a>
+                                        <a href="{{str_replace('?page=1','',$url)}}">{{ $page }}</a>
                                     </li>
                                 @endif
                             @endforeach
