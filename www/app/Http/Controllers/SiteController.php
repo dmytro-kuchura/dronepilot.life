@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\MapRepository;
 use Illuminate\Http\Request;
+use App\Repositories\MapRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\TagsRepository;
 use App\Repositories\SitemapRepository;
@@ -14,16 +14,35 @@ class SiteController extends Controller
 {
     const RECORDS_AT_MAIN_PAGE = 4;
 
-    protected $repository;
+    protected $blogRepository;
+    protected $sitemapRepository;
+    protected $tagsRepository;
+    protected $categoriesRepository;
+    protected $mapRepository;
 
-    public function __construct(BlogRepository $repository)
+    public function __construct(
+        BlogRepository $blogRepository,
+        SitemapRepository $sitemapRepository,
+        TagsRepository $tagsRepository,
+        CategoriesRepository $categoriesRepository,
+        MapRepository $mapRepository
+    )
     {
-        $this->repository = $repository;
+        $this->blogRepository = $blogRepository;
+        $this->sitemapRepository = $sitemapRepository;
+        $this->tagsRepository = $tagsRepository;
+        $this->categoriesRepository = $categoriesRepository;
+        $this->mapRepository = $mapRepository;
     }
 
+    /**
+     * Main page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        $result = $this->repository->main(self::RECORDS_AT_MAIN_PAGE);
+        $result = $this->blogRepository->main(self::RECORDS_AT_MAIN_PAGE);
 
         return view('index', [
             'result' => $result,
@@ -41,28 +60,38 @@ class SiteController extends Controller
         return view('unsubscribe');
     }
 
+    /**
+     * Contacts page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function contacts()
     {
         return view('contact');
     }
 
+    /**
+     * About page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function about()
     {
         return view('about');
     }
 
-    public function sitemap(
-        SitemapRepository $sitemapRepository,
-        TagsRepository $tagsRepository,
-        CategoriesRepository $categoriesRepository,
-        MapRepository $mapRepository
-    )
+    /**
+     * sitemap.xml
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sitemap()
     {
-        $pages = $this->repository->all();
-        $categories = $categoriesRepository->all();
-        $sitemap = $sitemapRepository->all();
-        $tags = $tagsRepository->all();
-        $maps = $mapRepository->all();
+        $pages = $this->blogRepository->all();
+        $categories = $this->categoriesRepository->all();
+        $sitemap = $this->sitemapRepository->all();
+        $tags = $this->tagsRepository->all();
+        $maps = $this->mapRepository->all();
 
         return response()->view('sitemap', [
             'pages' => $pages,
@@ -73,11 +102,17 @@ class SiteController extends Controller
         ])->header('Content-Type', 'application/xml');
     }
 
+    /**
+     * Search page
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function search(Request $request)
     {
         $query = $request->query('search');
 
-        $result = $this->repository->search($query);
+        $result = $this->blogRepository->search($query);
 
         return view('search', [
             'result' => $result

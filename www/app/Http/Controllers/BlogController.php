@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\TagsRepository;
 use Illuminate\Http\Request;
 use App\Repositories\BlogRepository;
+use App\Repositories\TagsRepository;
 use App\Repositories\CommentsRepository;
 use App\Repositories\CategoriesRepository;
 
@@ -12,16 +12,16 @@ class BlogController extends Controller
 {
     const RECORDS_AT_PAGE = 6;
 
-    protected $repository;
+    protected $blogRepository;
 
-    public function __construct(BlogRepository $repository)
+    public function __construct(BlogRepository $blogRepository)
     {
-        $this->repository = $repository;
+        $this->blogRepository = $blogRepository;
     }
 
     public function index()
     {
-        $result = $this->repository->paginate(self::RECORDS_AT_PAGE);
+        $result = $this->blogRepository->paginate(self::RECORDS_AT_PAGE);
 
         return view('blog.index', [
             'result' => $result
@@ -30,7 +30,7 @@ class BlogController extends Controller
 
     public function inner(Request $request)
     {
-        $result = $this->repository->getByAlias($request->route('alias'));
+        $result = $this->blogRepository->getByAlias($request->route('alias'));
 
         if (!$result) {
             abort(404, 'Page not found');
@@ -41,7 +41,7 @@ class BlogController extends Controller
         $comments = $repository->getCommentsByRecordId($result->id);
         $count_comments = $repository->getCommentsCountByRecordId($result->id);
 
-        $this->repository->addView($result->id);
+        $this->blogRepository->addView($result->id);
 
         return view('blog.inner', [
             'result' => $result,
@@ -50,11 +50,17 @@ class BlogController extends Controller
         ]);
     }
 
+    /**
+     * CATEGORY page
+     *
+     * @param $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function category($category)
     {
         $categoryRepository = new CategoriesRepository();
 
-        $result = $this->repository->getByCategory($category);
+        $result = $this->blogRepository->getByCategory($category);
         $category = $categoryRepository->getCategoryByAlias($category);
 
         return view('blog.categories', [
@@ -63,11 +69,17 @@ class BlogController extends Controller
         ]);
     }
 
+    /**
+     * TAG page
+     *
+     * @param $tag
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function tag($tag)
     {
         $tagRepository = new TagsRepository();
 
-        $result = $this->repository->getByTag($tag);
+        $result = $this->blogRepository->getByTag($tag);
         $tag = $tagRepository->getTagByAlias($tag);
 
         return view('blog.tags', [

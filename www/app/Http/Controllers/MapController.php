@@ -6,27 +6,38 @@ use App\Repositories\MapRepository;
 
 class MapController extends Controller
 {
-    protected $repository;
+    protected $mapRepository;
 
-    public function __construct(MapRepository $repository)
+    public function __construct(MapRepository $mapRepository)
     {
-        $this->repository = $repository;
+        $this->mapRepository = $mapRepository;
     }
 
+    /**
+     * Main page MAP Rules
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('map.index');
     }
 
+    /**
+     * Inner MAP Rules page
+     *
+     * @param $country
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function inner($country)
     {
-        $result = $this->repository->find($country);
+        $result = $this->mapRepository->find($country);
 
         if (!$result) {
             return view('map.in-progress');
         }
 
-        $this->repository->addView($result->id);
+        $this->mapRepository->addView($result->id);
 
         return view('map.inner', [
             'result' => $result,
