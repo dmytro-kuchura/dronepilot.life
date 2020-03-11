@@ -29,6 +29,18 @@ class BlogRepository implements Repository
             ->get();
     }
 
+    public function paginate(int $offset)
+    {
+        return $this->model::select(
+            'records.*',
+            DB::raw("(SELECT COUNT(comments.id) FROM comments WHERE comments.record_id = records.id AND comments.status = 'approved') AS comments")
+        )
+            ->groupBy('records.id')
+            ->where('records.status', Records::STATUS_AVAILABLE)
+            ->orderBy('records.id', 'desc')
+            ->paginate($offset);
+    }
+
     public function main(int $count)
     {
         return $this->model::select(

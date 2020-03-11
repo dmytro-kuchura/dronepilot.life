@@ -52,6 +52,8 @@
                 </div>
                 @widget('Sidebar')
             </div>
+
+            {!! $result->links('widgets.paginate') !!}
         </div>
     </section>
 @endsection
