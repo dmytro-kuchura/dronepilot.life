@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use Exception;
-use Illuminate\Support\Facades\Log;
+use App\Services\EmailService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactsRequest;
 use App\Repositories\ContactsRepository;
-use App\Services\EmailService;
+use Illuminate\Support\Facades\Log;
 
 class ContactsController extends Controller
 {
@@ -25,17 +25,17 @@ class ContactsController extends Controller
         try {
             $repository->create($request->all());
 
-            Log::info("Contacts form save successful!", ["email" => $request->get("email"), "name" => $request->get("name")]);
+            Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
         } catch (Exception $exception) {
-            Log::error("Save comment failed!", ["message" => $exception->getMessage(), "file" => $exception->getFile(), "line" => $exception->getLine()]);
+            Log::error('Save comment failed!', ['message' => $exception->getMessage(), 'file' => $exception->getFile(), 'line' => $exception->getLine()]);
 
             return $this->returnResponse([
-                "success" => false,
+                'success' => false,
             ], 400);
         }
 
         return $this->returnResponse([
-            "success" => true,
+            'success' => true,
         ]);
     }
 }

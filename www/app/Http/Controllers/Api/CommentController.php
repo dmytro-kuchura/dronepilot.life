@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use Exception;
-use Illuminate\Support\Facades\Log;
+use App\Services\EmailService;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentsRequest;
 use App\Repositories\CommentsRepository;
-use App\Services\EmailService;
+use Illuminate\Support\Facades\Log;
 
 class CommentController extends Controller
 {
@@ -25,21 +25,21 @@ class CommentController extends Controller
         try {
             $repository->create($request->all());
 
-            Log::info("Save comment!", $request->all());
+            Log::info('Save comment!', $request->all());
         } catch (Exception $exception) {
-            Log::warning("Save comment failed!", [
-                "exception" => $exception->getMessage(),
-                "file" => $exception->getFile(),
-                "line" => $exception->getLine(),
+            Log::warning('Save comment failed!', [
+                'exception' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine(),
             ]);
 
             return $this->returnResponse([
-                "success" => false,
+                'success' => false,
             ], 400);
         }
 
         return $this->returnResponse([
-            "success" => true,
+            'success' => true,
         ]);
     }
 }
