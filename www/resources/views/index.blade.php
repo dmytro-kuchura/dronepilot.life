@@ -11,7 +11,6 @@
                 <div class="col-xl-10 col-lg-9 col-xl-80per">
                     <div class="blog-listing">
                         <div class="row">
-
                             @foreach ($result as $item)
                                 @if (isset($item->alias))
                                     <div class="col-xl-6 col-12">
@@ -34,8 +33,11 @@
                                                 <hr>
                                                 <div class="post-info">
                                                     <ul>
-                                                        <li><span>{{ __('site.by') }}</span><a href="{{ route('about') }}"> Дмитрий Кучура</a></li>
-                                                        <li><a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">({{ $item->comments }}) комментариев</a></li>
+                                                        <li><span>{{ __('site.by') }}</span><a
+                                                                href="{{ route('about') }}"> Дмитрий Кучура</a></li>
+                                                        <li>
+                                                            <a href="{{ route('blog.inner', ['alias' => $item->alias]) }}">({{ $item->comments }}
+                                                                ) комментариев</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -43,11 +45,18 @@
                                     </div>
                                 @endif
                             @endforeach
-
                         </div>
                     </div>
                 </div>
                 @widget('Sidebar')
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <a href="{{ route('blog') }}" class="btn btn-color">Все записи</a>
+                </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </section>
