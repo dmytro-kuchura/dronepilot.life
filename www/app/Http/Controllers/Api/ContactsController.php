@@ -13,17 +13,21 @@ class ContactsController extends Controller
 {
     protected $service;
 
-    public function __construct(EmailService $service)
+    protected $contactsRepository;
+
+    public function __construct(
+        ContactsRepository $contactsRepository,
+        EmailService $service
+    )
     {
         $this->service = $service;
+        $this->contactsRepository = $contactsRepository;
     }
 
     public function contacts(ContactsRequest $request)
     {
-        $repository = new ContactsRepository();
-
         try {
-            $repository->create($request->all());
+            $this->contactsRepository->create($request->all());
 
             Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
         } catch (Exception $exception) {

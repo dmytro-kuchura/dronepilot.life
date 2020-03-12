@@ -13,17 +13,21 @@ class CommentController extends Controller
 {
     protected $service;
 
-    public function __construct(EmailService $service)
+    protected $commentsRepository;
+
+    public function __construct(
+        CommentsRepository $commentsRepository,
+        EmailService $service
+    )
     {
         $this->service = $service;
+        $this->commentsRepository = $commentsRepository;
     }
 
     public function comment(CommentsRequest $request)
     {
-        $repository = new CommentsRepository();
-
         try {
-            $repository->create($request->all());
+            $this->commentsRepository->create($request->all());
 
             Log::info('Save comment!', $request->all());
         } catch (Exception $exception) {

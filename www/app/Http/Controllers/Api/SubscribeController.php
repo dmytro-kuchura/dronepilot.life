@@ -12,31 +12,35 @@ class SubscribeController extends Controller
 {
     protected $service;
 
-    public function __construct(EmailService $service)
+    protected $subscribersRepository;
+
+    public function __construct(
+        SubscribersRepository $subscribersRepository,
+        EmailService $service
+    )
     {
         $this->service = $service;
+        $this->subscribersRepository = $subscribersRepository;
     }
 
     public function subscribe(SubscribeRequest $request)
     {
-        $repository = new SubscribersRepository();
+        if ($this->subscribersRepository->create($request->all())) {
+            $this->service->send('email.subscribe', [
+                'email' => $request->get('email'),
+                'subject' => 'Спасибо за подписку!',
+            ], $request->get('email'), 'Спасибо за подписку!');
 
-        if ($repository->create($request->all())) {
-            $this->service->send("email.subscribe", [
-                "email" => $request->get("email"),
-                "subject" => "Спасибо за подписку!",
-            ], $request->get("email"), "Спасибо за подписку!");
-
-            Log::info("Subscribe form save successful!", ["email" => $request->get("email")]);
+            Log::info('Subscribe form save successful!', ['email' => $request->get('email')]);
 
             return $this->returnResponse([
-                "success" => true,
+                'success' => true,
             ]);
         } else {
-            Log::error("Subscribe form was not save!", ["email" => $request->get("email")]);
+            Log::error('Subscribe form was not save!', ['email' => $request->get('email')]);
 
             return $this->returnResponse([
-                "success" => false,
+                'success' => false,
             ], 400);
         }
     }
