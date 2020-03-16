@@ -22,3 +22,17 @@ Route::prefix('v1')->group(function () {
         Route::post('/update/{id}', 'Admin\SettingsController@update')->name('settings.update');
     });
 });
+
+Route::prefix('v2')->group(function () {
+    Route::prefix('blog')->group(function () {
+        Route::get('/', 'Api\BlogController@list')->name('blog.list');
+        Route::get('/{id}', 'Api\BlogController@inner')->name('blog.inner');
+        Route::get('/tag/{tag}', 'Api\BlogController@tag')->name('blog.tag');
+        Route::get('/category/{category}', 'Api\BlogController@category')->name('blog.category');
+    });
+
+    Route::prefix('map')->group(function () {
+        Route::get('/', 'Api\MapsController@list')->name('map.list');
+        Route::get('/{id}', 'Api\MapsController@inner')->name('map.inner');
+    });
+});
