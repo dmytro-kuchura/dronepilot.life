@@ -10,7 +10,7 @@ use App\Repositories\CategoriesRepository;
 
 class BlogController extends Controller
 {
-    const RECORDS_AT_PAGE = 6;
+    const RECORDS_AT_PAGE = 2;
 
     protected $blogRepository;
 
@@ -19,12 +19,15 @@ class BlogController extends Controller
         $this->blogRepository = $blogRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $page = $request->get('page');
+
         $result = $this->blogRepository->paginate(self::RECORDS_AT_PAGE);
 
         return view('blog.index', [
-            'result' => $result
+            'result' => $result,
+            'page' => $page
         ]);
     }
 

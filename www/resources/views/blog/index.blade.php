@@ -1,7 +1,17 @@
 @extends('layouts.main')
 
-@section('title', __('seo.blog.title'))
-@section('description', __('seo.blog.description'))
+@if($page)
+    @section('title', __('seo.blog.title') . ' | Страница ' . $page)
+@else
+    @section('title', __('seo.blog.title'))
+@endif
+
+@if($page)
+    @section('description', __('seo.blog.description') . ' | Страница ' . $page)
+@else
+    @section('description', __('seo.blog.description'))
+@endif
+
 @section('keywords', __('seo.blog.keywords'))
 
 @section('content')
