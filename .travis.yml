@@ -11,6 +11,11 @@ addons:
 
 before_install: cd www
 
+cache:
+  directories:
+    - node_modules
+    - vendor
+
 install:
   - cp .env.travis-ci .env
   - psql -c 'create database travis_ci_test;' -U postgres
