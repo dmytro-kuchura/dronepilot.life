@@ -7,7 +7,6 @@ services:
   - postgresql
 
 addons:
-  chrome: stable
   postgresql: "10.1"
 
 before_install: cd www
@@ -22,8 +21,6 @@ install:
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U travis_ci_test_user
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - php artisan serve &
 
 script:
-  - php artisan dusk
+  - vendor/bin/phpunit

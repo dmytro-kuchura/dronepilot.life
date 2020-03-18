@@ -11,22 +11,26 @@ class EmailService
 {
     public function send($template, $params, $to, $subject)
     {
+        if (!config('mail.sender_email') || !config('mail.sender_name')) {
+            return false;
+        }
+
+        if (!$subject) {
+            return false;
+        }
+
         try {
-            if (!$subject) {
-                return false;
-            }
+            $params = is_array($params) ? $params : ['text' => $params];
 
-            $params = is_array($params) ? $params : ["text" => $params];
-
-            $to = is_array($to) ? $to : ["email" => $to];
+            $to = is_array($to) ? $to : ['email' => $to];
 
             Mail::send($template, $params, function (Message $mail) use ($subject, $to) {
                 $mail->subject($subject);
-                $mail->from(config("mail.sender_email"), config("mail.sender_name"));
-                $mail->to($to["email"], isset($to["name"]) ? $to["name"] : null);
+                $mail->from(config('mail.sender_email'), config('mail.sender_name'));
+                $mail->to($to['email'], isset($to['name']) ? $to['name'] : null);
             });
         } catch (Exception $exception) {
-            Log::error($exception->getMessage(), ["file" => $exception->getFile(), "line" => $exception->getLine()]);
+            Log::error($exception->getMessage(), ['file' => $exception->getFile(), 'line' => $exception->getLine()]);
 
             return false;
         }

@@ -35,7 +35,7 @@ class SubscribeController extends Controller
 
             return $this->returnResponse([
                 'success' => true,
-            ]);
+            ], 201);
         } else {
             Log::error('Subscribe form was not save!', ['email' => $request->get('email')]);
 

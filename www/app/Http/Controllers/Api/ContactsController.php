@@ -29,9 +29,16 @@ class ContactsController extends Controller
         try {
             $this->contactsRepository->create($request->all());
 
-            Log::info('Contacts form save successful!', ['email' => $request->get('email'), 'name' => $request->get('name')]);
+            Log::info('Contacts form save successful!', [
+                'email' => $request->get('email'),
+                'name' => $request->get('name')
+            ]);
         } catch (Exception $exception) {
-            Log::error('Save comment failed!', ['message' => $exception->getMessage(), 'file' => $exception->getFile(), 'line' => $exception->getLine()]);
+            Log::error('Save comment failed!', [
+                'message' => $exception->getMessage(),
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine()
+            ]);
 
             return $this->returnResponse([
                 'success' => false,
@@ -40,6 +47,6 @@ class ContactsController extends Controller
 
         return $this->returnResponse([
             'success' => true,
-        ]);
+        ], 201);
     }
 }
