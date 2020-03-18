@@ -3,17 +3,25 @@ language: php
 php:
   - 7.2
 
+services:
+  - postgresql
+
 addons:
   chrome: stable
+  postgresql: "10.1"
 
 before_install: cd www
 
 install:
-  - cp .env.testing .env
+  - cp .env.travis-ci .env
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
+  - php artisan migrate
+  - composer dump-autoload
+  - php artisan db:seed
 
 before_script:
+  - psql -c 'create database travis_ci_test;' -U travis_ci_test_user
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - php artisan serve &
 
