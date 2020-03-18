@@ -13,14 +13,12 @@ before_install: cd www
 
 install:
   - cp .env.travis-ci .env
+  - psql -c 'create database travis_ci_test;' -U travis_ci_test_user
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
   - php artisan migrate
   - composer dump-autoload
   - php artisan db:seed
-
-before_script:
-  - psql -c 'create database travis_ci_test;' -U travis_ci_test_user
 
 script:
   - vendor/bin/phpunit
