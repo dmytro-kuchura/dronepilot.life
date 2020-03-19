@@ -20,10 +20,11 @@ install:
   - cp .env.travis-ci .env
   - psql -c 'create database travis_ci_test;' -U postgres
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-  - php artisan key:generate
   - php artisan migrate
   - composer dump-autoload
   - php artisan db:seed
+  - php artisan config:clear
+  - php artisan key:generate
 
 script:
   - vendor/bin/phpunit
