@@ -49,7 +49,7 @@
             <url>
                 <loc>{{ url('map/' . $map->alias) }}</loc>
                 <lastmod>{{ $map->created_at->tz('GMT')->toAtomString() }}</lastmod>
-                <changefreq>monthly</changefreq>
+                <changefreq>weekly</changefreq>
                 <priority>1</priority>
             </url>
         @endforeach
