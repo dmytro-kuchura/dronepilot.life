@@ -22,9 +22,9 @@ window.Datamap = require('datamaps/dist/datamaps.world.min.js');
 
 import Vue from "vue";
 
-Vue.component('subscribe', require('./components/SubscribeFormComponent.vue'));
-Vue.component('contacts', require('./components/ContactsFormComponent.vue'));
-Vue.component('comments', require('./components/CommentsFormComponent.vue'));
+Vue.component('subscribe', require('./components/SubscribeFormComponent.vue').default);
+Vue.component('contacts', require('./components/ContactsFormComponent.vue').default);
+Vue.component('comments', require('./components/CommentsFormComponent.vue').default);
 
 new Vue({
     el: '#app',
