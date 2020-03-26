@@ -35,5 +35,11 @@ Route::group(['middleware' => ['visitors']], function () {
 });
 //};
 
+Route::prefix('admin')->group(function () {
+    Route::get('/{uri?}', function () {
+        return view('react');
+    })->where('uri', '(.*)');
+});
+
 //Route::domain('{localization}.' . config('app.original_domain'))->group($routes);
 //Route::domain(config('app.original_domain'))->group($routes);
