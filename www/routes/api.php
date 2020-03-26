@@ -11,6 +11,7 @@
 |
 */
 
+// Fronted Forms
 Route::prefix('v1')->group(function () {
     Route::post('/comment', 'Api\CommentController@comment')->name('api.comment');
     Route::post('/contacts', 'Api\ContactsController@contacts')->name('api.contacts');
@@ -23,6 +24,7 @@ Route::prefix('v1')->group(function () {
     });
 });
 
+// Mobile App
 Route::prefix('v2')->group(function () {
     Route::prefix('blog')->group(function () {
         Route::get('/', 'Api\BlogController@list')->name('blog.list');
@@ -34,5 +36,25 @@ Route::prefix('v2')->group(function () {
     Route::prefix('map')->group(function () {
         Route::get('/', 'Api\MapsController@list')->name('map.list');
         Route::get('/{id}', 'Api\MapsController@inner')->name('map.inner');
+    });
+});
+
+// React Dashboard
+Route::prefix('v3')->group(function () {
+    Route::group(['middleware' => 'guest:api'], function () {
+        Route::namespace('Api\Auth')->group(function () {
+            Route::post('login', 'LoginController')->name('login');
+            Route::post('register', 'RegisterController')->name('register');
+
+            Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
+            Route::post('password/reset', 'ResetPasswordController@reset');
+        });
+    });
+
+    Route::middleware('auth:api')->group(function () {
+        Route::namespace('Api\Auth')->group(function () {
+            Route::get('me', 'MeController@me')->name('me');
+            Route::post('logout', 'LogoutController@logout')->name('logout');
+        });
     });
 });
