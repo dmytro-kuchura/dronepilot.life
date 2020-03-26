@@ -29,7 +29,7 @@ function AuthRoute({component: Component, title, ...rest}) {
                             <Footer/>
                         </div>
                     )
-                    : <Redirect to={{pathname: '/login', state: {from: props.location}}}/>;
+                    : <Redirect to={{pathname: '/admin/login', state: {from: props.location}}}/>;
             }
             }
         />

@@ -16,6 +16,7 @@
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "torann/geoip": "^1.0",
+        "tymon/jwt-auth": "^1.0",
         "ext-json": "*"
     },
     "require-dev": {

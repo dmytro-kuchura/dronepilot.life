@@ -22,12 +22,12 @@ function App() {
                 <div className="flex flex-col min-h-screen">
                     <Switch>
                         <GuestRoute exact path="/" component={Welcome} title="welcome"/>
-                        <GuestRoute path="/register" component={Register} title="register"/>
-                        <GuestRoute path="/login" component={Login} title="login"/>
-                        <GuestRoute path="/forgot-password" component={ForgotPassword} title="forgot password"/>
-                        <GuestRoute path="/password/reset/:token" component={ResetPassword} title="reset password"/>
-                        <AuthRoute path="/home" component={Home} title="home"/>
-                        <AuthRoute path="/profile/:id" component={Profile} title="profile"/>
+                        <GuestRoute path="/admin/register" component={Register} title="register"/>
+                        <GuestRoute path="/admin/login" component={Login} title="login"/>
+                        <GuestRoute path="/admin/forgot-password" component={ForgotPassword} title="forgot password"/>
+                        <GuestRoute path="/admin/password/reset/:token" component={ResetPassword} title="reset password"/>
+                        <AuthRoute path="/admin/home" component={Home} title="home"/>
+                        <AuthRoute path="/admin/profile/:id" component={Profile} title="profile"/>
                         <Route component={NotFound}/>
                     </Switch>
                 </div>

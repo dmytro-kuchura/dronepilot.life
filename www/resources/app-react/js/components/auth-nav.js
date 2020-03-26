@@ -25,7 +25,7 @@ function AuthNav() {
                     <ul className="list-reset flex items-center">
                         <li>
                             <NavLink
-                                to="/home"
+                                to="/admin/home"
                                 activeClassName="font-bold"
                                 className="text-gray-800 no-underline text-indigo">Laravel React SPA
                             </NavLink>
@@ -56,7 +56,7 @@ function AuthNav() {
                             onClick={closeMobileNav}
                             className="px-4 py-3 lg:py-0">
                             <NavLink
-                                to='/home'
+                                to='/admin/home'
                                 className="capitalize text-2xl font-bold lg:text-sm lg:font-light text-gray-700 underline lg:no-underline">
                                 Home
                             </NavLink>
@@ -65,7 +65,7 @@ function AuthNav() {
                             onClick={closeMobileNav}
                             className="px-4 py-3 lg:py-0">
                             <NavLink
-                                to='/home'
+                                to='/admin/home'
                                 className="capitalize text-2xl font-bold lg:text-sm lg:font-light text-gray-700 underline lg:no-underline">
                                 Messages
                             </NavLink>
@@ -75,7 +75,7 @@ function AuthNav() {
                             onClick={closeMobileNav}
                             className="px-4 py-3 lg:py-0">
                             <NavLink
-                                to='/home'
+                                to='/admin/home'
                                 className="capitalize text-2xl font-bold lg:text-sm lg:font-light text-gray-700 underline lg:no-underline">
                                 Notifications
                             </NavLink>
@@ -85,7 +85,7 @@ function AuthNav() {
                             onClick={closeMobileNav}
                             className="px-4 py-3 lg:py-0">
                             <NavLink
-                                to={`/profile/${currentUser.id}`}
+                                to={`/admin/profile/${currentUser.id}`}
                                 className="text-2xl font-bold lg:text-sm lg:font-light capitalize text-sm text-gray-700 underline lg:no-underline">
                                 {currentUser.name}
                             </NavLink>
@@ -94,7 +94,7 @@ function AuthNav() {
                             onClick={handleLogout}
                             className="px-4 py-3 lg:py-0">
                             <Link
-                                to="/logout"
+                                to="/admin/logout"
                                 className="capitalize text-2xl font-bold lg:text-sm lg:font-light text-gray-700 underline lg:no-underline">
                                 Logout</Link>
                         </li>

@@ -17,13 +17,15 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8|confirmed'
         ]);
 
-        $user = User::create([
+        User::create([
             'email' => $request->email,
             'name' => $request->name,
             'password' => bcrypt($request->password),
         ]);
 
-        if (!$token = auth()->attempt($request->only(['email', 'password']))) {
+        $token = auth()->attempt($request->only(['email', 'password']));
+
+        if (!$token) {
             return abort(401);
         }
 

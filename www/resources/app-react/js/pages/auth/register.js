@@ -23,7 +23,7 @@ function Register() {
         }).then(({user, token}) => {
             setCurrentUser(user);
             setToken(token);
-            history.push('/home');
+            history.push('/admin/home');
         }).catch(error => {
             error.json().then(({errors}) => {
                 ;[email, name, password].forEach(({parseServerError}) => parseServerError(errors));

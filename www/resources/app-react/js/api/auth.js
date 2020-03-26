@@ -29,7 +29,7 @@ export const logout = () => {
 };
 
 export const getUser = () => {
-    return client('/api/v3/me')
+    return client('/api/v3/profile')
         .then(({data}) => data)
         .catch(() => null);
 };

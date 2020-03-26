@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 
-class MeController extends Controller
+class ProfileController extends Controller
 {
-    public function me(Request $request)
+    public function profile(Request $request)
     {
         return new UserResource($request->user());
     }

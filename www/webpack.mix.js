@@ -16,8 +16,8 @@ require('laravel-mix-purgecss');
 
 mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css');
 
-mix.react('resources/react/js/app.js', 'public/js/react')
-    .sass('resources/react/sass/app.scss', 'public/css/react')
+mix.react('resources/app-react/js/app.js', 'public/js/react')
+    .sass('resources/app-react/sass/app.scss', 'public/css/react')
     .purgeCss()
     .tailwind('tailwind.config.js')
     .webpackConfig({

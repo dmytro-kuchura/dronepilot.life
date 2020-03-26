@@ -30,7 +30,7 @@ function Login() {
         <div className="flex justify-center items-center w-full py-4 flex-col min-h-screen bg-gray-200">
             <div className="p-8 flex flex-col items-center">
                 <div>
-                    <Link to="/">
+                    <Link to="/admin">
                         <img width="48"
                              className="align-middle mx-2"
                              alt="laravel"
@@ -41,7 +41,7 @@ function Login() {
                 <div className="text-2xl leading-loose">Sign into your account</div>
                 <div className="text-gray-800">
                     <span className="text-gray-700">Or</span>
-                    <Link to="/register" className="underline">Start your free trial</Link>
+                    <Link to="/admin/register" className="underline">Start your free trial</Link>
                 </div>
             </div>
 
@@ -79,7 +79,7 @@ function Login() {
                     </div>
 
                     <div className="mb-3 flex justify-end">
-                        <Link to="/forgot-password" className="text-sm underline text-gray-600 font-bold">Forget
+                        <Link to="/admin/forgot-password" className="text-sm underline text-gray-600 font-bold">Forget
                             password?</Link>
                     </div>
 
@@ -93,6 +93,6 @@ function Login() {
             </div>
         </div>
     );
-};
+}
 
 export default Login;

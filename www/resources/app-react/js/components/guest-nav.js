@@ -14,14 +14,14 @@ function GuestNav() {
 
             <ul className="list-reset flex pt-4">
                 <li className="px-4 py-2">
-                    <Link to="/login"
+                    <Link to="/admin/login"
                           className="no-underline font-medium text-grey-darker"
                     >Login
                     </Link>
                 </li>
 
                 <li className="px-4 py-2 border bg-indigo-500 rounded-lg">
-                    <Link to="/register"
+                    <Link to="/admin/register"
                           className="no-underline text-white font-semi-bold"
                     >try it FREE</Link>
                 </li>
