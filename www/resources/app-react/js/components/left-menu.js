@@ -27,9 +27,9 @@ function LeftMenu() {
                             ></a>
                         <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                              data-parent="#sidenavAccordion">
-                            <nav className="sb-sidenav-menu-nested nav"><a className="nav-link"
-                                                                           href="layout-static.html">Static
-                                Navigation</a><a className="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                            <nav className="sb-sidenav-menu-nested nav">
+                                <a className="nav-link" href="layout-static.html">Static Navigation</a>
+                                <a className="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
@@ -51,11 +51,10 @@ function LeftMenu() {
                                     ></a>
                                 <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                                      data-parent="#sidenavAccordionPages">
-                                    <nav className="sb-sidenav-menu-nested nav"><a className="nav-link"
-                                                                                   href="login.html">Login</a><a
-                                        className="nav-link" href="register.html">Register</a><a className="nav-link"
-                                                                                                 href="password.html">Forgot
-                                        Password</a></nav>
+                                    <nav className="sb-sidenav-menu-nested nav">
+                                        <a className="nav-link" href="login.html">Login</a>
+                                        <a className="nav-link" href="register.html">Register</a>
+                                        <a className="nav-link" href="password.html">Forgot Password</a></nav>
                                 </div>
                                 <a className="nav-link collapsed" href="#" data-toggle="collapse"
                                    data-target="#pagesCollapseError" aria-expanded="false"

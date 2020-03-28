@@ -52,7 +52,7 @@ Route::prefix('v3')->group(function () {
 
     Route::middleware('auth:api')->group(function () {
         Route::namespace('Api\Auth')->group(function () {
-            Route::get('me', 'ProfileController@profile')->name('profile');
+            Route::get('profile', 'ProfileController@profile')->name('profile');
             Route::post('logout', 'LogoutController@logout')->name('logout');
         });
     });

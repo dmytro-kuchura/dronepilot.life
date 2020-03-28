@@ -1,21 +1,21 @@
 import * as ActionTypes from "../action-types";
 import Http from '../../http'
 
-const user = {
+const record = {
     id: null,
     name: null,
-    email: null,
+    status: null,
+    views: null,
+    createdAt: null,
 };
 
 const initialState = {
-    isAuthenticated: false,
-    isAdmin: false,
-    user
+    record
 };
 
-const Auth = (state = initialState, {type, payload = null}) => {
+const Blog = (state = initialState, {type, payload = null}) => {
     switch (type) {
-        case ActionTypes.AUTH_LOGIN:
+        case ActionTypes.BLOG_LIST:
             return authLogin(state, payload);
         case ActionTypes.AUTH_CHECK:
             return checkAuth(state);
@@ -25,6 +25,7 @@ const Auth = (state = initialState, {type, payload = null}) => {
             return state;
     }
 };
+
 
 const authLogin = (state, payload) => {
     const jwtToken = payload.token;
@@ -44,27 +45,3 @@ const authLogin = (state, payload) => {
     return state;
 
 };
-
-const checkAuth = (state) => {
-    state = Object.assign({}, state, {
-        isAuthenticated: !!localStorage.getItem('jwt_token'),
-        isAdmin: localStorage.getItem('is_admin'),
-    });
-    if (state.isAuthenticated) {
-        Http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('jwt_token')}`;
-    }
-    return state;
-};
-
-const logout = (state) => {
-    localStorage.removeItem('jwt_token');
-    localStorage.setItem('is_admin', false);
-    state = Object.assign({}, state, {
-        isAuthenticated: false,
-        isAdmin: false,
-        user
-    });
-    return state;
-};
-
-export default Auth;
