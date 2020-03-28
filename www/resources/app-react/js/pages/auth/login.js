@@ -27,69 +27,68 @@ function Login() {
     };
 
     return (
-        <div className="flex justify-center items-center w-full py-4 flex-col min-h-screen bg-gray-200">
-            <div className="p-8 flex flex-col items-center">
-                <div>
-                    <Link to="/admin">
-                        <img width="48"
-                             className="align-middle mx-2"
-                             alt="laravel"
-                             title="laravel"
-                             src="/images/icons/laravel.svg"/>
-                    </Link>
-                </div>
-                <div className="text-2xl leading-loose">Sign into your account</div>
-                <div className="text-gray-800">
-                    <span className="text-gray-700">Or</span>
-                    <Link to="/admin/register" className="underline">Start your free trial</Link>
-                </div>
-            </div>
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-5">
+                                <div className="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div className="card-header">
+                                        <h3 className="text-center font-weight-light my-4">DronePilot | Авторизация</h3>
+                                    </div>
+                                    <div className="card-body">
+                                        <form onSubmit={handleSubmit} method="POST">
+                                            <div className="form-group">
+                                                <label className="small mb-1"
+                                                       htmlFor="inputEmailAddress">Email</label>
+                                                <input
+                                                    className="form-control py-4"
+                                                    id="email"
+                                                    type="email"
+                                                    name="email"
+                                                    {...email.bind}
+                                                    placeholder="Введите Email адрес"/>
 
-            <div className="border rounded bg-white border-gray-300 w-3/4 sm:w-1/2 lg:w-2/5 xl:w-1/4 px-8 py-4 shadow">
-                <form onSubmit={handleSubmit}
-                      method="POST">
-                    <div className="mb-4 mt-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-1" htmlFor="email">
-                            Email address
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            name="email"
-                            className={`appearance-none border rounded w-full py-1 px-3 text-grey-darker bg-gray-100 ${email.error ? 'border-red-500' : ''}`}
-                            required
-                            autoFocus
-                            {...email.bind}
-                        />
-
-                        {email.error && <p className="text-red-500 text-xs pt-2">{email.error}</p>}
+                                                {email.error && <p style={{color: 'red'}}>{email.error}</p>}
+                                            </div>
+                                            <div className="form-group">
+                                                <label className="small mb-1"
+                                                       htmlFor="inputPassword">Password</label>
+                                                <input
+                                                    className="form-control py-4"
+                                                    id="password"
+                                                    name="password"
+                                                    type="password"
+                                                    {...password.bind}
+                                                    placeholder="Введите пароль"/>
+                                            </div>
+                                            <div className="form-group">
+                                                <div className="custom-control custom-checkbox">
+                                                    <input className="custom-control-input"
+                                                           id="rememberPasswordCheck" type="checkbox"/>
+                                                    <label className="custom-control-label"
+                                                           htmlFor="rememberPasswordCheck">Запомнить?</label>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <Link to="/admin/forgot-password" className="small">Забыли
+                                                    пароль?</Link>
+                                                <button type="submit" className="btn btn-primary">Авторизация</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div className="card-footer text-center">
+                                        <div className="small">
+                                            <Link to="/admin/register">Регистрация</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="mb-3">
-                        <label className="block text-gray-700 text-sm font-bold mb-1"
-                               htmlFor="password"> Password </label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            className="appearance-none border rounded w-full py-1 px-3 text-grey-darker bg-gray-100"
-                            required
-                            {...password.bind}
-                        />
-                    </div>
-
-                    <div className="mb-3 flex justify-end">
-                        <Link to="/admin/forgot-password" className="text-sm underline text-gray-600 font-bold">Forget
-                            password?</Link>
-                    </div>
-
-                    <div className="mb-3">
-                        <button type="submit"
-                                className="border rounded px-3 py-2 text-white bg-indigo-500 w-full font-bold">
-                            Sign in
-                        </button>
-                    </div>
-                </form>
+                </main>
             </div>
         </div>
     );

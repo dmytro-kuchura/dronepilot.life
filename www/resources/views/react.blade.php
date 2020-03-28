@@ -12,20 +12,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script>
-        window.App = {!! json_encode([
-            'name' => config('app.name')
-        ]) !!};
-    </script>
     <script src="{{ asset('js/react/app.js') }}" defer></script>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/react/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="font-sans h-full text-grey-darkest">
-<div id="app" class="flex flex-col">
-</div>
+<body class="sb-nav-fixed">
+<div id="app"></div>
+
+<!-- Styles -->
+<link href="{{ asset('css/react/app.css') }}" rel="stylesheet">
 </body>
 
 </html>

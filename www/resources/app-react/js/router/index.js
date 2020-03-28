@@ -6,7 +6,7 @@ import Register from '../pages/auth/register';
 import ForgotPassword from '../pages/auth/forgot-password';
 import ResetPassword from '../pages/auth/reset-password';
 import NotFound from '../pages/404';
-import Home from '../pages/home';
+import Dashboard from '../pages/dashboard';
 import Profile from '../pages/profile';
 import AuthRoute from './auth-route';
 import GuestRoute from './guest-route';
@@ -26,13 +26,15 @@ function App() {
                         <GuestRoute path="/admin/login" component={Login} title="login"/>
                         <GuestRoute path="/admin/forgot-password" component={ForgotPassword} title="forgot password"/>
                         <GuestRoute path="/admin/password/reset/:token" component={ResetPassword} title="reset password"/>
-                        <AuthRoute path="/admin/home" component={Home} title="home"/>
+
+                        <GuestRoute path="/admin/dashboard" component={Dashboard} title="home"/>
+                        {/*<AuthRoute path="/admin/news" component={Dashboard} title="home"/>*/}
                         <AuthRoute path="/admin/profile/:id" component={Profile} title="profile"/>
                         <Route component={NotFound}/>
                     </Switch>
                 </div>
             </Router>
     );
-};
+}
 
 export default App;

@@ -15,6 +15,6 @@ function Welcome() {
             </div>
         </div>
     );
-};
+}
 
 export default Welcome;

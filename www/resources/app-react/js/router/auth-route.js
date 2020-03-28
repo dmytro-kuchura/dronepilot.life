@@ -6,6 +6,7 @@ import {useAuth} from '../context/auth';
 import AuthNav from '../components/auth-nav';
 import Footer from '../components/footer';
 import useDocumentTitle from '../components/document-title';
+import LeftMenu from "../components/left-menu";
 
 function AuthRoute({component: Component, title, ...rest}) {
     useDocumentTitle(title);
@@ -21,9 +22,10 @@ function AuthRoute({component: Component, title, ...rest}) {
 
                 return authenticated
                     ? (
-                        <div className="flex flex-col min-h-screen">
+                        <div>
                             <AuthNav/>
-                            <div className="flex flex-1">
+                            <div id="layoutSidenav">
+                                <LeftMenu/>
                                 <Component {...props} />
                             </div>
                             <Footer/>
@@ -34,7 +36,7 @@ function AuthRoute({component: Component, title, ...rest}) {
             }
         />
     );
-};
+}
 
 AuthRoute.displayName = 'Auth Route';
 

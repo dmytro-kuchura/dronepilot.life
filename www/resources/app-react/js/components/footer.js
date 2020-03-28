@@ -2,14 +2,19 @@ import React from 'react';
 
 function Footer() {
     return (
-        <div className="bg-gray-100 h-32 text-center">
-            <div className="container mx-auto flex flex-col">
-                <p className="px-4 py-8 text-gray-700 font-light text-sm">
-                    &copy;{(new Date()).getFullYear()} Laravel React SPA
-                </p>
+        <footer className="py-4 bg-light mt-auto">
+            <div className="container-fluid">
+                <div className="d-flex align-items-center justify-content-between small">
+                    <div className="text-muted">Copyright &copy; Dmytro Kuchura {(new Date()).getFullYear()}</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </footer>
     );
-};
+}
 
 export default Footer;

@@ -3,31 +3,37 @@ import {Link} from 'react-router-dom';
 
 function GuestNav() {
     return (
-        <div className="w-full px-6 mx-auto flex items-center justify-between">
-            <ul className="list-reset flex pt-4">
-                <li className="px-2">
-                    <Link to=""
-                          className="no-underline text-gray-700 uppercase font-thin"
-                    >Laravel React SPA</Link>
+        <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a className="navbar-brand" href="index.html">Start Bootstrap111</a>
+            <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+                <i className="fas fa-bars"></i>
+            </button>
+
+            <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div className="input-group">
+                    <input className="form-control" type="text" placeholder="Search for..." aria-label="Search"
+                           aria-describedby="basic-addon2"/>
+                    <div className="input-group-append">
+                        <button className="btn btn-primary" type="button"><i className="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+
+            <ul className="navbar-nav ml-auto ml-md-0">
+                <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                        className="fas fa-user fa-fw"></i></a>
+                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a className="dropdown-item" href="#">Settings</a>
+                        <a className="dropdown-item" href="#">Activity Log</a>
+                        <div className="dropdown-divider"></div>
+                        <Link to="" className="dropdown-item">Logout</Link>
+                    </div>
                 </li>
             </ul>
-
-            <ul className="list-reset flex pt-4">
-                <li className="px-4 py-2">
-                    <Link to="/admin/login"
-                          className="no-underline font-medium text-grey-darker"
-                    >Login
-                    </Link>
-                </li>
-
-                <li className="px-4 py-2 border bg-indigo-500 rounded-lg">
-                    <Link to="/admin/register"
-                          className="no-underline text-white font-semi-bold"
-                    >try it FREE</Link>
-                </li>
-            </ul>
-        </div>
+        </nav>
     );
-};
+}
 
 export default GuestNav;
