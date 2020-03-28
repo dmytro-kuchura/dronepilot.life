@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -15,7 +16,9 @@ class LoginController extends Controller
             "password" => "required",
         ]);
 
-        if (!$token = auth()->attempt($request->only(["email", "password"]))) {
+        $token = auth()->attempt($request->only(["email", "password"]));
+
+        if (!$token) {
             return response()->json([
                 "errors" => [
                     "email" => ["Sorry we couldn\"t sign you in with those details."]
@@ -23,11 +26,10 @@ class LoginController extends Controller
             ], 422);
         }
 
-        return (new UserResource($request->user()))
-            ->additional([
-                "meta" => [
-                    "token" => $token
-                ]
-            ]);
+        return $this->returnResponse([
+            "user" => new UserResource($request->user()),
+            "token" => Str::random(25),
+            "is_admin" => true
+        ], 200);
     }
 }

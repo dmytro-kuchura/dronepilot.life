@@ -1,24 +1,30 @@
 import React from 'react';
-import AuthNav from '../components/auth-nav';
-import GuestNav from '../components/guest-nav';
-import {useAuth} from '../context/auth';
+import Footer from "../components/footer";
+import {Link} from "react-router-dom";
 
 function NotFound() {
-    let {authenticated} = useAuth();
-
     return (
-        <div className="flex flex-col min-h-screen">
-
-            {authenticated ? <AuthNav/> : <GuestNav/>}
-
-            <div className="flex flex-col flex-1 items-center">
-                <h1 className="py-8">Sorry, that page isn’t here.</h1>
-                <p className="text-grey-dark">
-                    You didn’t do anything wrong. We may have moved the page you’re looking for somewhere else.
-                </p>
+        <div id="layoutError">
+            <div id="layoutError_content">
+                <main>
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-6">
+                                <div className="text-center mt-4">
+                                    <img className="mb-4 img-error" src="assets/img/error-404-monochrome.svg"/>
+                                    <p className="lead">This requested URL was not found on this server.</p>
+                                    <Link to="/admin/dashboard">Return to Dashboard</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutError_footer">
+                <Footer/>
             </div>
         </div>
     );
-};
+}
 
 export default NotFound;

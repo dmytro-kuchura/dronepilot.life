@@ -80,14 +80,14 @@ function LeftMenu() {
                         ><a className="nav-link" href="tables.html"
                     >
                         <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
-                        Tables</a
-                    >
+                        Tables</a>
                     </div>
                 </div>
-                <div className="sb-sidenav-footer">
+
+                {currentUser ? <div className="sb-sidenav-footer">
                     <div className="small">Logged in as:</div>
                     {currentUser.name}
-                </div>
+                </div> : null}
             </nav>
         </div>
     );

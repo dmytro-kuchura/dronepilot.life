@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    @include('dashboard.map._form', ['action' => route('map.store')])
+                    @include('dashboard.map._form', ['action' => route('map.__store')])
                 </div>
             </div>
         </div>

@@ -1,50 +1,29 @@
-import React from 'react';
-import {Route, Redirect} from 'react-router-dom';
-import {setIntendedUrl} from '../utils/auth';
-import PropTypes from 'prop-types';
-import {useAuth} from '../context/auth';
-import AuthNav from '../components/auth-nav';
-import Footer from '../components/footer';
-import useDocumentTitle from '../components/document-title';
-import LeftMenu from "../components/left-menu";
+import React from 'react'
+import {Route, Redirect} from 'react-router'
+import {connect} from 'react-redux'
+import Main from "../main";
 
-function AuthRoute({component: Component, title, ...rest}) {
-    useDocumentTitle(title);
-    let {authenticated} = useAuth();
 
-    return (
-        <Route
-            {...rest}
-            render={props => {
-                if (!authenticated) {
-                    setIntendedUrl(props.location.pathname);
-                }
+const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => (
+    <Route {...rest} render={props => (
+        isAuthenticated ? (
+            <Main>
+                <Component {...props} />
+            </Main>
+        ) : (
+            <Redirect to={{
+                pathname: '/login',
+                state: {from: props.location}
+            }}/>
+        )
+    )}/>
+);
 
-                return authenticated
-                    ? (
-                        <div>
-                            <AuthNav/>
-                            <div id="layoutSidenav">
-                                <LeftMenu/>
-                                <Component {...props} />
-                            </div>
-                            <Footer/>
-                        </div>
-                    )
-                    : <Redirect to={{pathname: '/admin/login', state: {from: props.location}}}/>;
-            }
-            }
-        />
-    );
-}
 
-AuthRoute.displayName = 'Auth Route';
-
-AuthRoute.propTypes = {
-    component: PropTypes.func.isRequired,
-    rest: PropTypes.object,
-    location: PropTypes.object,
-    title: PropTypes.string
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.Auth.isAuthenticated,
+    }
 };
 
-export default AuthRoute;
+export default connect(mapStateToProps)(PrivateRoute);
