@@ -1,3 +1,6 @@
+@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "~@fortawesome/fontawesome-free/css/solid.css";
+
 // Import Custom Variables
 @import "variables";
 
@@ -19,5 +22,3 @@
 @import "navigation/sidenav/sidenav";
 @import "navigation/sidenav/sidenav-dark";
 @import "navigation/sidenav/sidenav-light";
-
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";

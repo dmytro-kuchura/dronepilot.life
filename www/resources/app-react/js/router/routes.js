@@ -4,14 +4,13 @@ import ForgotPassword from '../pages/auth/forgot-password'
 import ResetPassword from '../pages/auth/reset-password'
 import Dashboard from '../pages/dashboard'
 import NoMatch from '../pages/404'
-import Home from "../pages/home";
 
 const routes = [
     {
         path: '/admin',
         exact: true,
-        auth: false,
-        component: Home
+        auth: true,
+        component: Dashboard
     },
     {
         path: '/admin/login',
@@ -36,12 +35,6 @@ const routes = [
         exact: true,
         auth: false,
         component: ResetPassword
-    },
-    {
-        path: '/admin/dashboard',
-        exact: true,
-        auth: true,
-        component: Dashboard
     },
     {
         path: '',
