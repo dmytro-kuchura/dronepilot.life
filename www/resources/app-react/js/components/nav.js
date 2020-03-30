@@ -1,23 +1,49 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            authUser: null,
+            dropdownMenu: false
+        };
+
+        this.handleDropdown = this.handleDropdown.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.authUser !== this.props.authUser) {
+            this.setState({authUser: this.props.authUser})
+        }
+    }
+
+
+    handleDropdown(event) {
+        event.preventDefault();
+
+        this.setState({dropdownMenu: !this.state.dropdownMenu})
     }
 
     render() {
+        let display = {display: 'none'};
+
+        if (this.state.dropdownMenu) {
+            display = {display: 'block'};
+        }
+
         return (
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                <a className="navbar-brand" href="index.html">Start Bootstrap</a>
-                <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+                <Link to="/admin" className="navbar-brand">Dronepilot | Admin</Link>
+                <button className="btn btn-link btn-sm order-1 order-lg-0">
                     <i className="fas fa-bars"></i>
                 </button>
 
                 <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                     <div className="input-group">
-                        <input className="form-control" type="text" placeholder="Search for..." aria-label="Search"
-                               aria-describedby="basic-addon2"/>
+                        <input className="form-control" type="text" placeholder="Поиск.."/>
                         <div className="input-group-append">
                             <button className="btn btn-primary" type="button"><i className="fas fa-search"></i></button>
                         </div>
@@ -26,14 +52,15 @@ class Navigation extends React.Component {
 
                 <ul className="navbar-nav ml-auto ml-md-0">
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                            className="fas fa-user fa-fw"></i></a>
-                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a className="dropdown-item" href="#">Settings</a>
-                            <a className="dropdown-item" href="#">Activity Log</a>
-                            <div className="dropdown-divider"></div>
-                            <Link to="" className="dropdown-item">Logout</Link>
+                        <Link className="nav-link dropdown-toggle" to="#" onClick={this.handleDropdown}>
+                            <i className="fas fa-user fa-fw"/>
+                        </Link>
+
+                        <div className="dropdown-menu dropdown-menu-right" style={display}>
+                            <Link className="dropdown-item" to="/admin/settings">Настройки</Link>
+                            <Link className="dropdown-item" to="/admin/logs">Логи</Link>
+                            <div className="dropdown-divider"/>
+                            <Link className="dropdown-item" to="/admin/logout">Выход</Link>
                         </div>
                     </li>
                 </ul>
@@ -42,5 +69,10 @@ class Navigation extends React.Component {
     }
 }
 
-Navigation.propTypes = {};
-export default Navigation;
+const mapStateToProps = (state) => {
+    return {
+        authUser: state.Auth.user
+    }
+};
+
+export default connect(mapStateToProps)(Navigation);

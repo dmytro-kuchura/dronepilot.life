@@ -9,6 +9,7 @@ AuthProvider.propTypes = {
     children: PropTypes.element.isRequired
 };
 
+/** @deprecated */
 function AuthProvider({children}) {
     const [initializing, setInitializing] = useState(true);
     const [currentUser, setCurrentUser] = useState(null);
@@ -40,6 +41,7 @@ function AuthProvider({children}) {
     );
 }
 
+/** @deprecated */
 function useAuth() {
     const context = React.useContext(AuthContext);
 
