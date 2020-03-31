@@ -38,7 +38,6 @@ class Pagination extends React.Component {
                         от {this.state.from} до {this.state.to} из {this.state.total} записей
                     </div>
                 </div>
-
                 <div className="col-md-7">
                     <div style={{float: 'right'}}>
                         <ul className="pagination">
@@ -47,7 +46,7 @@ class Pagination extends React.Component {
                                 <a href="#" className="page-link">«</a>
                             </li>
 
-                            <Pages state={this.state}/>
+                            <Pages state={this.state} handleChangePage={this.props.handleChangePage}/>
 
                             <li className={this.state.lastPage === 1 ? "page-item next disabled" : "page-item next"}>
                                 <a href="#" className="page-link">»</a>
@@ -73,7 +72,7 @@ const Pages = (props) => {
         return pages.map(function (page) {
             return (
                 <li className={state.currentPage === page ? "page-item active" : "page-item"} key={page}>
-                    <a href="#" className="page-link">{page}</a>
+                    <a href="#" className="page-link" onClick={props.handleChangePage} id={page}>{page}</a>
                 </li>
             )
         });

@@ -13,13 +13,15 @@ class RecordsList extends React.Component {
             from: null,
             to: null,
             perPage: null,
-            currentPage: null,
+            currentPage: 2,
             lastPage: null,
             total: null,
             list: []
         };
 
-        props.dispatch(getRecordsList())
+        props.dispatch(getRecordsList(this.state.currentPage));
+
+        this.handleChangePage = this.handleChangePage.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -34,6 +36,11 @@ class RecordsList extends React.Component {
                 list: this.props.records.list
             })
         }
+    }
+
+    handleChangePage(event) {
+        event.preventDefault();
+        this.props.dispatch(getRecordsList(parseInt(event.target.id)));
     }
 
     render() {
@@ -72,7 +79,7 @@ class RecordsList extends React.Component {
                                     </table>
                                 </div>
 
-                                <Pagination state={this.state}/>
+                                <Pagination state={this.state} handleChangePage={this.handleChangePage}/>
                             </div>
                         </div>
                     </div>
