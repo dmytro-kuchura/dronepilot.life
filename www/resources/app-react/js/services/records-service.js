@@ -1,12 +1,18 @@
 import * as action from '../store/actions/records-action'
 import Http from '../http'
 
-export function getRecordsList(page) {
+function prepareLink(page) {
     let link = '/api/v2/blog';
 
     if (page > 1) {
         link = '/api/v2/blog?page=' + page;
     }
+
+    return link;
+}
+
+export function getRecordsList(page) {
+    let link = prepareLink(page);
 
     return dispatch => (
         new Promise((resolve, reject) => {
