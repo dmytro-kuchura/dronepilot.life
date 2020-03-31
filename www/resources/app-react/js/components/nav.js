@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
+
+const opened = {display: 'none'};
+const closed = {display: 'block'};
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -28,24 +31,18 @@ class Navigation extends React.Component {
     }
 
     render() {
-        let display = {display: 'none'};
-
-        if (this.state.dropdownMenu) {
-            display = {display: 'block'};
-        }
-
         return (
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
                 <Link to="/admin" className="navbar-brand">Dronepilot | Admin</Link>
                 <button className="btn btn-link btn-sm order-1 order-lg-0">
-                    <i className="fas fa-bars"></i>
+                    <i className="fas fa-bars"/>
                 </button>
 
                 <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                     <div className="input-group">
                         <input className="form-control" type="text" placeholder="Поиск.."/>
                         <div className="input-group-append">
-                            <button className="btn btn-primary" type="button"><i className="fas fa-search"></i></button>
+                            <button className="btn btn-primary" type="button"><i className="fas fa-search"/></button>
                         </div>
                     </div>
                 </form>
@@ -56,7 +53,7 @@ class Navigation extends React.Component {
                             <i className="fas fa-user fa-fw"/>
                         </Link>
 
-                        <div className="dropdown-menu dropdown-menu-right" style={display}>
+                        <div className="dropdown-menu dropdown-menu-right" style={this.state.dropdownMenu ? closed : opened }>
                             <Link className="dropdown-item" to="/admin/settings">Настройки</Link>
                             <Link className="dropdown-item" to="/admin/logs">Логи</Link>
                             <div className="dropdown-divider"/>

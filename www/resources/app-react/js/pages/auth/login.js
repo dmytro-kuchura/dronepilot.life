@@ -31,7 +31,6 @@ class Login extends React.Component {
         const {credentials} = this.state;
 
         this.props.dispatch(login(credentials))
-            .then({})
             .catch(({error, statusCode}) => {
                 const responseError = {
                     isError: true,

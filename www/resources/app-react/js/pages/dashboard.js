@@ -9,7 +9,7 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        console.log('componentWillMount');
+        // console.log('componentWillMount');
     }
 
     render() {
