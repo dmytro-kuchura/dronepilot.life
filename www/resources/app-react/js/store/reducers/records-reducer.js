@@ -9,6 +9,12 @@ const record = {
 };
 
 const initialState = {
+    from: null,
+    to: null,
+    perPage: null,
+    currentPage: null,
+    lastPage: null,
+    total: null,
     list: [],
     item: record
 };
@@ -26,7 +32,13 @@ const Records = (state = initialState, {type, payload = null}) => {
 
 const applyRecords = (state, payload) => {
     state = Object.assign({}, state, {
-        list: payload
+        from: payload.from,
+        to: payload.to,
+        perPage: payload.per_page,
+        currentPage: payload.current_page,
+        lastPage: payload.last_page,
+        total: payload.total,
+        list: payload.data
     });
 
     return state;

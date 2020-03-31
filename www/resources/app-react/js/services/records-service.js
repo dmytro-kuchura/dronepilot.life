@@ -6,7 +6,7 @@ export function getRecordsList() {
         new Promise((resolve, reject) => {
             Http.get('/api/v2/blog')
                 .then(response => {
-                    dispatch(action.getRecords(response.data.result.data));
+                    dispatch(action.getRecords(response.data.result));
                     return resolve();
                 })
                 .catch(err => {

@@ -10,6 +10,12 @@ class RecordsList extends React.Component {
         super(props);
 
         this.state = {
+            from: null,
+            to: null,
+            perPage: null,
+            currentPage: null,
+            lastPage: null,
+            total: null,
             list: []
         };
 
@@ -17,8 +23,16 @@ class RecordsList extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.recordsList !== this.props.recordsList) {
-            this.setState({list: this.props.recordsList})
+        if (prevProps.records !== this.props.records) {
+            this.setState({
+                from: this.props.records.from,
+                to: this.props.records.to,
+                perPage: this.props.records.perPage,
+                currentPage: this.props.records.currentPage,
+                lastPage: this.props.records.lastPage,
+                total: this.props.records.total,
+                list: this.props.records.list
+            })
         }
     }
 
@@ -58,7 +72,7 @@ class RecordsList extends React.Component {
                                     </table>
                                 </div>
 
-                                <Pagination/>
+                                <Pagination state={this.state}/>
                             </div>
                         </div>
                     </div>
@@ -106,7 +120,7 @@ const List = (props) => {
 
     return (
         <tr>
-            <td>Nothing to show!</td>
+            <td colSpan="5">Нечего отображать!</td>
         </tr>
     )
 };
@@ -114,7 +128,7 @@ const List = (props) => {
 const mapStateToProps = (state) => {
     return {
         authUser: state.Auth.user,
-        recordsList: state.Records.list
+        records: state.Records
     }
 };
 

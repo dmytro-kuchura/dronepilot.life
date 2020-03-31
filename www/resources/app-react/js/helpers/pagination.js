@@ -1,20 +1,32 @@
-import React from "react";
-import {connect} from "react-redux";
+import React from 'react';
+import {connect} from 'react-redux';
 
 class Pagination extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            currentPage: 1,
-            maxPage: 3,
-            atPage: 4,
-            total: 8,
+            from: 0,
+            lastPage: 0,
+            currentPage: 0,
+            perPage: 0,
+            to: 0,
+            total: 0
         };
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props);
+        if (prevProps !== this.props) {
+            this.setState({
+                from: this.props.state.from,
+                to: this.props.state.to,
+                perPage: this.props.state.perPage,
+                currentPage: this.props.state.currentPage,
+                lastPage: this.props.state.lastPage,
+                total: this.props.state.total,
+                list: this.props.state.list
+            })
+        }
     }
 
     render() {
@@ -22,63 +34,25 @@ class Pagination extends React.Component {
             <div className="row">
                 <div className="col-md-5">
                     <div className="dataTables_info" id="dataTable_info" role="status"
-                         aria-live="polite">Показано от 1 до 10 из 57 записей
+                         aria-live="polite">Показано
+                        от {this.state.from} до {this.state.to} из {this.state.total} записей
                     </div>
                 </div>
+
                 <div className="col-md-7">
-                    <div className="dataTables_paginate paging_simple_numbers text-right" style={{float: 'right'}}>
+                    <div style={{float: 'right'}}>
                         <ul className="pagination">
-                            <li className="paginate_button page-item previous disabled"
-                                id="dataTable_previous">
-                                <a href="#" aria-controls="dataTable"
-                                   data-dt-idx="0" tabIndex="0"
-                                   className="page-link">«</a>
+
+                            <li className={this.state.currentPage === 1 ? "page-item previous disabled" : "page-item previous"}>
+                                <a href="#" className="page-link">«</a>
                             </li>
-                            <li className="paginate_button page-item active">
-                                <a href="#"
-                                   aria-controls="dataTable"
-                                   data-dt-idx="1"
-                                   tabIndex="0"
-                                   className="page-link">1</a>
+
+                            <Pages state={this.state}/>
+
+                            <li className={this.state.lastPage === 1 ? "page-item next disabled" : "page-item next"}>
+                                <a href="#" className="page-link">»</a>
                             </li>
-                            <li className="paginate_button page-item ">
-                                <a href="#"
-                                   aria-controls="dataTable"
-                                   data-dt-idx="2"
-                                   tabIndex="0"
-                                   className="page-link">2</a>
-                            </li>
-                            <li className="paginate_button page-item ">
-                                <a href="#"
-                                   aria-controls="dataTable"
-                                   data-dt-idx="3"
-                                   tabIndex="0"
-                                   className="page-link">3</a>
-                            </li>
-                            <li className="paginate_button page-item ">
-                                <a href="#"
-                                   aria-controls="dataTable"
-                                   data-dt-idx="4"
-                                   tabIndex="0"
-                                   className="page-link">4</a>
-                            </li>
-                            <li className="paginate_button page-item ">
-                                <a href="#"
-                                   aria-controls="dataTable"
-                                   data-dt-idx="5"
-                                   tabIndex="0"
-                                   className="page-link">5</a>
-                            </li>
-                            <li className="paginate_button page-item ">
-                                <a href="#"
-                                   aria-controls="dataTable"
-                                   data-dt-idx="6"
-                                   tabIndex="0"
-                                   className="page-link">6</a>
-                            </li>
-                            <li className="paginate_button page-item next" id="dataTable_next">
-                                <a href="#" aria-controls="dataTable" data-dt-idx="7"
-                                   tabIndex="0" className="page-link">»</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -87,8 +61,25 @@ class Pagination extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {}
+const Pages = (props) => {
+    let {state} = props;
+    let pages = [];
+
+    for (let i = 1; i <= state.lastPage; i++) {
+        pages.push(i)
+    }
+
+    if (pages.length) {
+        return pages.map(function (page) {
+            return (
+                <li className={state.currentPage === page ? "page-item active" : "page-item"} key={page}>
+                    <a href="#" className="page-link">{page}</a>
+                </li>
+            )
+        });
+    }
+
+    return null;
 };
 
-export default connect(mapStateToProps)(Pagination);
+export default Pagination;
