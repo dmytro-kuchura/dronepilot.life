@@ -13,7 +13,7 @@ class RecordsList extends React.Component {
             from: null,
             to: null,
             perPage: null,
-            currentPage: 2,
+            currentPage: 1,
             lastPage: null,
             total: null,
             list: []

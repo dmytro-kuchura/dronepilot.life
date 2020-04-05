@@ -37,8 +37,6 @@ class SiteController extends Controller
 
     /**
      * Main page
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -62,8 +60,6 @@ class SiteController extends Controller
 
     /**
      * Contacts page
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function contacts()
     {
@@ -72,8 +68,6 @@ class SiteController extends Controller
 
     /**
      * About page
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function about()
     {
@@ -82,8 +76,6 @@ class SiteController extends Controller
 
     /**
      * sitemap.xml
-     *
-     * @return \Illuminate\Http\Response
      */
     public function sitemap()
     {
@@ -104,9 +96,6 @@ class SiteController extends Controller
 
     /**
      * Search page
-     *
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function search(Request $request)
     {

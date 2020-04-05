@@ -1,4 +1,4 @@
-@if(!empty($result))
+@if(count($result))
     <div class="sidebar-box listing-box mb-40"><span class="opener plus"></span>
         <div class="sidebar-title">
             <h3><span>{{ __('site.categories') }}</span></h3>

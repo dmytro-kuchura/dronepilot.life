@@ -212,6 +212,7 @@ class BlogRepository implements Repository
             DB::raw('count(*) AS count')
         )
             ->leftJoin('categories', 'categories.id', '=', 'records.category_id')
+            ->whereNotNull('categories.name')
             ->groupBy('categories.id')
             ->orderBy('categories.id', 'desc')
             ->get();

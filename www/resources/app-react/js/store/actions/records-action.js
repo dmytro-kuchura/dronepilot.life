@@ -7,8 +7,9 @@ export function getRecords(payload) {
     }
 }
 
-export function getRecordInner() {
+export function getOneRecord(payload) {
     return {
-        type: ActionTypes.BLOG_INNER
+        type: ActionTypes.BLOG_INNER,
+        payload
     }
 }
