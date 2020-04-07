@@ -4,6 +4,7 @@ import NProgress from 'nprogress';
 
 let requestsCounter = 0;
 
+/** @deprecated */
 function Client(endpoint, {method, body, ...customConfig} = {}) {
     const token = getToken();
 

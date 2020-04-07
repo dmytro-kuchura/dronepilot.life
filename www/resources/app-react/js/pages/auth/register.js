@@ -1,128 +1,149 @@
 import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {useAuth} from '../../context/auth';
-import {register} from '../../api/auth';
+import {Link, Redirect, useHistory} from 'react-router-dom';
 import useInputValue from '../../components/input-value';
+import {connect} from "react-redux";
+import {register} from "../../services/auth-service";
 
-function Register() {
-    let history = useHistory();
-    let {setCurrentUser, setToken} = useAuth();
-    let email = useInputValue('email');
-    let name = useInputValue('name');
-    let password = useInputValue('password');
-    let passwordConfirmation = useInputValue('password_confirmation');
+class Register extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const handleSubmit = e => {
-        e.preventDefault();
+        this.state = {
+            credentials: {
+                name: null,
+                email: null,
+                password: null,
+                password_confirmation: null,
+            },
+            error: null
+        };
 
-        register({
-            name: name.value,
-            email: email.value,
-            password: password.value,
-            password_confirmation: passwordConfirmation.value
-        }).then(({user, token}) => {
-            setCurrentUser(user);
-            setToken(token);
-            history.push('/admin/home');
-        }).catch(error => {
-            error.json().then(({errors}) => {
-                ;[email, name, password].forEach(({parseServerError}) => parseServerError(errors));
-            });
-        });
-    };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    return (
-        <div className="flex justify-center items-center w-full flex-col py-4 min-h-screen bg-gray-200">
+    handleChange(event) {
+        const name = event.target.name;
+        const value = event.target.value;
+        const {credentials} = this.state;
+        credentials[name] = value;
+    }
 
-            <div className="p-8 flex flex-col items-center">
-                <div>
-                    <Link to="/">
-                        <img width="48" className="align-middle mx-2" alt="laravel" title="laravel"
-                             src="/images/icons/laravel.svg"/>
-                    </Link>
-                </div>
-                <div className="text-2xl leading-loose">
-                    Start your free trial
-                </div>
-                <div className="text-gray-800">
-                    <span className="text-gray-700">Or</span> <Link to="/login" className="underline">login to your
-                    account</Link>
+    handleSubmit(event) {
+        event.preventDefault();
+        const {credentials} = this.state;
+
+        this.props.dispatch(register(credentials))
+            .catch(({error, statusCode}) => {
+                const responseError = {
+                    isError: true,
+                    code: statusCode,
+                    text: error
+                };
+                this.setState({responseError});
+                this.setState({
+                    isLoading: false
+                });
+            })
+    }
+
+    render() {
+        const {from} = this.props.location.state || {from: {pathname: '/admin/dashboard'}};
+        const {isAuthenticated} = this.props;
+
+        if (isAuthenticated) {
+            return (
+                <Redirect to={from}/>
+            )
+        }
+
+        return (
+            <div id="layoutAuthentication">
+                <div id="layoutAuthentication_content">
+                    <main>
+                        <div className="container">
+                            <div className="row justify-content-center">
+                                <div className="col-lg-5">
+                                    <div className="card shadow-lg border-0 rounded-lg mt-5">
+                                        <div className="card-header">
+                                            <h3 className="text-center font-weight-light my-4">DronePilot | Регистрация</h3>
+                                        </div>
+                                        <div className="card-body">
+                                            <form onSubmit={this.handleSubmit} method="POST">
+                                                <div className="form-group">
+                                                    <label className="small mb-1" htmlFor="name">Имя</label>
+                                                    <input
+                                                        className="form-control py-4"
+                                                        id="name"
+                                                        type="text"
+                                                        name="name"
+                                                        onChange={this.handleChange}
+                                                        placeholder="Введите ваше имя"/>
+
+                                                    {this.state.error &&
+                                                    <p style={{color: 'red'}}>{this.state.error}</p>}
+                                                </div>
+                                                <div className="form-group">
+                                                    <label className="small mb-1" htmlFor="email">Email</label>
+                                                    <input
+                                                        className="form-control py-4"
+                                                        id="email"
+                                                        type="email"
+                                                        name="email"
+                                                        onChange={this.handleChange}
+                                                        placeholder="Введите Email адрес"/>
+
+                                                    {this.state.error &&
+                                                    <p style={{color: 'red'}}>{this.state.error}</p>}
+                                                </div>
+                                                <div className="form-group">
+                                                    <label className="small mb-1"
+                                                           htmlFor="password">Пароль</label>
+                                                    <input
+                                                        className="form-control py-4"
+                                                        id="password"
+                                                        name="password"
+                                                        type="password"
+                                                        onChange={this.handleChange}
+                                                        placeholder="Введите пароль"/>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label className="small mb-1"
+                                                           htmlFor="password_confirmation">Повторите пароль</label>
+                                                    <input
+                                                        className="form-control py-4"
+                                                        id="password_confirmation"
+                                                        name="password_confirmation"
+                                                        type="password"
+                                                        onChange={this.handleChange}
+                                                        placeholder="Повторите пароль"/>
+                                                </div>
+                                                <div
+                                                    className="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                    <button type="submit" className="btn btn-primary">Регистрация</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div className="card-footer text-center">
+                                            <div className="small">
+                                                <Link to="/admin/login">Авторизация</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
                 </div>
             </div>
-
-            <div
-                className="bg-white border rounded border-grey-light w-3/4 sm:w-1/2 lg:w-2/5 xl:w-1/4 px-8 py-4 shadow">
-                <form onSubmit={handleSubmit}
-                      method="POST"
-                >
-                    <div className="mb-4 mt-2">
-                        <label className="block text-gray-700 text-sm mb-1 font-bold" htmlFor="username">
-                            Username
-                        </label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="name"
-                            className={`appearance-none border rounded w-full py-1 px-3 bg-gray-100 ${name.error ? 'border-red-500' : ''}`}
-                            required
-                            autoFocus
-                            {...name.bind} />
-
-                        {name.error && <p className="text-red-500 text-xs pt-2">{name.error}</p>}
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-1" htmlFor="email">
-                            Email address
-                        </label>
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            className={`appearance-none border rounded w-full py-1 px-3 bg-gray-100 ${email.error ? 'border-red-500' : ''}`}
-                            required
-                            {...email.bind} />
-
-                        {email.error && <p className="text-500 text-xs pt-2">{email.error}</p>}
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-1"
-                               htmlFor="password"> Password </label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            className={`appearance-none border rounded w-full py-1 px-3 bg-gray-100  ${password.error ? 'border-red-500' : ''}`}
-                            minLength={6}
-                            required
-                            {...password.bind}/>
-
-                        {password.error && <p className="text-red-500 text-xs pt-2">{password.error}</p>}
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2"
-                               htmlFor="password-confirmation"> Password confirmation </label>
-                        <input
-                            type="password"
-                            id="password-confirmation"
-                            name="password_confirmation"
-                            className={`appearance-none border rounded w-full py-1 px-3 bg-gray-100 ${password.error ? 'border-red-500' : ''}`}
-                            required
-                            {...passwordConfirmation.bind}/>
-                    </div>
-
-                    <div className="mb-4">
-                        <button
-                            className="border rounded p-2 text-white bg-indigo-500 w-full font-bold hover:bg-indigo-500-dark">
-                            Register
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default Register;
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.Auth.isAuthenticated,
+    }
+};
+
+export default connect(mapStateToProps)(Register)
