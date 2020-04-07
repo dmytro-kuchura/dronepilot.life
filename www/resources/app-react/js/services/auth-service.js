@@ -85,7 +85,7 @@ export function updatePassword(credentials) {
 export function register(credentials) {
     return dispatch => (
         new Promise((resolve, reject) => {
-            Http.post('api/v3/register', credentials)
+            Http.post('/api/v3/register', credentials)
                 .then(res => {
                     return resolve(res.data);
                 })

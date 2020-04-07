@@ -1,5 +1,6 @@
 import {useState, useCallback} from 'react';
 
+/** @deprecated */
 function InputValue(field) {
     let [value, setValue] = useState('');
     let [error, setError] = useState('');

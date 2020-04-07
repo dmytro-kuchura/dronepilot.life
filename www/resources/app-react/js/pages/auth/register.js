@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link, Redirect, useHistory} from 'react-router-dom';
-import useInputValue from '../../components/input-value';
-import {connect} from "react-redux";
-import {register} from "../../services/auth-service";
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {register} from '../../services/auth-service';
 
 class Register extends React.Component {
     constructor(props) {

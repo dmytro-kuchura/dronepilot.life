@@ -16,6 +16,11 @@ const routes = [
         auth: true,
         component: Dashboard
     }, {
+        path: '/admin/dashboard',
+        exact: true,
+        auth: true,
+        component: Dashboard
+    }, {
         path: '/admin/login',
         exact: true,
         auth: false,
