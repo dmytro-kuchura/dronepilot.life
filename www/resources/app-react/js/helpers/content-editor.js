@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
-import {getRecordsList} from "../services/records-service";
+import React from 'react';
 
+const block = {display: 'block'};
+const none = {display: 'none'};
 
 class ContentEditor extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            content: ''
+            content: '',
+            showContent: true,
+            showHTML: false
         };
-
-        document.designMode = 'on';
 
         this.handleClick = this.handleClick.bind(this);
     }
@@ -24,80 +25,144 @@ class ContentEditor extends React.Component {
     }
 
     handleClick(event) {
-        let command = event.currentTarget.dataset.command;
+        let command = event.currentTarget.dataset.action;
+        let url = '';
 
-        if (command === 'h1' || command === 'h2') {
-            document.execCommand('formatBlock', false, command);
-        }
+        switch (command) {
+            case 'h1':
+                document.execCommand('formatBlock', false, command);
+                break;
+            case 'createlink':
+                url = 'http://example.com';
+                document.execCommand(command, false, url);
+                break;
+            case 'insertimage':
+                url = 'http://example.com';
+                document.execCommand(command, false, url);
+                break;
+            case 'code':
+                this.setState({
+                    showHTML: true,
+                    showContent: false
+                });
 
-        if (command === 'forecolor' || command === 'backcolor') {
-            console.log('color');
-            // document.execCommand($(this).data('command'), false, $(this).data('value'));
-        }
-
-        if (command === 'createlink' || command === 'insertimage') {
-            let url = 'http://example.com';
-            document.execCommand(command, false, url);
-        } else {
-            document.execCommand(command, false, null);
+                break;
+            default:
+                document.execCommand(command, false, null);
+                break;
         }
     };
 
     render() {
         let colors = ['000000', 'FF9966', '6699FF', '99FF66', 'CC0000', '00CC00', '0000CC', '333333', '0066FF', 'FFFFFF'];
 
-        console.log(this.state.content)
-
         return (
-            <div>
-
+            <div className="editor">
                 <div className="toolbar">
-                    <div className="fore-wrapper">
-                        <i className="fa fa-font"/>
-                        <div className="fore-palette">
-                            {colors.forEach(function (color, i) {
-                                return <a href="#" data-command="forecolor" data-value={color[i]}
-                                          className="palette-item"/>
-                            })}
+                    <div className="line">
+                        <div className="box">
+                            <span className="btn icon smaller" data-action="bold" title="Bold"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-bold"/>
+                            </span>
+                            <span className="btn icon smaller" data-action="italic" title="Italic"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-italic"/>
+                            </span>
+                            <span className="btn icon smaller" data-action="underline" title="Underline"
+                                  onClick={this.handleClick}>
+                                <i className="fa fa-underline"/>
+                            </span>
+                            <span className="btn icon smaller" data-action="strikeThrough" title="Strike through"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-strikethrough"/>
+                            </span>
+                        </div>
+                        <div className="box">
+                            <span className="btn icon" data-action="justifyLeft" title="Justify left"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-align-left"/>
+                            </span>
+                            <span className="btn icon" data-action="justifyCenter" title="Justify center"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-align-center"/>
+                            </span>
+                            <span className="btn icon" data-action="justifyRight" title="Justify right"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-align-right"/>
+                            </span>
+                            <span className="btn icon" data-action="formatBlock" title="Justify block"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-align-justify"/>
+                            </span>
+                        </div>
+                        <div className="box">
+                            <span className="btn icon" data-action="insertOrderedList" title="Insert ordered list"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-list-ol"/>
+                            </span>
+                            <span className="btn icon" data-action="insertUnorderedList" title="Insert unordered list"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-list-ul"/>
+                            </span>
+                            <span className="btn icon" data-action="outdent" title="Outdent" onClick={this.handleClick}>
+                                <i className="fa fa-outdent"/>
+                            </span>
+                            <span className="btn icon" data-action="indent" title="Indent" onClick={this.handleClick}>
+                                <i className="fa fa-indent"/>
+                            </span>
+                        </div>
+                        <div className="box">
+                            <span className="btn icon" data-action="insertHorizontalRule" title="Insert horizontal rule"
+                                  onClick={this.handleClick}>
+                                <i className="fa fa-ruler-horizontal"/>
+                            </span>
+                        </div>
+                        <div className="box">
+                            <span className="btn icon smaller" data-action="undo" title="Undo"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-undo"/>
+                            </span>
+                            <span className="btn icon" data-action="removeFormat" title="Remove format"
+                                  onClick={this.handleClick}>
+                                <i className="fa fa-remove-format"/>
+                            </span>
+                        </div>
+                        <div className="box">
+                            <span className="btn icon smaller" data-action="createlink" title="Create link"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-link"/>
+                            </span>
+                            <span className="btn icon smaller" data-action="unlink" title="Unlink"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-unlink"/>
+                            </span>
+                            <span className="btn icon" data-action="insertimage" title="Insert image"
+                                  onClick={this.handleClick}>
+                                <i className="fa fa-image"/>
+                            </span>
+                            <span className="btn icon" data-action="insertHTML" title="Insert HTML"
+                                  onClick={this.handleClick}>
+                                <i className="fa fa-video"/>
+                            </span>
+                        </div>
+                        <div className="box">
+                            <span className="btn icon" data-action="code" title="Show HTML-Code"
+                                  onClick={this.handleClick}>
+                              <i className="fa fa-code"/>
+                            </span>
                         </div>
                     </div>
-                    <div className="back-wrapper">
-                        <i className="fa fa-font"/>
-                        <div className="back-palette"></div>
-                    </div>
-                    <button data-command="bold" onClick={this.handleClick}><i className="fa fa-bold"/></button>
-                    <button data-command="italic" onClick={this.handleClick}><i className="fa fa-italic"/></button>
-                    <button data-command="underline" onClick={this.handleClick}><i className="fa fa-underline"/>
-                    </button>
-                    <button data-command="strikeThrough" onClick={this.handleClick}><i className="fa fa-strikethrough"/>
-                    </button>
-                    <button data-command="justifyLeft" onClick={this.handleClick}><i className="fa fa-align-left"/>
-                    </button>
-                    <button data-command="justifyCenter" onClick={this.handleClick}><i className="fa fa-align-center"/>
-                    </button>
-                    <button data-command="justifyRight" onClick={this.handleClick}><i className="fa fa-align-right"/>
-                    </button>
-                    <button data-command="justifyFull" onClick={this.handleClick}><i className="fa fa-align-justify"/>
-                    </button>
-                    <button data-command="indent" onClick={this.handleClick}><i className="fa fa-indent"/></button>
-                    <button data-command="outdent" onClick={this.handleClick}><i className="fa fa-outdent"/></button>
-                    <button data-command="insertUnorderedList" onClick={this.handleClick}><i className="fa fa-list-ul"/>
-                    </button>
-                    <button data-command="insertOrderedList" onClick={this.handleClick}><i className="fa fa-list-ol"/>
-                    </button>
-                    <button data-command="h1" onClick={this.handleClick}>H1</button>
-                    <button data-command="h2" onClick={this.handleClick}>H2</button>
-                    <button data-command="createlink" onClick={this.handleClick}><i className="fa fa-link"/></button>
-                    <button data-command="unlink" onClick={this.handleClick}><i className="fa fa-unlink"/></button>
-                    <button data-command="insertimage" onClick={this.handleClick}><i className="fa fa-image"/></button>
-                    <button data-command="subscript" onClick={this.handleClick}><i className="fa fa-subscript"/>
-                    </button>
-                    <button data-command="superscript" onClick={this.handleClick}><i className="fa fa-superscript"/>
-                    </button>
                 </div>
-
-                <div id="editor">
-                    {this.state.content}
+                <div className="content-area">
+                    <div className="visuell-view" style={this.state.showContent ? block : none}
+                         contentEditable={true}
+                         suppressContentEditableWarning={true}>
+                        {this.state.content}
+                    </div>
+                    <textarea className="html-view"
+                              style={this.state.showHTML ? block : none}
+                              defaultValue={this.state.content}/>
                 </div>
             </div>
         );
