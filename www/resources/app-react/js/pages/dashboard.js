@@ -8,10 +8,6 @@ class Dashboard extends React.Component {
         };
     }
 
-    componentDidMount() {
-        // console.log('componentWillMount');
-    }
-
     render() {
         return (
             <div id="layoutSidenav_content">
