@@ -42,8 +42,8 @@ class ContentEditor extends React.Component {
                 break;
             case 'code':
                 this.setState({
-                    showHTML: true,
-                    showContent: false
+                    showHTML: this.state.showHTML !== true,
+                    showContent: this.state.showContent !== true,
                 });
 
                 break;
@@ -52,9 +52,11 @@ class ContentEditor extends React.Component {
                 break;
         }
 
-        let content = document.getElementById('content');
+        let content = this.refs.textarea.innerHTML;
 
-        console.log(content.innerHTML);
+        this.setState({
+            content: content
+        });
     };
 
     render() {
@@ -159,7 +161,9 @@ class ContentEditor extends React.Component {
                     </div>
                 </div>
                 <div className="content-area">
-                    <div className="visuell-view" id="content" style={this.state.showContent ? block : none}
+                    <div className="editor-view" id="content" style={this.state.showContent ? block : none}
+                         ref="textarea"
+                         onChange={this.props.onEditorStateChange}
                          contentEditable={true}
                          suppressContentEditableWarning={true}>
                         {this.state.content}

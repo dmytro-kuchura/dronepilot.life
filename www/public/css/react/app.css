@@ -16956,11 +16956,11 @@ body {
   line-height: 1.5;
 }
 
-.editor .content-area .visuell-view {
+.editor .content-area .editor-view {
   outline: none;
 }
 
-.editor .content-area .visuell-view p {
+.editor .content-area .editor-view p {
   margin: 12px 0;
 }
 

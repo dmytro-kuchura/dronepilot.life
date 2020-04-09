@@ -1,15 +1,20 @@
-FROM php:7.2-fpm
+FROM php:7.4-fpm
 
+# Installing dependencies
 RUN apt-get update && apt-get install -y \
+        zip \
         libpq-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev
 
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Install the PHP iconv library
 RUN docker-php-ext-install -j$(nproc) iconv
 # Configure GD library
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 # Install the PHP GD library
 RUN docker-php-ext-install -j$(nproc) gd
 

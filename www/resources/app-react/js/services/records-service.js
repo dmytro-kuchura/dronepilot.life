@@ -33,6 +33,27 @@ export function getRecordsList(page) {
     );
 }
 
+export function updateRecord(id, data) {
+    let link = '/api/v2/blog/' + id;
+
+    return dispatch => (
+        new Promise((resolve, reject) => {
+            Http.put(link, data)
+                .then(response => {
+                    return resolve();
+                })
+                .catch(err => {
+                    const statusCode = err.response.status;
+                    const data = {
+                        error: null,
+                        statusCode,
+                    };
+                    return reject(data);
+                })
+        })
+    );
+}
+
 export function getRecordById(param) {
     let link = '/api/v2/blog/' + param;
 

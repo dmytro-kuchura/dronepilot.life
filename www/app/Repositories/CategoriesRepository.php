@@ -13,11 +13,14 @@ class CategoriesRepository implements Repository
         return $this->model::where('status', Categories::STATUS_AVAILABLE)->orderBy('id', 'desc')->get();
     }
 
+    public function shortList()
+    {
+        return $this->model::select('id', 'name')->orderBy('created_at', 'desc')->get();
+    }
+
     public function list()
     {
-        $records = $this->model::orderBy('created_at', 'desc')->get();
-
-        return $records;
+        return $this->model::orderBy('created_at', 'desc')->get();
     }
 
     public function update($request)

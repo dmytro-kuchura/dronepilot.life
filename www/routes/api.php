@@ -26,12 +26,23 @@ Route::prefix('v2')->group(function () {
     Route::prefix('blog')->group(function () {
         Route::namespace('Api')->group(function () {
             Route::get('/', 'BlogController@list')->name('blog.list');
+            Route::put('/{id}', 'BlogController@update')->name('blog.update');
             Route::get('/{id}', 'BlogController@inner')->name('blog.inner');
             Route::get('/tag/{tag}', 'BlogController@tag')->name('blog.tag');
             Route::get('/category/{category}', 'BlogController@category')->name('blog.category');
         });
+    });
 
-        Route::prefix('map')->group(function () {
+    Route::prefix('categories')->group(function () {
+        Route::namespace('Api')->group(function () {
+            Route::get('/', 'CategoriesController@list')->name('categories.list');
+            Route::get('/short', 'CategoriesController@shortList')->name('categories.short.list');
+            Route::get('/{id}', 'CategoriesController@inner')->name('categories.inner');
+        });
+    });
+
+    Route::prefix('map')->group(function () {
+        Route::namespace('Api')->group(function () {
             Route::get('/', 'MapsController@list')->name('map.list');
             Route::get('/{id}', 'MapsController@inner')->name('map.inner');
         });

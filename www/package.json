@@ -13,6 +13,7 @@
         "bootstrap": "^4.4.1",
         "bounce.js": "^0.8.2",
         "datamaps": "^0.5.9",
+        "jodit-react": "^1.0.42",
         "jquery": "^3.4.1",
         "laravel-mix-tailwind": "^0.1.0",
         "moment": "^2.24.0",

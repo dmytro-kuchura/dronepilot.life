@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getParamFromUrl} from '../../helpers/url-params';
-import {getRecordById} from '../../services/records-service';
-import {validate} from "../../helpers/validation";
-import ContentEditor from "../../helpers/content-editor";
+import {getRecordById, updateRecord} from '../../services/records-service';
+import {getCategoriesShortList} from '../../services/categories-service';
+import {validate} from '../../helpers/validation';
+import Editor from "../../helpers/editor";
 
 const rules = {
     "name": ["required"],
@@ -35,21 +36,25 @@ class RecordsEdit extends React.Component {
                 category_id: 0,
                 created_at: null,
                 updated_at: null,
-            }
+            },
+            categories: []
         };
 
         if (getParamFromUrl(props, 'id')) {
-            props.dispatch(getRecordById(getParamFromUrl(props, 'id')))
+            props.dispatch(getRecordById(getParamFromUrl(props, 'id')));
+            props.dispatch(getCategoriesShortList());
         }
 
         this.handleChangeInput = this.handleChangeInput.bind(this);
-        this.onEditorStateChange = this.onEditorStateChange.bind(this);
+        this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.handleUpdateContent = this.handleUpdateContent.bind(this);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.record !== this.props.record) {
             this.setState({
-                record: this.props.record
+                record: this.props.record,
+                categories: this.props.categories
             })
         }
     }
@@ -61,29 +66,43 @@ class RecordsEdit extends React.Component {
         let value = event.target.value;
         let state = Object.assign({}, this.state);
 
-        if (input === 'status') {
-            state.record.status = this.state.record.status === 0 ? 1 : 0;
-        } else {
-            state.record[input] = value;
+        switch (input) {
+            case 'category_id':
+                state.record.category_id = parseInt(value);
+                break;
+            case 'status':
+                state.record.status = this.state.record.status === 0 ? 1 : 0;
+                break;
+            default:
+                state.record[input] = value;
+                break;
         }
+
+        this.setState(state);
+    }
+
+    handleUpdateContent(content) {
+        let state = Object.assign({}, this.state);
+
+        state.record['content'] = content;
 
         this.setState(state);
     }
 
     handleSubmitForm(event) {
         event.preventDefault();
-    }
 
-    validateForm(data) {
+        const self = this;
 
-    }
-
-    onEditorStateChange(editor) {
-        console.log(editor)
+        this.props.dispatch(updateRecord(this.state.record.id, this.state.record))
+            .then(success => {
+                self.props.history.push('/admin/records');
+            });
     }
 
     render() {
         let record = this.state.record;
+        let categories = this.state.categories;
 
         return (
             <div id="layoutSidenav_content">
@@ -120,19 +139,8 @@ class RecordsEdit extends React.Component {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="formGroupExampleInput2">Контент</label>
-                                        <textarea rows="4"
-                                                  className={validate("content", record.content, rules["content"]) ? "form-control is-invalid" : "form-control"}
-                                                  placeholder="Контент"
-                                                  id="content"
-                                                  onChange={this.handleChangeInput}
-                                                  value={record.content ? record.content : ''}/>
-                                        <div
-                                            className="invalid-feedback">{validate("content", record.content, rules["content"])}</div>
+                                        <Editor content={record.content} updateContent={this.handleUpdateContent}/>
                                     </div>
-
-                                    <ContentEditor
-                                        content={record.content}
-                                        onEditorStateChange={this.onEditorStateChange}/>
 
                                     <hr/>
 
@@ -179,10 +187,13 @@ class RecordsEdit extends React.Component {
                                                 id="category_id"
                                                 value={record.category_id}
                                                 onChange={this.handleChangeInput}>
+
                                             <option value={0}>Open this select menu</option>
-                                            <option value={1}>One</option>
-                                            <option value={2}>Two</option>
-                                            <option value={3}>Three</option>
+                                            {categories.map(category => {
+                                                    return <option key={category.id}
+                                                                   value={category.id}>{category.name}</option>
+                                                }
+                                            )};
                                         </select>
                                         <div
                                             className="invalid-feedback">{validate("category_id", record.category_id, rules["category_id"])}</div>
@@ -210,7 +221,9 @@ class RecordsEdit extends React.Component {
                                     </div>
 
                                     <div className="pull-right">
-                                        <button className="btn btn-primary" type="submit">Сохранить</button>
+                                        <button className="btn btn-primary" type="submit"
+                                                onClick={this.handleSubmitForm}>Сохранить
+                                        </button>
                                         <div className="form-check form-check-inline"/>
                                         <button className="btn btn-secondary">Назад</button>
                                     </div>
@@ -226,7 +239,8 @@ class RecordsEdit extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        record: state.Records.item
+        record: state.Records.item,
+        categories: state.Categories.list
     }
 };
 

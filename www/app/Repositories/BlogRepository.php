@@ -57,13 +57,12 @@ class BlogRepository implements Repository
     /**
      * All records for Dashboard
      *
+     * @param int $offset
      * @return mixed
      */
-    public function list()
+    public function list(int $offset)
     {
-        $records = $this->model::orderBy('created_at', 'desc')->get();
-
-        return $records;
+        return $this->model::orderBy('records.id', 'desc')->paginate($offset);
     }
 
     /**
@@ -96,7 +95,7 @@ class BlogRepository implements Repository
                 'keywords' => $request['keywords'],
                 'content' => $request['content'],
                 'alias' => $request['alias'] ? $request['alias'] : Text::cyrillic(strtolower($request['name'])),
-                'status' => $request['status'] === 'on' ? Records::STATUS_AVAILABLE : Records::STATUS_DISABLE,
+                'status' => $request['status'] === Records::STATUS_AVAILABLE ? Records::STATUS_AVAILABLE : Records::STATUS_DISABLE,
                 'category_id' => $request['category_id'],
             ]
         );
